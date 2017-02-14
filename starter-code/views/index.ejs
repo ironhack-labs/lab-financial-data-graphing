@@ -3,9 +3,36 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Financial Data</h1>
+  <select id="currency" name="currency">
+    <option selected="selected" value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="PYG">PYG</option>
+  </select>
+  <input type="number" name="max" id="max" value="">
+  <input type="number" name="min" id="min" value="">
+
+  <div class="miCanva">
+  <canvas id="myChart" width="50px" height="50px"></canvas>
+  </div>
+
+
+
+  <h1>between Dates</h1>
+  <button type="button" id="dates" name="button">Show Chart</button>
+  <input type="date" id= "start-date" value="2010-09-04">
+  <input type="date"id= "end-date" value="2011-05-05">
+
+  <div class="miCanvaDates">
+  <canvas id="myChartBtwDates" width="50px" height="50px"></canvas>
+  </div>
+
+    <script src="/js/index.js"></script>
   </body>
 </html>
