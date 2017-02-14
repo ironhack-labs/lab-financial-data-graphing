@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<h1>Financial Data Graphing</h1>
+
+<form class="form-inline" id="myForm">
+  <div class="form-group">
+    <label for="exampleInputName2">Starting Date</label>
+    <input type="date" class="form-control" id="start" name="startingDate" placeholder="Starting Date">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Ending Date</label>
+    <input type="date" class="form-control" id="end" name="endingDate" placeholder="Ending Date">
+  </div>
+  <button type="submit" class="btn btn-default">Search Data</button>
+</form>
+<canvas id="canvas" width="300" height="300"></canvas>
