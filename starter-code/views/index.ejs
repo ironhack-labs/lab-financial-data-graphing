@@ -8,9 +8,14 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-		<input type="date" class="input-date" id="start-date">
-		<input type="date" class="input-date" id="end-date">
 
+		<input type="date" class="user-inputs" id="start-date">
+		<input type="date" class="user-inputs" id="end-date">
+		<select class="user-inputs" id="currency">
+		  <option value="USD">US Dollar</option>
+		  <option value="EUR">Euro</option>
+			<option value="AMD">Armenian Dram</option>
+		</select>
 		<canvas id="myChart"></canvas>
 
 		<script src="/jQuery/dist/jquery.min.js"></script>

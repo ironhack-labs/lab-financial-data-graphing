@@ -42,11 +42,12 @@ var delay = (function(){
  };
 })();
 
-$('.input-date').change(function() {
+$('.user-inputs').change(function() {
   delay(function(){
 		var startDate = $("#start-date").val();
 		var endDate 	= $("#end-date").val();
-		var dateURL = "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + startDate + "&end=" + endDate;
+		var currency = $("#currency").val();
+		var dateURL = "http://api.coindesk.com/v1/bpi/historical/close.json?currency=" + currency + "&start=" + startDate + "&end=" + endDate;
 
 		console.log(dateURL);
 
