@@ -1,77 +1,46 @@
-var myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`;
+var selectedCurrency = $("#currency").val();
+var myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${selectedCurrency}`;
+var firstCall = $.ajax({
+  url: myUrl,
+  method: "GET",
+  success: function(response) {
+    valuesRendering(response);
+    chartRendering(response);
+  },
+  error: function(err) {
+    console.log(err);
+  }
+});
+
 $("#myForm").on("submit", function(event)  {
   event.preventDefault();
   var startingDate = $("#start").val();
   var endingDate = $("#end").val();
+  selectedCurrency = $("#currency").val();
   if (startingDate === undefined || endingDate === undefined) {
-    myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`;
+    myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${selectedCurrency}`;
   } else {
-    myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startingDate}&end=${endingDate}`;
+    myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${selectedCurrency}&?start=${startingDate}&end=${endingDate}`;
   }
   $.ajax({
-
     url: myUrl,
     method: "GET",
-    // data: "In case we need to send data**" ,
-    success: function (response) {
-      //The callback function that will be executed if the request is completed succesfully
-      //This function will have a parameter with the server response.
+    success: function(response) {
+      valuesRendering(response);
+      chartRendering(response);
       firstCall.abort();
-      var ctx = $("#canvas");
-      objResponse = JSON.parse(response);
-      var myLineChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-        labels: Object.keys(objResponse.bpi),
-        datasets: [
-            {
-                label: "Coindesk",
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: "rgba(75,192,192,1)",
-                pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-                data: Object.values(objResponse.bpi),
-                spanGaps: false,
-            }
-        ]
-      }
-      });
-      },
-    error: function (err) {
-    //The callback function that will be executed if the request fails, whether it was a client or a server error
-    //It will have a parameter with error that caused the request to fail
-    console.log(err);
     },
+    error: function(err) {
+      console.log(err);
+    }
   });
-
 });
-var firstCall = $.ajax({
-
-  url: myUrl,
-  method: "GET",
-  // data: "In case we need to send data**" ,
-  success: function (response) {
-    //The callback function that will be executed if the request is completed succesfully
-    //This function will have a parameter with the server response.
-
-    var ctx = $("#canvas");
-    objResponse = JSON.parse(response);
-    var myLineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
+var chartRendering = function(response) {
+  var ctx = $("#canvas");
+  var objResponse = JSON.parse(response);
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
       labels: Object.keys(objResponse.bpi),
       datasets: [
           {
@@ -98,11 +67,13 @@ var firstCall = $.ajax({
           }
       ]
     }
-    });
-    },
-  error: function (err) {
-  //The callback function that will be executed if the request fails, whether it was a client or a server error
-  //It will have a parameter with error that caused the request to fail
-  console.log(err);
-  },
-});
+  });
+};
+
+var valuesRendering = function(response) {
+  var objResponse = JSON.parse(response);
+  var minValue = Math.min.apply(null, Object.values(objResponse.bpi));
+  var maxValue = Math.max.apply(null, Object.values(objResponse.bpi));
+  $("#minVal").html(minValue);
+  $("#maxVal").html(maxValue);
+};
