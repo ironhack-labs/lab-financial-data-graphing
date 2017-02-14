@@ -59,27 +59,34 @@ $('.user-inputs').change(function() {
 				console.log(coinData);
 				var chartData = [];
 				var chartLabels = [];
+				var chartNums = [];
 				var ctx = $("#myChart");
 
 				for (var date in coinData) {
 					chartData.push(coinData[date]);
 					chartLabels.push(date);
+					chartNums.push(Number(coinData[date]));
 				}
 
-				console.log(chartData);
+				var max = Math.max.apply(null,chartNums);
+				var min = Math.min.apply(null,chartNums);
+
+				$("#max-value").html(max);
+				$("#min-value").html(min);
 
 				var myLineChart = new Chart(ctx, {
 			    type: 'line',
 					data: {
 						datasets: [{
 							data: chartData,
-							label: 'dataset1'
 						}],
 						labels: chartLabels
 					}
 				});
 
 				console.log(myLineChart);
+
+				$("#max-min").removeClass("hide");
 
 		  },
 		  error: function (err) {

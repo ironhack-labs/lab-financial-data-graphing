@@ -10,4 +10,20 @@ a {
 canvas {
 	width: 1500px !important;
 	height: 600px !important;
+	float: left;
+}
+
+li {
+	font-size: 20px;
+}
+
+#max-min {
+	width: 200px;
+	height: 125px;
+	float: right;
+	background-color: lightgrey;
+}
+
+#max-min.hide {
+	display: none;
 }
