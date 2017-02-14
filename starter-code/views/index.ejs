@@ -3,9 +3,41 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="./jquery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <button id="finButton">Get financial stuff</button>
+
+    <br></br>
+
+    <script type="text/javascript" src="javascript/index.js"></script>
+
+    <canvas id="myLineChart" width="400" height="400"></canvas>
+
+    <script>
+
+
+    function ploter(x,y){
+      var ctx = document.getElementById("myLineChart");
+          var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: x,
+            datasets: [{
+                  label: "valormodular",
+                  data: y,
+
+              }],
+            }
+        });
+  }
+
+    </script>
+
   </body>
 </html>
