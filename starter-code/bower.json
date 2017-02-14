@@ -1,0 +1,22 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "ddelmay <ddelmay@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ddelmay/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "Chart.js#^2.5.0",
+    "jquery": "^3.1.1"
+  }
+}
