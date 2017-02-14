@@ -1,0 +1,22 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Gonzalo Sanz <gonzalo.orio@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GonzaloOrio/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0",
+    "jquery": "^3.1.1"
+  }
+}

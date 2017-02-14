@@ -7,5 +7,18 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <form>
+      <label for="fromDate">Enter a date after 2014-12-31</label>
+      <input id="from" type="date" name="fromDate" min="2014-12-31"><br>
+      <label for="fromDate">Enter a date before today</label>
+      <input id="end" type="date" name="toDate" min="2014-12-31"><br>
+    </form>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+<script type="text/javascript" src="./chart.js/dist/Chart.min.js"></script>
+<script type="text/javascript" src="./jQuery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./javascripts/financial-data.js"></script>
   </body>
 </html>
