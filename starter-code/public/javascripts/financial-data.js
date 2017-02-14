@@ -34,26 +34,16 @@
 //   },
 // })
 
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+  clearTimeout (timer);
+  timer = setTimeout(callback, ms);
+ };
+})();
 
-var typingTimer;                //timer identifier
-var doneTypingInterval = 1000;  //time in ms, 5 second for example
-var $input = $('.input-date');
-
-//on keyup, start the countdown
-$input.on('keyup', function () {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(doneTyping, doneTypingInterval);
-});
-
-//on keydown, clear the countdown
-$input.on('keydown', function () {
-  clearTimeout(typingTimer);
-});
-
-	//user is "finished typing," do something
-function doneTyping () {
-	setTimeout(function(){
-
+$('.input-date').change(function() {
+  delay(function(){
 		var startDate = $("#start-date").val();
 		var endDate 	= $("#end-date").val();
 		var dateURL = "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + startDate + "&end=" + endDate;
@@ -95,5 +85,5 @@ function doneTyping () {
 		    console.log(err);
 		  },
 		})
-	},5000)
-}
+  }, 1000 );
+});
