@@ -1,0 +1,20 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Rafael Melón <info@rafaelmelon.es>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rafaelmelon/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0"
+  }
+}
