@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascript/bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="/javascript/bower_components/jquery/dist/jquery.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+        <script>
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["2017-04-01", "2017-04-02", "2017-04-03", "2017-04-04", "2017-04-05", "2017-04-06", "2017-04-07", "2017-04-08", "2017-04-09", "2017-04-10", "2017-04-11", "2017-04-12", "2017-04-13", "2017-04-14", "2017-04-15", "2017-04-16", "2017-04-17", "2017-04-18", "2017-04-19", "2017-04-20", "2017-04-21", "2017-04-22", "2017-04-23", "2017-04-24", "2017-04-25", "2017-04-26", "2017-04-27", "2017-04-28", "2017-04-29", "2017-04-30", "2017-05-01"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1089.511, 1098.776, 1147.631, 1143.746, 1134.998, 1190.597, 1193.019, 1184.824, 1210.055, 1213.339, 1224.767, 1216.505, 1178.533, 1183.44, 1180.699, 1184.787, 1203.731, 1217.596, 1226.939, 1255.403, 1257.135, 1244.375, 1248.2175, 1248.325, 1263.545, 1284.845, 1329.19, 1320.0513, 1327.0388, 1347.9588, 1402.0838],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        </script>
+        <script type="text/javascript" src="/javascript/APIcontroller.js">
+
+        </script>
   </body>
 </html>
