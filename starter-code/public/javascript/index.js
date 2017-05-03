@@ -1,6 +1,7 @@
 /*jshint esversion: 6*/
 $(document).ready(() => {
-  $('.input-div').on('input', '.dateinput', function() {
+  $('.input-div').on('input', '.dateinput', (event)=> {
+      event.preventDefault();
       let maxDate = $('#endDate').val();
       let minDate = $('#startingDate').val();
       // console.log("minDate",minDate);
