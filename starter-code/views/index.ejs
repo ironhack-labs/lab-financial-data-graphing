@@ -5,7 +5,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <input type="datepicker" id="startDate">Start date</input>
+    <input type="datepicker" id="endDate">End date</input>
+    <select id="currencies">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+    <p>Min value: <span id="min"></span></p>
+    <p>Max value: <span id="max"></span></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/chart.js/dist/Chart.min.js"></script>
+    <script src="/js/ajax.js"></script>
   </body>
 </html>
