@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Giuseppe Fierro <fierro.gpp@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gfrr/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.2.1",
+    "chart.js": "^2.5.0"
+  }
+}
