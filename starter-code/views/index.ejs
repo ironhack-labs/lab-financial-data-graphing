@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>chart</h1>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <script src="chart.js/dist/Chart.min.js"></script>
+  <input type="date" id="startTimestamp" class="input" name="" value="">
+  <input type="date" id="endTimestamp" class="input" name="" value="">
+  <canvas id="myChart"></canvas>
+
+  <script src="/index.js"></script>
+
+</body>
+
+
 </html>
