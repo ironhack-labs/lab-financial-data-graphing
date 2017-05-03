@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Sergi Garcia <sergigarciapena@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nolegendhere/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "chart.js": "^2.5.0"
+  }
+}
