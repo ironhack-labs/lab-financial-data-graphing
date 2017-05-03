@@ -1,24 +1,39 @@
 $(document).ready(function(){
 getDate();
 
-$('#filter-date').on('click', (event) => {
+$('#filter-date').on('click', function (event) {
     event.preventDefault();
-    var dates = {
-      startDate: $("#start").val(),
-      endDate: $("#end").val(),
-    };
-    console.log("click");
-    chart(dates);
+
+      start= $("#start").val();
+      start= reorderDates(start);
+      end= $("#end").val();
+      end= reorderDates(end);
+
+
+
   });
 
 
 
 });
+
+
+function reorderDates (date){
+  var newDate = date.split('/');
+  var tmp = newDate[0];
+  newDate[0] = newDate[2];
+  newDate[2] = newDate[1];
+  newDate[1] = tmp;
+  // newDate = newDate.reverse();
+  newDate = newDate.join('-'); // return date.split('/').reverse().join('-') would be the shorthand for this
+  return newDate;
+}
+
 function getDate(){
 
   var url = "";
   if(typeof(d)=== "undefined") url = "http://api.coindesk.com/v1/bpi/historical/close.json";
-  else url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${d.start}&end=${d.end}`;
+  else url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`;
   console.log(url);
 
 
