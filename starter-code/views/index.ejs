@@ -7,5 +7,16 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <form id="selectDate" action="index" method="post">
+    <input type="date" id="startDate"></input>
+    <input type="date" id="endDate"></input>
+    <button id="input">Find</button>
+    </form>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/javascript/script.js"></script>
+    <script src="/chart.js/dist/Chart.js"></script>
   </body>
 </html>
