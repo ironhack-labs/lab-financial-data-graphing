@@ -3,9 +3,16 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="./jquery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+    <script src="./javascript/financial-data.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
   </body>
 </html>
