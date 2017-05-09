@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Tomas Ruiz <tomastrg22@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "''",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0",
+    "jQuery": "^3.1.1"
+  }
+}
