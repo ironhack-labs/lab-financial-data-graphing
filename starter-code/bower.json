@@ -1,0 +1,22 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Marta Delgado <marta.e.delgado@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/martadelgado/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "chart.js": "^2.5.0"
+  }
+}

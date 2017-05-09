@@ -5,7 +5,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <input type="date"/>
+    <input type="date"/>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <%# <script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {},
+        options: {
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom'
+                }]
+            }
+        }
+    });
+    </script>%>
+
+    <script src="chart.js/dist/Chart.min.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="javascript/financial-data.js"></script>
   </body>
 </html>
