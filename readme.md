@@ -97,9 +97,7 @@ Once we have the desired data, we have to show it as a chart. We are going to us
 
 Once we have installed the library through Bower and add the reference in the HTML file, we have to represent the values we got in the Iteration 1 in a [Line Chart](http://www.chartjs.org/docs/#line-chart-introduction).
 
-:::info
-**Before ask for help in the chart representation, try to read the documentation and figure out how it works :)**
-:::
+**Note**: Before you ask for help in the chart representation, try to read the documentation and figure out how it works. :)
 
 **Tasks**
 
