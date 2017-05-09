@@ -7,5 +7,25 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+
+		<input type="date" class="user-inputs" id="start-date">
+		<input type="date" class="user-inputs" id="end-date">
+		<select class="user-inputs" id="currency">
+		  <option value="USD">US Dollar</option>
+		  <option value="EUR">Euro</option>
+			<option value="AMD">Armenian Dram</option>
+		</select>
+		<canvas id="myChart"></canvas>
+		<div class="hide" id="max-min">
+			<ul>
+				<li>Max = <span id="max-value"></span></li>
+				<li>Min = <span id="min-value"></span></li>
+			</ul>
+		</div>
+
+		<script src="/jQuery/dist/jquery.min.js"></script>
+		<script src="/javascripts/financial-data.js"></script>
+		<script src="/chart.js/dist/Chart.min.js"></script>
   </body>
 </html>
