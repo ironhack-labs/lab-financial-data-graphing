@@ -2,10 +2,23 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="./bower_components/materialize/dist/css/materialize.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <label for="from">From</label>
+    <input type="date" class="fromdate" name="from" value="2016-10-08"><br>
+    <label for="to">To</label>
+    <input type="date" class="todate" name="to" value="2017-03-27"><br>
+    <a id="chart_button" href="#">Mira el charto wapo</a>
+
+    <script src="./bower_components/jQuery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="./bower_components/materialize/dist/js/materialize.min.js" charset="utf-8"></script>
+    <script src="./bower_components/chart.js/dist/Chart.bundle.min.js" charset="utf-8"></script>
+    <script src="./javascripts/index.js" charset="utf-8"></script>
+
   </body>
 </html>
