@@ -3,9 +3,23 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="./jquery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+
+    <script type="text/javascript" src="./javascript/financial-data.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p id="coinInfo">Welcome to <%= title %></p>
+    <label for="start_date"> Start Date</label>
+    <input type="date" name="start_date" id="start_date"/>
+    <label for="end_date"> End Date</label>
+    <input type="date" name="end_date" id="end_date"/>
+    <button id="sentDates" type="button"> Submit</button>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+
   </body>
 </html>

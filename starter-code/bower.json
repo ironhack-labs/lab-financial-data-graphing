@@ -1,0 +1,18 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "app.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0",
+    "jquery": "^3.2.1"
+  }
+}
