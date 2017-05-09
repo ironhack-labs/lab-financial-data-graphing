@@ -1,0 +1,23 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Borjadrr <borja.drr@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Borjadrr/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.1.1",
+    "jquery": "^3.1.1",
+    "chart.js": "^2.5.0"
+  }
+}
