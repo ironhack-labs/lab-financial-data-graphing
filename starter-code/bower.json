@@ -1,0 +1,23 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "akdezgas <andreivelazquez94@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/akdezgas/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pickadate": "^3.5.6",
+    "jquery": "^3.2.1",
+    "chart.js": "^2.5.0"
+  }
+}
