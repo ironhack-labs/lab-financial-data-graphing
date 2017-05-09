@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+ <head>
+   <title><%= title %></title>
+   <link rel='stylesheet' href='/stylesheets/style.css' />
+
+ </head>
+ <body>
+
+   <h1><%= title %></h1>
+   <p>Welcome to <%= title %></p>
+   <form>
+     <label for="startingDate">Starting date</label>
+     <input id="startingDate" type="date" name="startingDate" required>
+     <label for="endDate">End date</label>
+     <input id="endDate" type="date" name="endDate" required>
+
+     <button id="filter-date">apply filter</button>
+   </form>
+
+
+
+
+
+   <canvas id="myChart" width="450" height="450"></canvas>
+ </body>
+
+ <script src="./jQuery/dist/jquery.min.js"></script>
+ <script src="./chart.js/dist/Chart.min.js"></script>
+ <script src="./javascript/main.js"></script>
 </html>
