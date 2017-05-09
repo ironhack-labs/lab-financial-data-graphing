@@ -2,10 +2,18 @@
 <html>
   <head>
     <title><%= title %></title>
+    <!--Scripts-->
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="chart.js/dist/Chart.min.js"></script>
+    <script src="javascript/financial-data.js"></script>
+    <!--Styles-->
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <select name="start-date" id="start-date"></select>
+    <select name="end-date" id="end-date"></select>
+    <button>Filter by Date</button>
+    <canvas id="myChart" width="500" height="500"></canvas>
   </body>
 </html>
