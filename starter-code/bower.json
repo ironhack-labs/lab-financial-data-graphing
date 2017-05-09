@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Cyril Alvarez <cyrilalavrezadriaansen@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/caa1982/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "chart.js": "^2.5.0"
+  }
+}
