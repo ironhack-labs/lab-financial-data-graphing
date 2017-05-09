@@ -1,0 +1,17 @@
+{
+  "name": "lab-financial-data-graphing",
+  "homepage": "https://github.com/joanamram/lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
