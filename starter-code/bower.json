@@ -1,0 +1,22 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "financial data graphing",
+  "main": "app.js",
+  "authors": [
+    "Jorge Abad <jorgejoseabad@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JorgeJoseAbad/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.1.1",
+    "chart.js": "^2.5.0"
+  }
+}
