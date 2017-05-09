@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "juliapolbach <juliapolbach@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/juliapolbach/lab-financial-data-graphing",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.1.1"
+  }
+}

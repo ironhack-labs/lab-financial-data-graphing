@@ -3,9 +3,26 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="./jQuery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+    <script src="./javascript/index.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+<form id="character-form">
+  <div>
+    <label> Initial date: </label>
+    <input type="date" class="js-init-date">
+    <label> Final date: </label>
+    <input type="date" class="js-final-date">
+  </div>
+<input type="submit" value="IEEEEE">
+</form>
+
   </body>
 </html>
