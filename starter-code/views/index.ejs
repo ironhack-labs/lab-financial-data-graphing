@@ -3,9 +3,38 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/chart.min.js"></script>
+    <script>
+    $(function() {
+      $.ajax({
+        url: "http://api.coindesk.com/v1/bpi/historical/close.json",
+        method: "GET",
+        dataType:'json',
+      }).then(data => {
+        var chartLabels = [];
+        var chartArray = $.map(data.bpi, function(e, i){
+          return {x: i, y: e};
+        })
+        chartLabels.push(chartArray);
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              dataSet: [
+                {
+                  data: chartLabels
+                }
+              ]
+            }
+        });
+      }).catch( e  => console.log(e));
+    });
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
 </html>
