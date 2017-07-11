@@ -10,7 +10,7 @@ $(document).ready(() => {
         const canvas = $("#chart")[0].getContext('2d');
         console.log(canvas);
         let myChart = new Chart(canvas, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
