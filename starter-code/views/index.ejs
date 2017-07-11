@@ -15,6 +15,9 @@
   <p>Welcome to
     <%= title %>
   </p>
+  <input id="from"/>
+  <input id="to"/>
+  <button onclick="search()">Send</button>
   <canvas id="myChart"></canvas>
   <script>
     $(function() {
@@ -46,6 +49,36 @@
           });
         })
     })
+    function search (){
+      $.getJSON("http://api.coindesk.com/v1/bpi/historical/close.json").then(
+        function(response) {
+          console.log(response.bpi)
+          var labels = []
+          var chartData = Object.keys(response.bpi).map(function(value, index){
+            labels.push(value)
+            return {x:value, y:response.bpi[value]}
+          })
+          console.log(labels)
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+              datasets: [{
+                label: "Bitcoin Price Index",
+                data: chartData
+              }],
+              labels: labels
+            },
+
+            // Configuration options go here
+            options: {}
+          });
+        })
+
+    }
   </script>
 </body>
 
