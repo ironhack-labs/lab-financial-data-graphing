@@ -2,10 +2,54 @@
 <html>
   <head>
     <title><%= title %></title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script type="text/javascript">
+    $(document).ready( () => {
+
+      let bitcoin = {};
+
+      const baseURL = "http://api.coindesk.com/v1/bpi/historical/close.json";
+        function requestData(){
+          $.ajax({
+            url: baseURL,
+            dataType:'json',
+          }).then(data => {
+             bitcoin = data.bpi;
+          }).catch( e  => console.log(e));
+        }
+        requestData();
+
+
+  //   const chart = $('#myChart');
+  //   let myChart = new Chart(chart, {
+  //     type: 'line',
+  //     data: [{
+  //       x: 10,
+  //       y: 20
+  //   }, {
+  //       x: 15,
+  //       y: 10
+  //   }],
+  //  options: {
+  //      scales: {
+  //          yAxes: [{
+  //              ticks: {
+  //                  beginAtZero:true
+  //              }
+  //          }]
+  //      }
+  //  }
+  // });
+  //
+    });
+    </script>
   </body>
 </html>
