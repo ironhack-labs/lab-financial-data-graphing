@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="jquery.min.js"></script>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <script>
+    $(function(){
+      $.get("http://api.coindesk.com/v1/bpi/historical/close.json").then(
+        function (response){
+          console.log(response)
+        }
+      )
+    })
+    </script>
   </body>
 </html>
