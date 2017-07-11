@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="/javascripts/financial-data.js"></script>
+</head>
+
+<body>
+  <h1>Financial Data</h1>
+  <p>Filters
+  </p>
+  <div>
+    From <input id="fromForm" type="date" name="From">
+  </div>
+  <div>
+    To <input id="toForm" type="date" name="To">
+  </div>
+  <button type="button" name="button">Update</button>
+  <div>
+    <canvas id="canvas"></canvas>
+  </div>
+
+</body>
+
 </html>
