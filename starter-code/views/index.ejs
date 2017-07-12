@@ -7,5 +7,153 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div>
+      From: <input id="fromDate" type="date" onkeydown="return false"/> To: <input id="toDate" type="date" onkeydown="return false"/>
+     <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <fieldset>
+          <legend>Min and Max values</legend>
+            Min: <span id="minValue"></span>
+            Max: <span id="maxValue"></span>
+        </fieldset>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+     </diV>
   </body>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/chart.js/dist/Chart.min.js"></script>
+
+
+<script>
+
+  function callAPI(param = "",currency = "") {
+    $.ajax({
+    url: "http://api.coindesk.com/v1/bpi/historical/close.json" + param+currency,
+    method: "GET",
+      success: function (response) {
+      var myData = response;
+      createChart(myData);
+    },
+    error: function (err) {
+      //The callback function that will be executed if the request fails, whether it was a client or a server error
+      //It will have a parameter with error that caused the request to fail
+    },
+  });
+
+  }
+
+  function createChart(myData){
+    let parsedData = JSON.parse(myData).bpi;
+
+    let labelValue = [];
+
+    let maxValue =  0;
+    let itsFirst = true;
+    let minValue;
+
+    for(var key in parsedData){
+      labelValue.push(key);
+    }
+
+
+    let dataValues = [];
+    for(var key in parsedData){
+      if(itsFirst){
+        minValue = parsedData[key];
+        itsFirst = false;
+      }
+      dataValues.push(parsedData[key]);
+      if(parseInt(parsedData[key])>maxValue){
+        maxValue = parseInt(parsedData[key]);
+      }
+      if(parseInt(parsedData[key])<minValue){
+        minValue = parseInt(parsedData[key]);
+      }
+
+    }
+
+    $("#minValue").text(minValue);
+    $("#maxValue").text(maxValue);
+
+
+
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelValue,
+            datasets: [{
+                label: 'Bitcoin Price Index',
+                data: dataValues,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+  }
+
+callAPI();
+
+
+
+$(document).ready(function(){
+
+  var currency = "&currency="+$('#currency').val();
+  var param;
+    $('#fromDate').change(function(){
+       let startDate = $('#fromDate').val();
+       let endDate = $('#toDate').val();
+       param = "?start="+startDate+"&end="+endDate;
+       if (startDate !== '' && endDate !== '') {
+        callAPI(param,currency);
+       }
+    });
+
+    $('#toDate').change(function(){
+       let startDate = $('#fromDate').val();
+       let endDate = $('#toDate').val();
+       param = "?start="+startDate+"&end="+endDate;
+       if (startDate !== '' && endDate !== '') {
+        callAPI(param,currency);
+       }
+    });
+
+     $('#currency').change(function(){
+       currency = "&currency="+this.value;
+       let startDate = $('#fromDate').val();
+       let endDate = $('#toDate').val();
+       param = "?start="+startDate+"&end="+endDate;
+       if (startDate !== '' && endDate !== '') {
+        callAPI(param,currency);
+       }
+    });
+});
+
+</script>
 </html>
