@@ -6,7 +6,21 @@ $.ajax({
 });
 
 function showMeTheMoney(response) {
-  console.log(response);
+  const ctx = document.getElementById("myChart");
+  const jsonResponse = JSON.parse(response);
+  const labels = Object.keys(jsonResponse.bpi);
+  const data = Object.values(jsonResponse.bpi);
+  const myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [{
+          label: "Bitcoin Price Index",
+          data: data
+        }],
+        labels: labels
+      }
+      // options: options
+  });
 }
 
 function thereIsNoMoney(error) {
