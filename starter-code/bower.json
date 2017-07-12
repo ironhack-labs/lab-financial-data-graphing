@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Alex Fontanellas <alexfontanellas@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alexfontanellas/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.6.0",
+    "jquery": "^3.2.1"
+  }
+}
