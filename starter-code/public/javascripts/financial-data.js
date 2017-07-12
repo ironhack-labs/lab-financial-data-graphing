@@ -23,6 +23,8 @@ $(document).ready(() => {
     const jsonResponse = JSON.parse(response);
     const labels = Object.keys(jsonResponse.bpi);
     const data = Object.values(jsonResponse.bpi);
+    let values = getMinAndMax(data);
+    drawMinAndMax(values);
     const myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -38,5 +40,22 @@ $(document).ready(() => {
 
   function thereIsNoMoney(error) {
     console.log(error);
+  }
+
+  function getMinAndMax(data) {
+    let min = Math.min(...data);
+    let max = Math.max(...data);
+    let values = {
+      min: min,
+      max: max
+    };
+    return values;
+  }
+
+  function drawMinAndMax(values) {
+    let currency = $("#currency option:selected").val();
+    $("#minValue").text(values.min + " " + currency);
+    $("#maxValue").text(values.max + " " + currency);
+
   }
 });
