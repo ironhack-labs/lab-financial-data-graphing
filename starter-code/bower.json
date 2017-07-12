@@ -1,0 +1,21 @@
+{
+  "name": "financial data",
+  "description": "",
+  "main": "",
+  "authors": [
+    "micaela & sth"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/stephanos7/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.2.1",
+    "chart.js": "^2.6.0"
+  }
+}
