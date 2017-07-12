@@ -6,6 +6,19 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <input id="startdate" class="date" type="date" name="startdate" value="">
+    <input id="enddate" class="date" type="date" name="enddate" value="">
+    <select id="currency" class="currency" name="currency">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+      <option value="KRW">KRW</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <p id="minvalue"></p>
+    <p id="maxvalue"></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script src="./jquery/dist/jquery.min.js"></script>
+    <script src="./chart.js/dist/Chart.min.js"></script>
+    <script src="./javascripts/script.js"></script>
   </body>
 </html>
