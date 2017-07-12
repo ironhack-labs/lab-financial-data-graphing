@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Julius Suominen <julius.suominen@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jsur/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "chart.js": "^2.6.0"
+  }
+}
