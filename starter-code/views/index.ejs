@@ -3,15 +3,23 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Money, money, money!</h1>
+      <section>
+        <h2>Filters</h2>
+        <form class="form-filters" action="index.html" method="post">
+          <label for="dateFrom">From:</label>
+          <input id="dateFrom" type="date" name="dateFrom" value="2017-06-01">
+          <label for="dateTo">To:</label>
+          <input id="dateTo" type="date" name="dateTo" value="2017-06-30">
+        </form>
+      </section>
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
     <script src="./jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="./chart.js/dist/Chart.min.js" charset="utf-8"></script>
     <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-    <canvas id="myChart" width="400" height="200"></canvas>
-
   </body>
 </html>
