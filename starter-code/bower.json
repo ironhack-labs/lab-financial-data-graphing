@@ -1,0 +1,20 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Emilie G <adamanska@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AdamanskaHub/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.6.0"
+  }
+}
