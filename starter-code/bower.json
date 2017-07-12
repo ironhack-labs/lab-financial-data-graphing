@@ -1,0 +1,20 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Luis Amez <luis.amez.vitoria@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/luis-amez/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
