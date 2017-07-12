@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.chart-container {
+  position: relative;
+  height: 80vh;
+  width: 80vw;
+}
+
+.min-max {
+  float: right;
+}
