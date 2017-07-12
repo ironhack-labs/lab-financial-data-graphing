@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1 {
+  text-align: center;
+}
+
+#filters {
+  float: left;
+}
+
+#values {
+  float: right;
+}
+
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
