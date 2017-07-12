@@ -6,11 +6,12 @@ $(document).ready(() => {
     error: thereIsNoMoney
   });
 
-  $(".form-filters input").on("change", event => {
+  $(".form-filters").children().on("change", event => {
     let dateFrom = $("#dateFrom").val();
     let dateTo = $("#dateTo").val();
+    let currency = $("#currency option:selected").val();
     $.ajax({
-      url: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`,
+      url: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}&currency=${currency}`,
       method: "GET",
       success: showMeTheMoney,
       error: thereIsNoMoney
