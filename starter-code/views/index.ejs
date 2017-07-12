@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %> OU PAS WELCOME !</p>
+
+
+    <canvas id="myChart"></canvas>
+
+    <!--
+        <p id=“moneystuff”></p>
+    <button id=“moneybutt”>Get MONEY$$$$$$$</button>
+-->
+
+
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="/chart.js/dist/Chart.min.js"></script>
+
+    <script type="text/javascript" src="/js/financialData.js"></script>
+</body>
+
 </html>
