@@ -1,11 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Bit Coin Chart</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Bit Coin Chart</h1>
+
+    <button onclick="getBitCoinInfo()">Get Bit Coin Data</button>
+      <br> <br>
+
+    <form id="interval">
+      <label> From </label>
+      <input id="date1" type="date"  onchange=updateBitCoin()>
+
+      <label> Until </label>
+      <input id="date2" type="date"  onchange=updateBitCoin()>
+    </form>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <script>
+      let url = "http://api.coindesk.com/v1/bpi/historical/close.json"
+
+      function updateBitCoin() {
+        const date1 = document.getElementById("date1").value;
+        const date2 = document.getElementById("date2").value;
+        console.log (date1, date2);
+        url = "http://api.coindesk.com/v1/bpi/historical/close.json?start="+date1+"&end="+date2;
+        getBitCoinInfo();
+      }
+
+      function getBitCoinInfo() {
+        $.ajax({
+           url: url,
+           method: "GET",
+           success: function (response) {
+
+             var ctx = document.getElementById("myChart").getContext('2d');
+             var myChart = new Chart(ctx, {
+                 type: 'line',
+                 data: {
+                     labels: Object.keys(JSON.parse(response).bpi),
+                     datasets: [{
+                         label: '# of Bit Coin',
+                         data: Object.values(JSON.parse(response).bpi),
+                         backgroundColor: [
+                             'rgba(255, 99, 132, 0.2)',
+                             'rgba(54, 162, 235, 0.2)',
+                             'rgba(255, 206, 86, 0.2)',
+                             'rgba(75, 192, 192, 0.2)',
+                             'rgba(153, 102, 255, 0.2)',
+                             'rgba(255, 159, 64, 0.2)'
+                         ],
+                         borderColor: [
+                             'rgba(255,99,132,1)',
+                             'rgba(54, 162, 235, 1)',
+                             'rgba(255, 206, 86, 1)',
+                             'rgba(75, 192, 192, 1)',
+                             'rgba(153, 102, 255, 1)',
+                             'rgba(255, 159, 64, 1)'
+                         ],
+                         borderWidth: 1
+                     }]
+                 },
+                 options: {
+                     scales: {
+                         yAxes: [{
+                             ticks: {
+                                 beginAtZero:true
+                             }
+                         }]
+                     }
+                 }
+             });
+           },
+           error: function (err) {
+             console.log(err);
+           },
+         })
+       }
+
+    </script>
   </body>
 </html>
