@@ -7,15 +7,22 @@
   <body>
     <h1>Bit Coin Chart</h1>
 
-    <button onclick="getBitCoinInfo()">Get Bit Coin Data</button>
+    <button onclick="getBitCoinInfo()">LAST MONTH OF DATA</button>
+      <br> <br>
+
+    <select onchange="updateCurrency()" id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
       <br> <br>
 
     <form id="interval">
       <label> From </label>
-      <input id="date1" type="date"  onchange=updateBitCoin()>
+      <input id="date1" type="date"  onchange=updateBitCoinDates()>
 
       <label> Until </label>
-      <input id="date2" type="date"  onchange=updateBitCoin()>
+      <input id="date2" type="date"  onchange=updateBitCoinDates()>
     </form>
 
     <canvas id="myChart" width="400" height="400"></canvas>
@@ -26,11 +33,20 @@
     <script>
       let url = "http://api.coindesk.com/v1/bpi/historical/close.json"
 
-      function updateBitCoin() {
+      function updateBitCoinDates() {
+        url = "http://api.coindesk.com/v1/bpi/historical/close.json"
         const date1 = document.getElementById("date1").value;
         const date2 = document.getElementById("date2").value;
         console.log (date1, date2);
         url = "http://api.coindesk.com/v1/bpi/historical/close.json?start="+date1+"&end="+date2;
+        getBitCoinInfo();
+      }
+
+      function updateCurrency() {
+        url = "http://api.coindesk.com/v1/bpi/historical/close.json"
+        const currency = document.getElementById("currency").value;
+        console.log (currency);
+        url = url+"?currency="+currency
         getBitCoinInfo();
       }
 
