@@ -37,7 +37,6 @@
         url = "http://api.coindesk.com/v1/bpi/historical/close.json"
         const date1 = document.getElementById("date1").value;
         const date2 = document.getElementById("date2").value;
-        console.log (date1, date2);
         url = "http://api.coindesk.com/v1/bpi/historical/close.json?start="+date1+"&end="+date2;
         getBitCoinInfo();
       }
@@ -45,7 +44,6 @@
       function updateCurrency() {
         url = "http://api.coindesk.com/v1/bpi/historical/close.json"
         const currency = document.getElementById("currency").value;
-        console.log (currency);
         url = url+"?currency="+currency
         getBitCoinInfo();
       }
