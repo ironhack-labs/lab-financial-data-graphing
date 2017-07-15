@@ -7,5 +7,41 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    
+    <form id="index-form">
+      
+      <div class="form-group col-xs-4 centered">
+        <label for="start-date">Start date</label>
+        <input type="date" name="startDate" value="">
+      </div>
+
+      <div class="form-group col-xs-4 centered">
+        <label for="end-date">End date</label>
+        <input type="date" name="endDate" value="">
+      </div>
+      
+      <div class="form-group col-xs-4 centered">
+        <label class="centered" for="currency">Currency</label>
+        <select class="form-control" type="text" name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="CNY">EUR</option>
+          <option value="CNY">CNY</option>
+        </select>
+      </div>
+
+    </form>
+
+    <div class="col-xs-4 centered">
+      <div>Min. value: <span id="min-value"></span></div>
+      <div>Max. value: <span id="max-value"></span></div>
+    </div> 
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="chart.js/dist/Chart.min.js"></script>
+    <script src="moment/min/moment.min.js"></script>
+    <script src="javascript/main.js"></script>
+
   </body>
 </html>
