@@ -18,15 +18,18 @@
 <form class="dates" method="GET">
   <input id="ini" type="date" name="inicio">
    <input id="end" type="date" name="final">
-   <select name="currency">
-     <option id="usd" type="text" name="usd">USD</option>
-     <option id="eur" type="text" name="eur">EUR</option>
-     <option id="jpy" type="text" name="jpy">JPY</option>
-   </select>
    <button type="submit" name="button">Submit</button>
 </form>
 
-
+<form class="currency" method="GET">
+  <select name="currency">
+    <option id="usd" type="text" name="usd">USD</option>
+    <option id="eur" type="text" name="eur">EUR</option>
+    <option id="jpy" type="text" name="jpy">JPY</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
