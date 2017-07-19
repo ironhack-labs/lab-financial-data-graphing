@@ -13,8 +13,8 @@ $(document).ready(function() {
         var xData = Object.keys(mainObject.bpi);
         var yData = $.map(mainObject.bpi, function(val, key) { return val; });
         // var yData = ;
-        console.log(xData);
-        console.log(yData);
+        // console.log(xData);
+        // console.log(yData);
 
           var ctx = document.getElementById("myChart").getContext('2d');
           var myLineChart = new Chart(ctx, {
@@ -25,20 +25,10 @@ $(document).ready(function() {
                       label: '# of Votes',
                       data: yData,
                       backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(255, 206, 86, 0.2)',
-                          'rgba(75, 192, 192, 0.2)',
-                          'rgba(153, 102, 255, 0.2)',
-                          'rgba(255, 159, 64, 0.2)'
+                          'rgba(75, 192, 192, 0.2)'
                       ],
                       borderColor: [
-                          'rgba(255,99,132,1)',
-                          'rgba(54, 162, 235, 1)',
-                          'rgba(255, 206, 86, 1)',
-                          'rgba(75, 192, 192, 1)',
-                          'rgba(153, 102, 255, 1)',
-                          'rgba(255, 159, 64, 1)'
+                          'rgba(54, 162, 235, 1)'
                       ],
                       borderWidth: 1
                   }]
@@ -54,14 +44,20 @@ $(document).ready(function() {
               }
           });
 
+},  error: function (err) {
+  console.log(err);
+}
+});
 
         $('.dates').on('submit', function(e){
           e.preventDefault();
            var initalDate = $('#ini').val();
            var endDate = $('#end').val();
+           var cur = $(".dates option[type='text']:checked").val();
+
 
            $.ajax({
-             url: "http://api.coindesk.com/v1/bpi/historical/close.json?start=<" + initalDate + ">&end=<" + endDate + ">",
+             url: "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + initalDate + "&end=" + endDate + "?currency=" + cur,
              method: "GET",
              data: "",
              success: function (response) {
@@ -70,8 +66,8 @@ $(document).ready(function() {
                  var xData = Object.keys(mainObject.bpi);
                  var yData = $.map(mainObject.bpi, function(val, key) { return val; });
                  // var yData = ;
-                 console.log(xData);
-                 console.log(yData);
+                //  console.log(xData);
+                //  console.log(yData);
 
                    var ctx = document.getElementById("myChart").getContext('2d');
                    var myLineChart = new Chart(ctx, {
@@ -82,19 +78,9 @@ $(document).ready(function() {
                                label: '# of Votes',
                                data: yData,
                                backgroundColor: [
-                                   'rgba(255, 99, 132, 0.2)',
-                                   'rgba(54, 162, 235, 0.2)',
-                                   'rgba(255, 206, 86, 0.2)',
-                                   'rgba(75, 192, 192, 0.2)',
-                                   'rgba(153, 102, 255, 0.2)',
-                                   'rgba(255, 159, 64, 0.2)'
+                                   'rgba(255, 99, 132, 0.2)'
                                ],
                                borderColor: [
-                                   'rgba(255,99,132,1)',
-                                   'rgba(54, 162, 235, 1)',
-                                   'rgba(255, 206, 86, 1)',
-                                   'rgba(75, 192, 192, 1)',
-                                   'rgba(153, 102, 255, 1)',
                                    'rgba(255, 159, 64, 1)'
                                ],
                                borderWidth: 1
@@ -105,18 +91,30 @@ $(document).ready(function() {
                                yAxes: [{
                                    ticks: {
                                        beginAtZero:true
-                                   }
-                               }]
-                           }
-                       }
+                                     }
+                                 }]
+                             }
+                         }
+                     });
 
-        });
+
 
 
         $('#myChart').append(myLineChart);
 
     },
-    error: function (err) {
-        console.log("error");
-    },
+
+          error: function (err) {
+console.log(err);
+console.log(cur);
+        },
+      });
+  });
+
+
+
+
+
+
+
   });
