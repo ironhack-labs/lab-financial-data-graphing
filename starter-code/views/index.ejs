@@ -3,9 +3,33 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js">
+    </script>
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <h2>Filters</h2>
+    <form>
+      From:
+      <input id="fromDate" name="fromDate" type="date" placeholder="22/10/2016"/>
+      To:
+      <input id="toDate" name="toDate" type="date" placeholder="22/10/2016"/>
+      Currency:
+      <select id="currency">
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
+    </form>
+    <h2>Values</h2>
+    Max: <span id="max"></span> <span class="currency">USD</span><br>
+    Min: <span id="min"></span> <span class="currency">USD</span>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script src="./js/script.js">
+    </script>
+
   </body>
 </html>
