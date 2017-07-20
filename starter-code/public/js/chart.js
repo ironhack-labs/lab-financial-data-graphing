@@ -7,7 +7,7 @@ function generateChart(data) {
         data: {
             labels: data[0],
             datasets: [{
-                label: 'Bitcoin Price Index',
+                label: 'Bitcoin Price Index ' + $("#currency").val(),
                 data: data[1],
                 borderWidth: 1
             }]
