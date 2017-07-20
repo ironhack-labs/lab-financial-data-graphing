@@ -3,9 +3,39 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>ChartsJS</h1>
+    <p>Financial Data Graphing</p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <br>
+    <br>
+
+    <form class="dates" method="GET">
+      <input id="ini" type="date" name="inicio">
+      <input id="end" type="date" name="final">
+      <button type="submit" name="button">Submit</button>    
+    </form>
+
+    <hr/>
+
+
+    <form class="currency" method="GET">
+      <select name="currency">
+        <option id="usd" type="text" name="usd">USD</option>
+        <option id="eur" type="text" name="eur">EUR</option>
+        <option id="jpy" type="text" name="jpy">JPY</option>
+      </select>
+      <br><br>
+      <input type="submit">
+    </form>
+
+
   </body>
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/chart.js/dist/Chart.min.js"></script>
+  <script src='/js/global.js'></script>
 </html>
