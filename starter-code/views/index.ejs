@@ -7,5 +7,28 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+  <form class="" action="index.html" method="post">
+    <label for="date"></label>
+    <input id="start" type="date" name="start">
+
+    <label for="date"></label>
+    <input id="end" type="date" name="end">
+    <select id="currency" name="currency">
+      <option id="USD" value="USD">USD</option>
+      <option id="EUR" value="EUR">EUR</option>
+    </select>
+  </form>
+
+    <button id="createGraph" type="button" name="button">Create Graph</button>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <!-- <script type="text/javascript">
+      var ctx = document.getElementById("myChart").getContext('2d');
+
+    </script> -->
+    <script src="/chart.js/dist/Chart.min.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/financial-data.js"></script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+{
+  "name": "lab-financial-data-graphing",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "MHFP <markus.hifp@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MHFP/lab-financial-data-graphing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.7.0",
+    "jquery": "^3.2.1"
+  }
+}
