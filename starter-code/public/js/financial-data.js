@@ -1,10 +1,15 @@
+
+
 function getFinancial() {
   $.ajax({
     url: "http://api.coindesk.com/v1/bpi/historical/close.json",
     method: "GET",
     success: function (response) {
-
      lineChart(response)
+     var parse = JSON.parse(response);
+     var bpi = parse.bpi;
+     var values = Object.values(bpi);
+     MinMax(values)
 
     },
     error: function (err) {
@@ -44,9 +49,13 @@ function getFinancialDate(start, end) {
     url: "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + start + "&end=" + end,
     method: "GET",
     success: function (response) {
-    console.log(response);
-
+  
     getChartDate(response);
+
+    var parse = JSON.parse(response);
+    var bpi = parse.bpi;
+    var values = Object.values(bpi);
+    MinMax(values)
 
     },
     error: function (err) {
@@ -64,8 +73,6 @@ $("input").on('change', function(){
   
   
 })
-
-
 
 function getChartDate(response){
   var parse = JSON.parse(response);
@@ -96,6 +103,10 @@ function getCurrency(currency) {
     console.log(response);
 
     getChartCurrency(response);
+    var parse = JSON.parse(response);
+    var bpi = parse.bpi;
+    var values = Object.values(bpi);
+     MinMax(values)
 
     },
     error: function (err) {
@@ -107,9 +118,10 @@ function getCurrency(currency) {
 $("#currency").on('change', function(){
   var currency = $( "#currency option:selected" ).text();
   getCurrency(currency);
-
   
 })
+
+
 
 function getChartCurrency(response){
   var parse = JSON.parse(response);
@@ -132,6 +144,13 @@ function getChartCurrency(response){
   });
 }
 
+  
 
-
+function MinMax(values) {
+  maxValue = Math.max.apply(Math, values);
+  $("#max").html(maxValue);
+  minValue = Math.min.apply(Math, values);
+  $("#min").html(minValue),
+  console.log(minValue, maxValue)
+}
 
