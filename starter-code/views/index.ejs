@@ -7,6 +7,25 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <h2>Filter</h2>
+
+    <form id="chartForm">
+      <div>
+        <label> From: </label>
+        <input type="date" id="fromDate" name="date">
+        <label> To: </label>
+        <input type="date" id="toDate">
+        <button id ="button"> Create chart </button>
+      </div>
+      <div>
+        <select name="currency" id="select">
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+    </form>
+
+
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="/jquery/dist/jquery.min.js"></script>
