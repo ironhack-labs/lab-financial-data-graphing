@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <script src="/jquery/jquery.js"></script>
+  <script src="/chartjs/Chart.js"></script>
+  <script src="/javascripts/financial-data.js"></script>
+</head>
+
+<body>
+  <canvas id="js-bitcoins" width="300" height="300"></canvas>
+</body>
+
 </html>
