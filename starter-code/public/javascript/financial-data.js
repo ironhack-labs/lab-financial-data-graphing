@@ -9,6 +9,9 @@ $(document).ready(function(){
       //The callback function that will be executed if the request is completed succesfully
       //This function will have a parameter with the server response.
       console.log(data.time.updated);
+      const dates=(Object.keys(data.bpi));
+      const price=(Object.values(data.bpi));
+      createChart(dates,price);
     },
     error: function (err) {
       //The callback function that will be executed if the request fails, whether it was a client or a server error
@@ -16,4 +19,25 @@ $(document).ready(function(){
       console.log(err);
     },
   });
+  function createChart(dates,price){
+  var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: dates,
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: price,
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+}
 });
