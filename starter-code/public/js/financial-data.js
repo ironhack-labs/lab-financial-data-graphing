@@ -17,15 +17,36 @@ $("#button").on('click', function(){
   getFinancial();
 })
 
+function lineChart(response){
+  var parse = JSON.parse(response);
+  var bpi = parse.bpi;
+  var keys = Object.keys(bpi);
+  var values = Object.values(bpi);
+     console.log(Object.values(bpi))
+     console.log(Object.keys(bpi))
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: keys,
+          datasets: [{
+              label: 'Bitcoin Value',
+              data: values,
+          }]
+      },
+      options: {}
+  });
+}
+
 
 function getFinancialDate(start, end) {
   $.ajax({
     url: "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + start + "&end=" + end,
     method: "GET",
     success: function (response) {
+    console.log(response);
 
-
-      
+    getChartDate(response);
 
     },
     error: function (err) {
@@ -34,17 +55,18 @@ function getFinancialDate(start, end) {
   })
 }
 
-$("input").on('change', function(e){
-  e.preventDefault();
+$("input").on('change', function(){
   var start = $("#start").val();
   var end = $("#end").val();
-
+  if(end){
+    getFinancialDate(start, end);
+  }
+  console.log(start, end)
   //var date = new Date;
-  getFinancialDate(start, end);
+  
 })
 
-
-function lineChart(response){
+function getChartDate(response){
   var parse = JSON.parse(response);
   var bpi = parse.bpi;
   var keys = Object.keys(bpi);
