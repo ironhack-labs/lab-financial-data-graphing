@@ -61,10 +61,11 @@ $("input").on('change', function(){
   if(end){
     getFinancialDate(start, end);
   }
-  console.log(start, end)
-  //var date = new Date;
+  
   
 })
+
+
 
 function getChartDate(response){
   var parse = JSON.parse(response);
@@ -86,6 +87,51 @@ function getChartDate(response){
       options: {}
   });
 }
+
+function getCurrency(currency) {
+  $.ajax({
+    url: "http://api.coindesk.com/v1/bpi/historical/close.json?currency=" + currency,
+    method: "GET",
+    success: function (response) {
+    console.log(response);
+
+    getChartCurrency(response);
+
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  })
+}
+
+$("#currency").on('change', function(){
+  var currency = $( "#currency option:selected" ).text();
+  getCurrency(currency);
+
+  
+})
+
+function getChartCurrency(response){
+  var parse = JSON.parse(response);
+  var bpi = parse.bpi;
+  var keys = Object.keys(bpi);
+  var values = Object.values(bpi);
+     console.log(Object.values(bpi))
+     console.log(Object.keys(bpi))
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: keys,
+          datasets: [{
+              label: 'Bitcoin Value',
+              data: values,
+          }]
+      },
+      options: {}
+  });
+}
+
 
 
 
