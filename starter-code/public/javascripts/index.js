@@ -3,7 +3,30 @@ function getBitcoinInfo() {
     url: "http://api.coindesk.com/v1/bpi/historical/close.json",
     method: "GET",
     success: function (response) {
-      console.log(response);
+        let jsonObj = $.parseJSON(response)
+        var ctx = document.getElementById("myChart");
+        let specificDate = Object.keys(jsonObj.bpi);
+        let bitcoinValue = Object.values(jsonObj.bpi);
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: specificDate,
+                datasets: [{
+                    label: 'Bitcoin Value',
+                    data: bitcoinValue,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:false
+                        }
+                    }]
+                }
+            }
+        });
+
     },
     error: function (err) {
       console.log(err);
@@ -14,3 +37,5 @@ function getBitcoinInfo() {
 $("#bitcoinBtn").on('click', function(){
   getBitcoinInfo();
 })
+
+
