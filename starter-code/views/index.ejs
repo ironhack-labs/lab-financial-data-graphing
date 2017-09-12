@@ -6,6 +6,23 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <canvas id="myChart"></canvas>
     <p>Welcome to <%= title %></p>
+    <form>
+      <label for="start-date">Start date</label>
+      <input type="date" id="start-date" name="start-date">
+      <label for="end-date">End date</label>
+      <input type="date" id="end-date" name="end-date">
+      <button type="submit" id="submit">Submit</button>
+      <select>
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+</select>
+<div id="information-box">
+</div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="javascript/financial-data.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </body>
 </html>
