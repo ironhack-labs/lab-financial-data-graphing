@@ -1,6 +1,6 @@
 function getDataInfo() {
   $.ajax({
-    url: "http://api.coindesk.com/v1/bpi/historical/close.json",
+    url: `http://api.coindesk.com/v1/bpi/historical/close.json`,
     method: "GET",
     success: function(response) {
       const data = response;
@@ -36,7 +36,18 @@ var myChart = new Chart(ctx, {
   });
 }
 
+function createStartDate() {
+  return ($("#start-date").val());
+}
+
+function createEndDate() {
+  return ($("#end-date").val());
+}
+
 $("#chartButton").on("click", function() {
   getDataInfo();
 });
+
+$("#start-date").on("input", createStartDate );
+$("#end-date").on("input", createEndDate);
 
