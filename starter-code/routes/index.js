@@ -1,9 +1,16 @@
-var express = require('express');
-var router = express.Router();
+function getFinancialInfo(id) {
+  $.ajax({
+    url: "http://api.coindesk.com/v1/bpi/historical/close.json" + id,
+    method: "GET",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+}
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+$("#dataButton").on('click', function(){
+  getFinancialInfo(1);
 });
-
-module.exports = router;
