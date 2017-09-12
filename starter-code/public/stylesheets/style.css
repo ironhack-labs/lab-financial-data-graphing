@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+#createGraph{
+  width: 60px;
+  height: 40px;
+  background-color: grey;
+
+}
