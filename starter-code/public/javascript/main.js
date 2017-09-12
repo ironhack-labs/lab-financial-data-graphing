@@ -1,7 +1,4 @@
 
-//https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05
-
-
 const CURRENCY = {
   eu: "EUR",
   us: "USD"
@@ -9,39 +6,20 @@ const CURRENCY = {
 
 $('#chartForm').on('submit', (event) => {
   event.preventDefault();
-  //getDataFromCoinDesk();
-
-  // let newUrl = createUrl();
-  // console.log(newUrl);
-  // $.ajax({
-  //   url: newUrl,
-  //   method: "GET",
-  //   success: function (response) {
-  //     console.log(response);
-  //     var aux = $.parseJSON(response);
-  //     var labels = Object.keys(aux.bpi);
-  //     var data = Object.values(aux.bpi);
-  //     renderChart(labels, data);
-  //   },
-  //   error: function (err) {
-  //     console.log(err);
-  //   },
-  // });
   getDataFromCoinDesk();
 
 });
 
 function getDataFromCoinDesk(){
   let newUrl = createUrl();
-  console.log(newUrl);
   $.ajax({
     url: newUrl,
     method: "GET",
     success: function (response) {
-      console.log(response);
       var aux = $.parseJSON(response);
       var labels = Object.keys(aux.bpi);
       var data = Object.values(aux.bpi);
+      renderData(data);
       renderChart(labels, data);
     },
     error: function (err) {
@@ -51,7 +29,15 @@ function getDataFromCoinDesk(){
   });
 }
 
+function renderData(data){
+  max = Math.max.apply(Math, data);
+  min = Math.min.apply(Math, data);
+  $("#max").text("Max value: " + max);
+  $("#min").text("Min value: " + min);
+}
+
 function createUrl(){
+  //TODO:- refactor create url
   var from = $("#fromDate").val();
   var to = $("#toDate").val();
   var currency =  $("#select").val();
@@ -64,7 +50,6 @@ function createUrl(){
   }
 
   newUrl = url + "?start=" + from + "&end=" + to+ "&currency=" + currency;
-  console.log(newUrl);
   return newUrl;
 }
 
