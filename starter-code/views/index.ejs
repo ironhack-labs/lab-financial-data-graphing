@@ -7,5 +7,23 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <button class="financial-data-load">CLICK ME</button>
+
+    <label for="startDate">Start Date></label>
+    <input type="date" name="startDate" id="startDate">
+
+    <label for="endDate">End Date></label>
+    <input type="date" name="endDate" id="endDate">
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <script src="javascript/financial-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   </body>
 </html>
