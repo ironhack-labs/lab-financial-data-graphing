@@ -11,6 +11,7 @@ $(function() { //equivale a document.ready
   })
 });
 
+
 function getInfo() {
   $.ajax({
     url: "http://api.coindesk.com/v1/bpi/historical/close.json",
@@ -18,7 +19,8 @@ function getInfo() {
     success: function(response) {
       //The callback function that will be executed if the request is completed succesfully
     //This function will have a parameter with the server response.
-      console.log(response);
+      const data = JSON.parse(response)
+      console.log( Object.values(data.bpi))
     },
     error: function(err) {
       //The callback function that will be executed if the request fails, whether it was a client or a server error
