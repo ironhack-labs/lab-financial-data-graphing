@@ -1,6 +1,6 @@
-function getBitcoinInfo() {
+function getBitcoinInfo(startDate, endDate) {
   $.ajax({
-    url: "http://api.coindesk.com/v1/bpi/historical/close.json",
+    url: "http://api.coindesk.com/v1/bpi/historical/close.json?start="+startDate+"&end="+endDate,
     method: "GET",
     success: function (response) {
         let jsonObj = $.parseJSON(response)
@@ -34,8 +34,13 @@ function getBitcoinInfo() {
   })
 }
 
-$("#bitcoinBtn").on('click', function(){
-  getBitcoinInfo();
-})
-
-
+  $("#endDate, #startDate").on('change', function(){
+    const startDate = $("#startDate").val();
+    const endDate = $("#endDate").val();
+    if ( startDate != "" && endDate != "") {
+        getBitcoinInfo(startDate, endDate)
+      }
+      else {
+          console.log("Please select start and end date.")
+      }
+  })
