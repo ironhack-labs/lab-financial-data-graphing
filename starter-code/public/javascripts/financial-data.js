@@ -4,9 +4,37 @@ function getFinancialData(){
     method: "GET",
     data: "" ,
     success: function (response) {
-      console.log(response);
-      //The callback function that will be executed if the request is completed succesfully
-      //This function will have a parameter with the server response.
+
+      var obj = JSON.parse(response);
+
+
+      var array = [];
+      var values = [];
+      var labels = [];
+
+      $.each(obj.bpi, function(x,y){
+        array.push({x,y});
+        values.push(y);
+        labels.push(x);
+
+
+      });
+      console.log(array);
+
+      var ctx = document.getElementById("myChart").getContext('2d');
+        var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{label: "BitcoinIndex", data: array}]
+          }
+      });
+
+
+
+
+
+
     },
     error: function (err) {
       //The callback function that will be executed if the request fails, whether it was a client or a server error
@@ -18,7 +46,6 @@ function getFinancialData(){
 $("#createGraph").on("click", function(){
   getFinancialData();
 });
-
 
 
 
