@@ -1,10 +1,19 @@
 $("#dataButton").on('click', function() {
-  getFinancialInfo(1);
+  const Dates = getDate()
+  getFinancialInfo(Dates);
 });
+
+function getDate() {
+const dateInfo = {
+  date1: $("#firstDate").val(),
+  date2: $("#secondDate").val(),
+}
+return dateInfo;
+}
 
 function getFinancialInfo(id) {
   $.ajax({
-    url: "http://api.coindesk.com/v1/bpi/historical/close.json" + id,
+    url: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${id.date1}&end=${id.date2}` ,
     method: "GET",
     success: function(response) {
       const responseJson = JSON.parse(response);
