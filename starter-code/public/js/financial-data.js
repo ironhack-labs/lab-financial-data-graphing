@@ -18,6 +18,31 @@ $("#button").on('click', function(){
 })
 
 
+function getFinancialDate(start, end) {
+  $.ajax({
+    url: "http://api.coindesk.com/v1/bpi/historical/close.json?start=" + start + "&end=" + end,
+    method: "GET",
+    success: function (response) {
+
+
+      
+
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  })
+}
+
+$("input").on('change', function(e){
+  e.preventDefault();
+  var start = $("#start").val();
+  var end = $("#end").val();
+
+  //var date = new Date;
+  getFinancialDate(start, end);
+})
+
 
 function lineChart(response){
   var parse = JSON.parse(response);
