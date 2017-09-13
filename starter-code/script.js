@@ -2,14 +2,14 @@
 
 function getDatafrom(urlQuery) {
   $.ajax({
-    url: `http://api.coindesk.com/v1/bpi/historical/close.json`,
+    url: `http://api.coindesk.com/v1/bpi/historical/close.json`+urlQuery,
     method: "GET",
     success: function(response) {
       var json = $.parseJSON(response);
       var labels = Object.keys(json.bpi);
       var bpi = Object.values(json.bpi);
-      $("#min-val").text('Min val' + Math.min.apply(null, bpi));
-      $("#max-val").text('Max val' + Math.max.apply(null, bpi));
+      $("#min-val").text('Min value: ' + Math.min.apply(null, bpi));
+      $("#max-val").text('Max value: ' + Math.max.apply(null, bpi));
       var ctx = $("#myCanvas");
       var myChart = new Chart(ctx, {
         type: 'line',
@@ -56,21 +56,26 @@ function getDatafrom(urlQuery) {
 
 $("#date1").on("change", function(){
   event.preventDefault();
-  const startDate = $("#date1").val()
-  const endDate = $("#date2").val()
+  const startDate = $("#date1").val();
+  const endDate = $("#date2").val();
   getDatafrom(`?start=${startDate}&end=${endDate}`);
 });
 
 
+
 $("#date2").on("change", function(){
   event.preventDefault();
-  const startDate = $("#date1").val()
-  const endDate = $("#date2").val()
+  const startDate = $("#date1").val();
+  const endDate = $("#date2").val();
   getDatafrom(`?start=${startDate}&end=${endDate}`);
 });
 
 $("#currency").on("change", function(){
   event.preventDefault();
-  const currency = $("#currency").val()
+  const currency = $("#currency").val();
   getDatafrom(`?currency=${currency}`);
-})
+});
+
+$(document).on("ready", function(){
+  $("#date2").val($.now());
+});
