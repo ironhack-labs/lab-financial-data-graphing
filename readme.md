@@ -8,9 +8,9 @@
 
 After this lesson, you should be able to:
 
-- Create an AJAX Request to get some data from [CoinDesk](http://www.coindesk.com/).
-- Add Chart.js to a Node.js project with Bower.
-- Use Chart.js to represent the data.
+- Create an Axios Get Request to get some data from [CoinDesk](http://www.coindesk.com/).
+- Add [Chart.js](http://www.chartjs.org/) to a Node.js project with NPM.
+- Use [Chart.js](http://www.chartjs.org/) to represent the data.
 - Create filters to load different data.
 
 ## Requirements
@@ -34,7 +34,7 @@ In the Pull request name, add your campus, name, and last name separated by a da
 
 ## Deliverables
 
-All the files that make your Express app work, including the JavaScript files where you do the AJAX requests.
+All the files that make your Express app work, including the JavaScript files where you do the Axios requests.
 
 ## Introduction
 
@@ -44,7 +44,9 @@ They cover news and analysis on the trends, price movements, technologies, compa
 
 In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](http://www.coindesk.com/api/). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
-The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show this variations in a graphic with Chart.js.
+The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show this variations in a graphic with [Chart.js](http://www.chartjs.org/).
+
+:eyes: **[**ChartJS**](http://www.chartjs.org/) (also known as chart.js) is an open source library that allows us to create amazing static and animated charts through HTML5 canvas and JavaScript.**
 
 ### Starter Code
 
@@ -84,25 +86,24 @@ As you can see, you have to do a `GET` request to the `http://api.coindesk.com/v
 
 As you can see in the image above, the Y-axis will represent the bitcoin value, while the X-axis will represent the date of each value.
 
-We are going to use jQuery to do the AJAX Request, so we have to install jQuery through Bower before.
+We are going to use Axios to do the AJAX Request, so we have to import Axios through it's CDN.
 
 **Tasks**
 
-- Install jQuery with Bower, and add the reference in the HTML to be able to use it.
-- You have to create an AJAX Request to this URL and get the date. Use a `console.log()` to be sure that we are getting the correct data.
+- Add the Axios reference in the HTML through CDN to be able to use it.
+- You have to create an Axios Request to this URL and get the date. Use a `console.log()` to be sure that we are getting the correct data.
 
 ## Iteration #2: Create chart
 
-Once we have the desired data, we have to show it as a chart. We are going to use [Chart.js](http://www.chartjs.org/) to do that. So we have to add the library through bower.
+Once we have the desired data, we have to show it as a chart. We are going to use [Chart.js](http://www.chartjs.org/) to do that. So we have to add the library through CDN.
 
-Once we have installed the library through Bower and add the reference in the HTML file, we have to represent the values we got in the Iteration 1 in a [Line Chart](http://www.chartjs.org/docs/#line-chart-introduction).
+Once we have add the CDN reference in the HTML file, we have to represent the values we got in the Iteration 1 in a [Line Chart](http://www.chartjs.org/docs/#line-chart-introduction).
 
 **Note**: Before you ask for help in the chart representation, try to read the documentation and figure out how it works. :)
 
 **Tasks**
 
-- Install Chart.js through Bower.
-- Reference the library in the HTML file.
+- Add Chart.js reference through CDN.
 - Give the correct format to the data we get in the Iteration 1 to show it in a line chart.
 - Practice reading documentation with the [Chart line documentation](http://www.chartjs.org/docs/#line-chart-introduction).
 - Create a line chart and show the data.
