@@ -16,8 +16,8 @@ $(document).ready(()=> {
       let min = Math.min(...values);
       console.log(dates,values, max, min);
 
-      $('#maxmin').append(`<h2>Max: ${max} ${index}</h2>`)
-      $('#maxmin').append(`<h2>Min: ${min} ${index}</h2>`)
+      $('#max').text(`Max: ${max} ${index}`)
+      $('#min').text(`Min: ${min} ${index}`)
 
       var chart = new Chart(ctx, {
         // The type of chart we want to create
