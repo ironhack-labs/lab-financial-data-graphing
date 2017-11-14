@@ -1,13 +1,18 @@
-const currency = getElementById("currency");
 
-const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
+
+
+  const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
+
+
 function update (){
+  const currencySelect = document.getElementById("currency");
   let currency=
-  currency.options[currency.selectedIndex].value;
+  currencySelect.options[currencySelect.selectedIndex].value;
   let currencyUrl= url+"?currency="+currency;
   ejecute (currencyUrl);
 
 }
+
 function ejecute (url){
 
   axios.get(url)
@@ -40,6 +45,5 @@ const ctx = document.getElementById("myChart").getContext("2d");
     console.log(error);
   });
 }
-
 
 ejecute(url);
