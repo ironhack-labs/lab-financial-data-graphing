@@ -7,8 +7,24 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </head>
 <body>
+  <label for="from">FROM </label>
+  <input type="date" id="from" name="from">
+  <label for="to">TO</label>
+  <input type="date" id="to" name="to">
+  <label for="currency">CURRENCY</label>
+  <select name="currency" id="currency">
+    <option value="USD" selected>USD</option>
+    <option value="EUR">EUR</option>
+    <option value="JPY">JPY</option>
+  </select>
+  <label for="max">Max:</label>
+  <input type="text" name="max" id="max" disabled></input>
+  <label for="min">Min:</label>
+  <input type="text" name="min" id="min" disabled></input>
   <canvas id="chart" width="800" heigth="500"></canvas>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </body>
