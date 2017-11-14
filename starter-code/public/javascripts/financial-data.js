@@ -4,7 +4,8 @@ const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
 function update (){
   let currency=
   currency.options[currency.selectedIndex].value;
-  let currencyUrl= url+currency=
+  let currencyUrl= url+"?currency="+currency;
+  ejecute (currencyUrl);
 
 }
 function ejecute (url){
