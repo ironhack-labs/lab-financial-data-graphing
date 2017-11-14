@@ -9,7 +9,8 @@
   </head>
   <body>
     <h1>Bitcoin values</h1>
-  <div class="">
+  <div class="display">
+    <div class="inputs">
       <label for="from"></label>From:
       <input id= "from" type="date" name="from">
       <label for="to">To:</label>
@@ -20,9 +21,12 @@
         <option value="EUR">EUR</option>
       </select>
       <button id="btn">Search</button>
-  </div>
+    </div>
   <div id="maxmin"></div>
-  <canvas id="myChart" width="400" height="400"></canvas>
+  <h2 id="max"></h2>
+  <h2 id="min"></h2>
+  </div>
+  <canvas id="myChart" width="400" height="170"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
