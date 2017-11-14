@@ -7,6 +7,89 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <form action="/" method="POST">
+      <input id="start" type="date" name="start"></input>
+      <input id="end" type="date" name="end"></input>
+    </form>
   </body>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [], // fechas
+            datasets: [{
+                label: 'Price',
+                data: [], // precios bitcoin
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    //console.log(myChart.data.datasets[0].data);
+
+    var startDate = '2013-09-01';
+    var endDate = '2017-06-01';
+
+    $('#start').on('change', function(){
+        var current = $(this).val();
+        startDate = current;
+        console.log(startDate);
+    });
+
+    $('#end').on('change', function(){
+        var current = $(this).val();
+        endDate = current;
+        console.log(endDate);
+    });
+
+    axios.get("http://api.coindesk.com/v1/bpi/historical/close.json?start=" + startDate + "&end=" + endDate)
+    .then(function (response) {
+      var fechas = Object.keys(response.data.bpi);
+      var datos;
+
+      for(var i = 0; i < fechas.length; i++){
+        myChart.data.labels.push(fechas[i]);
+        myChart.data.datasets[0].data.push(response.data.bpi[fechas[i]]);
+      }
+
+      myChart.update();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+</script>
+
+
 </html>
