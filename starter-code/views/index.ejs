@@ -3,10 +3,37 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" charset="utf-8"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+
+    <h1>some chart</h1>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+<form class="dates" method="GET">
+  <input id="ini" type="date" name="inicio">
+   <input id="end" type="date" name="final">
+   <button type="submit" name="button">Submit</button>
+</form>
+
+<form class="currency" method="GET">
+  <select name="currency">
+    <option id="usd" type="text" name="usd">USD</option>
+    <option id="eur" type="text" name="eur">EUR</option>
+    <option id="jpy" type="text" name="jpy">JPY</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script type="text/javascript" src="/js/main.js"></script>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
