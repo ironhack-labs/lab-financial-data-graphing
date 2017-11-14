@@ -7,6 +7,41 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+<h3>Filters</h3>
+<p>From</p>
+<input type="date" id= "one" name="date" value="">
+<p>To</p>
+<input type="date" id= "two" name="date2" value="">
+<p>Currency</p>
+<select  onchange= "update()" id="currency" class="" name="currency" option>
+  <option value="USD" selected >USD</option>
+  <option value="EUR">EUR</option>
+  <option value="GBP">GBP</option>
+
+</select>
+
+<button type="button" id="button" name=
+
+<canvas id="myChart" width="800px" height="600px"></canvas>
+
+
+
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<script type="text/javascript">document.getElementById("button").onclick= function() {
+let url= "http://api.coindesk.com/v1/bpi/historical/close.json?start="+
+document.getElementById("one").value+"&end="+document.getElementById("two").value;
+ejecute(url);
+}
+</script>
+
+
+
+
 </html>
