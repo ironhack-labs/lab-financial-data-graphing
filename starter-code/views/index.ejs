@@ -3,10 +3,30 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Bitcoin values</h1>
+  <div class="display">
+    <div class="inputs">
+      <label for="from"></label>From:
+      <input id= "from" type="date" name="from">
+      <label for="to">To:</label>
+      <input id= "to" type="date" name="to">
+      <label for="currency">Currency</label>
+      <select id= "curr" name="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <button id="btn">Search</button>
+    </div>
+  <div id="maxmin"></div>
+  <h2 id="max"></h2>
+  <h2 id="min"></h2>
+  </div>
+  <canvas id="myChart" width="400" height="170"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

@@ -1,8 +1,26 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputs input, select {
+  margin: 0 10px;
+}
+
+#maxmin {
+  display: flex;
+}
+
+#maxmin h2 {
+  margin: 0 30px;
 }
