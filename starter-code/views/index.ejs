@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 
-<h3>Filters</h3>
-<p>From</p>
-<input type="date" id= "one" name="date" value="">
-<p>To</p>
-<input type="date" id= "two" name="date2" value="">
-<p>Currency</p>
-<select  onchange= "update()" id="currency" class="" name="currency" option>
-  <option value="USD" selected >USD</option>
-  <option value="EUR">EUR</option>
-  <option value="GBP">GBP</option>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-</select>
+<body>
+  <div class="header">
+    <div class="left">
+      <h2>Filters</h2>
+      <span>From</span>
+      <input type="date" id="one" name="date" value="">
+      <span>To</span>
+      <input type="date" id="two" name="date2" value="">
+      <button type="button" id="button" name="">Click </button>
+      <p>Currency</p>
+      <select onchange="update()" id="currency" class="" name="currency" option>
+        <option value="USD" selected >USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+    <div class="right">
+      <h2>Values</h2>
+      <p>Max: <span id="max"></span></p>
+      <p>Min: <span id="min"></span></p>
+    </div>
+  </div>
 
-<button type="button" id="button" name="">Click </button>
 
-<canvas id="myChart" width="800px" height="600px"></canvas>
+  <canvas id="myChart" height="120"></canvas>
 
-
-
-  </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
-<script type="text/javascript">document.getElementById("button").onclick= function() {
-let url= "http://api.coindesk.com/v1/bpi/historical/close.json?start="+
-document.getElementById("one").value+"&end="+document.getElementById("two").value;
-ejecute(url);
-}
+<script type="text/javascript">
+  document.getElementById("button").onclick = function() {
+    const currencySelect = document.getElementById("currency");
+    let url = "http://api.coindesk.com/v1/bpi/historical/close.json?start=" +
+      document.getElementById("one").value
+      + "&end=" + document.getElementById("two").value
+      +"&currency=" + currencySelect.options[currencySelect.selectedIndex].value;
+    ejecute(url);
+  }
 </script>
 
 
