@@ -31,16 +31,18 @@ function getCoinData(urlQuery) {
   })
 }
 
+var checkDates = function(){
+  let startDate = $('#startDate').val();
+  let endDate = $('#endDate').val();
+  getCoinData("?start="+startDate+"&end="+endDate)
+}
+
+
+
 $('#startDate').on('change', function(){
-   let startDate = $('#startDate').val();
-   console.log(startDate);
-   let endDate = $('#endDate').val();
-   console.log(endDate);
-   getCoinData("?start="+startDate+"&end="+endDate)
+checkDates();
 });
 
 $('#endDate').on('change', function(){
-   let startDate = $('#startDate').val();
-   let endDate = $('#endDate').val();
-   getCoinData("?start="+startDate+"&end="+endDate)
+checkDates();
 });
