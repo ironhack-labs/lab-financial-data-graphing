@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="header">
+    <div class="left">
+      <h2>Filters</h2>
+      <span>From</span>
+      <input type="date" id="one" name="date" value="">
+      <span>To</span>
+      <input type="date" id="two" name="date2" value="">
+      <button type="button" id="button" name="">Click </button>
+      <p>Currency</p>
+      <select id="currency" class="" name="currency" option>
+        <option value="USD" selected >USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+    <div class="right">
+      <h2>Values</h2>
+      <p>Max: <span id="max"></span></p>
+      <p>Min: <span id="min"></span></p>
+    </div>
+  </div>
+
+
+  <canvas id="myChart" height="120"></canvas>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
