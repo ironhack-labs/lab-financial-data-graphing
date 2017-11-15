@@ -1,50 +1,53 @@
 const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
-const currencySelect = document.getElementById("currency");
 
-function update (){
-  let currency=
-  currencySelect.options[currencySelect.selectedIndex].value;
-  let currencyUrl= url+"?currency="+currency;
-  ejecute (currencyUrl);
+$(document).ready( () => {
+  const currencySelect = $("#currency");
+  const ctx = $('#myChart').get(0).getContext("2d");
 
-}
+  function update(){
+    let currencyUrl = `${url}?currency=${currencySelect.val()}`;
+    createChart(currencyUrl);
+  }
 
-function ejecute (url){
+  function createChart(url){
+    axios.get(url)
+    .then(function(response) {
+      console.log(response);
 
-  axios.get(url)
-  .then(function(response) {
-    console.log(response);
+      $('#max').text(Math.max(...Object.values(response.data.bpi)) + " " + currencySelect.val());
+      $('#min').text(Math.min(...Object.values(response.data.bpi)) + " " + currencySelect.val());
 
-    var max = document.getElementById('max').innerHTML =
-    Math.max(...Object.values(response.data.bpi)) + " " + currencySelect.options[currencySelect.selectedIndex].value;
-    var min = document.getElementById('min').innerHTML =
-    Math.min(...Object.values(response.data.bpi)) + " " + currencySelect.options[currencySelect.selectedIndex].value;
-    const ctx = document.getElementById("myChart").getContext("2d");
-    var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: Object.keys(response.data.bpi),
+        datasets: [{
+            data: Object.values(response.data.bpi),
+            label: "Bitcoin price index",
+            borderColor: "Grey",
+            fill: true
+          }
+        ]
+      },
+      options: { }
+    });
 
-    type: 'line',
-    data: {
-      labels: Object.keys(response.data.bpi),
-      datasets: [{
-          data: Object.values(response.data.bpi),
-          label: "Bitcoin price index",
-          borderColor: "Grey",
-          fill: true
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: ''
-      }
-    }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  }
+
+  $('#button').click(() => {
+    let urlDates =
+    `${url}?start=${$('#one').val()}&end=${$('#two').val()}&currency=${currencySelect.val()}`;
+    createChart(urlDates);
   });
 
-  })
-  .catch(function(error) {
-    console.log(error);
+  currencySelect.change(() => {
+    update();
   });
-}
 
-ejecute(url);
+  createChart(url);
+
+});

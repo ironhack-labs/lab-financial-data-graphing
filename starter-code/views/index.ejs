@@ -18,7 +18,7 @@
       <input type="date" id="two" name="date2" value="">
       <button type="button" id="button" name="">Click </button>
       <p>Currency</p>
-      <select onchange="update()" id="currency" class="" name="currency" option>
+      <select id="currency" class="" name="currency" option>
         <option value="USD" selected >USD</option>
         <option value="EUR">EUR</option>
         <option value="GBP">GBP</option>
@@ -35,22 +35,9 @@
   <canvas id="myChart" height="120"></canvas>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-
-<script type="text/javascript">
-  document.getElementById("button").onclick = function() {
-    const currencySelect = document.getElementById("currency");
-    let url = "http://api.coindesk.com/v1/bpi/historical/close.json?start=" +
-      document.getElementById("one").value
-      + "&end=" + document.getElementById("two").value
-      +"&currency=" + currencySelect.options[currencySelect.selectedIndex].value;
-    ejecute(url);
-  }
-</script>
-
 
 </html>
