@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Bitchcoins</h1>
+
+  <canvas id="myLineChart" width="300" height="100"></canvas>
+
+  <h2><label for="">Currency</label></h2>
+  <select name="c" id="c">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+  </select>
+  <h2>Date</h2>
+  <input type="date" name="from" id="from" value="2017-01-01">
+  <label for="">To</label>
+  <input type="date" name="to" id="to" value="2018-01-01">
+  <br>
+  <h2>Min value</h2>
+  <p id="min"></p>
+  <h2>Max value</h2>
+  <p id="max"></p>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
