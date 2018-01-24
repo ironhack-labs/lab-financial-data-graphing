@@ -11,6 +11,11 @@
       <input type="date" id="startDate" oninput="getBpiData()">
       To:
       <input type="date" id="endDate" oninput="getBpiData()">
+      <select id="currency" oninput="getBpiData()">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select> 
     </div>
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
