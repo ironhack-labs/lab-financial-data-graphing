@@ -9,7 +9,12 @@ function getBpiData() {
             .then(function (response) {
                 const labels = Object.keys(response.data.bpi);
                 const datas = Object.values(response.data.bpi);
-          
+
+                const min = Math.min.apply(0, datas);
+                $("#min-value").html(min);
+                const max = Math.max.apply(0, datas);
+                $("#max-value").html(max);
+
                 const canvas = document.getElementById("myChart");
                 const ctx = canvas.getContext('2d');
                 //ctx.fillRect(0, 0, canvas.width, canvas.height);

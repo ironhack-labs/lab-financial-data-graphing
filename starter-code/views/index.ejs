@@ -16,13 +16,17 @@
         <option value="EUR">EUR</option>
         <option value="GBP">GBP</option>
       </select> 
+      <p>Max value: <span id="max-value"></span></p>
+      <p>Min value: <span id="min-value"></span></p>
     </div>
+
     <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 
     <div class="chart-container" style="position: relative; height:40vh; width:80vw">
       <canvas id="myChart"></canvas>
   </div>
   </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
