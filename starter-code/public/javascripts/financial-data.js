@@ -1,23 +1,16 @@
 var ctx = $("#myChart");
-var test = [];
-
 
 axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
     .then(function (response) {
         console.log("success!")
-
     })
     .catch(function (error) {
         console.log("error primoh")
     });
 
 
-var info = $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json', function (data) {
-    console.log(data);
-    var datos = Object.entries(data)[0][1]
-    console.log(Object.entries(datos)[1])
-
-    
+$.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json', function (data) {
+    var datos = data.bpi
 
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -36,12 +29,10 @@ var info = $.getJSON('http://api.coindesk.com/v1/bpi/historical/close.json', fun
             }]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+            elements: {
+                line: {
+                    tension: 0.3, // disables bezier curves
+                }
             }
         }
     });
