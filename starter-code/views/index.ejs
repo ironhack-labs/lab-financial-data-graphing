@@ -1,17 +1,43 @@
-<div class="info">
-<div class="filters">
-  <h2>Filters</h2>
-  <p> From: to: </p>
-  <p>Currency:</p>
 
+
+<div class="container">
+  <div class="header">
+    <h1>BitCoin Price Index</h1>
+    <p>Current rate: <span id="current-rate"> </span> | Last checked: <span id="last-ckecked"></span></p>
+
+  </div>
+  <div class="info">
+    <div class="filters">
+      <h2>Filters</h2>
+
+      <form>
+        <div class="form-group">
+          <label for="currency">Currency:</label>
+          <select class="form-control" id="currency">
+        <option>USD ($)</option>
+        <option>EUR (€) </option>
+      </select>
+        </div>
+      </form>
+
+      <div class="dates">
+        <label for="dates">Select dates:</label>
+        <br>
+        <input class="form-control" type="text" name="dates" value="01/01/2015 - 01/31/2015" />
+
+      </div>
+
+
+    </div>
+
+    <div class="values">
+      <h2>Values</h2>
+      <p> Max: <span id="max"> </span> </p>
+      <p>Min: <span id="min"> </span> </p>
+    </div>
+  </div>
+  <div id="chart-container">
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+  </div>
 </div>
-
-<div class="values">
-  <h2>Values</h2>
-  <p> Max: </p>
-  <p>Min: </p>
-</div>
-
-</div>
-
-<canvas id="myChart" width="400" height="400"></canvas>
