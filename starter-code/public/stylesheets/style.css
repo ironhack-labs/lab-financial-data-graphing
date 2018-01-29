@@ -1,3 +1,17 @@
+
+.header {
+  text-align: center;
+}
+
+
+#current-rate {
+  color: salmon;
+  font-weight: bold;
+
+}
+
+
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +19,36 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#max.span {
+  margin-top: 200px;
+}
+
+
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .info {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .info {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
 }

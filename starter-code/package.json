@@ -3,14 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "DEBUG=ex-financial:* nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
+    "currency": "^4.1.0",
+    "currency-converter": "^0.1.12",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "express-ejs-layouts": "^2.3.1",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
   }
