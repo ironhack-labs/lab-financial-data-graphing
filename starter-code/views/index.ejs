@@ -7,12 +7,21 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <! iteracion 2 Create a line chart and show the data->
+
+    <canvas id="myChart" width="400px" height="400px"></canvas>
+    
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
   <!–iteracion 1 Add the Axios reference in the HTML through CDN to be able to use it->
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!–iteracion 2 Add Chart.js reference through CDN ->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 
 
 </html>
