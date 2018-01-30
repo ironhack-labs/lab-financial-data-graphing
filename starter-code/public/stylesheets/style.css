@@ -9,15 +9,20 @@ a {
 
 #btn {
   text-align: center;
-  display: flex;
+  cursor: pointer;
   padding: 10px;
   margin: 20px;
   color: #ffffff;
-  background-color: rgb(143, 168, 218);
+  background-color: #1D4481;
   border-radius: 8px;
   font-family: sans-serif;
   font-weight: 600;
   text-decoration: none;
+  display: inline-block;
+}
+
+.button {
+  text-align: center;
 }
 
 .logo {
@@ -26,15 +31,26 @@ a {
   top: 0px;
   left: 0px;
   padding: 8px;
+  width: 200px;
+  color: black;
 }
 
 .titulo {
   font-size: 36px;
-  margin-top: 15px;
-  margin-left: 15px;
+  text-align: center;
 }
 
-label,
-input {
+.inputs {
   margin-right: 9px;
+  text-align: center;
+  margin: 10px;
+
 }
+
+#currency {
+  margin-top: 10px;
+  text-align: center;
+ 
+}
+
+
