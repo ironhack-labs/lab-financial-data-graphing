@@ -1,8 +1,57 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
+
+#btn {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  margin: 20px;
+  color: #ffffff;
+  background-color: #1D4481;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button {
+  text-align: center;
+}
+
+.logo {
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 8px;
+  width: 200px;
+  color: black;
+}
+
+.titulo {
+  font-size: 36px;
+  text-align: center;
+}
+
+.inputs {
+  margin-right: 9px;
+  text-align: center;
+  margin: 10px;
+
+}
+
+#currency {
+  margin-top: 10px;
+  text-align: center;
+ 
+}
+
+

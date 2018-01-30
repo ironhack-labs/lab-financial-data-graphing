@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='C:\Users\laura.marcos\lab-financial-data-graphing\starter-code\public\stylesheets\style.css'
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="header-container">
+    <div class="logo">
+      <img src="https://www.coindesk.com/wp-content/themes/coindesk2/images/header-logo-new.png" width="200px" alt="CoinDesk Bitcoin News">
+    </div>
+  </div>
+  <h1 class="titulo">
+    Bitcoin (EUR/USD) Price
+  </h1>
+  <div class="inputs">
+    <label for="from">
+      From:
+    </label>
+    <input id="from" type="date" name="from">
+    <label for="to">
+      To:
+    </label>
+    <input id="to" type="date" name="to">
+  </div>
+  <div class="inputs">
+    <br>
+    <label for="currency">Currency</label>
+    <select id="currency" name="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class="button">
+    <button id="btn">Button</button>
+  </div>
+
+  <div>
+    <canvas id="myChart" width="400px" height="400px" style="display: block; height: 213px; width: 320px;"></canvas>
+  </div>
+
+
+</body>
+<script src="C:\Users\laura.marcos\lab-financial-data-graphing\starter-code\public\javascripts\financial-data.js" charset="utf-8"></script>
+
 </html>
