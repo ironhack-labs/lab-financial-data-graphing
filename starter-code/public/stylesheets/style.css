@@ -4,5 +4,37 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+#btn {
+  text-align: center;
+  display: flex;
+  padding: 10px;
+  margin: 20px;
+  color: #ffffff;
+  background-color: rgb(143, 168, 218);
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.logo {
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 8px;
+}
+
+.titulo {
+  font-size: 36px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+label,
+input {
+  margin-right: 9px;
 }
