@@ -1,40 +1,46 @@
+$(document).ready(() => {
+  var ctx = document.getElementById("myChart").getContext("2d");
 
-//iteracion 1 Axios reference
-axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
+  $("btn").click(function() {
+    let inicio = $("#from").val();
+    let final = $("#to").val();
+    let moneda = $("#currency").val();
 
-//iteracion 1 You have to create an Axios Request to this URL and get the date. Use a console.log() to be sure that we are getting the correct data
- //.then(function (response) {
-   //console.log(response);
+    axios
+      .get("http://api.coindesk.com/v1/bpi/historical/close.json")
+      .then(function(response) {
+        let dates = Object.keys(response.data.bpi);
+        let values = Object.values(response.data.bpi);
+      });
 
-   //iteracion 2 Give the correct format to the data we get in the Iteration 1 to show it in a line chart
-
-   console.log(response.data.bpi);
- 
-   const labels = Object.keys(response.data.bpi);
-   const datas = Object.values(response.data.bpi);
- 
-     var ctx = document.getElementById("myChart").getContext('2d');
- 
-     var myLineChart = new Chart(ctx, {
-         type: 'line',
-         data: {
-           labels: labels,
-           datasets: [{ 
-               data: datas,
-               label: "Bitcoin Price Index",
-               borderColor: "#3e95cd",
-               fill: true
-             }]
-         },
-         options: {
-           title: {
-             display: true,
-             text: 'Bitcoins'
-           }
-         }
-       });
- })
-
- .catch(function (error) {
-   console.log(error);
- });
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: keys,
+        datasets: [
+          {
+            label: "Bitcoin value",
+            data: values,
+            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgba(255,99,132,1)"],
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }).catch(function(error) {
+      console.log("error");
+    });
+  });
+});

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 
-    <! iteracion 2 Create a line chart and show the data->
-
-    <canvas id="myChart" width="400px" height="400px"></canvas>
-    
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-
-  <!–iteracion 1 Add the Axios reference in the HTML through CDN to be able to use it->
-
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='C:\Users\laura.marcos\lab-financial-data-graphing\starter-code\public\stylesheets\style.css'
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-  <!–iteracion 2 Add Chart.js reference through CDN ->
+<body>
+  <h1>Bitcoin values</h1>
+  <div class="inputs">
+    <label for="from">
+      From:
+    </label>
+    <input id="from" type="date" name="from">
+    <label for="to">
+      To:
+    </label>
+    <input id="to" type="date" name="to">
+    <label for="currency">Currency</label>
+    <select id="currency" name="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <button id="btn">Button</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+  <canvas id="myChart" width="400px" height="400px"></canvas>
 
+</body>
+<script src="C:\Users\laura.marcos\lab-financial-data-graphing\starter-code\public\javascripts\financial-data.js" charset="utf-8"></script>
 
 </html>
