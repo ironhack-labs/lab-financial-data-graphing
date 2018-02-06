@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+
+<h2>Home</h2>
+
+
+<form id="dates">
+  <label for="date-start"> Start Date </label>
+  <input type="date" name="start-date" id="start-date">
+
+  <label for="date-end">End date </label>
+  <input type="date" name="end-date" id="end-date">
+  
+  <div id="main">
+  </div>
+</form>
+
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="/javascripts/financial-data.js"></script>
