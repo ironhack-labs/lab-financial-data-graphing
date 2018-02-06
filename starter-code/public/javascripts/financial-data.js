@@ -28,8 +28,6 @@ let prueba = document.getElementById('prueba');
               }
             });
 
-
-
         })
         .catch(function (error) {
             console.log(error);
