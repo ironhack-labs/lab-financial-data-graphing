@@ -4,9 +4,10 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const axios = require('axios');
+
 
 const index = require('./routes/index');
-const users = require('./routes/users');
 const layout = require('express-ejs-layouts');
 
 const app = express();
@@ -15,7 +16,7 @@ const app = express();
 app.use(layout);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout','layout/layout');
+app.set('layout','_layout');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -26,7 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // NOTE: requires a views/not-found.ejs template
 app.use(function (req, res, next) {
