@@ -3,10 +3,25 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+  <button id="coin-button">Click</button>
+  
+  <form>
+    <label for="date-one"></label><br>
+    <input type="date" min="2017-04-01" max="2017-04-30" name="date-one">
+
+    <label for="date-two"></label><br>
+    <input type="date" min="2017-04-01" max="2017-04-30" name="date-two">
+  </form>
+  
+  <canvas id="speedChart" width="600" height="400"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
