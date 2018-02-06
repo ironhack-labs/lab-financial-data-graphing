@@ -7,6 +7,25 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form>
+      <div>
+        <label for="start-date">Starting date</label>
+        <input type="date" id="start-date" name="startDate">
+        <label for="end-date">End date</label>
+        <input type="date" id="end-date" name="endDate">
+      </div>
+      <div>
+        <select name="text"> 
+          <option value="EUR">EUR</option>
+          <option value="USD" selected>USD</option>
+          <option value="BRL">BRL</option>
+
+         </select>
+      </div>
+    </form>
+    <canvas id="myChart" width="600" height="400"></canvas> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+  </html>
