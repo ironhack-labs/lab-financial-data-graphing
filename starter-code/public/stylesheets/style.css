@@ -85,3 +85,7 @@ button:hover {
   margin-top: 10px;
   background: #9aff9a;
 }
+
+select {
+  text-align-last: center;
+}
