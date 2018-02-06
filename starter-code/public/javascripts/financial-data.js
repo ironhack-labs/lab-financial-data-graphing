@@ -12,19 +12,27 @@ function main () {
         const canvas = document.getElementById('my-chart');
         const ctx = canvas.getContext('2d');
 
-        // let keyArray = [];
-        // let valueArray = [];
-        let dataArray = [];
+        let keyArray = [];
+        let valueArray = [];
+        // let dataArray = [];
         for (let key in data) {
-        //   keyArray.push(key);
-        //   valueArray.push(data[key]);
-          dataArray.push({x: key, y: data[key]});
+          keyArray.push(key);
+          valueArray.push(data[key]);
+        //  dataArray.push({x: key, y: data[key]});
         }
 
-        console.log(dataArray);
+        // console.log(dataArray);
 
         const lineChart = new Chart(ctx, {
-          data: data,
+          data: {
+            labels: keyArray,
+            datasets: [{
+              label: 'My First dataset',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: valueArray
+            }]
+          },
           type: 'line',
           options: {
             scales: {
