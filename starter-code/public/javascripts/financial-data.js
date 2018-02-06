@@ -9,6 +9,19 @@ function main () {
   }
 
   function filterData (data) {
+    console.log('filter data console log');
+    // NOT WORKING -- is a work in progress
+    const startValue = document.getElementById('start').value;
+    const endValue = document.getElementById('end').value;
+    const filteredArr = [];
+    data.forEach(function (data) {
+      if (startValue >= data.key) {
+        filteredArr.push();
+      } else if (endValue <= data.key) {
+        filteredArr.push();
+      }
+    });
+
     return data;
   }
 
@@ -56,6 +69,10 @@ function main () {
       }
     });
   }
+
+  document.getElementById('btn-filter').onclick = function () {
+    filterData();
+  };
 
   getData()
     .then(filterData)

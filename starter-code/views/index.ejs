@@ -7,16 +7,16 @@
   <body>
     <h1><%= title %></h1>
     <form>
-      <div class="input-form">
-        <label for="fromdate">From:</label>
-        <input type="date" name="fromdate" id="fromdate"/>
+      <div class="input-start">
+        <label for="start">From:</label>
+        <input type="date" name="start" id="start"/>
       </div>
-      <div class="input-form">
-        <label for="todate">To:</label>
-        <input type="date" name="todate" id="todate"/>
+      <div class="input-end">
+        <label for="end">To:</label>
+        <input type="date" name="end" id="end"/>
       </div>
       <div class="btn-form">
-        <button>Filter</button>
+        <button id="btn-filter">Filter</button>
       </div>
     </form>
     <canvas id="myChart" width="400" height="400"></canvas>
