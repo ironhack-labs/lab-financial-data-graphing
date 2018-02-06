@@ -1,54 +1,50 @@
 //Globals vars
 var ctx = document.getElementById("myChart").getContext('2d');
-let dateProof;
 
-//HTTP request
-axios({
-  //"The HTTP method (verb) we are going to use"
-  method: 'get',
-  //"The url the server is going to receive."
-  url: '/',
-  //"URL parameters to be sent with the request" 
-  params: {ID: 12345}
-})
-.then(response => {
-  //Here we can do whatever we want with the response object
-  console.log('On fire');
-})
-.catch(err => {
-  //Here we catch the error and display it
-  console.log(err);
-})
+let apiUrl = "https://api.coindesk.com/v1/bpi/historical/close.json";
+let dateFrom = document.getElementById('dateFrom');
+let dateTo = document.getElementById('dateTo');
+let prueba = document.getElementById('prueba');
 
-axios.get('/')
-  .then((response) => {
-
-    dateProof = response.headers.date;
-    data.datasets[0].label = response.headers.date;
-    console.log("asignamos valor" + data.datasets[0].label);
-    
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: data,
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
+//function getData() {
+        axios.get(apiUrl + "?start=" + dateFrom.value + "&end=" + dateTo.value)
+        //axios.get(apiUrl)
+        .then((response) => {
+            
+            //console.log(JSON.stringify(response.data.bpi));
+            console.log(Object.values(response.data.bpi).map((x) => {return x/1000}));
+            data.datasets[0].data = Object.values(response.data.bpi).map((x) => {return x/1000});
+            var myChart = new Chart(ctx, {
+              type: 'bar',
+              data: data,
+              options: {
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero:true
+                          }
+                      }]
                   }
-              }]
-          }
-      }
-    });
+              }
+            });
 
 
-});
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+//}
+
+//var button = document.getElementById("buttonStart");
+//button.addEventListener("click", getData);
+
 
 
 var data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
   datasets: [{
-      label: '# of Votes proof',
+      label: 'Historical BPI data',
       data: [12, 19, 3, 5, 2, 3],
       backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
