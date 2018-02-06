@@ -1,10 +1,13 @@
 
+const startDate = document.getElementById('start-date');
+const endDate = document.getElementById('end-date');
+
 const coinApi = axios.create({
-  baseURL: 'http://api.coindesk.com/v1/bpi/historical/close.json'
+  baseURL: `https://api.coindesk.com/v1/bpi/historical/close.json`
 })
 
-function getCoinInfo(id) {
-  coinApi.get(id)
+function getCoinInfo() {
+  axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${endDate.value}`)
         .then(response => {
 
         createChart(Object.keys(response.data.bpi), Object.values(response.data.bpi))
@@ -24,8 +27,11 @@ div.appendChild(coinBtn);
 document.getElementById('main').appendChild(div);
 
 document.getElementById("coin-btn").onclick = function (){
-getCoinInfo('')
+ getCoinInfo('')
 };
+
+//startDate.addEventListener('change', getCoinInfo);
+endDate.addEventListener('change', getCoinInfo)
 
 
 function createChart(xValues, yValues) {
