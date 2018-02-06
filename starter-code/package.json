@@ -6,11 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "lodash": "^4.17.5",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
   }
