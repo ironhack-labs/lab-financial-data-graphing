@@ -12,6 +12,17 @@ function main () {
         const canvas = document.getElementById('my-chart');
         const ctx = canvas.getContext('2d');
 
+        // let keyArray = [];
+        // let valueArray = [];
+        let dataArray = [];
+        for (let key in data) {
+        //   keyArray.push(key);
+        //   valueArray.push(data[key]);
+          dataArray.push({x: key, y: data[key]});
+        }
+
+        console.log(dataArray);
+
         const lineChart = new Chart(ctx, {
           data: data,
           type: 'line',
