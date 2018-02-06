@@ -32,11 +32,11 @@ function createChart(xValues, yValues) {
   
   const ctx = document.getElementById("myChart").getContext('2d');
   const myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
       data: {
         labels: xValues,
         datasets: [{
-        label: '# of Votes',
+        label: 'Price of Bitcoin',
           data: yValues,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
