@@ -5,12 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Holo</h1>
+    <h1>Bitcoins</h1>
     <p>Welcome to my chart</p>
 
+    <br><br>
+    <p>Filter by date:</p>
+    <label for="from">From</label>
+    <input id="from" type="date">
+
+    <label for="to"> to </label>
+    <input id="to" type="date">
+
     <canvas id="myChart" width="800" height="400"></canvas>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
