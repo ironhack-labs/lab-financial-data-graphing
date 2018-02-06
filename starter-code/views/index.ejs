@@ -6,15 +6,17 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <h2>Filter</h2>
     <form>
-      <div>
+      <div class="input-form">
         <label for="fromdate">From:</label>
         <input type="date" name="fromdate" id="fromdate"/>
       </div>
-      <div>
+      <div class="input-form">
         <label for="todate">To:</label>
         <input type="date" name="todate" id="todate"/>
+      </div>
+      <div class="btn-form">
+        <button>Filter</button>
       </div>
     </form>
     <canvas id="myChart" width="400" height="400"></canvas>

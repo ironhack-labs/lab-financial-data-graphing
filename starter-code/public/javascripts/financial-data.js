@@ -4,42 +4,21 @@ function main () {
   });
 
   function getData (id) {
-    coinDeskApi.get(id)
-      .then(response => {
-        // separate key and value into different arrays
-        const data = getSeparateData(response.data.bpi);
-        const xData = data[0];
-        const yData = data[1];
-
-        // create the chart
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: xData,
-            datasets: [{
-              label: 'Bitcoin Price Index',
-              data: yData,
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true
-                }
-              }]
-            }
-          }
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    return coinDeskApi.get(id)
+      .then(response => response.data.bpi);
   }
 
-  function getSeparateData (data) {
+  function filterData (data) {
+    return data;
+  }
+
+  function renderData (data) {
+    const xData = data[0];
+    const yData = data[1];
+    buildChart(xData, yData);
+  }
+
+  function prepareData (data) {
     const data1 = [];
     const data2 = [];
 
@@ -54,6 +33,36 @@ function main () {
     return [data1, data2];
   }
 
-  getData();
+  function buildChart (x, y) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: x,
+        datasets: [{
+          label: 'Bitcoin Price Index',
+          data: y,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  getData()
+    .then(filterData)
+    .then(prepareData)
+    .then(renderData)
+    .catch((err) => {
+      console.error(err);
+    });
 }
 window.onload = main;
