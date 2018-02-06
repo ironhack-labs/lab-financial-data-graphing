@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="POST" action="/charts/bitcoin">
+        <label for="start"> From </label>
+        <input type="date" id="start" placeholder="01.12.2017" ></input>
+        <label for="end"> to </label>
+        <input type="date" id="end" placeholder="31.12.2017" ></input>
+        <button type="submit" id="submitButton">Go</button>
+    </form>
+    
+    <button id="coinButton">Get Coin Info!</button>
+
+    <canvas id="my-chart" width="400" height="400"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="javascripts/financial-data.js" type="text/javascript"></script>
+</body>
+</html>
