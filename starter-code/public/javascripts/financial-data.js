@@ -4,8 +4,8 @@ $(document).ready(() => {
     let currency = $('.select-currency').val();
     //filter
     $('.filter-btn').click(() => {
-        var dateIn = $('#dateA').val(); 
-        var dateOut = $('#dateB').val(); 
+        let dateIn = $('#dateA').val(); 
+        let dateOut = $('#dateB').val(); 
         let filteredUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${dateIn}&end=${dateOut}`;
         getChart(filteredUrl);
         $('.reset-btn').show();
@@ -18,7 +18,7 @@ $(document).ready(() => {
     //select currency
     $(".select-currency").change(function() {
         currency = $(".select-currency").val();
-        getChart(baseUrl+'?currency='+currency); 
+        getChart(`${baseUrl}?currency=${currency}`); 
     });
     //init chart
     getChart(baseUrl);
