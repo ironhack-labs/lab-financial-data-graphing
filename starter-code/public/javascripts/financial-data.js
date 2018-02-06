@@ -1,6 +1,12 @@
 const baseURL =  'https://api.coindesk.com/v1/bpi/historical/close.json'
 let ctx = document.getElementById("myChart").getContext('2d');
 
+// document.getElementById("send").onclick = function(){
+//     if((document.getElementById("start")) == undefined || document.getElementById("end") == undefined){
+//         const baseURL =  'https://api.coindesk.com/v1/bpi/historical/close.json'
+//     }else{
+//         baseURL =  `https://api.coindesk.com/v1/bpi/historical/close.json?start=${document.getElementById("start")}&end=${document.getElementById("end")}`
+//     }
 axios.get(baseURL)
     .then(response => {
         let myChart = new Chart(ctx, {
@@ -23,3 +29,4 @@ axios.get(baseURL)
             }
         });
     })
+}
