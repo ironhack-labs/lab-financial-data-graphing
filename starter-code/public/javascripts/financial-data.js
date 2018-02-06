@@ -1,52 +1,27 @@
-axios
-  .get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then(response => {
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myChart = new Chart(ctx, {
+var update = ()=>{
+    let start = $('#start').val();
+    let end = $('#end').val();
+    let value = $('#value').val();
+
+axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${value}`).then(response => {
+    let ctx = document.getElementById("myChart").getContext("2d");
+    let datas = response.data.bpi;
+    let min = Math.min.apply(null, Object.values(datas));
+    let max = Math.max.apply(null, Object.values(datas));
+    let myChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: Object.keys(response.data.bpi),
-        datasets: [
-          {
-            label: "# of Votes",
-            data: Object.values(response.data.bpi),
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
-            ],
-            borderColor: [
-              "rgba(255,99,132,1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
-            ],
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
-        }
-      }
-    });
+        labels: Object.keys(datas),
+        datasets: [{label: "Bitcoins ฿",data: Object.values(datas)}]},});
+      $('#min').empty().append(min,value);
+      $('#max').empty().append(max,value);
   })
   .catch(err => {
     console.error(err);
   });
+}
 
-
-
-
+$(document).ready(update);
+$('#start').change(update);
+$('#end').change(update);
+$('#value').change(update);

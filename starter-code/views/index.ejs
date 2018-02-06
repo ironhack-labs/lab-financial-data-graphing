@@ -6,10 +6,23 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <input type="date"></input>
+    <div>
+      <input type="date" id="start" class="inputs" value="2016-09-01"></input>
+      <input type="date" id="end" class="inputs" value="2017-06-01"></input>
+      <select id="value">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div class="right">
+      <h2>Min value</h2>
+      <p id="min"></p>
+      <h2>Max value</h2>
+      <p id="max"></p>
+    </div>
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
