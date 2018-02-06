@@ -28,7 +28,7 @@ function main () {
             labels: keyArray,
             datasets: [{
               label: 'My First dataset',
-              backgroundColor: 'rgb(255, 99, 132)',
+              //   backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
               data: valueArray
             }]
