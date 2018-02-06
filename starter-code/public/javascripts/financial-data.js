@@ -8,6 +8,23 @@ function main () {
     coinApi.get(id)
       .then(response => {
         console.log(response.data);
+        const data = response.data.bpi;
+        const canvas = document.getElementById('my-chart');
+        const ctx = canvas.getContext('2d');
+
+        const lineChart = new Chart(ctx, {
+          data: data,
+          type: 'line',
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
       })
       .catch(err => {
         console.error(err);
