@@ -27,7 +27,7 @@ document.getElementById("from").addEventListener('input', function (evt) {
   filterChart()
 });
 document.getElementById("to").addEventListener('input', function (evt) {
-  fromData = document.getElementById("to").value;
+  toData = document.getElementById("to").value;
   filterChart()
 });
 
