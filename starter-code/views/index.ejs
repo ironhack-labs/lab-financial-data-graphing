@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <div>
+    Sarting Date:
+    <input type="text" name="startingDate" id="startingDate">
+    <br> Ending Date:
+    <input type="text" name="startingDate" id="endingDate">
+  </div>
+
+  <button id="coinButton">Get bitcoins!</button>
+
+  <canvas id="myChart" width="400" height="400"></canvas>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>
