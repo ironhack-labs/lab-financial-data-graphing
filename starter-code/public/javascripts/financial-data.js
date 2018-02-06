@@ -15,8 +15,12 @@ $(document).ready(() => {
               {
                 label: 'Bitcoin Stock Liner',
                 data: Object.values(promise.data.bpi),
-                backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-                borderColor: ['rgba(255,99,132,1)'],
+                backgroundColor: [
+                  '#' + (((1 << 24) * Math.random()) | 0).toString(16),
+                ],
+                borderColor: [
+                  '#' + (((1 << 24) * Math.random()) | 0).toString(16),
+                ],
                 borderWidth: 1,
               },
             ],
@@ -26,5 +30,10 @@ $(document).ready(() => {
       .catch(err => {
         console.error(err);
       });
+      document.getElementsByClassName('bth').onclick = function() {
+        $( ".btn" ).toggleClass( USD, CNY );
+        let className = document.getElementsByClassName("btn").className;
+        baseURL = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${className}`;
+     }​;​
   });
 });

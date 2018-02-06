@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+button {
+  color: "'#' + (((1 << 24) * Math.random()) | 0).toString(16)";
+}
