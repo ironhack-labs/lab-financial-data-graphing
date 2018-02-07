@@ -7,10 +7,28 @@ a {
   color: #00B7FF;
 }
 
-div{
+.inline{
   display: inline-block;
 }
 
 .right{
-  float:right;
+  position: absolute;
+  left: 700px;
+  top:150px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#min{
+  color: red;
+}
+
+#max{
+  color: green;
+}
+
+#chartContainer{
+  height: 600px;
+  width: 600px;
 }

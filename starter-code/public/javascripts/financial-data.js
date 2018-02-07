@@ -13,9 +13,9 @@ axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&
       data: {
         labels: Object.keys(datas),
         datasets: [{label: "Bitcoins ฿",data: Object.values(datas)}]},});
-      $('#min').empty().append(min,value);
-      $('#max').empty().append(max,value);
-  })
+      $('#min').empty().append(min, value);
+      $('#max').empty().append(max, value);
+    })
   .catch(err => {
     console.error(err);
   });
