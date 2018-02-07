@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+	<title>
+		<%= title %>
+	</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
+	<link rel='stylesheet' href='/stylesheets/style.css' /> 
+</head>
+
+<body>
+	<h1>
+		<%= title %>
+	</h1>
+	<small>Welcome to the
+		<%= title %> Exercise
+	</small>
+	<div class="min-max-values-box">
+		<div class="max-box">Max val in range: <span></span></div>
+		<div class="min-box">Min val in range: <span></span></div>
+	</div>
+	<div class="wrapper">
+		<canvas id="chart"></canvas>
+	</div>
+	<div class="half-wrapper">
+		<small>Select a date range to filter</small>
+		<span><input id="dateA" type="date"></span>
+		<span><input id="dateB" type="date"></span>
+		<button class="filter-btn">Render chart</button>
+		<button class="reset-btn" style="display:none">Reset chart</button>
+	</div>
+	<div class="half-wrapper">
+		<small>Actual currency</small>
+		<select name="currency" class="select-currency">
+			<option value="USD" selected>United States Dollar</option>
+			<option value="EUR">Euro</option>
+			<option value="JPY">Japanese Yen</option>
+			<option value="CNY">Chinese Yuan</option>
+			<option value="GBP">British Pound Sterling</option>
+			<option value="AUD">Australian Dollar</option>
+		</select>
+	</div>
+</body>
+<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>

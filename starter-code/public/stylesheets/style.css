@@ -1,8 +1,91 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
-
+h1 {
+  margin-bottom: 0;
+}
 a {
   color: #00B7FF;
+}
+.min-max-values-box {
+  width: 300px;
+  position: absolute;
+  border: 1px solid rgb(184, 184, 184);
+  padding: 13px 20px 20px;
+  right: 60px;
+  top: 70px;
+  font-size: 11px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.min-max-values-box span {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.wrapper {
+  margin-top: 50px;
+}
+
+.half-wrapper {
+  margin-top: 20px;
+  width: 50%;
+  float: left;
+  padding: 0 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.half-wrapper small {
+  display: block;
+  font-size: .6em;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.half-wrapper input,.half-wrapper select {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  border: 1px solid rgb(184, 184, 184);
+  height: 35px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  letter-spacing: 10px;
+  font-weight: 900;
+}
+.half-wrapper select {
+  letter-spacing: 7px;
+  background: white;
+  height: 38px;
+}
+button {
+  max-width: 100%;
+  background: #a1eef7;
+  border: 1px solid #a2cdd2;
+  border-radius: 4px;
+  height: 40px;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  color: rgb(58, 58, 58);
+  letter-spacing: 10px;
+  margin: 0 auto;
+  display: block;
+  font-size: 9px;
+  min-width: 225px;
+}
+
+button:hover {
+  background: rgb(248, 248, 248);
+  border-color: #a2cdd2;
+}
+
+.reset-btn {
+  margin-top: 10px;
+  background: #9aff9a;
+}
+
+select {
+  text-align-last: center;
 }
