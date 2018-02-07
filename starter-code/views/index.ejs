@@ -7,6 +7,24 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <label>Date Start</label>
+    <input id='start' type="date">
+    <label>Date End</label>
+    <input id='end' type="date">
+  </br>
+    <button id="send">Send</button>
+
+   </br>
+  </br>
+    <div>
+    <canvas id="myChart" width="300" height="300"></canvas>
+  </div>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="javascripts/financial-data.js" charset="utf-8"></script>
+  
+
+
+  
 </html>
