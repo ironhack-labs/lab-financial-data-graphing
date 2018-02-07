@@ -13,16 +13,21 @@
     <%= title %>
   </h1>
   From:
-  <input id="start" type="date" name="start" value="2018-01-05"> 
-  To:
-  <input id="end" type="date" name="end" value="2018-02-06">
+  <input id="start" type="date" name="start"> To:
+  <input id="end" type="date" name="end">
   <button id="button"> Fiter by dates</button>
+  
+  <select id="currency">
+    <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      </select>
+
   <canvas id="myChart" width="600" height="315"></canvas>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </html>

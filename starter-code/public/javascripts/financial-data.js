@@ -1,33 +1,15 @@
 
-// var starting = document.getElementById("start")
-// // console.log(start.value)
-// //console.log(e)
-// console.log(starting.value);
-// var ending = document.getElementById("end")
-// // console.log(start.value)
-// //console.log(e)
-// console.log(ending.value);
-
-
-
-//var value = addEventListener();
-
-//startget = start.value;
-
 document.getElementById("button").onclick = () => {
-    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${(document.getElementById("start").value)}&end=${(document.getElementById("end")).value}`
-
+    console.log(document.getElementById("start").value);
+    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${document.getElementById("start").value}&end=${(document.getElementById("end").value)}&currency=${document.getElementById("currency").value}`
     axios
         .get(url)
         .then((response) => {
-
-            var fechas = Object.keys(response.data.bpi)
-            //console.log(fechas)
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: fechas,
+                    labels: Object.keys(response.data.bpi),
                     datasets: [{
                         label: 'Bitcoin price index',
                         data: Object.values(response.data.bpi)
@@ -51,9 +33,7 @@ document.getElementById("button").onclick = () => {
                     }
                 }
             });
-
         })
-
         .catch((error) => {
             console.log(error);
         })
