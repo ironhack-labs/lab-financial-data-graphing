@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-  </body>
+    <button id="swButton">Get SW</button>
+    <input id="date1" type="date">
+    <input id="date2" type="date">
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+
+        document.getElementById("swButton").onclick = function () {
+            financialdata(2);
+        }
+        
+    </script>
+ 
+ 
+ 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+   
+</body>
+  </html>
+
