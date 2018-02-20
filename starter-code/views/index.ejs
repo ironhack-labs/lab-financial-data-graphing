@@ -7,6 +7,24 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <select id="currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="MXN">MXN</option>
+  <option value="PEN">PEN</option>
+    </select>
+      <input id="startDate" type="date">
+      <input id="endDate" type="date">
+      <label for="minValue">Minimum Value</label>
+      <input id="minValue" type="number">
+      <label for="maxValue">Maximum Value</label>
+      <input id="maxValue" type="number">
+      <button id="cryptoButton">Check Prices</button>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
+  <script src="/javascripts/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js" ></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
