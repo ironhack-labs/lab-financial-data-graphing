@@ -1,5 +1,3 @@
-var link = `http://api.coindesk.com/v1/bpi/historical/close.json`;
-
 const coinApi = axios.create({
   baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json`
 });
@@ -9,9 +7,18 @@ function getFinancialInfo(id) {
     .get(id)
     .then(response => {
       var array = Object.values(response.data.bpi);
+      array = array.map(num => {
+        return parseFloat(num);
+      });
+      console.log(array);
+      var max = Math.max(...array);
+      var min = Math.min(...array);
       var label = array.map((value, i) => {
         return i + 1;
       });
+
+      document.getElementById(`js-max-value`).innerHTML = max;
+      document.getElementById(`js-min-value`).innerHTML = min;
 
       new Chart(document.getElementById("myChart"), {
         type: "line",
@@ -39,6 +46,26 @@ function getFinancialInfo(id) {
     });
 }
 
-window.onload = function() {
+function addDate(string, link) {
+  var startDate = document.getElementById(string).value;
+  console.log(startDate);
+  var bool = false;
+  if (startDate !== "") {
+    if (string === "dateFrom") {
+      link += `?start=${startDate}`;
+    } else {
+      if (link !== `http://api.coindesk.com/v1/bpi/historical/close.json`)
+        link += `&end=${startDate}`;
+    }
+    bool = true;
+  }
+  return link;
+}
+
+document.getElementById("draw").onclick = function() {
+  var link = `http://api.coindesk.com/v1/bpi/historical/close.json`;
+  link = addDate("dateFrom", link);
+  link = addDate("dateTo", link);
+  console.log(link);
   var financialInfo = getFinancialInfo(link);
 };
