@@ -66,6 +66,8 @@ document.getElementById("draw").onclick = function() {
   var link = `http://api.coindesk.com/v1/bpi/historical/close.json`;
   link = addDate("dateFrom", link);
   link = addDate("dateTo", link);
+  var currency = document.getElementById("currency").value;
+  link += `?currency=${currency}`;
   console.log(link);
   var financialInfo = getFinancialInfo(link);
 };
