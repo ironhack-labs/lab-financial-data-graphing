@@ -7,15 +7,13 @@ function getFinancialInfo(id) {
     .get(id)
     .then(response => {
       var array = Object.values(response.data.bpi);
+      var label = Object.keys(response.data.bpi);
       array = array.map(num => {
         return parseFloat(num);
       });
       console.log(array);
       var max = Math.max(...array);
       var min = Math.min(...array);
-      var label = array.map((value, i) => {
-        return i + 1;
-      });
 
       document.getElementById(`js-max-value`).innerHTML = max;
       document.getElementById(`js-min-value`).innerHTML = min;
