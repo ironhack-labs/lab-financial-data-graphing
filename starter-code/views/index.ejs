@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- added link for to enable ajax  -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="fleft">
+    <h2>Filters</h2>
+
+    <div id="date-selector">
+      <label for="dateFrom">From:</label>
+      <input type="date" id="dateFrom" name="dateFrom">
+      <label for="dateTo">To:</label>
+      <input type="date" id="dateTo" name="dateTo">
+    </div>
+
+    <div id="currency-selector">
+      <label for="currency">Currency:</label>
+      <select name="currency" id="currency">
+        <option value="USD" selected>US Dollar ($)</option>
+        <option value="EUR">Euros (€)</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="max-min-values" class="fright">
+    <h2>Values</h2>
+
+    <p>Max:
+      <span class="js-max-value"></span>
+    </p>
+    <p>Min:
+      <span class="js-min-value"></span>
+    </p>
+  </div>
+  <div class="clear"></div>
+
+  <canvas id="myChart">
+
+  </canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+  <script src="/javascripts/financial-data.js"></script>
+</body>
+
 </html>
