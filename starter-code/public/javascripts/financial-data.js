@@ -47,10 +47,9 @@ function getCoinDesk(startDate, endDate, currency){
   }
 });
 
-var min = Math.min.apply(null, (Object.values(response.data.bpi)))
-var max = Math.max.apply(null, (Object.values(response.data.bpi)))
-document.getElementsByClassName('js-max-value')[0].innerHTML = max
-document.getElementsByClassName('js-min-value')[0].innerHTML = min
+//Add Min and Max Prices in Chart to HTML
+document.getElementsByClassName('js-max-value')[0].innerHTML = Math.max.apply(null, (Object.values(response.data.bpi)))
+document.getElementsByClassName('js-min-value')[0].innerHTML = Math.min.apply(null, (Object.values(response.data.bpi)))
 })
   .catch(err => {
     console.error(err)
