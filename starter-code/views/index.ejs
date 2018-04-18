@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>BITCOIN</h1>
-    <p>Bitcoin historical price</p>
-    <canvas id="myChart"></canvas>
-  
-  </body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  
-  <script type="text/javascript" src="../public/javascripts/financial-data.js"></script>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>BITCOIN</h1>
+  <p>Bitcoin historical price</p>
+
+  <form action="">
+    <input id="start" type="date" name="start">
+    <input id="end" type="date" name="end">
+    <input id="button" type="button">
+
+  </form>
+
+  <canvas id="myChart"></canvas>
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="../public/javascripts/financial-data.js"></script>
+
 </html>
