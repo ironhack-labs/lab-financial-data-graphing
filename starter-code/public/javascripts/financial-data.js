@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let values;
 
-  // axios.get(api_url)
-  //   .then(res => (values = res.data.bpi))
-  //   .then(closes => drawChart(closes));
+  axios.get(api_url)
+    .then(res => (values = res.data.bpi))
+    .then(closes => drawChart(closes));
 
   const drawChart = data => {
     console.log(values)
