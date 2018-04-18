@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Financial Data</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Financial Data</h1>
+    <p>Welcome to Bitcoin charts</p>
+    <canvas id="myChart"></canvas>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/Users/pedropiuryblanquez/Desktop/ironhack/Week5/Day3/lab-financial-data-graphing/starter-code/public/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
