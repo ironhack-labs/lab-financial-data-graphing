@@ -1,8 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+h1, h3 {
+  color: azure; 
+}
+h1 {
+  font-weight: bold;
+  font-size: 4rem;
+  text-shadow: 1px 1px black;
+  margin-bottom: 5px;
+}
+h3  {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+p {
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+.header__container {
+  width: 100%;
+  min-height: 180px;
+  background-color: rgb(187, 52, 52);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid rgba(0,0,0,0.4)
+}
+.inner__container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+.inner__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+} 
+#button {
+  width: 70px;
+   height: 20px;
+   border: none;
+   background: rgb(187, 52, 52);
+   color: azure;
+   border-radius: 3px;
 }
