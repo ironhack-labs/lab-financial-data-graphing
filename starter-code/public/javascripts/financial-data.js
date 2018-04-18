@@ -38,7 +38,8 @@ const drawChart = data => {
   const min = Math.min.apply(null, prices);
   const max = Math.max.apply(null, prices);
 
-  maxMin(min, max);
+  let currency = document.getElementById("currency").value;
+  maxMin(min, max, currency);
 
   let ctx = document.getElementById("myChart").getContext("2d");
   let chart = new Chart(ctx, {
@@ -57,6 +58,8 @@ const drawChart = data => {
   });
 };
 
-const maxMin = (min, max) => {
-  document.getElementById("max-min").innerHTML = `MIN: ${min}, MAX: ${max}`;
+const maxMin = (min, max, currency) => {
+  document.getElementById(
+    "max-min"
+  ).innerHTML = `min: ${min} ${currency} max: ${max} ${currency}`;
 };

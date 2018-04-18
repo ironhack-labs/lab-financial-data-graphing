@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+#max-min{
+  float: right;
+  width: 150px
+}
+
+#wrapper {
+  padding: 15px;
+
+}
