@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LABCOINBASE</title>
+</head>
+<body>
+  <h1>LABCOINBASE</h1>
+
+  <h4>Filter</h4>
+  <label for="first-date">From: </label>
+  <input type="date" id="first-date" name="first-date" value="2018-02-02">
+
+  <label for="second-date">To: </label>
+  <input type="date" id="second-date" name="second-date" value="2018-03-03">
+
+  <button id="update">Update</button>
+
+  <select name="currency" id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+
+      <div class="col-sm-8">
+        <h5>Max:
+          <span id="max"></span>
+        </h5>
+        <h5>Min:
+          <span id="min"></span>
+        </h5>
+      </div>
+
+  <canvas id="myChart"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
