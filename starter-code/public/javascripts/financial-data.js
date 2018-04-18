@@ -1,12 +1,28 @@
 
-const api_url = `http://api.coindesk.com/v1/bpi/historical/close.json`;
 let values;
-axios
-  .get(api_url)
-  .then(res => values = res.data.bpi
-  )
 
-   .then(closes => drawChart(closes));
+function getValues() {
+
+var from = document.getElementById("from").value;
+  var to = document.getElementById("to").value;
+  const api_url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}`;
+
+
+  axios
+    .get(api_url)
+    .then(res => values = res.data.bpi
+    )
+  
+     .then(closes => drawChart(closes));
+  }
+  getValues();
+
+document.getElementById("update-value").addEventListener("click", ()=>{
+
+ getValues();
+})
+
+
 
 const drawChart = data => {
   console.log(values)
