@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bitcoin Hodl Gang</title>
+  <link rel='stylesheet' href='style.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+
+  
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-sm-6">
+      <h1>Bitcoin Fever</h1>
+      <p>Welcome to the BTC Gang</p>
+    </div>
+    <div class="col-sm-8">
+      <h5>Max: <span id="max"></span></h5>
+      <h5>Min: <span id="min"></span></h5>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-sm-6">
+      <label for="dateFrom">Initial Date</label>
+      <input type="date" name="dateFrom" id="dateFrom">
+      <label for="dateTo">End Date</label>      
+      <input type="date" name="dateTo" id="dateTo">
+      <select name="currency" id="currency">
+        <option value="USD">Dólares Americanos</option>
+        <option value="EUR">Euros Europeos</option>
+      </select>
+      <button id="btn-Update" class="btn btn-warning">Update</button>
+    </div>
+  </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="financial-data.js" charset="utf-8"></script>
+
+
+</html>
