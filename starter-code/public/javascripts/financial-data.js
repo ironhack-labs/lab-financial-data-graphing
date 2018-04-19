@@ -16,10 +16,16 @@ const axiosF = url => {
     api_url = `http://api.coindesk.com/v1/bpi/historical/close.json`;
     let from = document.getElementById("from").value;
     let to = document.getElementById("to").value;
-    setTimes(from, to);
-    let currency = document.getElementById("currency").value;
-    setCurrency(currency);
-    axiosF(api_url);
+    if(setTimes(from, to)){
+        document.getElementById("alert").innerHTML = " FROM < TO!!!!"
+    }else{
+      document.getElementById("alert").innerHTML = ""
+      setTimes(from, to);
+      let currency = document.getElementById("currency").value;
+      setCurrency(currency);
+      axiosF(api_url);
+    }
+  
   });
 };
 
@@ -28,7 +34,14 @@ const setCurrency = currency => {
 };
 
 const setTimes = (from, to) => {
-  api_url += `?start=${from}&end=${to}`;
+  if(from < to){
+    return false
+  }else{
+    
+    api_url += `?start=${from}&end=${to}`;
+    return true
+  }
+  
 };
 
 const drawChart = data => {
