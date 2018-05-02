@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>BitCoin Prices</h1>
+    <p>Welcome to {{title}}</p>
+    <span>From: </span><input id="from" type="date" max="2018-05-02" min="2013-05-02">
+    <span>To: </span><input id="to" type="date" max="2018-05-02" min="2013-05-02">
+    <input id="submit" type="submit">
+
+    <canvas id="myChart" width="500" height="150"></canvas>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+   
+  </body>
+   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html>
