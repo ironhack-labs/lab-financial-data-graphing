@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+    <input type="date" id="start-date">
+    <input type="date" id="end-date">
+    <select name="" id="currency">
+      <option value="USD">US Dollar</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <button id="submit">Submit</button>
+    <div id="min-max">
+      <strong>MIN value:</strong> <span id="min-value"></span>
+      <br>
+      <strong>MAX value:</strong> <span id="max-value"></span>
+    </div>
+    <canvas id="bitcoin-graph"></canvas>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html>
