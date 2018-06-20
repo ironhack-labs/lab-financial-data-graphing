@@ -8,13 +8,10 @@ document.getElementById('submit').onclick = function() {
   let curr = document.getElementById('currency').value;
   let currency = 'currency=' + curr;
   let query = start + end;
-  console.log('QUERY: ', query);
 
   bitcoinInfo.get(query = "")
   .then(response => {
-    console.log(response.data);
     generateGraph( response.data );
-
     document.getElementById('min-value').innerText = Math.min.apply(null, Object.values(response.data.bpi) ) + ` ${curr}`;
     document.getElementById('max-value').innerText = Math.max.apply(null, Object.values(response.data.bpi) ) + ` ${curr}`;
   })
@@ -32,7 +29,6 @@ function generateGraph( data ) {
       datasets: [
         {
           label: "Bitocoin value",
-          //backgroundColor: '',
           borderColor: 'rgb(255, 99, 132)',
           data: stockPrice,
         }
