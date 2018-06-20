@@ -24,7 +24,7 @@ build/Release
 
 # Dependency directory
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
-strater-code/node_modules
+starter-code/node_modules
 
 # Debug log from npm
 npm-debug.log
