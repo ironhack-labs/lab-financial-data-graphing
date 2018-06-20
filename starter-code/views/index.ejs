@@ -6,7 +6,30 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <canvas id="myChart"></canvas>
     <p>Welcome to <%= title %></p>
+
+    <input type="date" id="startDate">
+    <input type="date" id="endDate">
+    
+
+
+    <select id="currencyType">
+      <option value="" selected>select your Currency</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+    <button id="filterButton">Get Data!</button>
+    
+    <br>
+    <strong>The max value of this crytocoin in the period is</strong>
+    <p id="max-value"></p>
+    <strong>The min value of this crytocoin in the period is</strong>
+    <p id="min-value"></p>
+
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
