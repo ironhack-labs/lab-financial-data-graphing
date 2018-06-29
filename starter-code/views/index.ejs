@@ -2,11 +2,38 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <label>Currency: </label>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="CNY">CNY (Yuan)</option>
+      <option value="BTC">BTC</option>
+      <option value="CUP">CUP (Cuban Peso)</option>
+      <option value="VEF">VEF (VZLA Bolivar)</option>
+    </select>
+    <input type="button" onclick="updateCurrency()" value="Update Currency">
+
+    <p>Min: <span id="min"></span></p>
+    <p>Max: <span id="max"></span></p>
+    <br>
+
+    <label>Start Date:</label>
+    <input id="start-date" type="date" min="2018-05-28" max="2018-06-27"><br>
+
+    <label>End Date: </label>
+    <input id="end-date" type="date" min="2018-05-28" max="2018-06-27">
+
+    <input type="button" id="btn" value="update" onclick="updateDate()">
+
+    <canvas id="chart"></canvas>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
