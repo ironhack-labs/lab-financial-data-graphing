@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <h1>Bitcoin Chart</h1>
+
+
+<div id="chart-container">
+  <input type="date" name="starting-date" id="start">
+  <input type="date" name="ending-date" id="end">
+
+<select id="currency">
+  <option value="MXN">Pesos</option>
+  <option value="JPY">Yen</option>
+  <option value="USD">US Dollars</option>
+  <option value="GTQ">Quetzales</option>
+</select>
+
+<input type="submit" id="button">
+
+    <canvas id="myChart" width="256" height="256"></canvas>
+</div>
+
+  </body>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html>
