@@ -39,6 +39,8 @@ $(() => {
     console.log('stock data: ', stockData)
     let stockLabels = Object.keys(stockData);
     let stockPrice = Object.values(stockData);
+    $('#min-val').text(Math.min.apply(null, stockPrice))
+    $('#max-val').text(Math.max.apply(null, stockPrice))
     console.log(stockLabels, stockPrice)
     let ctx = document.getElementById("chart").getContext("2d");
     let chart = new Chart(ctx, {
