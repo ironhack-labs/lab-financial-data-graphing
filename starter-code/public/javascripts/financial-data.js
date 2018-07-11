@@ -1,4 +1,22 @@
 $(document).ready(function() {
+  let draw = function() {
+    let start = $("#start").val();
+    let end = $("#end").val();
+    let currency = $("#currency").val();
+
+    console.log(start);
+    console.log(end);
+    let data = axios
+      .get(
+        `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`
+      )
+      .then(function(data) {
+        chart(data.data);
+        console.log(data.data.bpi);
+      });
+  };
+
+  draw();
 
   $("#start").on("change", function() {
     draw();
@@ -8,20 +26,9 @@ $(document).ready(function() {
     draw();
   });
 
-  let draw = function() {
-    let start = $("#start").val();
-    let end = $("#end").val();
-    console.log(start);
-    console.log(end);
-    let data = axios
-      .get(
-        `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
-      )
-      .then(function(data) {
-        chart(data.data);
-        console.log(data.data.bpi);
-      });
-  };
+  $("#currency").on("change", function() {
+    draw();
+  });
 
   let chart = function(data) {
     var ctx = document.getElementById("myChart").getContext("2d");

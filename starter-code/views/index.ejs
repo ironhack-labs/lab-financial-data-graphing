@@ -10,19 +10,23 @@
 
 <body>
   <h1>
-    <%= title %>
+      Financial Data Graphing
   </h1>
-  <p>Welcome to
-    <%= title %>
-  </p>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script> From:
-  <input type="date" name="start" id="start" value="2018-06-01"> To:
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  From:
+  <input type="date" name="start" id="start" value="2018-06-01">
+  To:
   <input type="date" name="end" id="end" value="2018-07-01">
-  <canvas id="myChart" width="400" height="400"></canvas>
+  Currency:
+  <select name="" id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+  <canvas id="myChart" style="height:400px"></canvas>
 
 
 </body>
