@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1>Chart</h1>
+
+    <canvas id="myChart" width="1000" height="400"></canvas>
+    <br>
+    <br>
+    <form action="">
+      <input type="date" name="start_date" id="startDate">
+      <input type="date" name="end_date" id="endDate">
+      <select name="currency" id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <button id="boton">Reload</button>
+    </form>
+    <div>
+      <p id ='max'>Max</p>
+      <p id='min'>Min</p>
+    </div>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html>
