@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Bitcoin Price Index</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <h1>Bitcoin Price Index</h1>
+    <br>
+    <br>
+    <h3>Filters</h3>
+    <p>From: <input type="date" name="start" id="start" value="2018-06-11"></input></p>
+    <p>To: <input type="date" name="end" id="end" value="2018-07-11"></input></p>
+    <br>
+    <button id="btn">Search</button>
+    <canvas id="myChart"></canvas>
+
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
