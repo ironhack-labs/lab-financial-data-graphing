@@ -1,0 +1,24 @@
+  <html>
+  
+  <body>
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+
+    <label for="from">Start</label>
+    <input type="date" id="from">
+    <label for="to">End</label>
+    <input type="date" id="to">
+    <select name="currency" id="curr">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="MXN">MXN</option>
+    </select>
+    <button id="check">Check</button>
+
+    <canvas id="myChart"></canvas>
+
+    <script src="/javascripts/financialData.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </body>
+
+</html>
