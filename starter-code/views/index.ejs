@@ -7,6 +7,11 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <p>From date: </p><input type="date" id="fromDate">
+    <p>To date: </p><input type="date" id="toDate">
+    <canvas id="myChart" width="400" height="150"></canvas>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
