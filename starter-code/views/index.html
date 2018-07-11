@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BPI</title>
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+  </head>
+  <body>
+    
+<div id="flex">
+  <div>
+      <h2> Filter</h2>
+      <form action="" id="form">
+        From:<input type="date" id="from"> to:<input type="date" id="to">
+        Currency: <select name="currency" id="currency">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">EUR</option>
+    
+        </select>
+        <button>Search</button>
+      </form>
+  </div>
+  <div>
+    <h2>Values</h2>
+    <span id="max"></span>
+    <span id="min"></span>
+
+  </div>
+</div>
+  
+
+  <canvas id="char"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../public/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+</html>
