@@ -1,6 +1,14 @@
 $(document).ready(function() {
-  $("#send").click(function() {
-    console.log("hola");
+
+  $("#start").on("change", function() {
+    draw();
+  });
+
+  $("#end").on("change", function() {
+    draw();
+  });
+
+  let draw = function() {
     let start = $("#start").val();
     let end = $("#end").val();
     console.log(start);
@@ -13,7 +21,7 @@ $(document).ready(function() {
         chart(data.data);
         console.log(data.data.bpi);
       });
-  });
+  };
 
   let chart = function(data) {
     var ctx = document.getElementById("myChart").getContext("2d");
