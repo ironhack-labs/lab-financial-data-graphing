@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <legend>Choose trip dates</legend>
+
+  <div class="container">
+
+  <div class="row">
+    <div class="col col-sm-4">
+      <div>
+        <label for="start">Start</label>
+        <input type="date" id="start" name="trip" value="2018-01-01" onchange="pintarChart()">
+      </div>
+      <div>
+        <label for="end">End</label>
+        <input type="date" id="end" name="trip" value="2018-07-11" onchange="pintarChart()">
+
+        <select id="currency" name="currency" onchange="pintarChart()">
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+        </select>
+
+      </div>
+
+    </div>
+    <div class="col col-sm-5 offset">
+      <h4>Valores</h4>
+
+      <h5>Máximo:
+        <spam id="maximo">lorem ipsuum</spam>
+      </h5>
+      <h5>Mínimo:
+        <spam id="minimo">lorem ipsuum</spam>
+      </h5>
+
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+</body>
+
 </html>
