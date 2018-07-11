@@ -1,52 +1,64 @@
-let arrDate;
-let arrVal;
+document.getElementById("fromDate").addEventListener("input", saveDate);
+document.getElementById("toDate").addEventListener("input", saveDate);
+a();
 
-axios.get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then(res => {
-    console.log(res.data)
-    arrDate = Object.keys(res.data.bpi);
-    console.log(arrDate);
-    arrVal = Object.values(res.data.bpi);
-    console.log(arrVal);
-    //return arrDate, arrVal;
-  })
-  .catch(err => console.log(err));
+let str = "";
 
-let ctx = document.getElementById("myChart").getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: arrDate,
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
+function saveDate() {
+  //console.log(fromDate.value);
+  //console.log(toDate.value);
+
+  str = `?start=${fromDate.value}&end=${toDate.value}`;
+  a(str);
+}
+
+//console.log(str);
+
+function a(str = "") {
+  axios
+    .get(`http://api.coindesk.com/v1/bpi/historical/close.json${str}`)
+    .then(res => {
+      const arrDate = Object.keys(res.data.bpi);
+      const arrVal = Object.values(res.data.bpi);
+
+      let color = [];
+
+      for (let i = 0; i < arrVal.length; i++) {
+        color.push(
+          `rgb(${Math.floor(Math.random() * 254)},${Math.floor(
+            Math.random() * 254
+          )},${Math.floor(Math.random() * 254)})`
+        );
+      }
+
+      let ctx = document.getElementById("myChart").getContext("2d");
+
+      let myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: arrDate,
+          datasets: [
+            {
+              label: "Bitcoin o Qué asse",
+              data: arrVal,
+              backgroundColor: color,
+              borderColor: color,
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          scales: {
+            yAxes: [
+              {
                 ticks: {
-                    beginAtZero:true
+                  beginAtZero: false
                 }
-            }]
+              }
+            ]
+          }
         }
-    }
-});
-  
+      });
+    })
+    .catch(err => console.log(err));
+}
