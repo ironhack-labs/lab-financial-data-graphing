@@ -6,7 +6,25 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <p>Filters</p>
+    
+    <div>
+      From: <input type="date" id="start" value="2018-06-11">
+      To: <input type="date" id="end" value="2018-07-11">
+      Currency: 
+      <select id="currency" name="currency">
+        <option value="USD" selected>USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+
+    <p>Max: <span id="maxValue"></span></p>
+    <p>Min: <span id="minValue"></span></p>
+
+    <canvas id="myChart" width="400" height="150"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>
