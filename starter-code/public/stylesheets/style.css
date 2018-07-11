@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-container input {
+  margin-bottom: 10px;
+}
