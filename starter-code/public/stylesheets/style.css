@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+#canvas
+{
+  background-color: white;
+}
+
+h1{
+  text-align: center
+}
+
