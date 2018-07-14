@@ -3,10 +3,18 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <input id="from" type="date" placeholder="05/05/2018">
+    <input id="to" type="date">
+    <button id="getValues">Get the Values</button>
+    
+    <canvas id="myChart" width="400" height="200"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
