@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Bitcoin chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Bitcoin chart</h1>
+    
+    <!--<form action="/" method="POST">-->
+    <input type="date" name="bdayInitial" id="bdayInitial" min="2017-01-01">
+    <input type="date" name="bdayFinal" id="bdayFinal" max="2018-12-31">
+    <button id="filterButton">Filter by date</button>
+    <br>
+    <label for="changecurrency">Currency</label>
+    <select name="changecurrency" id="changecurrency" onchange="currencyChange()">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="MXN">MXN</option>
+    </select>
+  <!--</form>-->
+  <div class="row">
+    <div class="col-sm-8">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <h2>MAX</h2>
+        <br>
+        <h2 id="maxL"></h2>
+        <br>
+        <h2>MIN</h2>
+        <br>
+        <h2 id="minL"></h2>
+    </div>
+    
+  </div>
+   
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
