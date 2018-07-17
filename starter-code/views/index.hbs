@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+    <div>
+    <form method="post" action="/filtro" id="filtroform">
+      <label for="inputInicio">Fecha de incio</label>
+      <input name="inputInicio" placeholder="YYYY-MM-DD">
+      <label for="inputFin">Fecha de fin</label>
+      <input name="inputFin" placeholder="YYYY-MM-DD">
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+    <canvas id="myChart"></canvas>
+  </body>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html>
