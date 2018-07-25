@@ -6,7 +6,13 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h2>Filters</h2>
+    From <input id="date-from" type="date">
+    To <input id="date-to" type="date">
+    
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 </html>
