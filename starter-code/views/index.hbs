@@ -1,0 +1,24 @@
+<h1>Bitcoin price</h1>
+<br>
+<div class="container">
+  <div class="filters">
+    <h4>Filters</h4>
+    <label for="from">From:</label>
+    <input type="date" name="from" id="from">
+    <label for="to">To:</label>
+    <input type="date" name="to" id="to">
+    <br>
+    <br>
+    <select id="curr">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class=" values ">
+    <h4>Values</h4>
+    <p>Max: <span id="ammount-max"></span> <span class="currency"></span></p>
+    <p>Min: <span id="ammount-min"></span> <span class="currency"></span></p>
+  </div>
+</div>
+
+<canvas id="myChart" width="1200 " height="600 "></canvas>
