@@ -1,0 +1,20 @@
+{{!--
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+<label for="from">From:</label>
+<input class="from" type="date" name="from">
+<label for="to">To:</label>
+<input class="to" type="date" name="to">
+
+<label for="currency">Currency:</label>
+<select name="currency" id="currency">
+  <option value="EUR">Euro (€)</option>
+  <option value="USD">US Dollar ($)</option>
+</select>
+
+<div>
+  <h2>Values</h2>
+  <p class="max"></p>
+  <p class="min"></p>
+</div>
+<canvas id="myChart" width="400" height="400"></canvas>
