@@ -6,7 +6,19 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Chart</p>
+    <input type="date" placeholder="Start Date: YYYY-MM-DD" class="startDate">
+    <input type="date" placeholder="End Date: YYYY-MM-DD" class="endDate">
+    <button class="button">Filter</button>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
