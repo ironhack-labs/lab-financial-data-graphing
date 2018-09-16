@@ -22,7 +22,6 @@ document.getElementById('currency').onchange = function(e) {
 	getGraph(start,end,ccy)
 }
 
-
 let getGraph=function(start,end,ccy) {
 	console.log("hello client side")
 	axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${ccy}`)
@@ -33,8 +32,8 @@ let getGraph=function(start,end,ccy) {
 		console.log(maxPrice);
 		let minPrice=Math.min(...dataprice);
 		console.log(minPrice);
-		document.getElementById('max-price').innerHTML=maxPrice+' '+ccy
-		document.getElementById('min-price').innerHTML=minPrice+' '+ccy
+		document.getElementById('max-price').innerHTML=maxPrice+' '+ccy.toUpperCase()
+		document.getElementById('min-price').innerHTML=minPrice+' '+ccy.toUpperCase()
 		var config = {
 			type: 'line',
 			data: {
