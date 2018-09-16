@@ -2,11 +2,29 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div>
+      Values
+      <p id="max">Max:<span id="max-price"></span></p>
+      <p id="min">Max:<span id="min-price"></span></p>
+    </div>
+    <canvas id="myChart"></canvas>
+    <input type="date" id="start">
+    <input type="date" id="end">
+    <select id="currency">
+      <option value="usd" selected>USD</option> 
+      <option value="eur">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+  
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="javascripts/financial-data.js" charset="utf-8"></script>
 </html>
