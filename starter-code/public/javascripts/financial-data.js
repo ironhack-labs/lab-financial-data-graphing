@@ -1,17 +1,12 @@
-// var ctx = document.getElementById("btcChart").getContext('2d');
-// eventlister the start y end
-// pasar el start y end a Data(start y end)
-
   
-  
-  
-let drawData = (startDate, endDate) => {
-    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`).then( res => {
+let drawData = (startDate, endDate, currency) => {
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`).then( res => {
         data = res.data.bpi;
         let labels = Object.keys(data)
         let values = Object.values(data)
-        console.log(labels)
-        console.log(values)
+
+        $('.maxValue').text(`MAX: ${Math.max(...values)}`)
+        $('.minValue').text(`MIN: ${Math.min(...values)}`)
 
         let ctx = document.getElementById("btcChart").getContext('2d');
         let chart = new Chart(ctx, {
@@ -45,19 +40,32 @@ let todayDate = (() => {
     return today;
 })
 
-
 let startDate = "2018-01-01"
 let endDate = todayDate(); //supuestamente today
+
+
 
 $('#startDate').val(startDate)
 $('#endDate').val(endDate)
 
+let currency = "USD";
 
-drawData(startDate, endDate);
+drawData(startDate, endDate, currency);
+
+$('select').on('change', () => {
+    if ($('select').val() === 'EUR') {
+        currency = 'EUR';
+        console.log(currency)
+        drawData(startDate, endDate, currency);
+    } else {
+        currency = 'USD'
+        drawData(startDate, endDate, currency);
+    }
+  });
 
 $('#startDate').change(() => {
     startDate = $('#startDate').val();
-    drawData(startDate, endDate)
+    drawData(startDate, endDate, currency)
 });
 
 $('#endDate').change(() => {
@@ -66,22 +74,5 @@ $('#endDate').change(() => {
         endDate = todayDate()
         $('#endDate').val(endDate)
     }
-
-    drawData(startDate, endDate)
+    drawData(startDate, endDate, currency)
 });
-
-  
-  
-  // for (i = 0; i < data.length; i++) {
-  //   console.log(data.keys)
-  // }
-  
-  
-  
-  
-  
-  
-  // var myLineChart = new Chart(ctx, {
-  //     type: 'line',
-  //     data: Object.data().,
-  // });

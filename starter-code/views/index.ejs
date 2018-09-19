@@ -12,19 +12,25 @@
 </head>
 
 <body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to
-    <%= title %>
-  </p>
 
+<div>
+  <h1> Filters </h1>
   <input id="startDate" type="date" val="">
   <input id="endDate" type="date">
+  <select>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+</div>
 
-  <div>
-    <canvas id="btcChart"></canvas>
-  </div>
+<div>
+    <h1>Values</h1>
+    <div class="maxValue"></div>
+    <div class="minValue"></div>
+</div>
+<div>
+  <canvas id="btcChart"></canvas>
+</div>
 
 
 </body>
