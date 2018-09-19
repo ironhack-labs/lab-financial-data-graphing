@@ -1,0 +1,23 @@
+{
+  "name": "lab-financial-data-graphing",
+  "version": "1.0.0",
+  "description": "![Ironhack logo](https://i.imgur.com/1QgrNNw.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Debbyermel/lab-financial-data-graphing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Debbyermel/lab-financial-data-graphing/issues"
+  },
+  "homepage": "https://github.com/Debbyermel/lab-financial-data-graphing#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
