@@ -7,7 +7,9 @@ document.addEventListener('change',(e)=>{
   console.log(document.getElementById('to-date').value)
   let startDate = $("#from-date").val()
   let endDate = $("#to-date").val()
-  axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+  let currency = $("#currency").val();
+  console.log(currency);
+  axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`)
   .then(res => chart(res.data.bpi))
    
 }) 
@@ -24,7 +26,7 @@ const chart = (value) => {
     data: {
       labels: Object.keys(value),
       datasets: [{
-        label: 'BTC PRICE',
+        label: `BTC PRICE ${currency.value}`,
         data: Object.values(value),
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
