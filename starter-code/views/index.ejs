@@ -2,11 +2,20 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+  <form id="form" method="GET">
+    <input type="date" id="start" value="2018-08-01">
+    <input type="date" id="end" value="2018-08-31">
+    <input type="text" id="currency" value="USD">
+    <input type="submit" id="submit">
+  </form>
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
