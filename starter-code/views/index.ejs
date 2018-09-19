@@ -3,10 +3,17 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Grafico %></p>
+    <label for="from">From </label><input type="date" name="from" id="from" value= "">
+    <label for="to"> To </label><input value= "" type="date" name="to" id="to">
+    
+    <canvas id="chart" width="800" height="400"></canvas>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
