@@ -7,8 +7,24 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div>
+      <label for="start">Start</label>
+      <input type="date" id="start" name="trip" value="2018-01-01" min="2018-01-01" max="2018-12-31"/>
+    </div>
+    <div>
+      <label for="end">End</label>
+      <input type="date" id="end" name="trip" value="2018-07-29" min="2018-01-01" max="2018-12-31"/>
+    </div>
+    <button id="buton">Submit</button>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
