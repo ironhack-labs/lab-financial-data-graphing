@@ -2,11 +2,40 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Octipus</h1>
+    <p>Check ya muthaf*ckin' money, biatch...</p>
+
+    <div>
+      <label for="start">Start</label>
+      <input type="date" id="start" name="trip"
+             value="2011-07-22"
+             min="2010-07-19" max="2018-09-18" />
+  
+      <label for="end">End</label>
+      <input type="date" id="end" name="trip"
+             value="2018-07-29"
+             min="2010-07-19" max="2018-09-18" />
+  
+
+  <select name="currency" id="currency">
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="USD">USD</option>
+  </select>
+
+    </div>
+
+    <div id="maxMin">
+        
+    </div>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </html>
