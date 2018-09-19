@@ -31,11 +31,9 @@ elemCurr.addEventListener('change', (evt) => {
 
 
 const getFinancial = () => {
-    console.log("CURR EN FUNCION:", curr)
  return axios
   .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startdate}&end=${enddate}&currency=${curr}`)
-  .then(res =>  {  
-      console.log(res);
+  .then(res =>  {
     return {
         dates: Object.keys(res.data.bpi),
         prices: Object.values(res.data.bpi)
@@ -50,11 +48,9 @@ getFinancial().then(prices =>
 
 
 let printTheChart = ((myObject) => {
-    console.log(myObject.prices);
-    console.log(myObject.dates);
 
     let ctx = document.getElementById('myChart').getContext('2d');
-    let chart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',
       data: {
         labels: myObject.dates,
