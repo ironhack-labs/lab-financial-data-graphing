@@ -59,7 +59,7 @@ let printTheChart = ((response) => {
   // console.log(Math.max(...Object.values(response.data.bpi)));
   let largestNum = Math.max(...Object.values(response.data.bpi));
   let smallestNum = Math.min(...Object.values(response.data.bpi));
-  document.getElementById('maxMin').innerHTML = `MAX VALUE: ${largestNum} </br> MIN VALUE: ${smallestNum}`;
+  document.getElementById('maxMin').innerHTML = `MAX VALUE: ${currency} ${largestNum} </br> MIN VALUE: ${currency} ${smallestNum}`;
 })
 }
 
