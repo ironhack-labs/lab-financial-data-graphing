@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+#myChart{
+  height: 300px;
+  width: 300px;
+}
