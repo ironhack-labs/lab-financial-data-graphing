@@ -3,10 +3,40 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body>  
+  
+  <div class="container">
+    <section>
+    <h2>Filters</h2>
+    <form>
+      From: <input type="date" name="start" id="from" class="getDates">
+      To: <input type="date" name="end" id="to" class="getDates">
+      <br><br>
+      Currency: 
+      <select name="currency" id="currency">
+        <option value="CNY">CNY</option>
+        <option value="EUR" selected="selected">EUR</option>
+        <option value="USD">USD</option>
+        <option value="AUD">AUD</option>
+      </select>
+    </form>
+  </section>
+  <section>
+    <div>
+      <h2>Values</h2>
+      <p>Max: <span id="max"> </span></p>
+      <p>Min: <span id="min"> </span></p>
+    </div>
+  </section>
+  </div>
+    <canvas id="myChart" width="400" height="200"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
