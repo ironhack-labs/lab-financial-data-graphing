@@ -7,6 +7,28 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <label for="from">From:</label>
+    <input type="date" name="from" id="from" value="2018-08-17">
+    <label for="to">To:</label>
+    <input type="date" name="to" id="to" value="2018-09-17">
+    <label for="to">Currency</label>
+    <select name="currency" id="currency">
+      <option value="USD" selected >USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <button type="submit" id="submit">Submit</button>
+    <h2>Values</h2>
+    <p id="max"></p>
+    <p id="min"></p>
+    <canvas id="myChart"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 </html>
+
+
