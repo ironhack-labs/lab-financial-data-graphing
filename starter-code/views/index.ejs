@@ -7,7 +7,15 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-
+    
+    <input type="date" name="start" id="start">
+    <input type="date" name="end" id="end">
+    <select id="currency">
+      <option value="USD">USDollar</option>
+      <option value="EUR">Euro</option>
+      <option value="GBP">British Pound</option>
+      <option value="INR">Indian Rupee</option>
+    </select>
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
