@@ -42,12 +42,19 @@ const getFinancial = () => {
   }).catch(e => console.log(e));
 }
 
-getFinancial().then(prices => 
-    printTheChart(prices)
+getFinancial().then(prices => {
+    
+    
+    printTheChart(prices);
+}
     );
+    
 
 
 let printTheChart = ((myObject) => {
+
+    document.getElementById("max").innerHTML = Math.max.apply(0, myObject.prices);
+    document.getElementById("min").innerHTML = Math.min.apply(0, myObject.prices);
 
     let ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
