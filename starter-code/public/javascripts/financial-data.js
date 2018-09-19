@@ -1,9 +1,27 @@
+let getDate = (lastMonth = false) => {
+  let date = new Date();
+  let day = date.getDate();
+  if(day < 10){
+    day = "0"+day
+  }
+  let month = date.getMonth() +1;
+  if (lastMonth){
+    month = date.getMonth();
+  }
+  if(month <10){
+    month = "0"+month
+  }
+  return date.getFullYear()+"-"+month+"-"+day
+}
+
+document.getElementById("from").value = getDate(true)
+document.getElementById("to").value = getDate()
+
 axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
   .then(res => {
-    console.log(res);
+
     let labels = Object.keys(res.data.bpi);
     let datas = Object.values(res.data.bpi);
-    console.log(datas);
     let data = res.data.bpi;
     let arr = [];
     for (const el in data) {
@@ -12,7 +30,6 @@ axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
         y: data[el]
       })
     }
-    console.log(arr)
 
     let ctx = document.getElementById("chart").getContext('2d');
     let chart = new Chart(ctx, {
@@ -31,7 +48,8 @@ axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
             boxWidth: 80,
             fontColor: 'black'
           }
-        }
+        },
+        responsive: false
       }
     })
 
@@ -49,7 +67,7 @@ axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
   })
 
 let getNewData = (chart, start, end) => {
-  console.log("console log aqui", chart.data)
+
   axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
     .then(res => {
       let labels = Object.keys(res.data.bpi);
@@ -60,7 +78,9 @@ let getNewData = (chart, start, end) => {
 
 const updateDates = (chart, labels, data) => {
   chart.data.labels = labels;
-  chart.data.datasets[0] = {data};
+  chart.data.datasets[0] = {
+    data
+  };
   chart.update();
-  console.log(chart)
 }
+
