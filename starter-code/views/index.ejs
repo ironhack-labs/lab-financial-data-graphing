@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div>
+  <h1> Filters </h1>
+  <input id="startDate" type="date" val="">
+  <input id="endDate" type="date">
+  <select>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+</div>
+
+<div>
+    <h1>Values</h1>
+    <div class="maxValue"></div>
+    <div class="minValue"></div>
+</div>
+<div>
+  <canvas id="btcChart"></canvas>
+</div>
+
+
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
