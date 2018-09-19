@@ -1,27 +1,28 @@
 let ctx = document.getElementById("myChart").getContext('2d');
 
+let startDate = $("#from-date").val()
+let endDate = $("#to-date").val()
+let currency = $("#currency").val();
 
-
-document.addEventListener('change',(e)=>{
+document.addEventListener('change', (e) => {
   console.log(document.getElementById('from-date').value)
   console.log(document.getElementById('to-date').value)
-  let startDate = $("#from-date").val()
-  let endDate = $("#to-date").val()
-  let currency = $("#currency").val();
+
   console.log(currency);
   axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`)
-  .then(res => chart(res.data.bpi))
-   
-}) 
-
-let endDate = document.getElementById("to-date").value;
-
-
-
+    .then(res => {
+      let valArr = [Object.values(res.data.bpi)];
+      valArrMax = Math.max.apply(Math, valArr[0]);
+      valArrMin = Math.min.apply(Math, valArr[0]);
+      chart(res.data.bpi)
+      document.getElementById("max").innerHTML = `Max: ${valArrMax} ${currency}`;
+      document.getElementById("min").innerHTML = `Min: ${valArrMin} ${currency}`;
+    })
+})
 
 
 const chart = (value) => {
-  new Chart(ctx,{
+  new Chart(ctx, {
     type: 'line',
     data: {
       labels: Object.keys(value),
@@ -60,9 +61,10 @@ const chart = (value) => {
 }
 axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
   .then(res => {
-    //console.log(res.data.bpi);
+    let valArr = [Object.values(res.data.bpi)];
+    valArrMax = Math.max.apply(Math, valArr[0]);
+    valArrMin = Math.min.apply(Math, valArr[0]);
     chart(res.data.bpi)
+    document.getElementById("max").innerHTML = `Max: ${valArrMax} ${currency}`;
+    document.getElementById("min").innerHTML = `Min: ${valArrMin} ${currency}`;
   })
-
-  
-
