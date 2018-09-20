@@ -4,15 +4,43 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var hbs = require('hbs');
+var axios = require('axios');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
+.then(response =>{
+  console.log(response.data)
+  printTheChart(response.data)
+}).catch(e=>{
+  next(e)
+})
+
+let printTheChart = ((stockData) => {
+  let stockLabels = stockData.map( element => element.date);
+  let stockPrice = stockData.map( element => element.close);
+  let ctx = document.getElementById("canvas").getContext("2d");
+  let chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: stockLabels,
+      datasets: [{
+        label: "Stock Chart",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: stockPrice,
+      }]
+      }
+    });
+  })
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -42,5 +70,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
