@@ -3,10 +3,19 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+     <input type="date" id="start" name = "startDate" placeholder="startDate" value="2018-01-02">
+    <input type="date" id="end"    name="endDate" placeholder="endDate" value="2018-01-08">
+
+    <canvas id="myChart"></canvas>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+</html> 
