@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
+
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <div>
+        Values
+        <p id="max">Max:<span id="max-price"></span></p>
+        <p id="min">Max:<span id="min-price"></span></p>
+      </div>
+
+    <canvas id="myChart" height="100" width="300"></canvas>
+    <input type="date" id="start">
+    <input type="date" id="end">
+    <select id="currency">
+        <option value="usd" selected>USD</option>
+        <option value="eur">EUR</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <p>Welcome to
+        <%= title %>
+    </p>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../public/javascripts/financial-data.js" charset="utf-8"></script>
+
+</html>
