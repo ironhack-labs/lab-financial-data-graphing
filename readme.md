@@ -40,7 +40,7 @@ All the files that make your Express app work, including the JavaScript files wh
 
 [CoinDesk](http://www.coindesk.com/) is the world leader in news and information on digital currencies such as bitcoin, and its underlying technology - the blockchain.
 
-They cover news and analysis on the trends, price movements, technologies, companies, and people in the bitcoin and digital currency world.
+They cover news and analysis on the trends, price movements, technologies, companies, and people in the bitcoin as well as digital currency world.
 
 In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](http://www.coindesk.com/api/). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
@@ -68,8 +68,8 @@ starter-code/
 ├── routes
 │   ├── index.js
 └── views
-    ├── error.ejs
-    └── index.ejs
+    ├── error.hbs
+    └── index.hbs
 ```
 
 The app will be a super simple exercise where we are going to represent some data in a line chart.
@@ -97,7 +97,7 @@ We are going to use Axios to do the AJAX Request, so we have to import Axios thr
 
 Once we have the desired data, we have to show it as a chart. We are going to use [Chart.js](http://www.chartjs.org/) to do that. So we have to add the library through CDN.
 
-Once we have add the CDN reference in the HTML file, we have to represent the values we got in the Iteration 1 in a [Line Chart](http://www.chartjs.org/docs/#line-chart-introduction).
+Once we have added the CDN reference in the HTML file, we have to represent the values we got in the Iteration 1 in a [Line Chart](http://www.chartjs.org/docs/#line-chart-introduction).
 
 **Note**: Before you ask for help in the chart representation, try to read the documentation and figure out how it works. :)
 
@@ -110,7 +110,7 @@ Once we have add the CDN reference in the HTML file, we have to represent the va
 
 ## Iteration #3: Dates Filter
 
-As you can see, by default the API response give us the last month Price Index. In this iteration, we are going to add two date `input` to be able to filter this dates.
+As you can see, by default the API response give us the last month Price Index. In this iteration, we are going to add two date `input` to be able to filter these dates.
 
 Check out the [CoinDesk API documentation](http://www.coindesk.com/api/) (Historical BPI data) to figure out how we can filter the data and get the values between two dates.
 
@@ -118,7 +118,7 @@ To finish up this iteration, remember that the data has to be loaded every time 
 
 **Tasks**
 
-- Add two `<input type="date">` fields to indicate the dates between you are going to search: from date - to date.
+- Add two `<input type="date">` fields to indicate the dates between which you are going to search: from date - to date.
 - Add a listener to this `input` to search the data every time that its values changes.
 - Add the dates to the API URL to get the correct data.
 
@@ -126,11 +126,11 @@ To finish up this iteration, remember that the data has to be loaded every time 
 
 Another option that the API gives us is to get the bitcoin index in an specific currency. By default, the currency is US Dollar (USD). We are going to change that, by adding another filter.
 
-We are going to create a `<select>` input to allow the user indicate which currency he wants to get the results. By default, we are going to add two different currencies: USD and EUR.
+We are going to create a `<select>` input to allow the user to indicate which currency they want to get the results in. By default, we are going to add two different currencies: USD and EUR.
 
 **Feel free to add as many currencies as you like.**
 
-As in the dates fiter, the data has to be reloaded every time the currency changes. Again, you can find in the [CoinDesk API documentation](http://www.coindesk.com/api/) how to indicate an specific currency.
+As in the dates fiter, the data has to be reloaded every time the currency changes. Again, in the [CoinDesk API documentation](http://www.coindesk.com/api/) you can find how to indicate a specific currency.
 
 **Tasks**
 
