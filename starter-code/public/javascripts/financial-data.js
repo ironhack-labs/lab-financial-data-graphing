@@ -1,14 +1,24 @@
 
 //const axios = require("axios")
 
+let arrayDate = document.getElementsByTagName("input");
+let to = document.getElementById("to");
+
+arrayDate[0].onchange = getData;
+arrayDate[1].onchange = getData;
+
 //Peticion axios
-axios.get("http://api.coindesk.com/v1/bpi/historical/close.json?start=2018-08-01&end=2018-08-13")
+function getData(e){
+let toDate = e;
+console.log(toDate)
+  
+axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=2018-08-01&end=2018-10-13`)
 .then(res =>{
   let labels = Object.keys(res.data.bpi)
   let values = Object.values(res.data.bpi)
-  console.log(labels, values);
   printChart(res.data, labels, values)
 })
+}
 
 let printChart = ((coinData, labels, values) => {
   var ctx = document.getElementById("myChart").getContext('2d');
@@ -42,7 +52,7 @@ let printChart = ((coinData, labels, values) => {
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero:true
+                      beginAtZero:false
                   }
               }]
           }
