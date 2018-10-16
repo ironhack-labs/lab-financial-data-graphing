@@ -25,10 +25,12 @@ let printTheChart = ((stockData)=> {
 
 let startDate = document.getElementById('start');
 let endDate = document.getElementById('end');
+let currency = document.getElementById('currency');
 
 function changeChart() {
     let start = startDate.value;
     let end = endDate.value;
+    let curr = currency.options[currency.selectedIndex].value;
 
     if(start === '') {
         start = new Date().toISOString().slice(0, 10);
@@ -37,7 +39,7 @@ function changeChart() {
         end = new Date().toISOString().slice(0, 10);
     }
 
-    axios.get('http://api.coindesk.com/v1/bpi/historical/close.json?start='+start+'&end='+end)
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?currency=${curr}&start=${start}&end=${end}`)
         .then(res => {
             //console.log(res.data);
             printTheChart(res.data);
@@ -46,3 +48,4 @@ function changeChart() {
 
 startDate.addEventListener("change", changeChart);
 endDate.addEventListener("change", changeChart);
+currency.addEventListener("change", changeChart);
