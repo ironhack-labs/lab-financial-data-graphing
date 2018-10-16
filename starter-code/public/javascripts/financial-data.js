@@ -2,9 +2,18 @@ axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
     .then(res => {
         //console.log(res.data);
         printTheChart(res.data);
+        printMaxMin(res.data);
     });
 
 let ctx = document.getElementById('canvas').getContext('2d');
+
+let printMaxMin = ((stockData) => {
+    let values = Object.values(stockData.bpi);
+    let min = Math.min.apply(null, values);
+    let max = Math.max.apply(null, values);
+    document.getElementById('min').innerHTML = 'Min: ' + min;
+    document.getElementById('max').innerHTML = 'Max: ' + max;
+});
 
 let printTheChart = ((stockData)=> {
     //console.log(stockData.bpi);
@@ -43,6 +52,7 @@ function changeChart() {
         .then(res => {
             //console.log(res.data);
             printTheChart(res.data);
+            printMaxMin(res.data);
         });
 }
 
