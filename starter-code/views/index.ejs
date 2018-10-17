@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title> Bitcoin Chart</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Hola</h1>
+    <p>Hi</p>
+
+    <label for="">Desde:</label>
+    <input type="date" id="inicio">
+    <label for="">Hasta:</label>
+    <input type="date" id="final">
+       
+      <label for="">
+        Moneda:
+        <select name="menu" id="moneda">
+          <option>DOLARES</option>
+          <option>EUROS</option>
+          <option>PESOS</option>
+        </select>
+      </label>
+
+    <canvas id="historicoBitcoins"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
