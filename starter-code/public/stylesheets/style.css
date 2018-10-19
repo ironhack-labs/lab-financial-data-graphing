@@ -1,15 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+*{
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
+  padding: 10px 50px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
 
+.text{
+
+}
+
 .minMax {
-  z-index: 10;
   position: absolute;
+  display: inline-block;
   right: 80px;
-  top: 10px;
+}
+
+.filter{
+  position: absolute;
+
+  display: inline-block;
+
+}
+
+#canvas{
+  position: absolute;
+  display: block;
+  top: 120px;
+}
+
+select{
+  background-color: rgb(29,99,211);
+  width: 165px;
+  height: 30px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+input{
+  background-color: rgb(29,99,211);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  width: 165px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
 }

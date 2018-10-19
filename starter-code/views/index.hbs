@@ -5,7 +5,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Filters</h1>
+  <div class="text">
+  <div class="filter">
+    <h2>Filters</h2>
     <input type="date" id="start">
     <input type="date" id="end">
     <label for="curr">Currency:</label>
@@ -14,12 +16,14 @@
         <option value="EUR">Euro</option>
         <option value="MXN">Mexican Pesos</option>
     </select>
+  </div>
     <div class="minMax">
-        <h1>Values</h1>
+        <h2>Values</h2>
         <span id="max"></span>
         <br>
         <span id="min"></span>
     </div>
+  </div>
   <canvas id="canvas"></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
