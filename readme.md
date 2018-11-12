@@ -1,42 +1,11 @@
-![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
+![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# PP | Financial Data Graphing
+# Financial Data Graphing
 
-![](http://i.giphy.com/l3Uct2K9N3CqxeCoU.gif)
-
-## Learning Goals
-
-After this lesson, you should be able to:
-
-- Create an Axios Get Request to get some data from [CoinDesk](http://www.coindesk.com/).
-- Add [Chart.js](http://www.chartjs.org/) to a Node.js project with NPM.
-- Use [Chart.js](http://www.chartjs.org/) to represent the data.
-- Create filters to load different data.
-
-## Requirements
-
-- [Fork this repo](https://guides.github.com/activities/forking/).
-- Clone your fork into your `~/code/labs` folder.
-
-## Submission
-
-Upon completion, run the following commands:
-
-```bash
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
-
-Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.
-
-In the Pull request name, add your campus, name, and last name separated by a dash "-".
-
-## Deliverables
-
-All the files that make your Express app work, including the JavaScript files where you do the Axios requests.
 
 ## Introduction
+
+![](http://i.giphy.com/l3Uct2K9N3CqxeCoU.gif)
 
 [CoinDesk](http://www.coindesk.com/) is the world leader in news and information on digital currencies such as bitcoin, and its underlying technology - the blockchain.
 
@@ -47,6 +16,31 @@ In this exercise, we will be using one of their data repositories: the [Bitcoin 
 The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show this variations in a graphic with [Chart.js](http://www.chartjs.org/).
 
 :eyes: **[**ChartJS**](http://www.chartjs.org/) (also known as chart.js) is an open source library that allows us to create amazing static and animated charts through HTML5 canvas and JavaScript.**
+
+
+## Requirements
+
+- Fork this repo
+- Then clone this repo.
+
+
+## Submission
+
+- Upon completion, run the following commands
+```
+$ git add .
+$ git commit -m "done"
+$ git push origin master
+```
+- Create Pull Request so your TAs can check up your work.
+
+
+## Deliverables
+
+All the files that make your Express app work, including the JavaScript files where you do the Axios requests.
+
+
+# Instructions
 
 ### Starter Code
 
@@ -151,4 +145,4 @@ To do that we have to get the prices from the response we got in the first itera
 - Use `Math.min.apply` and `Math.max.apply` to filter the array and get the min/max values.
 - Show this values in the information box we have added into the view.
 
-/Happy coding!
+Happy coding! :heart:
