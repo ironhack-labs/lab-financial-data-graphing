@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin Charts </title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Bitcoin Charts </h1>
+    <p>Search by Date</p>
+    <p>Max: <span id="max"></span></p>
+    <p>Min: <span id="min"></span></p>
+    <select id="currency">
+      <option value='USD'>USD</option>
+      <option value='EUR'>EUR</option>
+    </select>
+    <input id="beginDate" type="date" name="beginDate">
+    <input id="endDate" type="date" name="endDate">
+    <button id="btnDate">Filter by Period</button>
+    <canvas id="myChart"></canvas>
   </body>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
