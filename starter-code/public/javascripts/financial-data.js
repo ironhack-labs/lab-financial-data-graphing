@@ -1,8 +1,8 @@
-const stockInfo  = axios.create({
+const bitCoinInfo  = axios.create({
   baseURL: 'http://api.coindesk.com/v1/bpi/historical/',
 });
 
-stockInfo.get(`close.json`)
+bitCoinInfo.get(`close.json`)
     .then(response => {
       printTheChart(response.data.bpi);
     })
