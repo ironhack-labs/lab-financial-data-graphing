@@ -9,6 +9,21 @@
 
 <body>
   <h1> BTC price graph </h1>
+  <label>
+    Search from:   <input type="date" id="dateFrom">
+  </label>
+  <label>
+    to:   <input type="date" id="dateTo">
+  </label>
+  <label>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="BRL">BRL</option>
+      <option value="JPN">JPN</option>
+    </select>
+  </label>
+  <button id="dateRange">Graph it</button>
   <canvas id="myChart"></canvas>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
