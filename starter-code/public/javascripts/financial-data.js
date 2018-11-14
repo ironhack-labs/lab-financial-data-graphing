@@ -20,8 +20,8 @@ const printTheChart = (bitCoinData => {
       labels: bitCoinDataDate,
       datasets: [{
         label: "BitCoin Data",
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'blue',
+        borderColor: 'blue',
         data: bitCoinDataValue,
       }]
     }
