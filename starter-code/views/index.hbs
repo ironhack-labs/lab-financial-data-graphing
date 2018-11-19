@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin Desk </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Bitcoin Desk </h1>
+    <p>Welcome to Bitcoin Desk</p>
+
+    <label for="start-date">From:</label>
+    <input id="start-date" type="date" placeholder="start date">
+    <label for="end-date">To:</label>
+    <input id="end-date" type="date" placeholder="end date">
+    <br>
+    <label for="currency">Currency:</label>
+    {{!-- <input list="currencies" id="currency" placeholder="currency"> --}}
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <br>
+    <button id="set-date">submit</button>
+
+    <div id="data-chart">
+
+    </div>
+
+    <div>
+      <p id="max"></p>
+      <p id="min"></p>
+    </div>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+  
   </body>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
