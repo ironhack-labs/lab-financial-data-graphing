@@ -2,9 +2,11 @@ window.onload = function() {
   document.getElementById("getAPIData").onclick = function() {
     let initDate = document.querySelector("#dateI").value;
     let endDate = document.querySelector("#dateF").value;
+    let moneda = document.querySelector("#moneda").value;
+
     axios
       .get(
-        `http://api.coindesk.com/v1/bpi/historical/close.json?start=${initDate}&end=${endDate}`
+        `https://api.coindesk.com/v1/bpi/historical/close.jsons?start=${initDate}&end=${endDate}&currency=${moneda}`
       )
       .then(response => {
         actualizarChart(response);

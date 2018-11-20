@@ -8,10 +8,16 @@
 
 <body>
   <label>Fecha Inicial</label>
-  <input type="date" name="dateI" id="dateI" min="2018-10-20" max="2018-11-19" value="2018-10-20">
+  <input type="date" name="dateI" id="dateI" value="2018-10-20">
   <label>Fecha Final</label>
-  <input type="date" name="dateF" id="dateF" min="2018-10-20" max="2018-11-19" value="2018-11-19">
-  <button id="getAPIData">Actualizar API data</button>
+  <input type="date" name="dateF" id="dateF" value="2018-11-19">
+  <label>Selecciona la moneda</label>
+  <select name="moneda" id="moneda">
+    <option value="">MONEDA</option>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+  <button id="getAPIData">ACTUALIZAR</button>
   <canvas id="myChart" width="400" height="200"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
