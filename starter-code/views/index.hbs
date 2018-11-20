@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-   <button id="getAPIData">Actualizar API data</button>
-   <canvas id="myChart" width="400" height="200"></canvas>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <label>Fecha Inicial</label>
+  <input type="date" name="dateI" id="dateI" min="2018-10-20" max="2018-11-19" value="2018-10-20">
+  <label>Fecha Final</label>
+  <input type="date" name="dateF" id="dateF" min="2018-10-20" max="2018-11-19" value="2018-11-19">
+  <button id="getAPIData">Actualizar API data</button>
+  <canvas id="myChart" width="400" height="200"></canvas>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </html>
