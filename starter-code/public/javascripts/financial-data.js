@@ -11,9 +11,10 @@ function renderHTMLIronhack(bitcoinData) {
 
 
 function makeCountryAJAXRequest() {
-    // let chosenCurrency = document.querySelector('#').value
+    let start = document.getElementById('start').value
+    let end = document.getElementById('end').value
     
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
     .then((bitcoinData) => {
         
         printTheChart(bitcoinData.data.bpi);
