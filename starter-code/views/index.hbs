@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html>
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to {{title}}</p>
+    <h1 style="font-weight: 900">Filters</h1> <h1 style=" position: absolute; top: 10%; right: 4%;">Values</h1>
+    <p id="max" style="position: absolute; right: 4%; bottom: 75%;">Max:</p>
+    <p id="min" style="position: absolute; right: 4%;">Min:</p>
+    <label style="position: relative; right: 1%">From:</label><input id="start" type="date" value="2018-10-01" style="position: relative; right: 0.5%"></input>
+    <label>To:</label><input id="end" type="date" value="2018-10-30" style="position: relative; left: 0.5%"></input>
+    <select id="currency" style= "display: block; position: relative; left: 3%; top: 10px">
+     
+      <option value="USD">US Dollar ($)</option>
+      <option value="EUR">EU Euro (€)</option>
+    </select>
+    <canvas id="myChart" width="200" height="200"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

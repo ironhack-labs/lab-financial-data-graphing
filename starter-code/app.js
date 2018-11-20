@@ -43,4 +43,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+app.listen(3000, (err)=> {
+if (err) console.log("Could not connect to the server")
+})
 module.exports = app;
