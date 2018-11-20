@@ -6,15 +6,12 @@ window.onload = function () {
   };
   getApiDate();
 
-  function getApiDate() {
+  function getApiDate() {   
 
-    const today = new Date();
-    const todayToString = today.getDate() + '-' + today.getMonth() + '-' + today.getFullYear();
     let urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${chartConfig.currency}`;
-
     if (chartConfig.dateStart && chartConfig.dateEnd) {
       urlApi += `&start=${chartConfig.dateStart}&end=${chartConfig.dateEnd}`
-      if (chartConfig.dateEnd < chartConfig.dateStart || chartConfig.dateStart >= todayToString) {
+      if (chartConfig.dateEnd < chartConfig.dateStart) {
         return;
       }
     }
@@ -35,15 +32,20 @@ window.onload = function () {
         labels: dateLabels,
         datasets: [{
           label: "Stock Chart",
-          backgroundColor: 'rgb(255, 99, 132)',
-          fill: false,
-          tension: 0,
+          backgroundColor: 'rgba(233, 233, 233,.3)',
+          fill: true,
+          tension: .2,
           pointHoverRadius: 20,
-          borderColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(233, 233, 233)',
           data: valueLabels
         }]
       }
     });
+
+    document.querySelector('.maxNumber').innerText = Math.max.apply(null,valueLabels);
+    document.querySelector('.minNumber').innerText = Math.min.apply(null,valueLabels);
+    document.querySelectorAll('.currency').forEach((e) => e.innerHTML = chartConfig.currency); 
+   
   }
   function dateStartChanged(e) {
     chartConfig.dateStart = e.target.value;
