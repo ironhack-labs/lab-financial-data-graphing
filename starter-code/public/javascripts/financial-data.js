@@ -1,4 +1,11 @@
 window.onload = function() {
+
+    let start='';
+    let end = '';
+    let currency = 'USD';
+    let date = '';
+    let route= `https://api.coindesk.com/v1/bpi/historical/close.json?${currency}${date}`;
+
   function ajaxrequest(ruta) {
     axios.get(ruta).then(response => {
       printTheChart(response.data.bpi);
@@ -6,15 +13,28 @@ window.onload = function() {
   }
 
   function getDataFromApi() {
-    ajaxrequest("http://api.coindesk.com/v1/bpi/historical/close.json");
+    ajaxrequest(route);
   }
 
-  function changeDate(start, end) {
-    if (start.length > 0 && end.length > 0) {
-      let dateruta = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`;
-      ajaxrequest(dateruta);
+  function changeDate(startDate, endDate) {
+    if (startDate.length > 0 && endDate.length > 0) {
+      start = startDate;
+      end = endDate;
+      date = `&start=${start}&end=${end}`;
+      route= `https://api.coindesk.com/v1/bpi/historical/close.json?${currency}${date}`;
+      ajaxrequest(route);
     }
   }
+
+  function changeCurrency(currencyValue){
+      console.log(currencyValue);
+    currency = currencyValue;
+    route= `https://api.coindesk.com/v1/bpi/historical/close.json?${currency}${date}`;
+    ajaxrequest(route);
+
+  }
+
+  
 
   const printTheChart = dataObject => {
     const stockLabels = Object.keys(dataObject);
@@ -44,11 +64,16 @@ window.onload = function() {
   document.getElementById("getData").onclick = getDataFromApi;
   var startDate = document.getElementById("startDate");
   var endDate = document.getElementById("endDate");
+  var currencyValue = document.getElementById("selector");
 
   startDate.addEventListener("change", () =>
     changeDate(startDate.value, endDate.value)
   );
   endDate.addEventListener("change", () =>
     changeDate(startDate.value, endDate.value)
+  );
+
+  currencyValue.addEventListener("change", () =>
+    changeCurrency(currencyValue.value)
   );
 };
