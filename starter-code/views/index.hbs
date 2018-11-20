@@ -3,10 +3,20 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script>
+    axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
+    .then((btcData) => {
+                    //renders the data obtained and passes it to the view renderer
+                    //we are instantiating a CountryData object, so we can have the information in one place
+                    console.log(btcData)
+                })
+    
+  </script>
 </html>
