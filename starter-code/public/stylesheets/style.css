@@ -6,3 +6,29 @@ body {
 a {
   color: #00B7FF;
 }
+
+p {
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+form p {
+  padding: 0 5px 0 0;
+  margin: 0;
+}
+.wrapper {
+  display: flex;
+}
+.container-2col {
+  box-sizing: border-box;
+  width: 50%;
+}
+.right {
+  text-align: right;
+}
+
+.flex-container {
+  display: flex;
+  margin: 5px;
+  width: 50%;
+}
