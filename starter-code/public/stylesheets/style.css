@@ -1,8 +1,33 @@
 body {
-  padding: 50px;
+  padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#currencyButton {
+  margin: 20px 0px;
+}
+
+#chart {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+#chart h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  margin-bottom: 40px;
+}
+
+.chartBtc {
+  width: 50vw;
+  height: 50vh;
 }
