@@ -1,9 +1,14 @@
+
 window.onload = function() {
   document.getElementById(
     "myButton"
   ).onclick = function makeCountryAJAXRequest() {
+    
+  var initialDate =document.querySelector("#inputInitial").value
+  var finalDate = document.querySelector("#inputFinal").value
+
     axios
-      .get("https://api.coindesk.com/v1/bpi/historical/close.json")
+      .get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${initialDate}&end=${finalDate}`)
       .then(response => {
         updateChart(response);
       });
@@ -12,7 +17,6 @@ window.onload = function() {
   function updateChart(response) {
     const bpiDate = Object.keys(response.data.bpi);
     const bpiValue = Object.values(response.data.bpi);
-
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "line",
@@ -31,3 +35,4 @@ window.onload = function() {
     });
   }
 };
+

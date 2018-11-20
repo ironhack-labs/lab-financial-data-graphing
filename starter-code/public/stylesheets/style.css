@@ -7,8 +7,15 @@ a {
   color: #00B7FF;
 }
 #myButton{
-  padding: 20px 40px;
-  border-radius: 5px;
-  background-color: grey;
-  color:white;
+  padding: 5px 40px;
+  border-radius: 50px;
+  background-color: #fabada;
+  color:black;
+  margin: 20px;
+}
+h1{
+  font-size: 50px;
+}
+input{
+  margin: 20px;
 }
