@@ -11,18 +11,27 @@
     <canvas id="myChart"></canvas>
     <input id="startDate" type="date">
     <input id="endDate" type="date">
+    <button id="onBtc">ON BTC</button>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
   </body>
   
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   <script>
-    let startDate = document.getElementById('startDate').value
+    let startDate = "2018-11-15"
     document.getElementById('startDate').onchange = function(){
       startDate = document.getElementById('startDate').value;
       console.log(startDate)
     }
-    let endDate = document.querySelector('#endDate').value
+    
+
+      let endDate = "2018-11-15"
+    document.getElementById('endDate').onchange = function(){
+      endDate = document.getElementById('endDate').value;
+      console.log(endDate)
+    }
+
+    document.getElementById('onBtc').onclick = function(){
     
     axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
     .then((btcData) => {
@@ -30,7 +39,8 @@
                     //we are instantiating a CountryData object, so we can have the information in one place
                     console.log(Object.values(btcData.data.bpi))
                     printTheChart(btcData);
-                })
+                }) 
+    }
 
 const printTheChart = (btc => {
 const btcKeys = Object.keys(btc.data.bpi)
