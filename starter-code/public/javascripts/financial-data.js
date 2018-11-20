@@ -1,52 +1,44 @@
 
 
-document.getElementById('getCountryData').onclick = countryDataClickHandler;
-
-
-function renderHTMLIronhack(bitcoinData) {
-    document.querySelector('.country-name').innerText = bitcoinData.name
-    document.querySelector('.country-phone-prefix').innerText = bitcoinData.prefix
-}
+document.getElementById('currencyData').onclick = currencyClickHandler;
 
 
 
-function makeCountryAJAXRequest() {
+
+
+
+function currencyAJAXRequest() {
     let start = document.getElementById('start').value
     let end = document.getElementById('end').value
-    
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+    let currency = document.getElementById('currency').value
+    console.log(currency)
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}&start=${start}&end=${end}`)
     .then((bitcoinData) => {
-        
+
+        let price = Object.values(bitcoinData.data.bpi)  
+        let max = Math.max.apply(Math, price) 
+        let min = Math.min.apply(Math, price)
+        document.getElementById("max").innerHTML = max
+        document.getElementById("min").innerHTML = min
+    
+  
         printTheChart(bitcoinData.data.bpi);
+
+        
     })
     }
 
 
-    function countryDataClickHandler() {
-        makeCountryAJAXRequest()
+    function currencyClickHandler() {
+        currencyAJAXRequest()
     }
-
-
-
 
 
 
     
 
-    // function drawCompanyResultsChart(stockTicket) {
-        
-        //  const stockInfo = axios.create({
-        //      baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json` ,
-        //  });
-        // //we are crafting this URL : https://api.iextrading.com/1.0/stock/aapl/chart
-        // stockInfo.get(`${stockTicket}/chart`)
-        //     .then(response => {
-                // printTheChart(stockInfo.data.bpi);
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // });
-        //chart rendering function
+
+
         const printTheChart = (stockData => {
 
 
@@ -54,6 +46,8 @@ function makeCountryAJAXRequest() {
 
             const stockPrice = Object.values(stockData);
 
+            
+        
 
             const ctx = document.getElementById('myChart').getContext('2d');
 
@@ -74,6 +68,8 @@ function makeCountryAJAXRequest() {
                     }]
                 }
             });
+       
+       
         });
     // }
 
