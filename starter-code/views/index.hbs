@@ -5,8 +5,47 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+
+<div class="container col">
+
+<div class="container">
+   <div class='side'>
+     <h1>Filters</h1>
+     <h4>display the BPI</h4>
+     <label for="start">From: </label>
+    <input type="date" id='start'>
+    <label for="end">To: </label>
+    <input type="date" id='end'>
+
+<label for="currency">In:</label>
+<select id='currency'>
+    <option value="USD">USD ($)</option>
+    <option value="GBP">GBP (£)</option>
+    <option value="EUR">EUR (€)</option>
+</select>
+
+   </div>
+   <div class='side'>
+     <h1>Values</h1>
+   <p>MAX: <span class="max"></span></p>
+   <p>MIN: <span class="min"></span></p>
+   </div>
+ </div>
+
+<div class="canvas">
+    <canvas id="chart"></canvas>
+</div>
+</div>
+
+ 
+
+     
+ <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>  {{!-- jquery --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {{!-- axios --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>  
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
