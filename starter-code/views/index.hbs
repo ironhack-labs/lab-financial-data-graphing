@@ -8,13 +8,19 @@
 
 <body>
 
-  <h1> Welcome to Mordor page </h1>
+  <h1> Welcome to Mordor financial page </h1>
   
   <h2>Filters</h2>
   <label for="startDate">From</label>
   <input type="date" name="startDate" id="startDate">
   <label for="endDate">To</label>
-  <input type="date" name="endDate" id="endDate">
+  <input type="date" name="endDate" id="endDate"><br><br>
+
+  <label for="currency">Currency</label>
+  <select name="currency" id="selectCurrency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
 
   <canvas id="bitCoinCanvas"></canvas>
 
