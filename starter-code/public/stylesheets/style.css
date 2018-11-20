@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+#myButton{
+  padding: 20px 40px;
+  border-radius: 5px;
+  background-color: grey;
+  color:white;
+}

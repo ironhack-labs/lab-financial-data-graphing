@@ -4,14 +4,19 @@
 <head>
   <title> {{title}} </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </head>
 
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
+  <h1>BitCoins</h1>
+
+  <button id="myButton">START</button><br>
+  <canvas id="myChart" width="400" height="400"></canvas>
+
+
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-<script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
 
 </html>
