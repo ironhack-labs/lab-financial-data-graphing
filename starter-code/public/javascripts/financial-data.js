@@ -1,15 +1,27 @@
 
 window.onload = function () {
 
-  axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
+  const chartConfig = {};
+  getApiDate();
 
-    .then((bitCoinData) => {
-      console.log(bitCoinData);
-      printChart(bitCoinData);
+  function getApiDate() {
 
-    })
+    let urlApi = 'http://api.coindesk.com/v1/bpi/historical/close.json';
 
+    if (chartConfig.dateStart && chartConfig.dateEnd) {
+      urlApi += `?start=${chartConfig.dateStart}&end=${chartConfig.dateEnd}`
+    }
 
+    axios.get(urlApi)
+
+      .then((bitCoinData) => {
+        console.log(bitCoinData);
+        printChart(bitCoinData);
+      })
+      .catch ((e) =>{
+        console.log('OH MY GOD' + e);
+      })
+  }
   function printChart(bitCoinData) {
 
     const dateLabels = Object.keys(bitCoinData.data.bpi)
@@ -36,7 +48,24 @@ window.onload = function () {
     });
 
   }
+  function dateStartChanged(e) {
 
+    chartConfig.dateStart = e.target.value;
+    getApiDate();
+
+    console.log(chartConfig.dateStart);
+  }
+
+  function dateEndChanged(e) {
+    chartConfig.dateEnd = e.target.value;
+    getApiDate();
+    console.log(chartConfig.dateEnd);
+
+  }
+
+
+  document.getElementById('startDate').onchange = dateStartChanged;
+  document.getElementById('endDate').onchange = dateEndChanged;
 
 
 }
