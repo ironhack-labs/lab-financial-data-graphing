@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.value-container {
+  display: flex;
+  justify-content: space-between;
+}
