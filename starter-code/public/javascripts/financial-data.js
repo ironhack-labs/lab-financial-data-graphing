@@ -1,7 +1,11 @@
 let bitcoinDate;
 let bitcoinPrices;
 
-axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json`)
+let dateStart = document.getElementById('dateStart')
+let dateEnd = document.getElementById('dateEnd')
+
+
+axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}`)
 .then((res) => {
    console.log(res)
    const data= res.data.bpi
@@ -30,6 +34,5 @@ const printTheChart = (bitcoinDate, bitcoinPrices) => {
     }
   });
 }
-
 
 
