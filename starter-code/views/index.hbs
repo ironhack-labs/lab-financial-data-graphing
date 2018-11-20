@@ -4,19 +4,41 @@
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
   </head>
   <body>
+    <canvas id="myChart"></canvas>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
   </body>
+  
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   <script>
     axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
     .then((btcData) => {
                     //renders the data obtained and passes it to the view renderer
                     //we are instantiating a CountryData object, so we can have the information in one place
-                    console.log(btcData)
+                    console.log(Object.values(btcData.data.bpi))
+                    printTheChart(btcData);
                 })
-    
+
+const printTheChart = (btc => {
+const btcKeys = Object.keys(btc.data.bpi)
+const btcValues = Object.values(btc.data.bpi)
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: btcKeys,
+      datasets: [{
+        label: "btc Chart",
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: btcValues,
+      }]
+    }
+  });
+});
   </script>
 </html>
