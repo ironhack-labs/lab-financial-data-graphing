@@ -1,11 +1,11 @@
 
 let startDate = '2018-10-01';
 let endDate = '2018-11-01';
-
+let currency = 'USD';
 
 function getBitcoinChart() {
   const bitcoinChart = axios.create({
-    baseURL: `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`,
+    baseURL: `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`,
   });
   bitcoinChart.get()
     .then(res => printTheChart(res.data.bpi))
@@ -33,6 +33,7 @@ function getBitcoinChart() {
 function clickHandler() {
   startDate = document.querySelector('#start').value;
   endDate = document.querySelector('#end').value;
+  currency = document.querySelector('#currency').value;
   getBitcoinChart();
 }
 
