@@ -3,10 +3,21 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> --}}
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+</head>
+    <canvas id="myChart"></canvas>
+    <p>Welcome to  {{title}} </p>	      
+      <fieldset><input type="date" id="start"></fieldset>
+      <fieldset><input type="date" id="end"></fieldset>
+      <fieldset><select id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select></fieldset>
+      <button id="submit">Submit</button>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
