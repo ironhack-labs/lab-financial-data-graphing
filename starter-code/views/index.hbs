@@ -10,9 +10,18 @@
 </head>
 
 <body>
-  <h1>Bitcoin info</h1>
-  <p id="bitInfo"></p>
-  <button id="bitButton">Get Info!</button>
+  <div>
+    <h1>Bitcoin info</h1>
+  </div>
+  <div class="searchContainer">
+    <h2>Filters</h2>
+    <label for="dateFrom">From</label>
+    <input type="date" name="dateFrom" id="dateFrom" value="2017-01-08">
+    <label for="dateTo">To</label>
+    <input type="date" name="dateTo" id="dateTo" value="2018-01-08">
+     <button id="bitButton">Get Info!</button>
+  </div>
+ <div id="errorMessage"></div>
   <div>
     <canvas id="myChart"></canvas>
   </div>
