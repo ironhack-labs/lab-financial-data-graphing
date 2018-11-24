@@ -1,16 +1,16 @@
-const getBitInfo = (dFrom, dTo) => {
+const getBitInfo = (dFrom, dTo,curr) => {
   return axios
     .get(
-      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dFrom}&end=${dTo}`
+      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dFrom}&end=${dTo}&currency=${curr}`
     )
     .then(res => {
       let dataLabels = Object.keys(res.data.bpi);
       let dataPrice = Object.values(res.data.bpi);
-      return { dataLabels, dataPrice };
+      return { dataLabels, dataPrice ,curr};
     });
 };
 
-const printTheChart = ({ dataLabels, dataPrice }) => {
+const printTheChart = ({ dataLabels, dataPrice,curr }) => {
   let ctx = document.getElementById("myChart").getContext("2d");
   let chart = new Chart(ctx, {
     type: "line",
@@ -24,6 +24,22 @@ const printTheChart = ({ dataLabels, dataPrice }) => {
           data: dataPrice
         }
       ]
+    },
+    options : {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: `${curr}`
+          }
+        }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Dates'
+        }
+      }]
+    }     
     }
   });
 };
@@ -31,13 +47,14 @@ const printTheChart = ({ dataLabels, dataPrice }) => {
 document.getElementById("bitButton").onclick = function() {
   let dFrom = document.getElementById("dateFrom").value;
   let dTo = document.getElementById("dateTo").value;
+  let curr=document.getElementById("currSelec").value;
   if (dFrom == "" || dTo == "") {
     let error=document.createElement('p');
     let divError=document.getElementById("errorMessage")
     error.innerHTML="Please enter a valid date";
     divError.appendChild(error);
   } else {
-    getBitInfo(dFrom, dTo).then(data => {
+    getBitInfo(dFrom, dTo,curr).then(data => {
       printTheChart(data);
   })
 }};
