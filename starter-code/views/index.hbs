@@ -5,8 +5,40 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="data">
+      <div>
+        <h2>Filters</h2>
+        <form action="">
+          <label>From</label>
+          <input class="from" type="date">
+          <label>To</label>
+          <input class="to" type="date">
+          </br>
+          <label>Currency</label>
+          <select class="currency" type="text">
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+          </select>
+        </form>
+      </div>
+      <div>
+        <h2>Values</h2>
+        <p class="maxValue">
+          <span class="name">Max: </span>
+          <span class="maxNum">0</span>
+          <span class="currCur">USD</span>
+        </p>
+        <p class="maxValue">
+          <span class="name">Min: </span>
+          <span class="minNum">0</span>
+          <span class="currCur">USD</span>
+        </p>
+      </div>
+    </div>
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
