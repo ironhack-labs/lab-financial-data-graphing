@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.containerGlobal{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  padding: 10px 50px;
+}
+
+.containerSearch{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.minMaxValues{
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 20px;
+}

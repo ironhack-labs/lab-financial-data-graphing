@@ -13,27 +13,42 @@
   <div>
     <h1>Bitcoin info</h1>
   </div>
-  <div class="searchContainer">
-    <h2>Filters</h2>
-    <label for="dateFrom">From</label>
-    <input type="date" name="dateFrom" id="dateFrom" value="2017-01-08">
-    <label for="dateTo">To</label>
-    <input type="date" name="dateTo" id="dateTo" value="2018-01-08">
-    <button id="bitButton">Get Info!</button>
-  </div>
-  <div id="errorMessage"></div>
+  <div class="containerGlobal">
 
-  <div class="currencyContainer">
-    <h2>Currency</h2>
-    <select id="currSelec">
-      <option value="USD">US Dollar ($)</option>
-      <option value="EUR">Euro (EUR)</option>
-      <option value="GBP">British Pound (GBP)</option>
-      <option value="MOP">Macanese Pataca (MOP)</option>
-      <option value="ZAR">South Africa Rand (ZAR)</option>
-    </select>
+    <div class="containerSearch">
+      <div class="searchContainer">
+        <h2>Filters</h2>
+        <label for="dateFrom">From</label>
+        <input type="date" name="dateFrom" id="dateFrom" value="2017-01-08">
+        <label for="dateTo">To</label>
+        <input type="date" name="dateTo" id="dateTo" value="2018-01-08">
+        <button id="bitButton">Get Info!</button>
+      </div>
+      <div id="errorMessage"></div>
+
+      <div class="currencyContainer">
+        <h2>Currency</h2>
+        <select id="currSelec">
+          <option value="USD">US Dollar ($)</option>
+          <option value="EUR">Euro (EUR)</option>
+          <option value="GBP">British Pound (GBP)</option>
+          <option value="MOP">Macanese Pataca (MOP)</option>
+          <option value="ZAR">South Africa Rand (ZAR)</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="minMaxValues">
+      <h2 id="valuesDiv">Values</h2>
+      <p id="min">Min:<span id="minVal"></span><span id="minCurr"></span></p>
+      <p id="min">Max:<span id="maxVal"></span><span id="maxCurr"></span></p>
+    </div>
+
   </div>
-  <div>
+
+
+  <div class="canvas">
     <canvas id="myChart"></canvas>
   </div>
 
