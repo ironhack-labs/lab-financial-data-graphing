@@ -26,7 +26,7 @@ let printTheChart = ((data) => {
       labels: dataLabels,
       datasets: [{
         label: "Stock Chart",
-        backgroundColor: 'rgb(205, 99, 132)',
+        backgroundColor: '',
         borderColor: 'rgb(255, 99, 132)',
         data: dataPrice,
       }]
