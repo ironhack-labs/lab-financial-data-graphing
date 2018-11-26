@@ -59,15 +59,19 @@ paintChart(from, to, curr);
 // CHART ON CHANGE -------------
 
 $('.from').change((e)=>{
+  to = $('input.to').val();
+  curr = $('select.currency').val();
   paintChart(e.target.value, to, curr);
 });
 
 $('.to').change((e)=>{
+  from = $('input.from').val();
+  curr = $('select.currency').val();
   paintChart(from, e.target.value, curr);
 });
 
 $('.currency').change((e)=>{
-  const currency = e.target.value;
-  $('.currCur').text(currency);
-  paintChart(from, to, currency);
+  from = $('input.from').val();
+  to = $('input.to').val();
+  paintChart(from, to, e.target.value);
 });
