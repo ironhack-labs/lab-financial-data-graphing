@@ -1,27 +1,20 @@
-var ctx = document.getElementById("myChart").getContext('2d');
-let dates = [];
-let values = [];
 
+const getCoinInfo = (from, to, curr) => {
+  return axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}&currency=${curr}`).then(res=>{
+    const dates = Object.keys(res.data.bpi);
+    const values = Object.values(res.data.bpi);
+    return {dates, values};
+  });
+};
 
-axios.get("http://api.coindesk.com/v1/bpi/historical/close.json").then(res=>{
-  const data = res.data;
-  //console.log(Object.keys(data.bpi));
-  dates = Object.keys(data.bpi);
-  values = Object.values(data.bpi);
-  //console.log(dates);
-  return res;
-}).then(() => {
-  getDates(dates, values);
-});
-
-
-let getDates = (dat, val)=> {
-  var myChart = new Chart(ctx, {
-      type: 'bar',
+const getChart = (dat, val)=> {
+  const ctx = document.getElementById("myChart").getContext('2d');
+  const myChart = new Chart(ctx, {
+      type: 'line',
       data: {
           labels: dat,
           datasets: [{
-              label: '# of Votes',
+              label: 'Amount',
               data: val,
               borderWidth: 1
           }]
@@ -30,7 +23,7 @@ let getDates = (dat, val)=> {
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero:true
+                      beginAtZero: true
                   }
               }]
           }
@@ -38,67 +31,43 @@ let getDates = (dat, val)=> {
   });
 }
 
-let from = '0000-00-00';
-let to = '0000-00-00';
-let currency;
-let max = 0;
-let min = 0;
+const getCurr = (vals) => {
+  const max = Math.max(...vals);
+  const min = Math.min(...vals);
+  $('.maxNum').text(max);
+  $('.minNum').text(min);
+};
+
+const paintChart = (from, to, curr) => {
+  getCoinInfo(from, to, curr).then((res)=>{
+    getChart(res.dates, res.values);
+    getCurr(res.values);
+  });
+}
+
+
+
+//INIT CHART ---------------------
+
+var from = $('input.from').val();
+var to = $('input.to').val();
+var curr = $('select.currency').val();
+
+paintChart(from, to, curr);
+
+
+// CHART ON CHANGE -------------
 
 $('.from').change((e)=>{
-  from = e.target.value;
-  if (to !== '0000-00-00' && from < to) {
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}`).then(res=>{
-      const data = res.data;
-      dates = Object.keys(data.bpi);
-      values = Object.values(data.bpi);
-      console.log(values);
-    }).then(()=>{
-      max = Math.max(...values);
-      min = Math.min(...values);
-      getDates(dates, values);
-      $('.maxNum').text(max);
-      $('.minNum').text(min);
-    });
-  }
-  //console.log(from, to);
+  paintChart(e.target.value, to, curr);
 });
 
 $('.to').change((e)=>{
-  to = e.target.value;
-  if (from !== '0000-00-00' && from < to) {
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}`).then(res=>{
-      //console.log(res);
-      const data = res.data;
-      dates = Object.keys(data.bpi);
-      values = Object.values(data.bpi);
-    }).then(()=>{
-      max = Math.max(...values);
-      min = Math.min(...values);
-      getDates(dates, values);
-      $('.maxNum').text(max);
-      $('.minNum').text(min);
-    });
-  }
-  //console.log(from, to);
+  paintChart(from, e.target.value, curr);
 });
 
 $('.currency').change((e)=>{
-  if (e.target.value === "USD") {
-    $('.currCur').text('USD');
-  } else {
-    $('.currCur').text('EUR');
-  }
-  currency = e.target.value;
-  axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`).then(res=>{
-    console.log(res);
-    const data = res.data;
-    values = Object.values(data.bpi);
-  }).then(()=>{
-    max = Math.max(...values);
-    min = Math.min(...values);
-    getDates(dates, values);
-    $('.maxNum').text(max);
-    $('.minNum').text(min);
-    console.log(max, min);
-  });
+  const currency = e.target.value;
+  $('.currCur').text(currency);
+  paintChart(from, to, currency);
 });
