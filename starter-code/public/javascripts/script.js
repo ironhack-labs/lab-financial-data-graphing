@@ -35,6 +35,42 @@ document.addEventListener(
                 console.log(error);
             });
 
+        //code currency
+        var selectCurrency = document.getElementById('currency')
+        console.log(selectCurrency.value)
+        selectCurrency.onchange = () =>{
+            var currency = selectCurrency.value
+            axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`)
+                .then(function (response) {
+                    console.log(response.data);
+                    const keys = Object.keys(response.data.bpi)
+                    const values = Object.values(response.data.bpi)
+                    var ctx = document.getElementById("myChart").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: keys,
+                            datasets: [
+                                {
+                                    data: values,
+                                    label: "Bitcoin values",
+                                    borderColor: "#c45850",
+                                    fill: false
+                                }
+                            ]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Bitcoin live values'
+                            }
+                        }
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
 
         var startDate
         var endDate
@@ -47,7 +83,7 @@ document.addEventListener(
             startDate = inputStart.value
             inputEnd.onchange = () => {
                 endDate = inputEnd.value
-                axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+                axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&?currency=${currency}`)
                     .then(function (response) {
                         console.log(response.data);
                         const keys = Object.keys(response.data.bpi)
@@ -85,40 +121,7 @@ document.addEventListener(
             console.log('cambio')
 
         })*/
-        var selectCurrency = document.getElementById('currency')
-        console.log(selectCurrency.value)
-        selectCurrency.onchange = () =>{
-            var currency = selectCurrency.value
-            axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`)
-                .then(function (response) {
-                    console.log(response.data);
-                    const keys = Object.keys(response.data.bpi)
-                    const values = Object.values(response.data.bpi)
-                    var ctx = document.getElementById("myChart").getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: keys,
-                            datasets: [
-                                {
-                                    data: values,
-                                    label: "Bitcoin values",
-                                    borderColor: "#c45850",
-                                    fill: false
-                                }
-                            ]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'Bitcoin live values'
-                            }
-                        }
-                    });
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+
 
         }
     },
