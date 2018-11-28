@@ -4,8 +4,15 @@
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <canvas id="myChart" width="400" height="400"></canvas>
+  <body><div>
+     <form action="/" id="form" method="POST">
+      From:
+      <input type="date" name="from" id="from">
+      To:
+      <input type="date" name="to" id="to">
+     </form>
+    </div>
+    <canvas id="myChart" width="200" height="200"></canvas>
     
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
