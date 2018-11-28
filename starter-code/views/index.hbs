@@ -5,8 +5,22 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+   <body><div>
+      <form action="/" id="form" method="POST">
+       From:
+       <input type="date" name="from" id="from">
+       To:
+       <input type="date" name="to" id="to">
+       <input type="submit">
+      </form>
+     </div>
+     <canvas id="myChart" width="200" height="200"></canvas>
+
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://api.coindesk.com/v1/bpi/historical/close.json"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="/javascripts/script.js"></script>  
+
 </html>
