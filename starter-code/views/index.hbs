@@ -8,7 +8,14 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <h2>Filters</h2>
     <form id="graph" action="">
+      From: <input id="inputstart" type="date" name="start">
+      To: <input id="inputend" type="date" name="end">
+      Currency: <select name="currency" id="currency">
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
       <input type="submit" value="Show me the data!">
     </form>
     <canvas id="myChart" width="400" height="400"></canvas>

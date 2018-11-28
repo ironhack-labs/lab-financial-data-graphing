@@ -6,11 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //form
 document.querySelector("#graph").addEventListener("submit", apiRequest);
+// document.querySelector("#currency").addEventListener("onchange", apiRequest);
+// document.querySelector("#inputend").addEventListener("blur", apiRequest);
 
 //Javascript se comunica con el 
 function apiRequest(e){
   e.preventDefault();
-  axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
+  console.log(e.target.start.value)
+  console.log(e.target.end.value)
+  let start = e.target.start.value
+  let end = e.target.end.value
+  let currency = e.target.currency.value
+  let url = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`
+  if(start !== '' && end !== ''){
+    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`
+  }
+  console.log(url)
+  axios.get(url)
   .then(result=>{
     let labels = Object.keys(result.data.bpi)
     let data = Object.values(result.data.bpi)
@@ -20,7 +32,6 @@ function apiRequest(e){
     console.log(e)
   })
 }
-
 
 function graph(labels,data){
   var ctx = document.getElementById("myChart").getContext('2d');
