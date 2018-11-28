@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div {
+  margin: 20px;
+}

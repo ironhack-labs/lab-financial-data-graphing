@@ -8,15 +8,22 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
-    <h2>Filters</h2>
     <form id="graph" action="">
-      From: <input id="inputstart" type="date" name="start">
-      To: <input id="inputend" type="date" name="end">
-      Currency: <select name="currency" id="currency">
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                </select>
-      <input type="submit" value="Show me the data!">
+      <div>
+        <h2>Filters</h2>
+        From: <input id="start" type="date" name="start">
+        To: <input id="end" type="date" name="end">
+        Currency: <select name="currency" id="currency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                  </select>
+        </div>
+        <div>
+          <h2>Values</h2>
+          <p id="max">Max: </p>
+          <p id="min">Min: </p>
+          <input type="submit" value="Show me the data!">
+        </div>
     </form>
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
