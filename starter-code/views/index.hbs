@@ -5,8 +5,34 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> BTC Historical price </h1>
+    <div class="canvas">
+      <div>
+        <h2>Filters</h2><br>
+        <label>From: </label>
+        <input type="date">
+        <label>To: </label>
+        <input type="date"><br><br>
+        <label>Currency:</label>
+        <select name="currency">
+          <option value="MXN">Mexican pesos</option>
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+        </select>
+      </div>
+      <div>
+        <h2>Values</h2><br>
+        <label>Max price: </label>
+        <label id="max_price">XXXX</label><br>
+        <label>Min price: </label>
+        <label id="min_price">YYYY</label><br>
+      </div>
+    </div>
+    <canvas id="myChart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
+
 </html>
