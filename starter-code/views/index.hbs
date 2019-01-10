@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+</head>
+
+<body>
+  <h1>BitCoin Stock Charts</h1>
+  <p id="max">Max value</p>
+  <p>from</p><input id="dateFrom" type="date" name="startdate">
+  <p>to</p>
+  <input id="dateTo" type="date" name="enddate">
+
+  <canvas id="myChart"></canvas>
+</body>
+
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
