@@ -4,9 +4,28 @@
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+     
+  <h1> {{title}} </h1>
+  <p>Welcome to  {{title}} </p>
+
+
+
+<label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start" value="2018-12-20">
+
+<label for="end">End date:</label>
+
+<input type="date" id="end" name="trip-end" value="2019-01-10">
+
+<canvas id="myChart" width="100" height="100"></canvas>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+</body>
 </html>
