@@ -7,7 +7,14 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <form>
+      <label for="start">Start Date:</label>
+      <input type="date" id="start" value="2018-01-01">
+      <label for="end">End Date:</label>
+      <input type="date" id="end" value="2018-12-31">
+    </form>
     <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
