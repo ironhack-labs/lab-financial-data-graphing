@@ -21,10 +21,12 @@ const printGraph = () => {
     .then(response => {
       const dateLabels = Object.keys(response.data.bpi);
       const bitPrice = Object.values(response.data.bpi);
-      const maxPrice = Math.max(parseFloat(Object.values(response.data.bpi)));
-      const minPrice = Math.min(parseFloat(Object.values(response.data.bpi)));
+      const maxPrice = Math.max(...(Object.values(response.data.bpi)));
+      const minPrice = Math.min(...(Object.values(response.data.bpi)));
       const ctx = document.getElementById("myChart").getContext("2d");
-      console.log(Math.max(parseFloat(Object.values(response.data.bpi))));
+      console.log(minPrice);
+      console.log(maxPrice);
+    
       maxPriceElement.innerHTML = maxPrice;
       minPriceElement.innerHTML = minPrice;
       const chart = new Chart(ctx, {
