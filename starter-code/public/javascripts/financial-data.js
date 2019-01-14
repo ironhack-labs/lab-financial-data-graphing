@@ -46,9 +46,10 @@ function update() {
 //   $("#endDate").change(update); 
 //   getData(startDate, endDate);
 
-  document. getElementById("startDate").onchange(update()) 
-  document. getElementById("endDate").onchange(update()) 
+  document. getElementById("startDate").onchange = update; 
+  document. getElementById("endDate").onchange = update;
   getData(startDate, endDate);
+  
   
 
 // document. getElementById("startDate").onchange = (e => {
