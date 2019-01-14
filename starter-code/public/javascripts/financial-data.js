@@ -1,4 +1,7 @@
-// Get the data and split axes : x and y
+// 2 VERSIONS, AVEC OU SANS J QUERY.
+// INTERET : NE PAS UTILISER UNE LIBRAIRIE TROP LOURDE SI CE N'EST PAS ABSOLUMENT NECESSAIRE
+
+// GET the data and split axes : x and y
 const getData = (startDate, endDate) => {
   axios
     .get("http://api.coindesk.com/v1/bpi/historical/close.json", {
@@ -15,51 +18,44 @@ const getData = (startDate, endDate) => {
     });
 };
 
-// Récupérer start date et end Date par défaut :
+
+// RECUPERATION START DATE ET END DATE PAR DEFAUT :
+const startDate = document.getElementById("startDate").value;
+console.log("start : " + startDate);
+const endDate = document.getElementById("endDate").value;
+console.log("end : " + endDate);
+// Même chose en J query :
 // const startDate = $("#startDate").val();
 // console.log("start : " + startDate);
 // const endDate = $("#endDate").val();
 // console.log("end : " + endDate);
 
 
-// Sans J QUERY (avec id à la place de classe : # à la place de .) pour ne pas utiliser 
-const startDate = document. getElementById("startDate").value;
-console.log("start : " + startDate);
-const endDate = document. getElementById("endDate").value;
-console.log("end : " + endDate);
-
-
+// FONCTION UPDATE
+function update() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  getData(startDate, endDate);
+}
+// Même chose en J query :
 // function update() {
 //   const startDate = $("#startDate").val();
 //   const endDate = $("#endDate").val();
 //   getData(startDate, endDate);
 // }
 
-function update() {
-    const startDate = document. getElementById("startDate").value;
-    const endDate = document. getElementById("startDate").value;
-    getData(startDate, endDate);
-  }
 
-// Mise à jour de la start date, de la end date, et de la fonction get Data :
+// MISE A JOUR de la start date, de la end date, et de la fonction get Data :
+document.getElementById("startDate").onchange = update;
+document.getElementById("endDate").onchange = update;
+getData(startDate, endDate);
+// Même chose en J query :
 //   $("#startDate").change(update);
-//   $("#endDate").change(update); 
+//   $("#endDate").change(update);
 //   getData(startDate, endDate);
 
-  document. getElementById("startDate").onchange = update; 
-  document. getElementById("endDate").onchange = update;
-  getData(startDate, endDate);
-  
-  
 
-// document. getElementById("startDate").onchange = (e => {
-  //   const startDate = e.target.value;
-  //   const endDate = $("input.endDate").val();
-  //   console.log("start : " + startDate);
-  //   getData(startDate, endDate);
-  // });
-  
-// Construire le graphe
+// CONSTRUCTION DU GRAPHE
 const printTheChart = stockData => {
   const bpiDates = Object.keys(stockData.bpi);
   const bpiValues = Object.values(stockData.bpi);
