@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdnjs.com/libraries/Chart.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+  axios
+    .get("https://api.coindesk.com/v1/bpi/historical/close.json")
+    .then(data => console.log(data.data.bpi))
+    .catch(err => console.log("An error ocurred: ", err))
+</script>
+
 </html>
