@@ -5,8 +5,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Financial Data Graphing </h1>
+    <p> {{title}} </p>
+  <canvas id="myChart"></canvas>
+  {{!-- <span>From: <input type="date" id="start-date"></span>
+  <span>To: <input type="date" id="end-date"></span> --}}
+
+  <form action="/" method="POST" id="form">
+         From:
+         <input type="date" name="from" id="from">
+         To:
+         <input type="date" name="to" id="to">
+       </form>
+
+
+  <button id="search">search</button>
+
+  <select name="" id="currency">
+    <option value="EUR">EURO (€)</option>
+    <option value="USD">US Dollar ($)</option>
+</select>  
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
