@@ -1,23 +1,7 @@
-
-// function updateChart() {
-//     axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
-//         .then(info => {
-//             console.log(info.data.bpi)
-//             console.log('DEBUG', Object.keys(info.data.bpi))
-//             //     var info = Object.keys(obj).map(function(info) {
-//             //         return {y: info.data.bpi}
-
-//         })
-// }
-// updateChart()
-
-
-
-
 function updateChart(from, to) {
     var test = ""
     if (from && to){
-        console.log("line 20")
+        // console.log("line 20")
         var test = `?start=${from}&end=${to}`    
     }
     axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json${test}`)
@@ -58,7 +42,7 @@ function updateChart(from, to) {
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        // console.log(error);
       })
 }
 updateChart()
@@ -66,7 +50,7 @@ updateChart()
 document.getElementById('form').onchange = () => {
     var from = document.getElementById('from').value
     var to  = document.getElementById('to').value
-    console.log("hello",from,to)
+    // console.log("hello",from,to)
     
     updateChart(from, to)
 }
