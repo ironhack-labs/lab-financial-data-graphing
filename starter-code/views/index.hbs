@@ -3,13 +3,14 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    {{!-- <script src="http://api.coindesk.com/v1/bpi/historical/close.json" charset="utf-8"></script> --}}
-    <script>
-      
-
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" charset="utf-8"></script>
+    <script src="/javascripts/financial-data.js"></script>
   </head>
   <body>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script></script>
+
     <h1> {{title}} </h1>
     <p>Sabemos que eres hijo de {{title}} </p>
   </body>
