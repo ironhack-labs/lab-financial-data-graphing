@@ -1,8 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.canvas-container {
+  width: 1150px;
+  height: 800px;
+}
+
+.filter,
+.min-max {
+  margin-bottom: 10px;
+}
+
+.filter-container,
+.currency-container {
+  margin-bottom: 30px;
+}
+
+.filter-container input,
+.currency-container select {
+  padding: 2px;
+}
+
+.min-max-container {
+  margin-bottom: 50px;
+  line-height: 30px;
 }

@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <title>Financial Data Graphing</title>
+</head>
+
+<body>
+  <h1 class="title">Financial Data Graphing</h1>
+
+  <div class="container">
+    <div>
+      <div class="filter-container">
+        <h2 class="filter">Filters</h2>
+        <label for="date-start">From: </label>
+        <input id="date-start" type="date">
+        <label for="date-end">To: </label>
+        <input id="date-end" type="date">
+      </div>
+
+      {{!-- Choose Currency --}}
+      <div class="currency-container">
+        <label for="currency">Currency: </label>
+        <select name="currency" id="currency">
+          <option value="USD" selected>USD</option>
+          <option value="EUR">EUR</option>
+          <option value="CNY">CNY</option>
+        </select>
+      </div>
+    </div>
+
+    {{!-- Show Min & Max --}}
+    <div class="min-max-container">
+      <h2 class="min-max">Values:</h2>
+      <p id="max"></p>
+      <p id="min"></p>
+    </div>
+  </div>
+  {{!-- Filter Date --}}
+
+
+
+  {{!-- Chart --}}
+  <div class="canvas-container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <p id="error-message"></p>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="javascripts/financial-data.js"></script>
+</body>
+
 </html>
