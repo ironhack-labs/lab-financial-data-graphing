@@ -9,17 +9,65 @@
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
+  <label for="initDate">From:</label>
+  <input type="date" name="initDate" id="initDate">
+  <label for="endDate">to:</label>
+  <input type="date" name="endDate" id="endDate">
+  <label for="currency">Currency</label>
+  <select name="currency" id="currency">
+    <option value="USD">US Dollar $</option>
+    <option value="EUR">EURO €</option>
+  </select>
+
+  <canvas id="myCanvas" width="200px" height="150px"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-<script src="https://cdnjs.com/libraries/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script>
-  axios
-    .get("https://api.coindesk.com/v1/bpi/historical/close.json")
-    .then(data => console.log(data.data.bpi))
-    .catch(err => console.log("An error ocurred: ", err))
+  const ctx = document.querySelector("#myCanvas").getContext("2d")
+  const initDate = document.querySelector("#initDate")
+  const endDate = document.querySelector("#endDate")
+  const currency = document.querySelector("#currency")
+  let url = "https://api.coindesk.com/v1/bpi/historical/close.json"
+
+
+  $("#initDate, #endDate").change(() => {
+    if (initDate.value.length == 10 && endDate.value.length == 10) {
+      paintChart()
+    }
+  })
+  $("#currency").change(() => {
+    paintChart(true)
+  })
+
+  const paintChart = (arg) => {
+    if (initDate.value != "" || endDate.value != "") {
+      url = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}&start=${initDate.value}&end=${endDate.value}`
+    }
+    else if (arg == true) {
+      url = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`
+    }
+    axios
+      .get(url)
+      .then(json => {
+        let myChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: Object.keys(json.data.bpi),
+            datasets: [{
+              label: "Bitcoin Price Index",
+              data: Object.values(json.data.bpi)
+            }]
+          }
+        })
+      })
+      .catch(err => console.log("An error ocurred: ", err))
+  }
+  paintChart()
+
 </script>
 
 </html>
