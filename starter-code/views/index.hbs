@@ -7,6 +7,21 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    {{!-- <label for="start">Choose start date</label><label for="end">Choose end date</label> --}}
+    <label for="start">Enter start date:</label>
+    <input type="date" id="start" name="start"> 
+    <label for="end">Enter end date:</label>
+    <input type="date" id="end" name='end'> 
+    <button id='form-submit'>Submit</button>
+    <label for="cur-select">Choose a currency:</label>
+    <select id="cur-select">
+      <option value="EUR">Euro</option>
+      <option value="USD" selected>US-Dollar</option>
+    </select>
+    <br>
+    <canvas id="bpiChart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
