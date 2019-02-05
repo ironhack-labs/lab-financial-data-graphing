@@ -12,8 +12,19 @@
   
  
   From: <input type="date" class="change-date" id="date-from" >
-  To: <input type="date" class="change-date" id="date-to" onchange="changeDate(this.value)">
+  To: <input type="date" class="change-date" id="date-to" >
+
+  <select id="currency-change">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
   
+</select>
+  
+  <div class="max-min-values">
+<h1>Values</h1> <br>
+<p id="max-value"></p>
+<p id="min-value"></p>
+  </div>
   
   <canvas id="myChart" width="400" height="400"></canvas>
 
