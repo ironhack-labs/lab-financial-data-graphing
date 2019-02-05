@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+
+
+
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <script>
+    const data = axios.get('http://api.coindesk.com/v1/bpi/historical/close.json').
+      then((datos) => {
+        console.log(datos.data.bpi)
+
+        const date = Object.keys(datos.data.bpi)
+        const value = Object.values(datos.data.bpi)
+
+        printChart(date, value)
+
+
+      }).catch(err => console.log(err))
+
+    const printChart = ((date, value) => {
+      console.log(date)
+      const ctx = document.getElementById('myChart').getContext('2d');
+
+      const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: date,
+          datasets: [{
+            data: value,
+            showLines: true
+          }]
+        },
+
+      });
+    })
+
+  </script>
+</body>
+
+
 </html>
