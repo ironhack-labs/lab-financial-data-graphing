@@ -31,27 +31,19 @@
   const initDate = document.querySelector("#initDate")
   const endDate = document.querySelector("#endDate")
   const currency = document.querySelector("#currency")
-  let url = "https://api.coindesk.com/v1/bpi/historical/close.json"
+  let today = new Date()
+  let monthAgo = new Date()
+  monthAgo.setMonth(monthAgo.getMonth() - 1)
 
+  initDate.value = monthAgo.toISOString().split('T')[0]
+  endDate.value = today.toISOString().split('T')[0]
 
-  $("#initDate, #endDate").change(() => {
-    if (initDate.value.length == 10 && endDate.value.length == 10) {
-      paintChart()
-    }
+  $("#initDate, #endDate, #currency").change(() => {
+    paintChart()
   })
-  $("#currency").change(() => {
-    paintChart(true)
-  })
-
   const paintChart = (arg) => {
-    if (initDate.value != "" || endDate.value != "") {
-      url = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}&start=${initDate.value}&end=${endDate.value}`
-    }
-    else if (arg == true) {
-      url = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`
-    }
     axios
-      .get(url)
+      .get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}&start=${initDate.value}&end=${endDate.value}`)
       .then(json => {
         let myChart = new Chart(ctx, {
           type: "line",
@@ -67,6 +59,9 @@
       .catch(err => console.log("An error ocurred: ", err))
   }
   paintChart()
+  setTimeout(() => {
+    console.log(max)
+  }, 1000)
 
 </script>
 
