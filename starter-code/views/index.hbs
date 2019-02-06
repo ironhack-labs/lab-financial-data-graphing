@@ -18,6 +18,9 @@
     <option value="USD">US Dollar $</option>
     <option value="EUR">EURO €</option>
   </select>
+  <p id="max"></p>
+  <p id="min"></p>
+
 
   <canvas id="myCanvas" width="200px" height="150px"></canvas>
 </body>
@@ -34,7 +37,6 @@
   let today = new Date()
   let monthAgo = new Date()
   monthAgo.setMonth(monthAgo.getMonth() - 1)
-
   initDate.value = monthAgo.toISOString().split('T')[0]
   endDate.value = today.toISOString().split('T')[0]
 
@@ -45,6 +47,8 @@
     axios
       .get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}&start=${initDate.value}&end=${endDate.value}`)
       .then(json => {
+        const max = document.querySelector("#max").innerHTML = "MAX: " + Math.max.apply(Math, Object.values(json.data.bpi))
+        const min = document.querySelector("#min").innerHTML = "MIN: " + Math.min.apply(Math, Object.values(json.data.bpi))
         let myChart = new Chart(ctx, {
           type: "line",
           data: {
@@ -59,9 +63,6 @@
       .catch(err => console.log("An error ocurred: ", err))
   }
   paintChart()
-  setTimeout(() => {
-    console.log(max)
-  }, 1000)
 
 </script>
 
