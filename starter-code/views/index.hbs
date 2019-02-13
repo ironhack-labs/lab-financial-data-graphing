@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> Financial Data </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> Financial Data BTC </h1>
+
+  <div>
+    <h2>Values:</h2>
+    <p>Max:{{maxVal}}</p>
+    <p>Min:{{minVal}}</p>
+     <select name="currency" id="">
+<option value="USD">USD</option>
+<option value="EUR">EUR</option>
+<option value="MXN">MXN</option>
+  </select>
+  </div>
+
+</body>
+<form action="/" method="POST">
+  <input type="date" id="start" name="startDate" placeholder="startDate" value="2018-02-12">
+  <input type="date" id="end" name="endDate" placeholder="endDate" value="2018-02-19">
+
+ 
+</form>
+
+<canvas id="myChart"></canvas>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+
+
 </html>
