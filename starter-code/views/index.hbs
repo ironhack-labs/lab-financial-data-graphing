@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1>Bitcoin data</h1>
+  <form action="/" method="POST">
+    <p>From</p>
+    <input type="date" id="from" name="fromDate">
+    <p>To</p>
+    <input type="date" id="to" name="toDate"><br><br>
+    <select name="toCurrency" id="">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <div>
+    <h3>Values</h3>
+    <p>Max value: {{maxValue}}</p>
+    <p>Min value: {{minValue}}</p>
+  </div>
+  <div>
+    <canvas id="line-chart" width="800" height="450"></canvas>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script>
+  var timeFormat = 'DD/MM/YYYY';
+  var lineChart = new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+      labels: [{{ labels }}],
+      datasets: [{
+        data: [{{ data }}],
+        label: "Bitcoin Price Index",
+        borderColor: "#3e95cd",
+        fill: true
+      }]
+    },
+    options: {
+      title: {
+        display: false,
+        text: 'World population per region (in millions)'
+      },
+      labels: {
+        fontColor: 'red',
+        format: timeFormat,
+      }
+    },
+  });
+</script>
+
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
