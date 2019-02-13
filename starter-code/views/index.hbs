@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title> {{title}} </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <section>
+        <form action='/' method="POST">
+        From <input type="date" name="fromDate" id="fromDate" value="{{hoyFrom}}">
+        To <input type="date" name="toDate" id="toDate" value="{{hoy}}">
+        </form>
+    </section>
+<input type="submit">
+
+    <canvas id="myChart" width="400" height="280"></canvas>
+    <script>
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+
+        var myChart = new Chart(document.getElementById("myChart"),{
+            type: 'line',
+            data: {
+                labels: [{{ labels }}],
+            datasets: [{
+                label: "Bitcoin Price",
+                data: [{{ data }}],
+            borderColor:'rgba(255,99,132,1)',
+            borderWidth: 1,
+            fill: true
+            }
+            ]
+        },
+            options: {
+               title: {
+                   display: false,
+                   text: "World population per region (in millions)"
+               }
+           }
+           }) 
+
+    </script>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
