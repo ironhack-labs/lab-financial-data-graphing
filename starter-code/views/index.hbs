@@ -3,10 +3,48 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    
   </head>
+
   <body>
-    <h1> {{title}} </h1>
+    <canvas id="myChart" width="400" height="400"></canvas>
     <p>Welcome to  {{title}} </p>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  
+<section>
+  <form action="/" method="POST">
+
+  </form>
+  <div>
+    <select>
+      <option value="USD"> USD</option> 
+       <option value="EUR"> EUR</option> 
+      </select>
+    <p>From <input type="date" name="fromDate" id="fromDate" value="{{nowFrom}}"></p>
+    <p>To <input type="date" name="toDate" id="toDate" value="{{now}}"></p>
+  </div>
+
+</section>
+
+
+<script>
+
+let ctx = document.getElementById('myChart')
+let chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{{labels}}],
+        datasets:[{
+                   data : [{{data}}],
+                   label: "Bitcoin",
+                   backgroundColor: 'rgba(163,54,63,3)',
+                   borderColor: 'rgba(120,99,132,1)'
+    }],
+    options: {}
+}
+});
+</script>
+  
 </html>
