@@ -1,12 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+<section>
+  <div><h2>Filters</h2>
+<form action="/" method="post">
+From <input type="date" name="fromDate" id="fromDate" value="{{hoyFrom}}">
+To <input type="date" name="toDate" id="toDate" value="{{hoy}}">
+Currency: <select name="currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="MXN">MXN</option>
+  <option value="SGD">USD</option>
+</select>
+<input type="submit">
+</form></div>
+<div><h2>Values</h2>
+<p>Max: {{maxVal}}{{currency}}</p>
+<p>Min: {{minVal}}{{currency}}</p>
+</div>
+</section>
+
+
+<canvas id="line-chart" width="600" height="300"></canvas>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+   <script>
+       var lineChart = new Chart(document.getElementById("line-chart"), {
+           type: "line",
+           data: {
+               labels: [{{labels}}],
+               datasets: [{
+                   data: [{{data}}],
+                   label: "Bitcoin Price Index",
+                   borderColor: "#3e95cd",
+                   fill: true
+               }
+               ]
+           },
+           options: {
+               title: {
+                   display: false,
+                   text: "World population per region (in millions)"
+               }
+           }
+       }); 
+   </script>

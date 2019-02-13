@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+section{
+  display: flex;
+  align-items: center;
+  align-content: space-around
+}
+section div {
+  width: 50%
+}
