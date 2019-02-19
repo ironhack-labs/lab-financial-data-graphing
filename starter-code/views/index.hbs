@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title>Financial Data Graphing</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <div class="price-info">
-      <h2>Max</h2>
-      <h3 id="max">0.00</h3>
-      <h2>Min</h2>
-      <h3 id="min">0.00</h3>
-
-    </div>
+    <h1>Bitcoin Price Index</h1>
+    
+   
+    <div class="filters">
+      <h2>Filters</h2>
     <form class="form">
-      <input type="date" onchange="onChange(event)" id="date-from">
-      <input type="date" onchange="onChange(event)" id="date-end">
-      <select onchange="onChange(event)"  id="currency">
+      from: <input type="date" onchange="onChange(event)" id="date-from">
+      to: <input type="date" onchange="onChange(event)" id="date-end">
+      <br>
+      Currency: <select onchange="onChange(event)"  id="currency">
         <option selected="selected" >USD</option>
         <option >EUR</option>
       </select>
     </form>
+    </div>
+
+     <div class="values">
+      <h2>Values</h2>
+    <div class="price-info">
+      <h4>Max: <span id="max">0.00</span></h4>
+      {{!-- <h3 id="max">0.00</h3> --}}
+      <h4>Min: <span id="min">0.00</span></h4>
+      {{!-- <h3 id="min">0.00</h3> --}}
+    </div>
+    </div>
+
+
 
     <canvas id="canvas" width="300" height="300"></canvas>
   </body>

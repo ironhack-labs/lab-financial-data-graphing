@@ -10,3 +10,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.filters{
+  width: 40%;
+  float: left;
+}
+.values{
+  width: 40%;
+  float: left;
+}
