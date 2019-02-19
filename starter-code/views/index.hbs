@@ -7,6 +7,18 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" id="dateStart" value="2019-01-01"
+       min="2019-01-01" max="2019-2-31"> 
+       to 
+       <input type="date" id="dateEnd" value="2019-02-15"
+       min="2019-01-01" max="2019-2-18">
+
+ <canvas id="myChart" width="400" height="400"></canvas>
+    
+
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
