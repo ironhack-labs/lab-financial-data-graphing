@@ -3,10 +3,29 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js" charset="utf-8"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <div class="price-info">
+      <h2>Max</h2>
+      <h3 id="max">0.00</h3>
+      <h2>Min</h2>
+      <h3 id="min">0.00</h3>
+
+    </div>
+    <form class="form">
+      <input type="date" onchange="onChange(event)" id="date-from">
+      <input type="date" onchange="onChange(event)" id="date-end">
+      <select onchange="onChange(event)"  id="currency">
+        <option selected="selected" >USD</option>
+        <option >EUR</option>
+      </select>
+    </form>
+
+    <canvas id="canvas" width="300" height="300"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
