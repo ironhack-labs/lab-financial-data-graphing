@@ -63,4 +63,4 @@ function getDate(){
   }
   return yyyy + '-' + mm +'-'+ dd
 }
-drawChart("2018-01-01", "2018-03-24");
+drawChart("2019-01-01", getDate());
