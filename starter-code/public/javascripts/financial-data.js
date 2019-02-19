@@ -20,12 +20,14 @@ axios.get("http://api.coindesk.com/v1/bpi/historical/close.json")
     console.log(error);
 })
 document.getElementById('min-date').onchange = function(e){
-    console.log(this.value);
+    minimum = document.getElementById('min-date').value;
     drawChart(myData, labelsArray, dataArray, this.value, maximum);
-}
-document.getElementById('max-date').onchange = function(e){
     console.log(this.value);
+} 
+document.getElementById('max-date').onchange = function(e){
+    maximum = document.getElementById('max-date').value;
     drawChart(myData, labelsArray, dataArray, minimum, this.value);
+    console.log(this.value);
 }
 function drawChart(myData, labelsArray, dataArray, minimumD="", maximumD=""){
     var myChart = new Chart(ctx, {
