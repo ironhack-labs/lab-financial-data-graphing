@@ -1,46 +1,39 @@
-// axios.get('http://api.coindesk.com/v1/bpi/historical/close.json').then(res => {
-//   // console.log(data);
-//   var ctx = document.getElementById("canvas").getContext('2d');
-//   var myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//       labels: Object.keys(res.data.bpi),
-//       datasets: [{
-//         label: 'Price',
-//         data: Object.values(res.data.bpi),
-//         borderWidth: 1
-//       }]
-//     },
-//   });
-// })
+
 
 
 function onChange(e) {
   e.preventDefault()
   let from = document.getElementById('date-from').value
   let end = document.getElementById('date-end').value
-  console.log(from);
-  drawChart(from, end)
+  let currency = document.getElementById('currency').value
+  console.log(currency);
+  drawChart(from, end, currency)
 
 }
 
-function drawChart(start, end) {
-  let uri = 'http://api.coindesk.com/v1/bpi/historical/close.json'
+function drawChart(start, end, currency) {
+  let uri = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency || "USD"}&`
   let today = getDate()
 
   // console.log(today);
   if (!!start && !!end) {
-    uri += `?start=${start}&end=${end}`;
+    uri += `start=${start}&end=${end}`;
   } else if (!!start) {
-    uri += `?start=${start}&end=${today}`
+    uri += `start=${start}&end=${today}`
   } else if (!!end) {
-    uri += `?end=${end}&start=2010-06-01`
+    uri += `end=${end}&start=2010-06-01`
   }
 
   console.log(uri);
 
   axios.get(uri).then(res => {
     // console.log(res)
+    let data = Object.values(res.data.bpi);
+    let max = Math.max(...data);
+    let min = Math.min(...data);
+    document.getElementById('max').innerText = max
+    document.getElementById('min').innerText = min
+
     var ctx = document.getElementById("canvas").getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'line',
@@ -48,7 +41,7 @@ function drawChart(start, end) {
         labels: Object.keys(res.data.bpi),
         datasets: [{
           label: 'Price',
-          data: Object.values(res.data.bpi),
+          data,
           borderWidth: 1
         }]
       },
