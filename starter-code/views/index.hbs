@@ -3,10 +3,19 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js" charset="utf-8"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <form class="form">
+      <input type="date" onchange="onChange(event)" id="date-from">
+      <input type="date" onchange="onChange(event)" id="date-end">
+    </form>
+
+    <canvas id="canvas" width="300" height="300"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
