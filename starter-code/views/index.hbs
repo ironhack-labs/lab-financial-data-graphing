@@ -1,12 +1,134 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title>Bitcoin Price Checker</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Welcome to BitCoin PriceChecker </h1>
+
+    <input type="text" id="startdate" placeholder="YYYY-MM-DD">
+    <input type="text" id="enddate" placeholder="YYYY-MM-DD">
+
+    <button id="submit">Sumbit</button>
+    <button id="show-history">Show 30day Bitcoin History</button>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+    {{!-- <input type="text" id="currency" placeholder=""> --}}
+    {{!-- <input type="text" id="" placeholder=""> --}}
+    <canvas id="myChart"></canvas>
+
+<script>
+$('#startdate').datepicker({dateFormat: 'yy-mm-dd'})
+$('#enddate').datepicker({dateFormat: 'yy-mm-dd'})
+
+$('#submit').click(function() {
+  bitcoinValueBetweenDates($('#startdate').val(), $('#enddate').val(), $('#currency').val() );
+  clearData();
+});
+
+$('#show-history').click(function() {
+  historicalBitcoinData();
+  clearData();
+});
+
+$("input[type='text']").change(function() {
+  bitcoinValueBetweenDates($('#startdate').val(), $('#enddate').val(), $('#currency').val() );
+});
+
+function clearData() {
+  xAx = [];
+  yAx = [];
+}
+
+var xAx = [];
+var yAx = [];
+
+function historicalBitcoinData() {
+  axios({
+      method:'get',
+      url:'https://api.coindesk.com/v1/bpi/historical/close.json',
+    })
+    .then(function(response) {
+        var keyDates = Object.keys(response.data.bpi);
+        for (i=0; i < keyDates.length; i++) {
+          xAx.push(keyDates[i]);
+          yAx.push(response.data.bpi[keyDates[i]])
+        }
+    })
+    .catch(function (error) {
+        console.log(error); 
+  });
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: xAx,
+        datasets: [{
+            label: "Bitcoin History",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: yAx,
+        }]
+    },
+    // Configuration options go here
+    options: {}
+});
+}
+
+function bitcoinValueBetweenDates(start, end, currency) {
+  
+  axios({
+      method:'get',
+      url:`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`,
+    })
+    .then(function(response) {
+      
+        var keyDates = Object.keys(response.data.bpi);
+        for (i=0; i < keyDates.length; i++) {
+          xAx.push(keyDates[i]);
+          yAx.push(response.data.bpi[keyDates[i]])
+        }
+        
+    })
+    .catch(function (error) {
+        console.log(error); 
+  });
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: xAx,
+        datasets: [{
+            label: "Bitcoin History",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: yAx,
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+}
+  </script>
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
