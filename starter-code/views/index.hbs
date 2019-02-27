@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+
+    axios.get("http://api.coindesk.com/v1/bpi/historical/close.jso")
+      .then((response) => {
+        for (var dayKey in response.data.bpi) {
+          $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+  </script>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <ul id="data">
+
+  </ul>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
