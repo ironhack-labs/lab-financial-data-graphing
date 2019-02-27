@@ -11,33 +11,37 @@
 </head>
 
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
-
+  <h1> Coindesk API </h1>
+  <br>
+  <h2>data from the last 30 days</h2>
   <ul id="data">
   </ul>
 
+  <h2>chart from the last 30 days</h2>
   <canvas id="myChart"></canvas>
 
+  <h2>chart from custom dates:</h2>
+  <input type="text" id="start">
+  <input type="text" id="end">
+  <button id="createChart">create chart</button>
 
+  <canvas id="customChart"></canvas>
   <script>
 
+    // last 30 days
     var xAxis = [];
     var yAxis = [];
-
-    axios.get("http://api.coindesk.com/v1/bpi/historical/close.jso")
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
       .then((response) => {
         for (var dayKey in response.data.bpi) {
           $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
           xAxis.push(dayKey);
           yAxis.push(response.data.bpi[dayKey]);
         }
-
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
           // The type of chart we want to create
           type: 'line',
-
           // The data for our dataset
           data: {
             labels: xAxis,
@@ -48,23 +52,47 @@
               data: yAxis,
             }]
           },
-
           // Configuration options go here
           options: {}
         });
-
-
-
-
-
       })
       .catch((err) => {
         console.log(err)
       })
 
-
-
-
+    // custom date chart:
+    $('#createChart').click(function () {
+      createCustomDateChart($('#start').val(), $('#end').val());
+    })
+    function createCustomDateChart(start, end) {
+      var xAxis = [];
+      var yAxis = [];
+      axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+        .then((response) => {
+          for (var dayKey in response.data.bpi) {
+            $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
+            xAxis.push(dayKey);
+            yAxis.push(response.data.bpi[dayKey]);
+          }
+          var ctx = document.getElementById('customChart').getContext('2d');
+          var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+            // The data for our dataset
+            data: {
+              labels: xAxis,
+              datasets: [{
+                label: "Bitcoin data",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: yAxis,
+              }]
+            },
+            // Configuration options go here
+            options: {}
+          });
+        })
+    }
 
   </script>
 
