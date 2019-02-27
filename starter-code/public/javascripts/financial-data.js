@@ -1,48 +1,36 @@
-let arrKeys = [] 
-let arrValues = []
 
 const getCoinData = (start, end) => {
-    debugger
     axios({
       method: "get",
       url: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}` 
     })
     .then(response => {
-        debugger
-    let data = response.data.bpi
-    console.log(response.data.length);
-    arrKeys = [] 
-    arrValues = []
-      for (i = 0; i < Object.keys(data).length; i++){
-        arrKeys.push(Object.keys(data)[i]);
-        arrValues.push(Object.values(data)[i]);
+    let data = response.data.bpi;
+    let coinArray = [] ;
+      for (i = 0; i < Object.entries(data).length; i++){
+        coinArray.push(Object.entries(data)[i]);
       }
-      createCoinList(arrKeys, arrValues );
-      createGraph();
+      createCoinList(coinArray);
+      createGraph(data);
     })
-    .catch(err => {
-      console.log(err);
-    })
-  }
+    .catch(err => console.log(err))
+  };
   
-const createCoinList = (keyArray, valArray) => {
+const createCoinList = (coinArray) => {
     let htmlList = "";
-    for(let i = 0 ; i < keyArray.length; i ++) {
-        htmlList += `<li> ${keyArray[i]}: ${valArray[i]} </li>`
-    }
+    coinArray.forEach(element => htmlList += `<li> ${element[0]}  :   ${element[1]}</li>`);
     document.getElementById("ul").innerHTML = htmlList;
-    debugger
 }
 
-const createGraph = () => {
+const createGraph = (data) => {
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: arrKeys,
+        labels: Object.keys(data),
         datasets: [{
             label: 'historic price chart',
-            data: arrValues,
+            data: Object.values(data),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -61,11 +49,9 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 1
         }]
-    }
+    }    
 });
-}
-
-getCoinData();
+};
 
 const button = document.getElementById("button");
 

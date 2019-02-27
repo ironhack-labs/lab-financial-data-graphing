@@ -9,15 +9,23 @@
   </head>
   <body>
 
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <input id="startdate" type="date">
-    <input id="enddate" type="date">
-    <button id="button">show me the graphs</button>
-    <ul id="ul"></ul>
-    
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="inputlist-container">
+      <div class="input-form">
+        <header>
+          <h1> {{title}} </h1>
+          <p>Welcome to  {{title}} </p>
+        </header>
+        <input id="startdate" type="date">
+        <input id="enddate" type="date">
+        <button id="button">show me the graphs</button>
+      </div>
+      <ul id="ul"></ul> 
+    </div> 
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+      <canvas id="myChart"></canvas>
+  </div>
+
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
