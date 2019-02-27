@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> {{lab-bitcoins}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+  
+      <h1> ₿ Bitcoin rate filters ₿</h1>
+
+      <input type='text'id="start" placeholder="YYYY-MM-DD">
+      <input type='text'id="end" placeholder="YYYY-MM-DD"> 
+      <button id='button'type="submit">Click me</button>
+    
+      <select id="currency">
+        <option value="USD"> $ Dolar</option>
+        <option value="EUR"> € Euro</option>
+      </select>
+   
+    <div>
+    <h2 id='values'></h2> 
+    <h3 id='max'></h3>
+    <h3 id='min'></h3>
+    </div>
+
+    <canvas id="myChart" width="200" height="200"></canvas>
+    
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
+  
+  </body>
 </html>
