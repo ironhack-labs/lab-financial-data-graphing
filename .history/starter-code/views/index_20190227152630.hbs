@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> {{title}} </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  </head>
+  <body>
+    <h1> {{title}} </h1>
+    <p>Welcome to  {{title}} </p>
+
+
+     
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    {{!-- <form action="" method="GET">
+      <label for="from">From</label>
+        <input type="date" id="start" name="start"
+       value=""
+       min="">
+        <label for="to">To</label>
+         <input type="date" id="start" name="start"
+       value=""
+       min=""><br>
+       <label for="currency">Currency:</label>
+       <select name="currency" id="currency">
+           <option value="euro">Euro</option>
+           <option value="dollar">Dollar</option>
+       </select>
+    </form>
+
+    <!-- Display stock -->
+    <h1>Stock Info</h1>
+<!--  use input's id to grab the value from the input field -->
+  <input id="theInput" type="text">
+  <button id="theButton">Get the stock</button> --}}
+    
+<!-- the data we get from the API will be populated in here:   -->
+<li id="stocky">
+
+</li>
+
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+  </body>
+</html>

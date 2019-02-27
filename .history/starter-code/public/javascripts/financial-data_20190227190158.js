@@ -89,5 +89,10 @@ function getChartWithDates(from,to){
             console.log(err);
         },
     }) 
+    
+    // dataArray = [];
+    // valueArray = [];
+
+    // count = 0;
 
 }
