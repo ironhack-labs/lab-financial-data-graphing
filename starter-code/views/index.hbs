@@ -6,11 +6,9 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 </head>
 
 <body>
@@ -18,103 +16,15 @@
   <p>Start Date: <input type="text" id="start" value="2017-01-01"></p>
   <p>End Date: <input type="text" id="end" value="2018-02-27"></p>
   <p>Currency:
-  <select id="currency">
-    <option value="chf">USD</option>
-    <option value="eur">EUR</option>
-    <option value="chf">CHF</option>
-  </select>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="CHF">CHF</option>
+    </select>
   </p>
+  <p>Day with highest value: <span id="highestVal"></span></p>
+  <p>Day with lowest value: <span id="lowestVal"></span></p>
   <canvas id="customChart"></canvas>
-
-
-<!--
-  <h2>data from the last 30 days</h2>
-  <ul id="data">
-  </ul>
-
-  <h2>chart from the last 30 days</h2>
-  <canvas id="myChart"></canvas>
-
--->
-  <script>
-
-    $(document).ready(function(){
-      createCustomDateChart($('#start').val(), $('#end').val());
-    })
-    $("#start").datepicker({ dateFormat: 'yy-mm-dd' });
-    $("#end").datepicker({ dateFormat: 'yy-mm-dd' });
-    
-    // last 30 days
-    var xAxis = [];
-    var yAxis = [];
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
-      .then((response) => {
-        for (var dayKey in response.data.bpi) {
-          $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
-          xAxis.push(dayKey);
-          yAxis.push(response.data.bpi[dayKey]);
-        }
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-          // The type of chart we want to create
-          type: 'line',
-          // The data for our dataset
-          data: {
-            labels: xAxis,
-            datasets: [{
-              label: "Bitcoin data",
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: yAxis,
-            }]
-          },
-          // Configuration options go here
-          options: {}
-        });
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-    // custom date chart:
-    $("input[type='text']").change( function() {
-      createCustomDateChart($('#start').val(), $('#end').val());
-    });
-    $('select#currency').on('change', function() {
-      createCustomDateChart($('#start').val(), $('#end').val());
-    });
-    function createCustomDateChart(start, end) {
-      var xAxis = [];
-      var yAxis = [];
-      axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?currency=${$('#currency').val()}&start=${start}&end=${end}`)
-        .then((response) => {
-          for (var dayKey in response.data.bpi) {
-            $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
-            xAxis.push(dayKey);
-            yAxis.push(response.data.bpi[dayKey]);
-          }
-          var ctx = document.getElementById('customChart').getContext('2d');
-          var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'line',
-            // The data for our dataset
-            data: {
-              labels: xAxis,
-              datasets: [{
-                label: "Bitcoin data",
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: yAxis,
-              }]
-            },
-            // Configuration options go here
-            options: {}
-          });
-        })
-    }
-
-  </script>
-
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
