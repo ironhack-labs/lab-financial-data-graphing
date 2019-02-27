@@ -5,8 +5,32 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="container">
+      <h1>Welcome to bitcoin chart!</h1>
+      <select name="" id="currency">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+      <input type="text" id="start" placeholder="start yyyy-mm-dd">
+      <input type="text" id="end" placeholder="end yyyy-mm-dd">
+      <button id="btn">Show the chart</button>
+    </div>
+    <div class="container">
+      <h2>Min value: <span id="min"></span></h2>
+      <h2>Max value: <span id="max"></span></h2>
+    </div>
+
+    <div class="chart-div">
+      <canvas id="myChart"></canvas>
+    </div>
+
+
   </body>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

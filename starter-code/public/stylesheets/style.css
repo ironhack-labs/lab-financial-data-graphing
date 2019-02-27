@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container {
+  text-align: center;
+}
+
+.chart-div {
+  width: 70%;
+  margin: 50px auto;
+}
