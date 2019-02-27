@@ -6,19 +6,8 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
-    axios.get("http://api.coindesk.com/v1/bpi/historical/close.jso")
-      .then((response) => {
-        for (var dayKey in response.data.bpi) {
-          $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-  </script>
 </head>
 
 <body>
@@ -26,8 +15,59 @@
   <p>Welcome to {{title}} </p>
 
   <ul id="data">
-
   </ul>
+
+  <canvas id="myChart"></canvas>
+
+
+  <script>
+
+    var xAxis = [];
+    var yAxis = [];
+
+    axios.get("http://api.coindesk.com/v1/bpi/historical/close.jso")
+      .then((response) => {
+        for (var dayKey in response.data.bpi) {
+          $('#data').append(`<li>${dayKey}  ---->  ${response.data.bpi[dayKey]}</li>`)
+          xAxis.push(dayKey);
+          yAxis.push(response.data.bpi[dayKey]);
+        }
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+            labels: xAxis,
+            datasets: [{
+              label: "Bitcoin data",
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: yAxis,
+            }]
+          },
+
+          // Configuration options go here
+          options: {}
+        });
+
+
+
+
+
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+
+
+
+
+  </script>
+
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
