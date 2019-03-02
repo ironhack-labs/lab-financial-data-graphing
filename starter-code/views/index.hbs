@@ -5,8 +5,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <input type="date" id="start" value="2018-01-01">
+    <input type="date" id="end" value="2018-05-31">
+    <select name="currency" id="currency">
+        <option value="USD">United States Dollar</option>
+        <option value="EUR">Euro</option>
+        <option value="KYD">Cayman Islands Dollar</option>
+    </select>
+    <button id="submit">Get the data</button>
+    <div>
+        <h1>Values</h1>
+        <p>Max: <span id="max-val"></span> <span class="currency"></span></p>
+        <p>Min: <span id="min-val"></span> <span class="currency"></span></p>
+    </div>
+    <canvas id="myChart"></canvas>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>
