@@ -3,10 +3,22 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+  <script>
+    moment().format();
+  </script>
+  {{!-- CHARTJS CDN --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+  {{!-- AXIOS CDN --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  {{!-- CUSTOM JS --}}
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
