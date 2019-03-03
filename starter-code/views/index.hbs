@@ -7,9 +7,15 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <canvas id="myChart" width="400" height="400"></canvas>
-
+    <form id="filter">
+      <input type="date" id="start">
+      <input type="date" id="end">
+      <input type="submit" value="Filter!">
+    </form>
+    
+    <div id="container">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
   <script>
