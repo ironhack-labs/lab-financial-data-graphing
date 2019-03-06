@@ -10,13 +10,10 @@ const min = document.getElementById(`min`)
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
-start.addEventListener('input', function (e) {
-    updateChart()
+[start,end,currency].forEach(elm => {
+    elm.addEventListener('input', () => updateChart())
 })
 
-end.addEventListener('input', function (e) {
-    updateChart()
-})
 
 const printTheChart = data => {
 
