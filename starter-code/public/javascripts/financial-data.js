@@ -29,15 +29,15 @@ const printTheChart = data => {
             labels: months,
             datasets: [{
                 label: `BitCoin Value(${currency.value})`,
-                backgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(0,0,0,0.05)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: prices,
             }]
         }
     })
 
-    max.innerText = Math.max(...prices)
-    min.innerText = Math.min(...prices)
+    max.innerText = Math.max(...prices)+` ${currency.value}`
+    min.innerText = Math.min(...prices)+` ${currency.value}`
 }
 
 
