@@ -9,6 +9,12 @@
     <p>Welcome to  {{title}} </p>
     <input id="start" type="date" value="2019-01-01">
     <input id="end" type="date" value="2019-02-01">
+    <select id="currency">
+      <option value="EUR">EUR</option> 
+      <option value="USD" selected>USD</option>
+    </select>
+    <h3>Max value: <span id="max"></span></h3>
+    <h3>Min value: <span id="min"></span></h3>
     <canvas id="myChart"></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
