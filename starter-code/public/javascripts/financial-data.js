@@ -1,28 +1,36 @@
 const fromInput = document.querySelector("#fromDate")
 const toInput = document.querySelector("#toDate")
 const currency = document.querySelector("#currency")
+const max = document.querySelector("#max")
+const min = document.querySelector("#min")
 
-
-fromInput.onchange = function () {
-    getData(fromInput.value, toInput.value, currency.value)
-}
-
-toInput.onchange = function () {
-    getData(fromInput.value, toInput.value, currency.value)
-}
-
-currency.onchange = function () {
-    getData(fromInput.value, toInput.value, currency.value)
-}
+fromInput.onchange = () => getData(fromInput.value, toInput.value, currency.value)
+toInput.onchange  = () => getData(fromInput.value, toInput.value, currency.value)
+currency.onchange  = () => getData(fromInput.value, toInput.value, currency.value)
 
 axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
-    .then(response => printTheChart(response.data.bpi))
+    .then(response => {
+        printTheChart(response.data.bpi)
+        printMaxAndMin(response.data.bpi)
+    })
     .catch(error => console.log(error))
 
 const getData = (from, to, currency) => {
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}&currency=${currency}`)
-    .then(response => printTheChart(response.data.bpi))
-    .catch(error => console.log(error))
+    if (from && to){
+        axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}&currency=${currency}`)
+        .then(response => {
+            printTheChart(response.data.bpi)
+            printMaxAndMin(response.data.bpi)
+        })
+        .catch(error => console.log(error))
+    } else {
+        axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`)
+        .then(response => {
+            printTheChart(response.data.bpi)
+            printMaxAndMin(response.data.bpi)
+        })
+        .catch(error => console.log(error))
+    }
 }
 
 const printTheChart = bitcoinData => {
@@ -44,3 +52,9 @@ const printTheChart = bitcoinData => {
         }
     });
 };
+
+const printMaxAndMin = bitcoinData => {
+    const values = Object.values(bitcoinData)
+    max.innerText = ` ${Math.max(...values)}  ${currency.value}`
+    min.innerText = ` ${Math.min(...values)}  ${currency.value}`
+}
