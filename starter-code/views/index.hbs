@@ -6,7 +6,18 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Select date range:</p>
+    from: <input id='from' type="date" name='from'>to: <input id='to' type="date" name='to'>
+    <p>Select currency:</p>
+    <select id="currency">
+      <option value="">--Please choose an option--</option>
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+    </select>
+    <canvas id="myChart"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

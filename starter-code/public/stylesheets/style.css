@@ -1,8 +1,8 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+#myChart{
+  width: 100%;
 }
