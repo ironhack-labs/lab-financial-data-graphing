@@ -5,8 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to {{title}} </p>
+
+    <label>Desde:<input type="date" id="startDate" value="2018-02-15"></label>
+    <label>Hasta:<input type="date" id="endDate" value="2019-01-15"></label>
+
+    <canvas id="myChart"></canvas>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    {{!-- <script src="app.js"></script> --}}
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+ 
 </html>
