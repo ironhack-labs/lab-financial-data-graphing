@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#chart {
+  height: 20vh;
+  width: 75vw;
+}
