@@ -3,10 +3,26 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Bitcoin history </h1>
+    <p>Welcome to Bitcoin history </p>
+
+    From: <input id="from" type="date">
+    To: <input id="to" type="date">
+    <button id="checkbtn">Check the currency</button>
+
+    Currency: <select id="currency">
+      <option value="usd">US Dollar</option>
+      <option value="eur">Euro</option>
+    </select> 
+  <button id="changebtn">Change the currency</button>
+
+
+    <canvas id="myChart"></canvas>
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
