@@ -32,14 +32,12 @@ function printTheChart(something){
     // Add a listener to this input to search the data every time that its values changes.
      // Add the dates  to the API URL to get the correct data.
     document.getElementById("submitDate").addEventListener("click", function(){
-      debugger
-
       const start = document.getElementById("startDate").value;
       const end = document.getElementById("endDate").value;
-      // var urlDate = 
+      var urlDate = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
       // console.log(urlDate)
       
-      axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+      axios.get(urlDate)
       .then(result => {
         console.log(result.data.bpi)
         printTheChart(result)
