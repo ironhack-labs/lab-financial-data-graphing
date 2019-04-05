@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  {{!-- <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p> --}}
+
+
+
+  <div class="container">
+    <div class="filters">
+      <div>
+        <label for="start">From</label>
+        <input type="date" name="start" id="start">
+        <label for="end">To</label>
+        <input type="date" name="end" id='end'>
+        <button id="submit-button">Submit</button>
+      </div>
+
+      <div id="currency-select">
+        <label for="currency">Currency</label>
+        <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <h3>Values</h3>
+      <div>
+        <span>Max price:</span>
+        <span id="max-price"></span>
+      </div>
+      <div>
+        <span>Min price:</span>
+        <span id="min-price"></span>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="myChart"></canvas>
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>

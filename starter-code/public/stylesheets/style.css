@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.container{
+  display:flex;
+  justify-content: space-around;
+}
+
+.filters{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
