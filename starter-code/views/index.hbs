@@ -5,8 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="col">
+      <div>
+        <h2>Filters</h2>
+        From: <input id="initialDate" type="date">
+        To: <input id="finalDate" type="date"><br><br>
+        <select class="form-control" id="currency" onchange="graph(event);">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">EURO</option>
+        </select>
+        <button id="submitDate">Submit</button>
+      </div>
+      <div>
+        <h2>Values</h2>
+        <p id="max">Max: <span id="max-price"></span></p>
+        <p id="min">Min: <span id="min-price"></span></p>
+      </div>
+    </div><br><br>
+      <canvas id="chart" height="130vh";></canvas>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
