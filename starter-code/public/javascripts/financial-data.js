@@ -39,7 +39,7 @@ function printTheChart(something){
       // var urlDate = 
       // console.log(urlDate)
       
-      axios.get('https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}')
+      axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
       .then(result => {
         console.log(result.data.bpi)
         printTheChart(result)
