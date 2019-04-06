@@ -32,6 +32,8 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.locals.title = "lab-financial-data-graphing";
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
