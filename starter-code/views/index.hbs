@@ -9,21 +9,29 @@
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
-  <form action="">
-    <label for="startDate">Fecha Inicio:
-      <input type="date" name="startDate" id="startDate">
-    </label>
-    <label for="endDate">Fecha Final:
-      <input type="date" name="endDate" id="endDate">
-    </label>
-    <label for="currency">Moneda:
-      <select name="currency" id="currency">
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="MXN">MXN</option>
-      </select>
-    </label>
-  </form>
+  <div class="section">
+    <div>
+      <form action="">
+        <label for="startDate">Fecha Inicio:
+          <input type="date" name="startDate" id="startDate">
+        </label>
+        <label for="endDate">Fecha Final:
+          <input type="date" name="endDate" id="endDate">
+        </label>
+        <label for="currency">Moneda:
+          <select name="currency" id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="MXN">MXN</option>
+          </select>
+        </label>
+      </form>
+    </div>
+    <div>
+      <h2>Max Value: <span id="maxVal"></span> </h2>
+      <h2>Min Value: <span id="minVal"></span> </h2>
+    </div>
+  </div>
   <canvas id="chart" width="350" height="150"></canvas>
 </body>
 {{!-- axios CDN --}}

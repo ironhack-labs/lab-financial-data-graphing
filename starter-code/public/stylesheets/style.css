@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+.section{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

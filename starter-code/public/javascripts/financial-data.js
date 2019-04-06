@@ -3,6 +3,8 @@ const ctx = document.getElementById("chart").getContext("2d");
 const startDate = document.getElementById("startDate");
 const endDate = document.getElementById("endDate");
 const currency = document.getElementById("currency");
+const maxVal = document.getElementById("maxVal");
+const minVal = document.getElementById("minVal");
 let chart;
 
 const redCol = randomNum();
@@ -52,6 +54,8 @@ function getBPIData(e) {
       updateChart(bpiDates, bpiValues, currency.value);
       startDate.value = bpiDates[0];
       endDate.value = bpiDates[bpiDates.length - 1];
+      minVal.innerText = Math.min(...bpiValues);
+      maxVal.innerText = Math.max(...bpiValues);
     })
     .catch(err => {
       console.log(
@@ -73,6 +77,9 @@ window.onload = function() {
 
       startDate.value = bpiDates[0];
       endDate.value = bpiDates[bpiDates.length - 1];
+
+      minVal.innerText = Math.min(...bpiValues);
+      maxVal.innerText = Math.max(...bpiValues);
 
       chart = new Chart(ctx, {
         type: "line",
