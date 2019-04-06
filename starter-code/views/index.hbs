@@ -9,7 +9,15 @@
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
-  <canvas id="chart" width="400" height="400"></canvas>
+  <form action="">
+    <label for="startDate">Fecha Inicio:
+      <input type="date" name="startDate" id="startDate">
+    </label>
+    <label for="endDate">Fecha Final:
+      <input type="date" name="endDate" id="endDate">
+    </label>
+  </form>
+  <canvas id="chart" width="350" height="150"></canvas>
 </body>
 {{!-- axios CDN --}}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
