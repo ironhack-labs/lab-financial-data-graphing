@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+#info-cont {
+  display: flex;
+}
+
+#filters-cont {
+  width: 50%;
+}
+
+#values-cont {
+  width: 50%;
+  text-align: right
+}

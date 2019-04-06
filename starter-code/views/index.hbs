@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Bitcoin Price Index</p>
+  <div id="info-cont">
+    <div id="filters-cont">
+      <h2>Filters</h2>
+      From: <input type="date" id="dateFrom">
+      To: <input type="date" id="dateTo">
+      <br><br>
+      Currency:
+      <select name="Currency" id="currency">
+        <option value="USD" id="usdollar">US Dollar ($)</option>
+        <option value="EUR" id="euro">Euro (€)</option>
+      </select>
+      <br><br>
+      <button type="submit" id="setFilters">Set Filters</button>
+    </div>
+    <div id="values-cont">
+      <h2>Values</h2>
+      Max: <br>
+      Min:
+    </div>
+  </div>
+
+  <canvas id="chart" width="800" height="400"></canvas>
+  <footer>
+    <p>Powered by <a href="https://www.coindesk.com/price/bitcoin" target="_blank">CoinDesk</a></p>
+  </footer>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
