@@ -54,8 +54,8 @@ function getBPIData(e) {
       updateChart(bpiDates, bpiValues, currency.value);
       startDate.value = bpiDates[0];
       endDate.value = bpiDates[bpiDates.length - 1];
-      minVal.innerText = Math.min(...bpiValues);
-      maxVal.innerText = Math.max(...bpiValues);
+      minVal.innerText = `${Math.min(...bpiValues)} ${currency.value}`;
+      maxVal.innerText = `${Math.max(...bpiValues)} ${currency.value}`;
     })
     .catch(err => {
       console.log(
@@ -78,8 +78,8 @@ window.onload = function() {
       startDate.value = bpiDates[0];
       endDate.value = bpiDates[bpiDates.length - 1];
 
-      minVal.innerText = Math.min(...bpiValues);
-      maxVal.innerText = Math.max(...bpiValues);
+      minVal.innerText = `${Math.min(...bpiValues)} ${currency.value}`;
+      maxVal.innerText = `${Math.max(...bpiValues)} ${currency.value}`;
 
       chart = new Chart(ctx, {
         type: "line",
