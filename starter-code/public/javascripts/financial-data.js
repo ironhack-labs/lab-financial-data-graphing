@@ -3,6 +3,8 @@ const dateFrom = document.getElementById('dateFrom');
 const dateTo = document.getElementById('dateTo');
 const setFilters = document.getElementById('setFilters');
 const currencyList = document.getElementById('currency');
+const maxVal = document.getElementById('max');
+const minVal = document.getElementById('min');
 
 const url = "http://api.coindesk.com/v1/bpi/historical/close.json";
 
@@ -18,7 +20,7 @@ axios.get(url).then(res => {
       labels: bpiDate,
       datasets: [
         {
-          label: "Bitcoin Price Index",
+          label: "BPI",
           backgroundColor: "rgba(236, 236, 236, 0.5)",
           borderColor: "rgb(200, 200, 200)",
           data: bpi
@@ -26,6 +28,8 @@ axios.get(url).then(res => {
       ]
     }
   });
+  maxVal.innerHTML = `Max: ${Math.max.apply(null, bpi)}`;
+  minVal.innerHTML = `Min: ${Math.min.apply(null, bpi)}`;
 });
 
 setFilters.addEventListener('click', () => {
@@ -43,7 +47,7 @@ setFilters.addEventListener('click', () => {
         labels: bpiDate,
         datasets: [
           {
-            label: "Bitcoin Price Index",
+            label: "BPI",
             backgroundColor: "rgba(236, 236, 236, 0.5)",
             borderColor: "rgb(200, 200, 200)",
             data: bpi
@@ -51,6 +55,8 @@ setFilters.addEventListener('click', () => {
         ]
       }
     });
+    maxVal.innerHTML = `Max: ${Math.max.apply(null, bpi)}`;
+    minVal.innerHTML = `Min: ${Math.min.apply(null, bpi)}`;
   });
 })
 
