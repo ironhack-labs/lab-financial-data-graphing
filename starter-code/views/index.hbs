@@ -5,8 +5,30 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    
+    <div class="front">
+      <div class="mitad1">
+        <h2>Filters</h2>
+        From: <input class="initiald" type="date">
+        To: <input class="finald" type="date">
+        <br><br><br>
+        <select class="currencies">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+        </select>
+        <button id="btn">Enter</button>
+      </div>
+      <div class="mitad2">
+        <h2>Values</h2>
+       Max: <p class="max-value"></p>
+       Min: <p class="min-value"></p>
+      </div>
+    </div>
+
+    <canvas id="chart"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
