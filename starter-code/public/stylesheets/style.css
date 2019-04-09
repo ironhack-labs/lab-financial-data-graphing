@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 
 a {
@@ -14,5 +14,24 @@ canvas {
 #chart-container {
   position: relative; 
   max-height: 400px;
+  max-width: 800px; 
+}
+ 
+#min-value {
+  color: red;
+}
+
+#max-value {
+  color: green;
+}
+
+.data-pickers-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 800px;
+}
+
+#min-max-container {
+  margin: 0 20px;
 }

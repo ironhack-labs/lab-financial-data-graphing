@@ -1,13 +1,26 @@
-<h1>BPI chart</h1>
-<label for="startdate">Start date: </label>
-<input type="date" name="startdate" id="startDatePicker">
-<label for="enddate">End date: </label>
-<input type="date" name="enddate" id="endDatePicker">
+<div class="data-pickers-container">
+    <div class="data-pickers">
+        <h1>BPI chart</h1>
+        <label for="startdate">Start date: </label>
+        <input type="date" name="startdate" id="startDatePicker">
 
-<div id="chart-container"> 
-    <canvas id="myChart" width="800" height="400"></canvas>
+        <label for="enddate">End date: </label>
+        <input type="date" name="enddate" id="endDatePicker">
+
+        <label for="currency">Currency: </label>
+        <select name="currency" id="currencyPicker">
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+        </select>
+    </div>
+
+    <div id="min-max-container">
+        <h2>Values</h2>
+        <p>Minimum value is: <span id="min-value"></span></p>
+        <p>Maximum value is: <span id="max-value"></span></p>
+    </div>
 </div>
 
-
-
-
+<div id="chart-container">
+    <canvas id="myChart" width="800" height="400"></canvas>
+</div>
