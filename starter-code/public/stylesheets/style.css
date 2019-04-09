@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+canvas {
+  padding-top: 30px;
+}
+
+#chart-container {
+  position: relative; 
+  max-height: 400px;
+  max-width: 800px;
+}
