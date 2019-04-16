@@ -3,6 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#chart {
+  width: 100vw;
+  height: 75vh;
+}
+
 a {
   color: #00B7FF;
 }
