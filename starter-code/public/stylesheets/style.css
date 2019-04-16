@@ -1,8 +1,40 @@
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#dateStart,
+#dateEnd,
+#isoCurrency {
+/*   position: absolute;
+  top: 10px;
+  left: 300px; */
+  font-size: 15px;
+}
+
+#dateEnd {
+  left: 700px;
+}
+
+.filters{
+  display: inline-block;
+  margin-left: 25vh;
+}
+
+#isoCurrency{
+  margin-top: 15px;
+}
+
+.values{
+  float:right; 
+  margin-right: 25vh;
+}
+
+#myChart{
+  width:100%; 
+  height: 80vh;
 }
