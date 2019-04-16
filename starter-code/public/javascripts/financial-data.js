@@ -3,7 +3,6 @@ let coin;
 
 document.getElementById("coinType").onchange = function(e) {
   coin = e.value;
-  draw();
 };
 
 var date;
@@ -19,20 +18,22 @@ document.querySelector("#applyDates").onclick = function() {
   draw();
 };
 
-// var companiesColors = {
-//   amzn: "#ffcc0099",
-//   micr: "#0044ff99"
-// }
+
 function draw() {
   axios
     .get(
-      `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${money.value}&?start=${start.value}&end=${end.value}`
+      `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${money.value}&start=${start.value}&end=${end.value}`
     )
     .then(bitCoinData => {
       bitCoinData = bitCoinData.data;
       const X1 = Object.keys(bitCoinData.bpi);
       const Y1 = Object.values(bitCoinData.bpi);
-      console.log(X1, Y1);
+      const max = arr => Math.max(...arr);
+      let priceMax = max(Y1);
+      document.getElementById("max").innerHTML = `${priceMax} ${money.value}`;
+      const min = arr => Math.min(...arr);
+      let priceMin = min(Y1);
+      document.getElementById("min").innerHTML = `${priceMin} ${money.value}`;
       const ctx = document.getElementById("bitcointchart").getContext("2d");
       const chart = new Chart(ctx, {
         type: "line",
@@ -54,3 +55,5 @@ function draw() {
       console.log(error);
     });
 }
+
+

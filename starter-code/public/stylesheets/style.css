@@ -18,6 +18,15 @@ a {
   #dateEnd {
     left: 700px;
   }
+
   #applyDates {
     left: 1200px;
   }
+
+  #coinType {
+    position: fixed;
+    top: 10px; 
+    font-size: 40px;
+    left: 0px;
+  }
+  
