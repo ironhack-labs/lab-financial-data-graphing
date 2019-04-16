@@ -7,6 +7,27 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <canvas id="myChart"></canvas>
+     <input type="date" id="dateStart" value="2018-02-01">
+    <input type="date" id="dateEnd" value="2018-03-01"> <br>
+    <button id="applyDates">Apply date selected</button> <br>
+
+
+    <select id="money">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+    
+    <button id="currency">Currency</button>
+
+    <div id="maxMin">
+      
+    </div>
+
+  
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
