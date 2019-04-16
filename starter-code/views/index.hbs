@@ -5,8 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+<canvas id="bitcointchart"></canvas>
+
+  <input type="date" id="dateStart">
+  <input type="date" id="dateEnd">
+  <button id="applyDates">Apply date selected</button>
+
+  {{!-- <select name="" id="companies" style="position: absolute; top: 10px; font-size: 40px;">
+    <option value="amzn">Amazon</option>
+    <option value="micr">Microsoft</option>
+  </select> --}}
+  
+  
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </html>

@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+#dateStart,
+  #dateEnd,
+  #applyDates {
+    position: absolute;
+    top: 10px;
+    left: 300px;
+    font-size: 40px;
+  }
+  #dateEnd {
+    left: 700px;
+  }
+  #applyDates {
+    left: 1200px;
+  }
