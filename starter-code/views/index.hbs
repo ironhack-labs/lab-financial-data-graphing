@@ -10,7 +10,15 @@
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
 
+    <input type="date" id="dateStart">
+    <input type="date" id="dateEnd">
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
     <canvas id="chart"></canvas>
+    <p>Min: <span id="min">0</span></p>
+    <p>Max: <span id="max">0</span></p>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
