@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
 
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+
+  <div>
     <input type="date" id="start">
     <input type="date" id="end">
+  </div>
+  <div>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
 
   <canvas id="chart"></canvas>
 
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
