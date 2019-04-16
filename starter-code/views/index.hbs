@@ -8,6 +8,14 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" id="start" value="2019-01-03">
+    <input type="date" id="end" value="2019-04-05">
+    <label for="currency"></label>
+    <select name="currency" id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+    <p>min: <span id="min"></span>max: <span id="max"></span></p>
     <canvas id="canvas"></canvas>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" ></script>
