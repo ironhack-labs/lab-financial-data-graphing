@@ -1,12 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <style>
+  #dateStart,
+  #dateEnd,
+  #applyDates {
+    position: absolute;
+    top: 10px;
+    left: 300px;
+    font-size: 40px;
+  }
+  #dateEnd {
+    left: 700px;
+  }
+  #applyDates {
+    left: 1200px;
+  }
+  </style>
+</head>
+<body>
+      <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <canvas id="myChart"></canvas>
+
+  <input class="applyDates" type="date" id="dateStart">
+  <input class="applyDates" type="date" id="dateEnd" >
+  <select name="" id="isoCurrency" style="position: absolute; top: 10px; font-size: 40px;">
+    <option value="eur">Euro</option>
+    <option value="usd">Dólar</option>
+    <option value="gbp">Libra</option>
+  </select>
+
+  <script>
+    var today = new Date().toISOString().slice(0,10);
+    var todayYear = new Date();
+    var currentYear = todayYear.getFullYear();
+    var start = currentYear +"-01-01";
+ 
+    document.getElementById("dateStart").value = start;
+    document.getElementById("dateEnd").value = today;
+  
+    controlsChange();
+ 
+
+    document.getElementById("dateStart").onchange = controlsChange;
+    document.getElementById("dateEnd").onchange = controlsChange;
+    document.querySelector("#isoCurrency").onchange = controlsChange;
+ 
+
+    function controlsChange(){
+      var jsonQuery = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${document.getElementById("dateStart").value}&end=${document.getElementById("dateEnd").value}&currency=${document.getElementById("isoCurrency").value}`;
+  
+  
+      draw(jsonQuery);
+    }
+
+    function draw(jsonQuery) {
+     axios.get(`${jsonQuery}`)
+        .then(bitcoinData => {
+          const labels = Object.keys(bitcoinData.data.bpi);
+          const values = Object.values(bitcoinData.data.bpi);
+          debugger;
+          const ctx = document.getElementById('myChart').getContext('2d');
+          const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: "Bitcoin Chart",
+                borderWidth: 1,
+                borderColor: 'rgb(0, 0, 255)',
+                //backgroundColor: companiesColors[ticket],
+                data: values,
+              }]
+            }
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+
+  </script>
+</body>
 </html>
