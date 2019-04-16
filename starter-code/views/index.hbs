@@ -10,17 +10,25 @@
 
 <body>
   <h1> {{title}} </h1>
+  <div id="container">
+    <div>
+      <input type="date" id="start">
+      <input type="date" id="end">
+    </div>
+    <div id="container">
+      <select id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div>
+      <h1>Values</h1>
+      <p id="max"></p>
+      <p id="min"></p>
+    </div>
+  </div>
 
-  <div>
-    <input type="date" id="start">
-    <input type="date" id="end">
-  </div>
-  <div>
-    <select id="currency">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-    </select>
-  </div>
+
 
   <canvas id="chart"></canvas>
 

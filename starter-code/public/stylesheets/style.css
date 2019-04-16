@@ -4,10 +4,16 @@ body {
 }
 
 #chart {
-  width: 100vw;
-  height: 75vh;
+  width: 70vw;
+  height: 50vh;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+#container {
+  display: flex;
+  justify-content: space-around
 }
