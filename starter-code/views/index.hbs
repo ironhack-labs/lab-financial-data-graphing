@@ -3,10 +3,32 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
+    
+
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+  <input type="date" id="dateStart">
+  <input type="date" id="dateEnd">
+
+  <select name="" id="money">
+    <option value="USD">Dollar</option>
+    <option value="EUR">Euro</option>
+  </select>
+  <div>
+    Menor valor:<input type="text" id="minValor" disabled><br>
+    Mayor valor:<input type="text" id="maxValor" disabled><br>
+  </div>
+
+  <button id="applyDates">Submit</button>
+
+    <canvas id="myChart"></canvas>
+    
   </body>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
