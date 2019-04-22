@@ -7,6 +7,26 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <div>
+      From<input type="date" id="date1"> To <input type="date" id="date2"> 
+      Currency
+      <select id="possibleCurrencies">
+        <option value="USD">Dollar</option>
+        <option value="EUR">Euro</option>
+        <option value="GBP">British Pound Sterling"</option>
+        <option value="CNY">Chinese Yuan</option>
+
+      </select> 
+      <button id="buscar">Buscar</button>
+    </div>
+
+    <p id="disclaimer"></p>
+    <canvas id="myChart" ></canvas>
+
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>  
+
 </html>
+
