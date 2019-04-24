@@ -3,10 +3,36 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+
+    <p>
+      <label for="">First date</label>
+      <input type="date" name="first-date" id="first-date">
+    </p>
+    
+    <p>
+      <label for="">Last date</label>
+      <input type="date" name="last-date" id="last-date">
+    </p>
+
+    <p>
+      <button id="get-data">Get data!</button>
+    </p>
+    
+    <p>
+      <label>Currency</label>
+      <select id="currency">
+        <option value="usd">usd</option>
+        <option value="eur">eur</option>
+        <option value="mxn">mxn</option>
+      </select>
+    </p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </html>
