@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+<h1>Bitcoin Data Graphing</h1>
+    <section id="interface">
+      <div>
+        <h2>Filters</h2>
+        <label for="start-date">Start date: </label>
+        <input type="date" id="start-date" name="start-date" />
+        <label for="end-date">End date: </label>
+        <input type="date" id="end-date" name="end-date"/>
+        <p style="color:crimson" id="error"></p>
+        <label for="currency">Currency: </label>
+        <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+      <div>
+        <h2>Values</h2>
+        <p id="max"></p>
+        <p id="min"></p>
+      </div>
+    </section>
+    <canvas id="myChart" width="400" height="200"></canvas>
