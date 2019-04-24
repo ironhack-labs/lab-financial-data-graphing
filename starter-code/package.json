@@ -4,15 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "DEBUG=starter-code:* nodemon ./bin/www",
+    "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "chart.js": "^2.8.0",
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "hbs": "^4.0.1",
     "morgan": "^1.9.1",
+    "nodemon": "^1.12.1",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
