@@ -5,32 +5,43 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
   </head>
-  <body>
+  <body style="display: flex; flex-wrap: wrap;">
 
-    <p>
-      <label for="">First date</label>
-      <input type="date" name="first-date" id="first-date">
-    </p>
-    
-    <p>
-      <label for="">Last date</label>
-      <input type="date" name="last-date" id="last-date">
-    </p>
+    <div style="width: 30%;">
+      <p>
+        <h3>Dates</h3>
+        <label for="">From: </label>
+        <input type="date" name="first-date" id="first-date">
+      </p>
+      
+      <p>
+        <label for="">To: </label>
+        <input type="date" name="last-date" id="last-date">
+      </p>
 
-    <p>
-      <button id="get-data">Get data!</button>
-    </p>
-    
-    <p>
-      <label>Currency</label>
-      <select id="currency">
-        <option value="usd">usd</option>
-        <option value="eur">eur</option>
-        <option value="mxn">mxn</option>
-      </select>
-    </p>
+      <p>
+        <h3>Values</h3>
+        <span id="min-value">0.00</span>
+        <br>
+        <span id="max-value">0.00</span>
+      </p>
+      
+      
+      <p>
+        <h3>Currency</h3>
+        <select id="currency">
+          <option value="usd">usd</option>
+          <option value="eur">eur</option>
+          <option value="mxn">mxn</option>
+        </select>
+      </p>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+      <p>
+        <button id="get-data">Get chart!</button>
+      </p>
+    </div>
+
+    <canvas id="myChart" max-width="400" max-height="400"></canvas>
 
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
