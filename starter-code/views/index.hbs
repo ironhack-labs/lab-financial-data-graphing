@@ -3,16 +3,38 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-       <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
-      <canvas id="myChart" width="400" height="400"></canvas>
+    <p>what data you want to check?</p>
+    <p>
+      <label>firstDate</label> 
+      <input type="date" name="end-data" id="dO">
+    </p>
+    <p>
+      <label>LastDate</label>
+      <input type="date" name="last-date" id="dT">
+    </p>
+    <p>
+      <label>Currency</label>
+      <select id="currency">
+        <option value="MXN">MXN</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+    </p>
 
+
+      <button id="start">DATA</button>
+      <canvas id="myChart" width="600" height="400"></canvas>
+      <div>aqui {{res}}</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="./javascripts/financial-data.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 
+      
 </html>

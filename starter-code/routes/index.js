@@ -8,7 +8,7 @@ const axios = require("axios")
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
   axios.get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then(res => console.log(res))
+  .then(res => {return res})
   .catch(err =>
     console.log(err))
 })
