@@ -1,5 +1,9 @@
 const minValue = document.getElementById('min-value')
 const maxValue = document.getElementById('max-value')
+const button = document.getElementById('get-data')
+const firstDate = document.getElementById('first-date')
+const lastDate = document.getElementById('last-date')
+const currency = document.getElementById('currency')
 
 
 function getData() {
@@ -42,21 +46,14 @@ function getData() {
   .catch(err => console.log(err)) 
 }
 
-const button = document.getElementById('get-data')
+//Listeners
+
 button.addEventListener('click', getData)
-
-const firstDate = document.getElementById('first-date')
 firstDate.addEventListener('change', setDate1)
-
-const lastDate = document.getElementById('last-date')
 lastDate.addEventListener('change', setDate2)
-
-const currency = document.getElementById('currency')
 currency.addEventListener('change', setCurrency)
 
-//const minValue = document.getElementById('min-value')
-//minValue.innerHTML = String(Math.min(Object.values(response.data.bpi)))
-
+//Helpers
 
 function setDate1() {
   let date1 = firstDate.value
@@ -73,9 +70,4 @@ function setDate2() {
 function setCurrency() {
   let cur = currency.value
   return cur
-}
-
-function getMax(arr) {
-  let num = Math.min(Object.values(arr.data.bpi))
-  return num 
 }
