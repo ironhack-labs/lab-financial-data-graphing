@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  width: 40vw;
+}
+
+section.info {
+  text-align: right;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 70vw;
 }

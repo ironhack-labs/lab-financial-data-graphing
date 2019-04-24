@@ -1,0 +1,29 @@
+<div class="container">
+  <form>
+    <section>
+      <h1>Filters</h1>
+      <p>
+        <label>From:</label> <input type="date" id="start" min="2013-09-01">
+        <label>To:</label> <input type="date" id="end">
+      </p>
+      <p>
+        <label>Currency:</label>
+        <select id="currency">
+          <option value="USD">American Dolar</option>
+          <option value="MXN">Mexican Peso</option>
+          <option value="EUR">European Euro</option>
+        </select>
+      </p>
+    </section>
+    <section class="info">
+      <h1>Values</h1>
+      <p>
+        Max: <span id="max">0</span>
+      </p>
+      <p>
+        Min: <span id="min">0</span>
+      </p>
+    </section>
+  </form>
+  <canvas></canvas>
+</div>
