@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<head>
+  <title> Financial Data Graphing</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+  <h1> Financial Data Graphing </h1>
+
+  <span>FILTERS</span>
+  <label for="starting-date"> From</label>
+  <input type="date" name="starting-date" id="starting-date-input">
+  
+  <label for="ending-date">To</label>
+  <input type="date" name="ending-date" id="ending-date-input">
+
+    <span>CURRENCY</span>
+    <select id="currency">
+      <option value="USD" id="USD">USD</option>
+      <option value="EUR" id="EUR">EUR</option>
+      <option value ="MXN" id="MXN">MXN</option> 
+    </select>
+ 
+  <div>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
