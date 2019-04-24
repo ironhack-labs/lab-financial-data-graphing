@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.panel{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters {
+  text-align: left;
+}
+
+.values {
+  text-align: right;
+}
