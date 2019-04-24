@@ -2,11 +2,34 @@
 <html>
   <head>
     <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' /> 
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <p>Please select the dates you want to check</p>
+
+    <p>
+    <label>Beginning date</label>
+    <input type = "date" name="beginning-date" id="bd">
+    </p>
+    <p>
+    <label>End date</label>
+    <input type = "date" name="end-date" id = "ed">
+    </p>
+    <p>
+    <label>Currency</label>
+    <select id = "currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="MXN">MXN</option>
+    </select>
+    </p>
+
+    <button id="go!">Data</button>
+  <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </html>
