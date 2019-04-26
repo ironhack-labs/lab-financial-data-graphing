@@ -58,7 +58,14 @@ createChart = (date, data) => {
 
 
 function updateChart(start, end) {
-    start = document.getElementById('start').value
-    end = document.getElementById('end').value
-}
+    start = document.getElementById('start').value || "2019-01-01"
+    end = document.getElementById('end').value || "2019-03-03"
 
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+        .then(res => {
+            createChart(Object.keys(res.data.bpi), Object.values(res.data.bpi))
+            console.log(res.data)
+        })
+
+    console.log(start, end)
+}

@@ -6,7 +6,7 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -14,15 +14,14 @@
   <p>Welcome to {{title}} </p>
 
 
-  <form>
-    <input type="date" id="start">
-    <input type="date" id="end">
-    <button type="submit" onchange="updateChart(start.value, end.value)">Update Chart</button>
-  </form>
+  <input type="date" id="start">
+  <input type="date" id="end">
+  <button type="submit" onclick="updateChart(start.value, end.value)">Update Chart</button>
 
 
 
   <canvas id="myChart"></canvas>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </body>
 
 
