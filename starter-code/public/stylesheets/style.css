@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.dates, .currency{
+  display: flex;
+  margin: 20px;
+}
