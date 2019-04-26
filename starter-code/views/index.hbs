@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <h2>Filters</h2>
+
+  <div class="dates">
+  <p>From:</p>
+  <input type="date" value="2019-03-25" id="from">
+  <p>To:</p>
+  <input type="date" value="2019-04-24" id ="to">
+  <input type="submit">
+  </div>
+
+  </div>
+
+
+
+  <h2>Values</h2>
+
+  <canvas id="myChart" width="400" height="200"></canvas>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
 </html>
