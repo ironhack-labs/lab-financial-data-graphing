@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div>
+    <h1> Filters </h1>
+    <label for="start">From</label>
+
+    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2010-07-17" max="2019-04-25">
+    <label for="end">to</label>
+
+    <input type="date" id="end" name="trip-end" value="2019-01-16" min="2010-07-17" max="2019-04-25">
+  </div>
+
+
+  <canvas id="myChart" width="400" height="150"></canvas>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" charset="utf-8"></script>
+
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
