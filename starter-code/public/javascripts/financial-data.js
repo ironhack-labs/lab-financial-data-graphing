@@ -3,10 +3,14 @@ const currentPrice = axios.create({
 });
 const button = document.getElementById("button-sub")
 button.onclick = () => {
+  const coins = document.getElementById("coin")
+  console.log(coins[0].value)
   const date1 = document.getElementById("date1");
   const date2 = document.getElementById("date2")
   console.log(date1.value)
-  const query = `/close.json?start=${date1.value}&end=${date2.value}`;
+  const query = `/close.json?start=${date1.value}&end=${
+    date2.value
+  }&currency=${coins.value}`;
   
   bitcoinsInfo(query);
 }
@@ -24,7 +28,7 @@ function bitcoinsInfo(query) {
   
 
     printTheChart(keysArray, valuesArray);
-  })
+  })  
   .catch(err => console.log("hubo un error", err))
 }
 
