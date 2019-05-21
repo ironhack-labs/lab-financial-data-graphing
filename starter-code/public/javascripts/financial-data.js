@@ -1,11 +1,19 @@
 const currentPrice = axios.create({
-  baseURL: "https://api.coindesk.com/v1/bpi/historical/close.json"
+  baseURL: "https://api.coindesk.com/v1/bpi/historical"
 });
+const button = document.getElementById("button-sub")
+button.onclick = () => {
+  const date1 = document.getElementById("date1");
+  const date2 = document.getElementById("date2")
+  console.log(date1.value)
+  const query = `/close.json?start=${date1.value}&end=${date2.value}`;
+  
+  bitcoinsInfo(query);
+}
 
 
-
-function bitcoinsInfo() {
-  currentPrice.get()
+function bitcoinsInfo(query) {
+  currentPrice.get(query)
   
   
   .then(response => {
@@ -39,31 +47,3 @@ function printTheChart(keyInfo, valueInfo) {
     }
   });
 }
-bitcoinsInfo();
-
-/*
-stockInfo.get(`${stockTicket}/chart`)
-    .then(response => {
-      printTheChart(response.data);
-    })
-    .catch( error => {
-      console.log(error);
-  });
-
-const printTheChart = (stockData => {
-  const stockLabels = stockData.map( element => element.date);
-  const stockPrice = stockData.map( element => element.close);
-  const ctx = document.getElementById('myChart').getContext('2d');
-  const chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: stockLabels,
-      datasets: [{
-        label: "Stock Chart",
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: stockPrice,
-      }]
-    }
-  });
-});*/
