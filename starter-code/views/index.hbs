@@ -5,8 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Mi Chart </h1>
+    Desde: <input type="date" value="2017-01-01" name="start" id="start">
+    Hasta: <input type="date" value="2019-01-01" name="end" id="end">
+    Moneda: <input type="text" value="USD" name="currency" id="currency">
+    <canvas id="chart"></canvas>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
