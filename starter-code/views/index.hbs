@@ -5,8 +5,30 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+      <h1> Money</h1>
+      <form>
+        <input type="date" id="start">
+        <input type="date" id="end">
+        <select id="currency">
+          <option name="USD" value="USD">USD</option>
+          <option name="EUR" value="EUR">EUR</option>
+        </select>
+      </form>
+      <div class="values">
+      
+        <p>Max: <span id="max"></span></p>
+        <p>Min: <span id="min"></span></p>
+        <button class="btn">Get Values</button>
+       
+      </div>
+  <canvas id="chart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
+
+
+
+
+
