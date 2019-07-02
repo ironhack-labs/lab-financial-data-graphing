@@ -10,8 +10,15 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 
-  <button name="getAPIInfo">Load API</button>
-  <canvas id="myChart" width="400" height="400"></canvas>
+  <input type="date" id="InitialDate" placeholder="InitialDate" value="2013-09-01">
+  <input type="date" id="FinalDate" placeholder="FinalDate" value="2013-09-10">
+
+  <button id="getAPIInfo">Refresh Data</button>
+
+  <div width="150px" height="150px">
+    <canvas id="myChart"></canvas>
+  </div>
+
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>

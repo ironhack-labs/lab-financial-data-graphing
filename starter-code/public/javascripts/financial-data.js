@@ -1,55 +1,58 @@
-// document.querySelector("#getAPIInfo").onclick = function() {
+let link = "https://api.coindesk.com/v1/bpi/historical/close.json"
 
+let initialDate = undefined;
+let finalDate = undefined
 
-// }
 let labelsJson = []
 let dataJson = []
+let myChart
+
+
+
 axios
     .get("https://api.coindesk.com/v1/bpi/historical/close.json")
-    // .get("https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05")
     .then(JSONPayload => {
-        for (let date in JSONPayload.data.bpi) {
-            console.log("Property=" + date)
-            labelsJson.push(date)
-            dataJson.push(JSONPayload.data.bpi[date])
-            console.log("valor de property = " + JSONPayload.data.bpi[date])
-        }
+        var ctx = document.getElementById('myChart').getContext('2d');
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Object.keys(JSONPayload.data.bpi),
+                datasets: [{
+                    label: 'Bitcoin Price Index',
+                    data: Object.values(JSONPayload.data.bpi),
+
+                    borderWidth: 1
+                }]
+            },
+            options: {}
+        });
     })
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: labelsJson,
-        datasets: [{
-            label: 'Bitcoin Price Index',
-            data: dataJson,
-            // backgroundColor: [
-            //     'rgba(255, 99, 132, 0.2)',
-            //     'rgba(54, 162, 235, 0.2)',
-            //     'rgba(255, 206, 86, 0.2)',
-            //     'rgba(75, 192, 192, 0.2)',
-            //     'rgba(153, 102, 255, 0.2)',
-            //     'rgba(255, 159, 64, 0.2)'
-            // ],
-            // borderColor: [
-            //     'rgba(255, 99, 132, 1)',
-            //     'rgba(54, 162, 235, 1)',
-            //     'rgba(255, 206, 86, 1)',
-            //     'rgba(75, 192, 192, 1)',
-            //     'rgba(153, 102, 255, 1)',
-            //     'rgba(255, 159, 64, 1)'
-            // ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        // scales: {
-        //     yAxes: [{
-        //         ticks: {
-        //             beginAtZero: true
-        //         }
-        //     }]
-        // }
-    }
-});
+document.getElementById("getAPIInfo").onclick = function() {
+    initialDate = document.getElementById("InitialDate").value
+    finalDate = document.getElementById("FinalDate").value
+    link = link + "?start=" + initialDate + "&end=" + finalDate
+    UpdateData()
+};
+
+
+function UpdateData() {
+    axios
+        .get(link)
+        .then(JSONPayload => {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Object.keys(JSONPayload.data.bpi),
+                    datasets: [{
+                        label: 'Bitcoin Price Index',
+                        data: Object.values(JSONPayload.data.bpi),
+
+                        borderWidth: 1
+                    }]
+                },
+                options: {}
+            });
+        })
+}
