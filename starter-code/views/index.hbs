@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to {{title}} </p>
   </body>
 
-   <canvas id="myChart"></canvas>
-   
+  <input type="date" name="" id="startDate" onchange="PEPITO()" value="2019-06-01">
+  <input type="date" name="" id="endDate" onchange="PEPITO()" value="2019-07-01">
+
+
+  <canvas id="myChart"></canvas>
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
 </html>
