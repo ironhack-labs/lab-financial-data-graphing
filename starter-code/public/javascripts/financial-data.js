@@ -18,6 +18,15 @@ function UpdateData() {
     axios
         .get(link)
         .then(JSONPayload => {
+            //Calculating max and min
+            let collectionValues = Object.values(JSONPayload.data.bpi)
+            const maxValueofBpi = Math.max(...collectionValues.map(maxvalue => maxvalue), 0);
+            document.getElementById("maxvalue").innerHTML = "Max.Value =" + maxValueofBpi
+
+            const minValueofBpi = Math.min(...collectionValues.map(minvalue => minvalue), maxValueofBpi);
+            document.getElementById("minvalue").innerHTML = "Min.Value =" + minValueofBpi
+
+            //printing the chart
             var ctx = document.getElementById('myChart').getContext('2d');
             myChart = new Chart(ctx, {
                 type: 'line',
