@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <div>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    <p>Welcome to {{title}}, Carlos </p>
+  </div>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <div>
+    <h4>Select a period of time</h4>
+    <input type="date" id="originDate" name="originDate">
+    <input type="date" id="endDate" name="endDate">
+    <button type="submit" id="update">Update</button>
+  </div>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
