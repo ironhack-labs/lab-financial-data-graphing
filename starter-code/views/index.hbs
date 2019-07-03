@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h2>Dates</h2>
+  <label for="">Start date</label>
+  <input id='start' type="date" name="Startdate" value="2017-07-22" onclick="changeDate()">
+  <label for="">End Date</label>
+  <input id='end' type="date" name="endDate" value="2018-12-22" onclick="changeDate()">
+
+
+  <canvas width:'500px' height:'500px'></canvas>
+</body>
+
+
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+  integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+  integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+
+<script>
+  const start = document.querySelector('#start')
+  const end = document.querySelector('#end')
+  let info = []
+  const canvas = document.querySelector('canvas')
+  const ctx = canvas.getContext('2d')
+  let dateStart = start.value
+  let dateEnd = end.value
+  function changeDate() {
+    dateStart = start.value
+    dateEnd = end.value
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}`).
+      then(({ data: { bpi } }) => {
+        info = Object.values(bpi)
+        const dates = Object.keys(bpi)
+        const myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: dates,
+            datasets: [{
+              label: 'date',
+              data: info,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        })
+      }
+      ).catch(err => console.log(err))
+  }
+  changeDate()
+
+</script>
