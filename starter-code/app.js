@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+const hbs = require("hbs");
 
 var app = express();
 
@@ -41,6 +42,25 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+hbs.registerHelper("displayDate", function(date) {
+  let year= date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  
+  if (date.getMonth().length < 2) {
+    month = "0" + date.getMonth();
+  }
+    
+
+  if (date.getDate().length < 2) {
+      day = "0" + date.getDate();
+    }  
+     
+  
+
+  return " " + year + "-" + month + "-" + day ;
 });
 
 module.exports = app;
