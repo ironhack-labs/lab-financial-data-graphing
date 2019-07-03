@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <h1>Bienvenido</h1>
+  <p>Precio del Bitcoin</p>
+
+  <form>
+    <input type="date" id="ini" value="2017-07-22" onclick="change()">
+    <input type="date" id="fin" value="2018-07-22" onclick="change()">
+    <select id="currency">
+      <option name="USD" value="USD">USD</option>
+      <option name="EUR" value="EUR">EUR</option>
+    </select>
+  </form>
+
+
+  <p>Max: <span id="max"></span></p>
+  <p>Min: <span id="min"></span></p>
+
+
+  <canvas width="500" height="300" id="myCanvas"></canvas>
+
+
+
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+  integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+  integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
