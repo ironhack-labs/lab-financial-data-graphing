@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters {
+  text-align: left;
+}
+
+.values {
+  text-align: right;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+}

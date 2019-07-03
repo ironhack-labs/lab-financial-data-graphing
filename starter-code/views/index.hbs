@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Financial Data Graphing </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+
+    <h1 class = "title"> Bitcoin Prices Index </h1>
+    <div class="main">
+
+        <div class="filters">
+          <h2>Filters</h2>
+
+          <label for="from">From: </label>
+          <input type="date" id="from">
+
+          <label for="to">To: </label>
+          <input type="date" id="to">
+
+          <p style="color: red" id="err"></p>
+
+          <label for="currency">Currency: </label>
+          <select name="currency" id="currency">
+            <option value="USD">US Dollar ($)</option>
+            <option value="EUR">EUR Euro (€)</option>
+            <option value="MXN">MXN Mexican peso ($)</option>
+          </select>
+        </div>
+
+
+        <div class="values">
+          <h2>Values</h2>
+          <p id="max"></p>
+          <p id="min"></p>
+        </div>
+
+    </div>
+
+    <br><br>
+    <canvas id="myChart" width="300" height="100"></canvas>
+
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
