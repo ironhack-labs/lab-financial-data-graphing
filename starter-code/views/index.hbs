@@ -5,8 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    <h1>Bitcoin Financial Data </h1>
+
+    Start date: <input type="date" id="start" onclick="changeDate()" value="2018-01-01">
+
+    End date: <input type="date" id="end" onclick="changeDate()" value="2018-08-23">
+
+    <canvas id="myChart" width="300" height="300"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+      integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    </body>
 </html>
+
