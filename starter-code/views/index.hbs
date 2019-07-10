@@ -5,8 +5,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+      <div class="container">
+        <div class="filter">
+          <h2>Filters</h2>
+          <span>From: </span><input type="date" id="start" value="" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+          <span>To: </span><input type="date" id="end" value="" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+          <span>Currency</span><select name="currency" id="currency">
+            <option value="dollar">US$ Dollar</option>
+            <option value="brl">Reais</option>
+            <option value="euro">Euro</option>
+            <option value="rmb">Yuan</option>
+          </select>
+          <button id="btnI" onclick="testFunc()">Submit</button>
+        </div>
+
+        <div class="values">
+          <h2>Values</h2>
+          <p>Max: <span id="max-value"></span></p>
+          <p>Min: <span id="min-value"></span></p>
+        </div>
+      </div>
+    <canvas id='myChart' width="800px" height="600px"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
