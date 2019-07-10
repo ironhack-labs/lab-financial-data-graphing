@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+#div-info-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+#values {
+  width: 300px;
+}

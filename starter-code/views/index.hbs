@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div id="div-info-container">
+    <div id="filter">
+    <h1> Get the bitcoin rate: </h1>
+    <label for="startDate"> Start Date: </label>
+   <input id="startDate" name="startDate" type="date" /> 
+   <label for="endDate"> End Date: </label>
+   <input id="endDate" name="endDate" type="date" />
+   <br><br>
+   <label for="currency"> Currency: </label>
+   <select id="currency" name="currency">
+     <option value="USD" selected>Select a currency</option>
+     {{#each data}}
+      <option value="{{currency}}">{{currency}} - {{country}}</option>
+     {{/each}}
+   </select>
+   </div>
+  <div id="values">
+    <h1>Values</h1>
+    <p id="min">Minimum close:</p>
+    <p id="max">Maximum close:</p>
+  </div>
+  </div>
+
+    <canvas id="myChart" width="400" height="100"></canvas>
+
+
+ 
+
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </html>
