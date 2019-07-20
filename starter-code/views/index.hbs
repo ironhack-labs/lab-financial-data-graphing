@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="container">
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+    <div class="chart-options">
+      <div class="filters">
+        <h2>Filters</h2>
+        <div class="dates">
+          <label for="fromDate">From:</label>
+          <input type="date" name="fromDate" id="fromDate">
+          <label for="toDate">To:</label>
+          <input type="date" name="toDate" id="toDate">
+        </div>
+        <label for="currency">Currency:</label>
+        <select name="currency" id="currency">
+          <option selected value="MXN">Mexican Peso</option>
+          <option value="GTQ">Guatemalan Quetzal</option>
+          <option value="BZD">Belize Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="USD">United States Dollar</option>
+          <option value="CAD">Canadian Dollar</option>
+        </select>
+      </div>
+      <div class="values">
+        <h2>Values</h2>
+        <p>Max: <span id="max"></span></p>
+        <p>Min: <span id="min"></span></p>
+      </div>
+    </div>
+    <canvas id="myChart" width="1000" height="600"></canvas>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+  integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+  integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
