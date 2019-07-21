@@ -4,5 +4,15 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #blue;
+}
+
+p {
+  margin-top: 2px;
+}
+
+.container {
+  width: 80%;
+  height: 500px;
+  margin-top: 20px;
 }
