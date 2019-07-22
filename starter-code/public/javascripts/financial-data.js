@@ -1,48 +1,72 @@
-const canvas = document.querySelector('canvas')
-const ctx = canvas.getContext('2d')
-axios.get('http://localhost:3000/api/data')
+const restFinancialDataApi = axios.create({
+  baseURL: 'http://api.coindesk.com/v1/bpi/historical/close.json'
+})
 
-const initialDate = 
-const finalDate = 
+function getFinancialData() {
+  restFinancialDataApi
+    .get()
+    .then(responseFromAPI => {
+      printTheChart(Object.entries(responseFromAPI.data.bpi))
+    })
+    .catch(err => {
+      console.log('Error is: ', err)
+    })
+}
 
+getFinancialData()
 
-<canvas id="myChart" width="400" height="400"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+/* const printTheChart = ((financialData) => {
+    const financialLabels = financialData.map(element => element[0]);
+    const financialPrice = financialData.map(element => element[1]);
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: financialLabels,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+          label: 'Stock Chart',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: financialPrice,
+        }],
+      },
+    });
+  }); */
+
+// Filter
+function filterData(date) {
+  restFinancialDataApi
+    .get(date)
+    .then(responseFromAPI => {
+      printTheChart(Object.entries(responseFromAPI.data.bpi))
+    })
+    .catch(err => {
+      console.log('Error is: ', err)
+    })
+}
+
+const printTheChart = financialData => {
+  const financialLabels = financialData.map(element => element[0])
+  const financialPrice = financialData.map(element => element[1])
+  const ctx = document.getElementById('myChart').getContext('2d')
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: financialLabels,
+      datasets: [
+        {
+          label: 'Stock Chart',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: financialPrice
         }
+      ]
     }
-});
-</script>
+  })
+}
+
+document.getElementById('theButton').onclick = function() {
+  const startDate = document.getElementById('startDate').value
+  const endDate = document.getElementById('endDate').value
+  filterData(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+}

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title> {{title}} </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
-</body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
-  integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-  integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-
-<script src="/javascripts/financial-data.js" charset="utf-8"></script>
-
+  <head>
+    <title> {{title}} </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1> {{title}} </h1>
+    <p>Welcome to  {{title}} </p>
+    <p><input id="startDate" type="date" name="startDate"> 
+    <input id="endDate" type="date" name="endDate">
+  <button id="theButton">Get the Date</button></p>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
