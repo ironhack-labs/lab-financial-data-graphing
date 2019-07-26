@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin Price Index </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="header">
+      <div>
+        <h1> Filters </h1>
+
+        <label>From:</label>
+        <input type="date" id="startDate" value="2019-07-01">
+
+        <label>To:</label>
+        <input type="date" id="endDate" value="2019-07-26">
+        <br><br>
+        <label>Currency:</label>
+        <select id="selectedCurrency">
+          <option value="USD">US Dollar ($)</option>
+          <option value="EUR">EU Euro (€)</option>
+          <option value="GBP">UK Pound (£)</option>
+        </select>
+      </div>
+
+      <div>
+        <h1> Values </h1>
+        <p>Max: <span id="maxVal"></span> <span class="currency"></span></p>
+        <p>Min: <span id="minVal"></span> <span class="currency"></span></p>
+      </div>
+    </div>
+
+    <div id="chartBox"></div>
+    
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
