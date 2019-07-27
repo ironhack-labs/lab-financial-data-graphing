@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin Price </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="panel">
+      <div class="filters">
+        <h2>Filters</h2>
+        <label>From:</label><input onchange="inputChange(event);" type="date" id="start" value="2019-06-26" min="2014-02-01">
+        <label>To:</label><input onchange="inputChange(event);" type="date" id="end" value="2019-07-26" min="2014-02-01" max="2019-07-26">
+        <div>
+          <label>Currency :</label><select id="currency" onchange="inputChange(event);"></select>
+        </div>
+      </div>
+      <div class="values">
+        <h2>Values</h2>
+        <div><span>Max:</span><span id="maxValue"></span></div>
+        <div><span>Min:</span><span id="minValue"></span></div>
+      </div>
+    </div>
+    
+    <canvas id="myChart" width="400" height="400"></canvas>
+   
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+  <script src="/javascripts/currency.js" charset="utf-8"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+  </html>
