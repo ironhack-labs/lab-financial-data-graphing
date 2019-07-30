@@ -3,10 +3,36 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
-  </body>
+
+    <form action="" method="POST">
+      <label for="from-input">From:
+        <input  name="from" id="from-input" type="date" value="2019-01-01">
+      </label>
+      <label for="to-input">To:
+        <input  name="to" id="to-input" type="date" value="2019-06-06">
+      </label>
+      <label for="currency-input">Currency</label>
+      <select name="select" id="currency-input">
+         <option value="USD">Dólares</option>
+         <option value="EUR">Euros</option>
+      </select>
+      <h4>Values</h4>
+      <p id="max"></p>
+      <p id="min"></p>
+    </form>
+      <button id="btn-draw">Dibujar gráfico</button>
+    <figure>
+      <canvas id="myCanvas">
+    </canvas>
+    </figure>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>
