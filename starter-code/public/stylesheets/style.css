@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+#canvas{
+  height: 300px;
+  width: 300px;
+}
+
+.values, .filters{
+  display: inline-block;
+  font-size: 14px;
+}
+.values{
+  float: right;
+  text-align: right;
+}
+
+#from, #to{
+  font-size: 14px;
+}

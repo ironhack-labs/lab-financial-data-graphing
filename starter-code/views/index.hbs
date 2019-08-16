@@ -5,8 +5,39 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+  
+
+     <div class="container">
+
+      <div class="filters">
+
+        <h2>Filters</h2>
+        <label for="from">From: </label>
+        <input type="date" name="from" id="from">
+        <label for="to">To: </label>
+        <input type="date" name="to" id="to">
+        <br><br>
+        <label>Currency: </label>
+        <select id="currency">
+          <option value="usd">USD</option>
+          <option value="eur">EUR</option>
+        </select>
+      </div>
+
+      <div class="values">
+        <h2>Values</h2>
+        <p id="max">Max: </p>
+        <p id="min">Min: </p>
+      </div>
+    </div>
+
+  <div class="chart-container" style="position: relative; height:0vh; width:95vw">
+    <canvas id="canvas"></canvas>
+</div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
