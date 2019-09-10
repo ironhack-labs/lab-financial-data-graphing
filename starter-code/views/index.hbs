@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head class="container">
+  <title>Financial Data Graphing</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Financial Data Graphing</h1>
+    <small>Powered by <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a></small>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="btn-group">
+          {{!-- <form action="" method=""> --}}
+          <div class="form-group"><label for="">From:</label>
+            <input class="form-control" type="date" id="fromDate"></div>
+          <br>
+          <div class="form-group"><label for="">To:</label>
+            <input class="form-control" type="date" id="toDate"></div>
+          <br>
+          <div class="form-group"><label for="">Currency:</label>
+            <select class="custom-select" name="currency" id="currency">
+              {{!-- <option selected>Select existing Author</option> --}}
+              <option value="USD">U.S. Dollar (USD)</option>
+              <option value="EUR">Euro (EUR)</option>
+              <option value="GBP">British Pound (GBP)</option>
+            </select>
+            <br>
+
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group"><label for=""></label>
+            <button id="updateBtn" class="btn btn-primary">Update</button>
+            <br>
+            {{!-- </form> --}}
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="btn-group">
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="container">
+        <canvas id="myChart"></canvas>
+      </div>
+
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
