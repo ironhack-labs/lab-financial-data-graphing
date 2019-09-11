@@ -6,7 +6,32 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="inputs-container">
+     <div>
+      <label for="start">From :</label>
+      <input type="date" name="start" id="start" />
+      <label for="end">To: </label>
+      <input type="date" name="end" id="end" />
+    </div>
+    <div>
+      <label for="currency">Currency: </label>
+      <select name="currency" id="currency">
+        <option value="USD" selected>Dollar</option>
+        <option value="EUR">Euro</option>
+      </select>
+    </div>
+    <div>
+      <h2>Value</h2>
+      <div id="min"></div>
+      <div id="max"></div>
+    </div> 
+    </div>
+    <div id="error" display="none">
+      Something went wrong, don't worry Bitcoin is not cool anymore, Dodgecoin is better :D
+    </div>
+    <canvas id="bitCoinChart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
