@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title>Gráfica</title>
+<h1> Grafica</p>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <label>From: <input type="date" id="from"></label>
+  <label>To: <input type="date" id="to"></label>
+  <canvas id="Grafico-Canvas"></canvas>
+{{!--     
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to  {{title}} </p> --}}
+  {{!-- De los apuntes de learning- Using CDN --}}
+  {{!-- De los apuntes de learning- Add ChartJS --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+
+  </html>
