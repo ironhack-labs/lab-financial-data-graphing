@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Financial </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+
+<section class="filter">
+<h2>Filter</h2>
+<div>
+<label for ="form">FROM :</label>
+<input type="date" id="from" onchange="getRequest()">
+</div>
+<label for ="form">TO</label>
+<input type="date"  id="to" onchange="getRequest()">
+</div>
+</section>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.bundle.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
