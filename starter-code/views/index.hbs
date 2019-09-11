@@ -6,10 +6,17 @@
   </head>
   <body>
     <h1>Bitcoin Data Graph</h1>
-    <p>Pick a date range</p>
-    <label>From: <input type="date" id="from"> </label>
-    <label>To: <input type="date" id="to"> </label>
-    <canvas id="graph"></canvas>
+    <p>Pick a date range and currency</p>
+    <label for="from">From: <input type="date" name="from" id="from"> </label>
+    <label for="to">To: <input type="date" name="to" id="to"> </label>
+    <label for="currency">Currency:</label>
+    <select name="currency" id="currency">
+      <option value="USD">US Dollar</option>
+      <option value="EUR">Euro</option>
+    </select>
+    <label for="min-val">Minimum value:</label><input type="text" name="min-val" id="min-val" size="7" disabled><span id="curr-code-min">USD</span> &#8212;
+    <label for="max-val">Maximum value:</label><input type="text" name="max-val" id="max-val" size="7" disabled><span id="curr-code-max">USD</span>
+    <canvas></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
