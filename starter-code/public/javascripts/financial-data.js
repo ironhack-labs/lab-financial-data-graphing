@@ -2,11 +2,23 @@ const coinDeskAPI = axios.get('http://api.coindesk.com/v1/bpi/historical/close.j
 
 console.log(coinDeskAPI)
 
+let datei = document.getElementById('datei')
+datei.onchange = () => { getCurrencyInfo() }
+let datef = document.getElementById('datef')
+datef.onchange = () => { getCurrencyInfo() }
+
 // let dateArray = []
 // let valueArray = ''
 
 async function getCurrencyInfo() {
-    await coinDeskAPI
+    if(datei.value === '' || datef.value === ''){
+        return
+    }
+    if(datei.value > datef.value){
+        return err
+    }
+
+    await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${datei.value}&end=${datef.value}`)
     .then(responseFromAPI => {
     const price = responseFromAPI.data.bpi
 
