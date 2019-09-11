@@ -34,7 +34,7 @@ const theValues = bitcoinData => {
             labels: dates,
             datasets: [{
                 label: "Bitcoin evolution",
-                backgroundColor: '#610B2',
+                backgroundColor: '#BD2D0E',
                 borderColor: "#0000F1",
                 data: values,
             }]
