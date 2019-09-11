@@ -3,10 +3,23 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+
+  <input type="date" name="datei" id="datei" value="2019-08-11">
+  <input type="date" name="datef" id="datef" value="2019-09-10">
+  <button name="filter" id="filter">Filtrar</button>
+  
+ 
+    <canvas id="myChart" width="400", height="400"></canvas>
+
+    <!--Set up axios Using CDN-->
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
