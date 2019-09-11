@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Grafico shingon </title>
+    <h1>Checa mi grafico !</h1>
+    <p>mis botones son "onchange"(lo acabo de aprender)</p>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+  <body>  
+       
+        <label>From: <input type="date" id="from"></label>
+        <label>To: <input type="date" id="to"></label>
+          <canvas id="elCanvas"></canvas>
+        </div> 
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
