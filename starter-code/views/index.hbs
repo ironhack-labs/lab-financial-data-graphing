@@ -5,8 +5,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <h1>CoinDesk Bitcoin Price</h1>
+    <div class="container">
+      <div class="inputs">
+        <p></p>
+        <label for="start">Start</label>
+        <input id="start" type="date" name="start" id="">
+        <label for="end">End</label>
+        <input id="end" type="date" name="end" id="">
+        <label for="currency">Currency</label>
+        <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+      <div class="sumarize">
+        <p>Min Value: <span id="min"></span></p>
+        <p>Max Value: <span id="max"></span></p>
+      </div>
+    </div>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>

@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
+  padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+label{
+  margin-left:30px;
+}
+canvas{
+  margin-top:20px;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sumarize{
+  background-color:rgb(228, 228, 228);
+  padding:10px 25px;
+
 }
