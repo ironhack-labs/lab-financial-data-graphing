@@ -2,11 +2,35 @@
 <html>
   <head>
     <title> {{title}} </title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Bitcoin Price Index</h1>
   </body>
+  <h3>Filters</h3>
+  
+  <label for="from">From</label> 
+  <input id="from" type="date">
+  
+  <label for="to">To</label> 
+  <input id="to" type="date">
+
+  <select name="" id="currency">
+    <option value="USD" selected>$</option>
+    <option value="EUR">€</option>
+  </select>
+
+  <div>
+    <h3>Min:</h3>
+    <h3 id="min"></h3>
+    <h3>Max:</h3>
+    <h3 id="max"></h3>
+  </div>
+
+  <div id="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
