@@ -24,14 +24,17 @@ getBitcoinPriceChart = () => {
         .then(response => {
             const labels = Object.keys(response.data.bpi);
             const values = Object.values(response.data.bpi);
-            const mappedValues = values.map(val => Number(val))
-            const maxPrice = Math.max(...mappedValues).toFixed(2);
-            const minPrice = Math.min(...mappedValues).toFixed(2);
-            document.getElementById('max-value').innerText = `Max: ${maxPrice} ${currencyVal}`;
-            document.getElementById('min-value').innerText = `Min: ${minPrice} ${currencyVal}`;
-
+            updateMinAndMax(values);
             drawChart(labels, values);
         })
+}
+
+updateMinAndMax = valuesArr => {
+    const mappedValues = valuesArr.map(val => Number(val))
+    const maxPrice = Math.max(...mappedValues).toFixed(2);
+    const minPrice = Math.min(...mappedValues).toFixed(2);
+    document.getElementById('max-value').innerText = `Max: ${maxPrice} ${currencyVal}`;
+    document.getElementById('min-value').innerText = `Min: ${minPrice} ${currencyVal}`;
 }
 
 const dateFrom = document.getElementById('from');
