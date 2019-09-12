@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> BTC </h1>
+  <p>Welcome to Bitcoin exchange </p>
+  <div >
+    <div> <label for="date">From: </label>
+      <input type="date" name="date" id="start-date">
+      <label for="date">To: </label>
+      <input type="date" name="date" id="end-date">
+      <label for="currency">Currency: </label>
+      <select name="currency" id="currency">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+      <button>Search </button></div>
+    <div>
+      <h1>Values</h1>
+      <label for="max">Max:<p name="max" id="max"></p></label>
+    </div>
+    <label for="min">Min:<p name="min" id="min"></p></label>
+  </div>
+  </div>
+  <canvas id="myChart" width="400" height="400"></canvas>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
