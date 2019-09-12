@@ -3,10 +3,31 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
+<label for="fromdate" >From Date</label>
+<input class="date" type="date" id="fromdate" value="2018-01-02" onchange="getFilterAndData()">
+<label for="todate" >To Date</label>
+<input class="date" type="date" id="todate" value="2018-09-02" onchange="getFilterAndData()">
+<select onchange="changeCurrency()" id="currency">
+  <option>USD</option>
+  <option>EUR</option>
+  <option>ARGP</option>
+</select>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+{{!-- <script>document.getElementById("todate").onkeyup = () =>{
+        const startDate = document.getElementById('fromdate').value;
+        const endDate = document.getElementById('todate').value;
+        console.log(startDate,endDate);
+        getFilterAndData(startDate,endDate);
+    
+    }</script> --}}
+
 </html>
