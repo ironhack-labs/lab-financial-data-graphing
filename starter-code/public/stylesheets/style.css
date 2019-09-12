@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-container {
+  position: relative;
+  height: 40vh;
+  width: 100vh;
 }
