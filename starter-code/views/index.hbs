@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+
+  <div class="filters">
+    <h2>Filters</h2>
+
+    <label for="from-date">From:</label>
+    <input type="date" name="from-date" id="from-date">
+
+    <label for="to-date">To:</label>
+    <input type="date" name="to-date" id="to-date">
+  </div>
+
+  {{!-- <div class="values">
+    <h2>Values</h2>
+  </div> --}}
+
+  <div class="chart-container" style="position: relative, width:40vw, height:40vh">
+
+    <canvas id="myChart"></canvas>
+
+  </div>
+
+
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
