@@ -3,10 +3,24 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    {{!-- AXIOS/AJAX --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <input type="date" name="datei" id="datei" value="2019-02-01">
+    <input type="date" name="datef" id="datef" value="2019-08-01">
+    <button name="filter" id="filter">Let's flter</button>
+    <p>Selecciona una fecha mayor a la inicial</p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
