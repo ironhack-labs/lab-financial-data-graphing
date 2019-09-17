@@ -3,10 +3,26 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" class="from" placeholder="form date">
+    <input type="date" class="to" placeholder="to date">
+    <select name="currency" id="currency">
+      <option value="USD">USD</option>
+      <option value="CNY">CNY</option>
+      <option value="EUR">EUR</option>
+      <option value="JPY">JPY</option>
+      <option value="KWD">KWD</option>
+      <option value="TOP">TOP</option>
+      <option value="XAG">XAG</option>
+    </select>
+    <button class="get-data">Submit search</button>
+    <canvas id="myChart"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </html>
