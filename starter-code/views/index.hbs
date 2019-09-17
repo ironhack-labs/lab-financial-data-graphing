@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body>
+  <h1> Bitcoin Price index </h1>
+
+
+  <div>
+    <div class="flex">
+      <form>
+        <label for="date-from">From:</label>
+        <input type="date" name="date-from" id="date-from" value="2019-05-01">
+        <label for="date-to">To:</label>
+        <input type="date" name="date-to" id="date-to" value="2019-09-01">
+      </form>
+      <select name="currency" id="currency">
+        <option class="dollar" value="USD">US $</option>
+        <option class="eur" value="EUR">EUR €</option>
+        <option class="gbp" value="GBP">GBP £</option>
+      </select>
+      <button type="button">Submit</button>
+    </div>
+  </div>
+
+  <div class="chart flex">
+    <canvas id="myChart"></canvas>
+  </div>
+
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</body>
+
 </html>
