@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <div class="container">
+    <div>
+      <h2>Filters</h2>
+      <form action="" class="form">
+        <label for="from">From: </label>
+        <input type="date" name="startDate" id="startDate" value="2018-12-01"></input>
+        <label for="to">To: </label>
+        <input type="date" name="endDate" id="endDate" value="2018-12-31"></input>
+        <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </form>
+    </div>
+    <div class="values">
+      <h2>Values
+        <p>Max: <span id="valueMax"></span></p>
+        <p>Min: <span id="valueMin"></span></p>
+      </h2>
+    </div>
+  </div>
+  <canvas id="myChart"></canvas>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/bitcoinApi.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/financial-data.js"></script>
+  <script src="/javascripts/chart.js"></script>
+</body>
+
 </html>
