@@ -1,12 +1,67 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="stylesheets/style.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-6 first">
+      <h1>Filters</h1>
+      <form action="">
+        <fieldset class="my-3">
+          <label for="date">From</label>
+          <input type="date" id="dataFrom" required>
+          <label for="date">To</label>
+          <input type="date" id="dataTo" required>
+        </fieldset>
+      </form>
+      <p>
+        <label for="select">Currency:</label>
+        <select id="select">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-lg-6 col-sm-6 second">
+      <h1>Values</h1>
+      <p class="max">Max: 1129.87 USD</p>
+      <p class="min">Max: 1129.87 USD</p>
+    </div>
+    <canvas id="myChart"></canvas>
+    <div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>
