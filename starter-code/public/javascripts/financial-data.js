@@ -8,9 +8,15 @@ const updateInfo = (startDate, endDate, currency) => {
     return askprices;
 }
 
+
+const format = (value) => {
+
+    return value.toFixed(2);
+
+}
 const updateMaxMin = (max, min) => {
-    document.querySelector(".max").innerText = `MAX: ${max} USD`;
-    document.querySelector(".min").innerText = `MIN: ${min} USD`;
+    document.querySelector(".max").innerText = `MAX: ${format(max)} USD`;
+    document.querySelector(".min").innerText = `MIN: ${format(min)} USD`;
 }
 
 const printTheChart = (stockData => {
@@ -35,34 +41,65 @@ const printTheChart = (stockData => {
     });
 });
 
-const go = () => {
+const getValues = () => {
     const dateFrom = document.querySelector("#dataFrom");
     const dateTo = document.querySelector("#dataTo");
     const select = document.getElementById("select");
 
-    if (dateFrom.value < dateTo.value) {
-        updateInfo(dateFrom.value, dateTo.value, select.value).get()
-            .then(response => {
-                printTheChart(response.data.bpi);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
+    dateTo.setAttribute("min", generateDayAfter(new Date(dateFrom.value)));
+
+    updateInfo(dateFrom.value, dateTo.value, select.value).get()
+        .then(response => {
+            printTheChart(response.data.bpi);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+}
+
+const formatDate = (date) => {
+    return date.toISOString().slice(0, 10);
+}
+
+const generateDay = (date, timestamp) => {
+    let anotherDay = new Date(date.getTime() - timestamp);
+    return formatDate(anotherDay);
+}
+
+const generateDayAfter = (date) => {
+    let anotherDay = new Date(date.getTime() + 86461654);
+    return formatDate(anotherDay);
+}
+
+const setupTime = () => {
+    let minDateFrom = new Date("September 18 2013");
+    let minDateTo = new Date("September 19 2013");
+    let oneMonthAgoTimestamp = 2505627479;
+    let oneDayBefore = 86461654;
+    const dateFrom = document.querySelector("#dataFrom");
+    const dateTo = document.querySelector("#dataTo");
+    const select = document.getElementById("select");
+    let today = new Date();
+    let lastMonth = generateDay(today, oneMonthAgoTimestamp);
+    let todayFormated = formatDate(today);
+    dateFrom.value = lastMonth;
+    dateTo.value = todayFormated;
+    dateTo.setAttribute("min", formatDate(minDateFrom));
+    dateFrom.setAttribute("min", formatDate(minDateTo));
+    dateTo.setAttribute("max", todayFormated);
+    dateFrom.setAttribute("max", generateDay(today, oneDayBefore));
+
+    dateFrom.onchange = getValues;
+    dateTo.onchange = getValues;
+    select.onchange = getValues;
+
 }
 
 window.onload = function () {
-    const dateFrom = document.querySelector("#dataFrom");
-    const dateTo = document.querySelector("#dataTo");
-    const select = document.getElementById("select");
-    var date = new Date().toISOString().slice(0, 10);
-    dateTo.value = date;
-    dateFrom.value = date;
-    console.log(date);
-    dateFrom.onchange = go;
-    dateTo.onchange = go;
-    select.onchange = go;
 
+    setupTime();
+    getValues();
 }
 
 // document.getElementById("dateFrom").addEventListener("change", (e) => {
