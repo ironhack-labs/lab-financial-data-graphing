@@ -17,6 +17,7 @@ function fillData(data){
 var ctx = document.getElementById('myChart').getContext('2d');
 
 
+
     var mixedChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -40,6 +41,9 @@ var ctx = document.getElementById('myChart').getContext('2d');
 
 
 $(document).ready( () => {
+    alert('please run chrome without Cors ,see comment below this line in financial-data-.js');
+        //C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable -web-security --disable-gpu --user-data-dir=~/chromeTemp.
+
 	
   let api=new APIHandler('http://api.coindesk.com/v1/bpi/historical/close.json');	
 
