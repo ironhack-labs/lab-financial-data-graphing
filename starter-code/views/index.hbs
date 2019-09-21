@@ -2,11 +2,30 @@
 <html>
   <head>
     <title> {{title}} </title>
+    
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.2.0/json2html.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.json2html/1.2.0/jquery.json2html.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Filters</h1
+<label for="start">From:</label>
+<input type="date" id="start" name="start">
+
+<label for="start">To:</label>
+<input type="date" id="end" name="end">
+
+<canvas id="myChart" width="400" height="400"></canvas>
+      
+
   </body>
+  <script type="text/javascript" src="/javascripts/APIHandler.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
