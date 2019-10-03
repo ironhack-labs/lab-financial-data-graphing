@@ -8,12 +8,16 @@
   <body>
     <input type="date" id="firstInput" value="Start date">
     <input type="date" id="lastInput" value="Last Date">
+    <select id="currency">
+    </select>
     <button id="filter">Filter</button>
 
-    
-
     <canvas id="myChart"></canvas>
+
+    <div id="min"></div>
+    <div id="max"></div>
   </body>
+  <script src="/javascripts/currencyData.js" charset="utf-8"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 

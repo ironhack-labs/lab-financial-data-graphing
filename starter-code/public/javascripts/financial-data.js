@@ -1,17 +1,19 @@
 
 let firstDate = "2019-09-01";
 let lastDate = "2019-10-01";
+let currency = "USD";
 
 document.getElementById("filter").onclick = () => {
     firstDate = document.getElementById("firstInput").value;
     lastDate = document.getElementById("lastInput").value;
-    getCountryInfo();
+    currency = document.getElementById("currency").value;
+    getInfo();
 }
 
 
-function getCountryInfo() {
+function getInfo() {
     axios
-        .create({baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${firstDate}&end=${lastDate}`})
+        .create({baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${firstDate}&end=${lastDate}&currency=${currency}`})
         .get()
         .then(responseFromAPI => printTheChart(responseFromAPI.data.bpi))
         .catch(err => console.log("Error is: ", err));
@@ -34,4 +36,8 @@ function printTheChart(priceData) {
             }]
         }
     })
+    
+    document.getElementById("min").innerHTML = `MIN: ${Math.min(...priceValues)}`;
+    document.getElementById("max").innerHTML = `MAX: ${Math.max(...priceValues)}`;
+
 };
