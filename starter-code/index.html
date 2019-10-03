@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Financial Data Graphing</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+</head>
+<body>
+    <input type="date" id="start-date">
+    <input type="date" id="end-date">
+    <select name="currency" id="currencies">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+    <div id="max-min"></div>
+    <button id="getData">Click Me!</button>
+    <canvas id="myChart"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
