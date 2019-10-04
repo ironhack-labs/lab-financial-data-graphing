@@ -7,21 +7,24 @@ block content
       h2 Filters
       .container2
         label(for="from") From
-        input(type="date" name="from")
+        input(type="date" name="from" id="from")
         label(for="to") To
-        input(type="date" name="to")
-      .container2
+        input(type="date" name="to" id="to")
         p Currency
-        select(name="currency")
+        select(name="currency" id="currency")
           option(value="USD") USD
           option(value="EUR") EUR
           option(value="MXN") MXN
           option(value="GBP") GBP
           option(value="JPY") JPY
+        
     .container-right
       h2 Values
-      p(id="max") Max:
-      p(id="min") Min:
+      .container2
+        .text
+          p(id="max") Max:
+        .text
+          p(id="min") Min:
 
   .canvas-container
     canvas(id="chart")
