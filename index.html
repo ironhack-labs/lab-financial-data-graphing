@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js'></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>CoinDesk API-Chart</title>
+</head>
+
+<body>
+    <section id='sectionOne'>
+        <div id='filters'>
+            <h1>Filters</h1>
+            <div class='form'>
+                <form action='/' method='POST'>
+                    <label for='from-dates'>From:</label>
+                    <input type='date' name='from-dates' id='from-date'>
+                    <label for='to-dates'>To:</label>
+                    <input type='date' name='to-dates' id='to-date'>
+                </form>
+            </div>
+            <div class='form'>
+                <form action='/' method='POST'>
+                    <label for='currency'>Currency:</label>
+                    <select name="currency" id='currency'>
+                            <option value="USD" selected="selected">US Dollar ($)</option>
+                            <option value="EUR">Euro (€)</option>
+                            <option value="GBP">UK Pound (£)</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <div id='values'>
+            <h1>Values</h1>
+            <p class='value'>Max: <span id='max-value'></span></p>
+            <p class='value'>Min: <span id='min-value'></span></p>
+        </div>
+    </section>
+
+    <section id='chart'>
+            <canvas id="myChart"></canvas>
+    </section>
+
+    <script>
+       //Date input
+        const fromDateElement = document.getElementById('from-date');
+        const toDateElement = document.getElementById('to-date');
+
+        //Current date (default)
+        let today = new Date();
+        let month = (today.getMonth()+1);
+        let day = today.getDate();
+
+        if (month < 10) {
+            month = `0${month}`;
+        } 
+
+        if (day < 10) {
+            day = `0${day}`;
+        }
+
+        fromDateElement.value = '2019-01-01'
+        toDateElement.value = today.getFullYear()+'-'+month+'-'+day;
+    
+        //Curency input
+        const currencyElement = document.getElementById('currency');
+
+        //Values
+        let maxValueElement = document.getElementById('max-value');
+        let minValueElement = document.getElementById('min-value'); 
+        let values;
+
+        //Chart   
+        const ctx = document.getElementById('myChart').getContext('2d');
+        let myLineChart;
+
+
+        function makeChart(){
+            let fromDate = fromDateElement.value;
+            let toDate = toDateElement.value;
+            let currency = currencyElement.value;
+
+            axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}&start=${fromDate}&end=${toDate}`)
+                .then((res) => {
+                    let keys = Object.keys(res.data.bpi);
+                    values = Object.values(res.data.bpi)
+                    myLineChart = new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                            labels: keys,
+                                                            datasets: [{
+                                                                        label: 'Bitcoin Price Index',
+                                                                         data: values
+                                                                       }]
+                                                          },
+                                                 });
+                    calculateValues(values, currency);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        };
+    
+        function updateChart(){
+            myLineChart.destroy();
+            makeChart();
+        };
+
+        function calculateValues(values, currency){
+            let minValue = Math.min.apply(null, values);
+            let maxValue = Math.max.apply(null, values);
+            minValueElement.innerHTML = `${minValue} ${currency}`;
+            maxValueElement.innerHTML = `${maxValue} ${currency}`;
+        };
+
+        //Events
+        window.addEventListener('load', makeChart);
+        fromDateElement.addEventListener('change', updateChart);
+        toDateElement.addEventListener('change', updateChart);
+        currencyElement.addEventListener('change', updateChart);
+    </script>
+</body>
+</html>
