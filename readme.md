@@ -13,7 +13,7 @@ They cover news and analysis on the trends, price movements, technologies, compa
 
 In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](http://www.coindesk.com/api/). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
-The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show this variations in a graphic with [Chart.js](http://www.chartjs.org/).
+The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show these variations in a graphic with [Chart.js](http://www.chartjs.org/).
 
 :eyes: **[**ChartJS**](http://www.chartjs.org/) (also known as chart.js) is an open source library that allows us to create amazing static and animated charts through HTML5 canvas and JavaScript.**
 
@@ -44,7 +44,7 @@ All the files that make your Express app work, including the JavaScript files wh
 
 ### Starter Code
 
-Note that our starter code for this exercise is quite comprehensive. We've already used the Express generator to create the initial project structure. We've also created a JavaScript file to add all your jQuery code.
+Note that our starter code for this exercise is quite comprehensive. We've already used the Express generator to create the initial project structure. We've also created a JavaScript file to add all your AJAX code.
 
 ```
 starter-code/
@@ -85,7 +85,7 @@ We are going to use Axios to do the AJAX Request, so we have to import Axios thr
 **Tasks**
 
 - Add the Axios reference in the HTML through CDN to be able to use it.
-- You have to create an Axios Request to this URL and get the date. Use a `console.log()` to be sure that we are getting the correct data.
+- You have to create an Axios Request to this URL and get the data. Use a `console.log()` to be sure that we are getting the correct data.
 
 ## Iteration #2: Create chart
 
@@ -118,13 +118,13 @@ To finish up this iteration, remember that the data has to be loaded every time 
 
 ## Iteration #4 (Bonus): Currency
 
-Another option that the API gives us is to get the bitcoin index in an specific currency. By default, the currency is US Dollar (USD). We are going to change that, by adding another filter.
+Another option that the API gives us is to get the bitcoin index in a specific currency. By default, the currency is US Dollar (USD). We are going to change that, by adding another filter.
 
 We are going to create a `<select>` input to allow the user to indicate which currency they want to get the results in. By default, we are going to add two different currencies: USD and EUR.
 
 **Feel free to add as many currencies as you like.**
 
-As in the dates fiter, the data has to be reloaded every time the currency changes. Again, in the [CoinDesk API documentation](http://www.coindesk.com/api/) you can find how to indicate a specific currency.
+As in the dates filter, the data has to be reloaded every time the currency changes. Again, in the [CoinDesk API documentation](http://www.coindesk.com/api/) you can find how to indicate a specific currency.
 
 **Tasks**
 
@@ -142,7 +142,7 @@ To do that we have to get the prices from the response we got in the first itera
 
 - Add an information box in the HTML to show the max/min values from the chart.
 - Create an array with the price values from the response.
-- Use `Math.min.apply` and `Math.max.apply` to filter the array and get the min/max values.
-- Show this values in the information box we have added into the view.
+- Use `Math.min` and `Math.max` to filter the array and get the min/max values.
+- Show these values in the information box we have added into the view.
 
 Happy coding! :heart:
