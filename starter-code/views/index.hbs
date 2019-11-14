@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+<h1>BITCOINS</h1>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<div>
+  <label for='minDate'>Select start date</label>
+  <input type="date" id="minDate">
+  <label for="maxDate">Select end date</label>
+  <input type="date" id="maxDate">
+  <select>
+  <label name="currency" id="currency">Choose a currency></label>
+  <option value="USD">$</option>
+  <option value="EUR">€</option>
+  </select>
+ <button type="submit">Create Chart</button>
+  </div>
+  <hr>
+
+  <div>
+    <span>Min Value: <p id="minVal"></p>
+    </span>
+    <span>Max Value: <p id="maxVal"></p> </span>
+  </div>
