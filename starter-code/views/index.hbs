@@ -12,15 +12,35 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 
+  {{!-- <article>
+    <p id="max"></p>
+    <p id="min"></p>
+  </article> --}}
+
+  <table style="width: 300px;">
+    <tr>
+      <th style="border: 2px solid black;">Highest price</th>
+      <th style="border: 2px solid black;">Lowest price</th>
+    </tr>
+    <tr>
+      <td id="max" style="border: 1px solid black; text-align:center"></td>
+      <td id="min" style="border: 1px solid black; text-align:center"></td>
+    </tr>
+  </table>
+
   <canvas id="financialsChart" width="400" , height="400"></canvas>
   <br>
-  Start date: <input type="date" id="start"><br>
-  End date: <input type="date" id="end"><br>
+  <br>
+  Start date: <input type="date" id="start">
+  <br>
+  End date: <input type="date" id="end">
+  <br>
+
   <button id="date-btn">Query dates</button>
   <br>
   <br>
   <br>
-  Currency: 
+  Currency:
   <select>
     <option value="USD">USD</option>
     <option value="EUR">EUR</option>
