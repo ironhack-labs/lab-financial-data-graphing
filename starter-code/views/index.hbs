@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <div>
+    <label for="startDate">Select start date</label>
+    <input type="date" name="startDate" id="startDate">
+    <label for="endDate">Select end date</label>
+    <input type="date" name="endDate" id="endDate">
+    <select name="currency" id="currency">Select your currency
+      <option value="USD">$</option>
+      <option value="EUR">€</option>
+    </select>
+    <button type="submit">Create Chart</button>
+  </div>
+  <hr>
+
+  <div>
+    <span>Min Value: <p id="minVal"></p>
+    </span>
+    <span>Max Value: <p id="maxVal"></p> </span>
+  </div>
+
+
+
+
+  <canvas id="myChart" width="400" height="400"></canvas>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>
