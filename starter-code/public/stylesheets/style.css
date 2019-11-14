@@ -4,5 +4,27 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.container-box {
+  flex: 1;
+}
+.container-box.values {
+  text-align: right;
+}
+
+.container-dates {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.container-dates-item {
+  margin-right: 1rem;
 }
