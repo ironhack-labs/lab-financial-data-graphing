@@ -9,70 +9,101 @@
 </head>
 
 <body>
+  {{!-- Etiqueta h1 con el título --}}
   <h1>Title</h1>
+  {{!-- Dos input de tipo date con un valor por defecto
+  para introducir las fechas inicial y final del periodo que
+  queremos chequear. Estos datos serán inyectados en Ajax.
+  Aparecerán errores por consola si seleccionamos días que
+  no existen (por ejemplo un 31 de junio) ya que los inputs nos
+  permiten introducirlos--}}
   <input type="date" value="2018-06-01" id="startDate">
   <input type="date" value="2019-01-01" id="endDate">
+
+  {{!-- El canvas en el que dibujaremos --}}
   <canvas id="myChart"></canvas>
 
+  {{!-- Utilizamos Ajax para poder recargar el canvas de manera asíncrona --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  {{!-- Enlazamos con la librería axios, para poder gestionar la programación
+  asíncrona utilizando promesas --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+  {{!-- En la siguente línea ejecutamos el programa --}}
   <script>
+
+    //Declaramos el contexto para poder manipular el canvas
     const ctx = document.getElementById("myChart").getContext("2d");
 
+    /*Declaramos dos variables. Una que almacene el valor del
+    input de la fecha de inicio y otra que haga lo propio con
+    la fecha final*/
     let dateFrom = document.querySelector('#startDate').value;
     let dateTo = document.querySelector('#endDate').value;
-    let apiObject = undefined;
 
-
-
+    /*Declaramos una variable en la que almacenamos la url de la API
+    de con las fechas inicial y final para hacer la petición a la API
+    de coindesk*/
     let apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`;
 
-    /* function peti() {
-      axios
-        .get(apiUrl)
-        .then(responseFromAPI => {
-          console.log(responseFromAPI.data);
-          return responseFromAPI.data;
-        })
-        .catch(err => {
-          console.log("Error while getting the data: ", err);
-        });
-    }*/
-    function changing () {
-      dateFrom = startDate.value;
+    /*Declaramos la variable que usaremos en la función printTheChart para
+    almacenar las fechas*/
+    let stockDates;
+    /*Declaramos la variable que usaremos en la función printTheChart para
+    almacenar los precios*/
+    let stockPrices;
+
+    function changing() {
+      /*Almacenamos en la variable dateFrom la fecha de inicio siempre que se cambie*/
+      dateFrom = document.querySelector('#startDate').value;
+      /*Almacenamos en la variable dateTo la fecha de final siempre que se cambie*/
       dateTo = document.querySelector('#endDate').value;
-      console.log(dateFrom, dateTo);
+      /*Inyectamos la petición a la API con las dos fechas*/
       apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`;
+      /*Con axios.get() obtenemos la respuesta de la API introduciendo la petición
+      como argumento de get. Se nos devuelve en forma de promesa*/
       axios
         .get(apiUrl)
+        /*Utilizamos then para pasar la promesa devuelta por axios.get() e inyectársela
+        a la función printTheChart, la cual es la encargada de dibujar la gráfica*/
         .then(responseFromAPI => {
-          //console.log(responseFromAPI.data);
-          printTheChart(responseFromAPI.data);
+          /*Llamamos a la función printTheChart pasándole la parte del objeto que necesitamos.
+          Se trata de una lista de conjuntos clave-valor*/
+          printTheChart(responseFromAPI.data.bpi);
+          console.log(responseFromAPI);
+          console.log(responseFromAPI.data)
+          console.log(responseFromAPI.data)
         })
+        // En caso de no entrar en el then se lanza un error
         .catch(err => {
           console.log("Error while getting the data: ", err);
         });
     }
+
+    /*Llamamos a la función changing para que obtenga la información inicial y
+    nos la dibuje al abrir la página*/
     changing()
-    startDate.addEventListener('change', () => {
+
+    /*Empleamos el addEventListener del evento change para que nos ejecute changing
+    con cada cambio en cualquiera de los dos input*/
+    document.getElementById('startDate').addEventListener('change', () => {
+      changing();
+    })
+    document.getElementById('endDate').addEventListener('change', () => {
       changing();
     })
 
-    endDate.addEventListener('change', () =>{
-      changing();
-    })
-
+    //Declaramos la función que nos dibujará la gráfica
     function printTheChart(stockData) {
-      const dailyData = stockData.bpi;
-      const stockDates = Object.keys(dailyData);
-      const stockPrices = Object.values(dailyData)
 
+      /*En la variable stockDates almacenamos las claves (fechas)del objeto*/
+      stockDates = Object.keys(stockData);
+      /*En la variable stockPrices almacenamos los valores
+      (valor económico)del objeto*/
+      stockPrices = Object.values(stockData);
 
-
-      console.log(stockDates,stockPrices);
-
-      // debugger
+      /*Creamos el objeto que vamos a dibujar y le introducimos
+      stockDates y stockPrices*/
       const chart = new Chart(ctx, {
         type: "line",
         data: {
@@ -87,7 +118,7 @@
             }
           ]
         }
-      }); // closes chart = new Chart()
+      });
     }
   </script>
 </body>
