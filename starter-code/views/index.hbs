@@ -13,12 +13,13 @@
     <h1> {{title}} </h1>
     {{!-- <p>Welcome to {{title}} </p> --}}
     <div class="the-chart">
-      <span>Date from:</span><input type="date" name="dateFrom" id="dateFrom" value="2019-05-12" onchange="chart.update()">
-      <span>Date to:</span><input type="date" name="dateTo" id="dateTo" value="2019-10-12" onchange="chart.update()">
-      <span>Currency:</span><select name="currency" id="currency" onchange="chart.update()">
-        <option value="usd">USD</option>
-        <option value="eur">EUR</option>
-        <option value="btn">BTN</option>
+      <span>Date from:</span><input type="date" name="dateFrom" id="dateFrom" value="2019-05-12" >
+      <span>Date to:</span><input type="date" name="dateTo" id="dateTo" value="2019-10-12" >
+      <span>Currency:</span>
+      <select name="currency" id="currency">
+        <option value="1">USD</option>
+        <option value="0.9">EUR</option>
+        <option value="0,00012">BTN</option>
       </select>
     </div>
   </div>

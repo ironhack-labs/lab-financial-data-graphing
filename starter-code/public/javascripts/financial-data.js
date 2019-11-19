@@ -1,34 +1,76 @@
 //Const
+const dateFromDomEl = document.querySelector("#dateFrom");
+const dateToDomEl = document.querySelector("#dateTo");
+
+const dateFrom = dateFromDomEl.value;
+const dateTo = dateToDomEl.value;
+
+const currencyDomEl = document.getElementById("currency");
+const currency = currencyDomEl.value;
+
 const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`
 
-const dateFrom = document.querySelector("#dateFrom").value;
-const dateTo = document.querySelector("#dateTo").value;
-const currency = document.querySelector("#currency").value;
 
-
-document.addEventListener()
-
-//Axios
-axios
-.get(apiUrl)
-.then(responseFromAPI => {
-//   console.log(responseFromAPI.data);
-  printTheChart(responseFromAPI.data);
+currencyDomEl.addEventListener("change", function(){
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`
+    const currency = currencyDomEl.value;
+    getDataAndPrint(apiUrl,currency)
 })
-.catch(err => {
-  console.log("Error while getting the data: ", err);
-});
+
+dateFromDomEl.addEventListener("change", function(){
+  
+    const currency = currencyDomEl.value;
+    const dateFrom = dateFromDomEl.value;
+    const dateTo = dateToDomEl.value;
+   
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`
+   
+
+    getDataAndPrint(apiUrl,currency)
+})
+
+dateToDomEl.addEventListener("change", function(){
+   
+    const currency = currencyDomEl.value;
+    const dateFrom = dateFromDomEl.value;
+    const dateTo = dateToDomEl.value;
+   
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`
+   
+
+    getDataAndPrint(apiUrl,currency)
+})
 
 
-//Charts
 
-function printTheChart(stockData) {
-    const dailyData = stockData["Time Series (Daily)"];
+
+// document.addEventListener()
+console.log(apiUrl)
+//Axios
+function getDataAndPrint(apiUrl,currency){
+    console.log(currency)
+    axios
+    .get(apiUrl)
+    .then(responseFromAPI => {
+        console.log(responseFromAPI.data);
+      printTheChart(responseFromAPI.data, currency);
+    })
+    .catch(err => {
+      console.log("Error while getting the data: ", err);
+    });
+}
+
+
+
+// Charts
+
+function printTheChart(data, currency) {
+    
+    const dailyData = data["bpi"];
     const stockDates = Object.keys(dailyData);
     const stockPrices = stockDates.map(date => {
-      return dailyData[date]["4. close"];
+      return (dailyData[date]*(+currency));
     });
-    // debugger
     const ctx = document.getElementById("myChart").getContext("2d");
     const chart = new Chart(ctx, {
       type: "line",
@@ -48,6 +90,5 @@ function printTheChart(stockData) {
   } // closes printTheChart()
 
 
-
-
+getDataAndPrint(apiUrl,currency)
 // chart.update();
