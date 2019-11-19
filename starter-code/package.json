@@ -7,14 +7,16 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "ajax": "0.0.4",
     "axios": "^0.19.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "handlebars": "^4.5.3",
     "hbs": "^4.0.6",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.4",
     "serve-favicon": "^2.5.0"
   }
 }
