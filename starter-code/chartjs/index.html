@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <h2>Filters</h2>
+        <form id="filter">
+          From:<input name="from" type="date" value="2018-01-01" /> To:<input
+            name="to"
+            type="date"
+            value="2019-01-01"
+          />
+        </form>
+      </div>
+      <div>
+        <h2>Values</h2>
+        <p>Max:</p>
+        <p>Min:</p>
+      </div>
+    </div>
+
+    <canvas id="myChart"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const fromDate = document.querySelector('#filter > input[name="from"]');
+      const toDate = document.querySelector('#filter > input[name="to"]');
+
+      let apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate.value}&end=${toDate.value}`;
+      const ctx = document.getElementById("myChart").getContext("2d");
+
+      function updateView(apiUrl, ctx) {
+        axios
+          .get(apiUrl)
+          .then(responseFromAPI => {
+            // console.log(responseFromAPI.data);
+            printTheChart(responseFromAPI.data);
+          })
+          .catch(err => {
+            console.log("Error while getting the data: ", err);
+          });
+
+        function printTheChart(stockData) {
+          const dailyData = stockData.bpi;
+          const stockDates = Object.keys(dailyData);
+          const stockPrices = stockDates.map(date => 
+             dailyData[date]
+          );
+          // debugger
+          const chart = new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: stockDates,
+              datasets: [
+                {
+                  label: "Stock Chart",
+                  backgroundColor: "rgb(255, 99, 132)",
+                  borderColor: "rgb(255, 99, 132)",
+                  fill: true,
+                  data: stockPrices
+                }
+              ]
+            }
+          });
+        }
+      }
+
+      updateView(apiUrl, ctx);
+
+      fromDate.onchange = function() {
+        apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${this.value}&end=${toDate.value}`;
+        updateView(apiUrl, ctx);
+      };
+
+      toDate.onchange = function() {
+        apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate.value}&end=${this.value}`;
+        updateView(apiUrl, ctx);
+      }
+
+    </script>
+  </body>
+</html>
