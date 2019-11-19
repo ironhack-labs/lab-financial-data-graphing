@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html>
   <head>
     <title> {{title}} </title>
@@ -9,4 +9,38 @@
     <p>Welcome to  {{title}} </p>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>finalcial Data graphing</title>
+</head>
+
+<body>
+
+
+  <h1>Filter</h1>
+  <!--  use input's id to grab the value from the input field -->
+  <label for="">From:</label>
+  <input id="from" type="date" />
+  <label for="">to:</label>
+  <input id="to" type="date" />
+  <button id="theButton">comprobar</button>
+
+  <select name="currency" id="currency">
+    <option value="EUR" type="text">EUR</option>
+    <option value="USD" type="text">USD</option>
+  </select>
+
+  <canvas id="myChart"></canvas>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/javascripts/financial-data.js"></script>
+</body>
+
 </html>
