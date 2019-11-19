@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bit Coin Chart</title>
+</head>
+<body>
+        <label for="dateFrom">Start date:</label>
+
+        <input type="date" id="start" name="trip-start"
+               value= "2019-11-17">
+               
+
+        <label for="dateTo">Start date:</label>
+
+        <input type="date" id="end" name="trip-start"
+             value= "2019-11-18">
+                
+    <canvas id="myChart"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    
+      const key = "demo";
+      const dateFrom = document.getElementById("start").value; // change to select date 
+      const dateTo = document.getElementById("end").value; // change to select date
+      const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`;
+
+      
+      axios.get(apiUrl).then(responseFromAPI => {
+         
+         printTheChart(responseFromAPI.data.bpi);
+        })
+        .catch(err => {
+          
+        });
+        
+      function printTheChart(stockData) {
+        const dailyData = stockData
+
+        const stockDates = Object.keys(dailyData);
+        console.log(dailyData)
+        const stockPrices = stockDates.map(date => {
+          return dailyData[date];
+        });
+
+        
+
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: stockDates,
+            datasets: [
+              {
+                label: "Stock Chart",
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
+                fill: false,
+                data: stockPrices
+              }
+            ]
+          }
+        }); // closes chart = new Chart()
+      } // closes printTheChart() 
+    </script>
+  </body>
+</html>
