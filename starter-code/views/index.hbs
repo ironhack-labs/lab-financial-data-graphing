@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <input type="date"  name="dateFrom" id="date-from" value="2019-10-20">
-    <input type="date" name="dateTo" id="date-to" value="2019-12-21">
-    <canvas id="myChart"></canvas>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./javascripts/financial-data.js"></script>
-   
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="date" name="dateFrom" id="date-from" value="2019-10-20">
+  <input type="date" name="dateTo" id="date-to" value="2019-12-21">
+
+  <div>
+    <h2>Values</h2>
+    <p id="max-value">Max : <span></span></p>
+    <p id="min-value">Min : <span></span></p>
+  </div>
+
+  <div>
+    <select name="currency" id="currency">
+      <option value="EUR">€ Euros</option>
+      <option value="USD">$ Dollars</option>
+    </select>
+  </div>
+
+  <canvas id="myChart"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./javascripts/financial-data.js"></script>
+
+</body>
+
 </html>
