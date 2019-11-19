@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> BitCoins </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <h1>BitCoins</h1>
+    <!--  use input's id to grab the value from the input field -->
+    <p>From:</p>
+    <input id="theInput1" type="date" />
+    <p>To:</p>
+    <input id="theInput2" type="date" />
+    <p>Currency:</p>
+    <select id="theInput3">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+    <p>Max:<span id="max"></span></p>
+    <p>Min:<span id="min"></span></p>
+    {{!-- <button id="theButton">Search</button> --}}
+    
+    <!-- the data we get from the API will be populated in here:   -->
+    <canvas id="myChart"></canvas>
+    <h2 id="countryName"></h2>
+    <p id="countryCapital"></p>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>
