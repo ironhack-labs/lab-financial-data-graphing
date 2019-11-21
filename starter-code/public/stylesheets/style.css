@@ -1,8 +1,21 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: LIGHTCYAN;
 }
 
 a {
   color: #00B7FF;
+}
+.inputs{
+
+  width: 15%;
+  height: 8%;
+  margin-top: 10px;
+  margin-left: 35%;
+
+}
+
+input{
+  margin-left: 5px;
 }
