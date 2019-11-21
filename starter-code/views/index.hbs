@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html>
   <head>
     <title> {{title}} </title>
@@ -9,4 +9,29 @@
     <p>Welcome to  {{title}} </p>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+</html> --}}
+<div id="box" style="position: absolute;">
+  <h1>BitCoins</h1>
+    <hr>
+    <br>
+    <p>From:</p>
+    <input id="input1" type="date" />
+    <p>To:</p>
+    <hr>
+    <br>
+    <input id="input2" type="date" />
+    <p>Currency:</p>
+    <hr>
+    <br>
+    <select id="input3">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+    <p>Max:<span id="max"></span></p>
+    <p>Min:<span id="min"></span></p>
+  </div>
+<img src="https://www.paredro.com/wp-content/uploads/2019/04/bitcoin.jpg" style="width: 400px;" alt="">
+
+    <canvas  id="myChart" style = width="450" height="440" "></canvas>
+    <h2 id="countryName"></h2>
+    <p id="countryCapital"></p>
