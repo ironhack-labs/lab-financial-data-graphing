@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Filters</h1>
+      <p>
+        From: <input type="date" name="from" id="from">
+        To: <input type="date" name="to" id="to">
+      </p>
+      <p>
+        Currency: <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GPB">GBP</option>
+        </select>
+      </p>
+    </div>
+    <div>
+      <h1>Values</h1>
+      <p>Max: <span id="max"></span></p>
+      <p>Min: <span id="min"></span></p>
+    </div>
+  </header>
+  <main>
+    <canvas id="graph" width=320 height=240></canvas>
+  </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
