@@ -5,8 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Data-graph </h1>
+    <p>Welcome to  my lab ;) </p>
+    <label for="startDate">From:</label>
+    <input type="date" name="startDate" id="startDate">
+    <label for="endDate">To:</label>
+    <input type="date" name="endDate" id="endDate">
+    <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+      <canvas id="myChart"></canvas>
+    </div>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script> 
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
