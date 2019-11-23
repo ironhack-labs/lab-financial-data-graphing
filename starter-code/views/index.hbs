@@ -6,7 +6,26 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <p>BTC Value</p>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+  <form action="/" id='dates'>
+    <label>Start Date</label>
+    <input type = 'date' id='start-date'>
+    <label>End Date</label>
+    <input type = 'date' id='end-date'>
+    <label>Currency</label>
+    <select name="Currency" id='currency'>
+      <option value="GBP">GBP</option>
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+    <input type="submit" value="Search" id='submit-dates'>
+    </form>
+    
+  <div class = 'chart'>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>

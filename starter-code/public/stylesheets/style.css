@@ -1,3 +1,7 @@
+.chart{
+  width: 50vw;
+  height: 50vh;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
