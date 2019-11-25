@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <meta charset="UTF-8">
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+
+<h1> {{title}} </h1>
+<p>Welcome to {{title}} </p>
+<h2>Period</h2>
+<label for="From">From:</label>
+<input id="fromDate" type="date">
+<label for="To">To:</label>
+<input id="toDate" type="date">
+<h2>Currency</h2>
+<select name="currency" id="currency" placeholder="Currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+</select>
+<button type="submit" id="button">Create Chart</button>
+
+<canvas id="graph"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
