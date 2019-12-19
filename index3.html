@@ -115,7 +115,6 @@
         }
 
         function chechMaxMin() {
-            let data = myChart.data.datasets[0].data;
             let max = Math.max(...data);
             let min = Math.min(...data);
             minLabel.innerHTML = `${min} ${currency.value}`;
