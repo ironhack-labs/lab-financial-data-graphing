@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='./style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="filters">
+        <div>
+            <h2>Filters: </h2>
+            <h3>From: <input type="date" id="start"></h3>
+            <h3>To: <input type="date" id="end"></h3>
+        </div>
+    </div>
+
+    <canvas id="myChart" width="500" height="200"></canvas>
+    <script>
+        var startDate = document.getElementById("start");
+        var endDate = document.getElementById("end");
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Bitcoin Price Index',
+                    backgroundColor: 'rgb(128,128,128,0.2)',
+                    borderColor: 'rgb(219,220,219)',
+                    data: [],
+                    borderWidth: 2
+                }]
+            },
+            options: {}
+        });
+
+        function updateChart(from, to) {
+            let responsePromise = null;
+            if (from && to && (from < to)) {
+                responsePromise = axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}`)
+            }
+            responsePromise
+                .then(response => {
+                    console.log(response)
+                    var bpi = response.data.bpi
+                    myChart.data.datasets[0].data = Object.values(bpi);
+                    myChart.data.labels = Object.keys(bpi);
+                    myChart.update();
+                })
+                .catch(error => console.log(error));
+        }
+
+        function filterChangedDate() {
+            updateChart(startDate.value, endDate.value);
+        }
+        startDate.addEventListener('change', filterChangedDate);
+        endDate.addEventListener('change', filterChangedDate);
+    </script>
+</body>
+
+</html>

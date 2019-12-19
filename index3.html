@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<html>
+
+<head>
+    <title> {{title}} </title>
+
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <title> {{title}} </title>
+    </head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <h1> {{title}} </h1>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js" <p>
+            Welcome to {
+                {
+                    title
+                }
+            } < /p>	    integrity="sha256-arMsf+3JJK2LoTGqxfnuJPFTU4hAK57MtIPdFpiHXOU=" crossorigin="anonymous">
+        </script>
+    </body>
+</head>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+</html>
+
+<body>
+    <h1> {{title}} </h1>
+    <p>Welcome to {{title}} </p>
+    <div class="flex">
+        <div>
+            <h2>Filters:</h2>
+
+            <h3>From:<input type="date" id='start'></h3>
+            <h3>To:<input type="date" id='end'></h3>
+            <h3>Currency:</h3>
+            <select id="cur">
+        <option value="EUR">Euro</option>
+        <option value="USD">US Dollar $</option>
+        <option value="RUB">Russian Rubbles</option>
+      </select>
+        </div>
+        <div>
+            <h3>
+                Values
+            </h3>
+            <p id="min">
+                Min:
+            </p>
+            <p id="max">
+                Max:
+            </p>
+        </div>
+    </div>
+    <canvas id="myChart" width="500" height="180">
+  </canvas>
+
+
+    <script>
+        var startDate = document.getElementById('start');
+        var endDate = document.getElementById('end');
+        var currency = document.getElementById('cur');
+        var minLabel = document.getElementById('min');
+        var maxLabel = document.getElementById('max');
+        currency.addEventListener('change', filterChangedDate);
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Bitcoin price index',
+                    data: [],
+                    backgroundColor: [
+                        'rgb(128,128,128,0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(96,96,96)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        function updateChart(currency, from, to) {
+            //debugger
+            let responsePromise = null;
+            if (from && to) {
+                responsePromise = axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}&currency=${currency}`)
+            } else {
+                responsePromise = axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`);
+            }
+            responsePromise
+                .then(response => {
+                    console.log(response)
+                    var bpi = response.data.bpi;
+                    myChart.data.datasets[0].data = Object.values(bpi);
+                    myChart.data.labels = Object.keys(bpi);
+                    chechMaxMin();
+                    myChart.update();
+                })
+                .catch(error => console.log(error));
+        }
+
+        function chechMaxMin() {
+            let data = myChart.data.datasets[0].data;
+            let max = Math.max(...data);
+            let min = Math.min(...data);
+            minLabel.innerHTML = `${min} ${currency.value}`;
+            maxLabel.innerHTML = `${max} ${currency.value}`;
+        }
+
+        function filterChangedDate() {
+            updateChart(currency.value, startDate.value, endDate.value);
+        }
+        startDate.addEventListener('change', filterChangedDate);
+        endDate.addEventListener('change', filterChangedDate);
+        updateChart(currency.value);
+    </script>
+
+
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+</html>
