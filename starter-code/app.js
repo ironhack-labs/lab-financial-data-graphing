@@ -32,6 +32,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// MDH: there's a v2 apparently too now
+const COINDESK_API_HOST="https://api.coindesk.com/v2/bpi/historical/close.json");
+// to which you need to add ?start=2013-09-01&end=2013-09-05";
+
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

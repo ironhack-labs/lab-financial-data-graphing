@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ironhack LAB: CoinDesk</title>
+    <!-- front-end axios library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <!-- include ChartJS from cdn -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js'></script>
+    <!-- CSS -->
+    <link type='text/css' rel='stylesheet' href='./public/stylesheets/style.css'>
+</head>
+<body>
+    <h1>Ironhack LAB by Marc P. de Hoogh - 19 December 2019</h1>
+    <!-- show any error at the top of the page -->
+    <div id='info'>Messages go hear!</div>
+
+    <div>
+        Retrieve the Bitcoin Price Indexes
+        &nbsp;from&nbsp;<input id='from-date' type='date' onchange='datesChanged();'>
+        &nbsp;through&nbsp;<input id='to-date' type='date' onchange='datesChanged();'>
+        &nbsp;in </h2><select id='currencies'></select>
+    </div>
+
+    <!-- for showing the chart on -->
+    <div><canvas id='canvas' style='background-color:lightgrey'></canvas></div>
+
+    <div>
+        Minimum on <span id='min-date'>?</span> showing in the chart:&nbsp;<span id='min-value'>?</span>&nbsp;<span class='currency'>USD</span>.
+        <br>
+        Maximum on <span id='max-date'>?</span> showing in the chart:&nbsp;<span id='max-value'>?</span>&nbsp;<span class='currency'>USD</span>.
+    </div>
+    <!-- prepend currencies array -->
+    <script src='currencies.js'></script>
+    <script>
+        const COINDESK_API_HOST="https://api.coindesk.com/v1/bpi/historical/close.json";
+        // utility functions
+        var infoElement=document.getElementById("info");
+        var fromDateElement=document.getElementById("from-date");
+        var toDateElement=document.getElementById("to-date");
+        var canvasElement=document.getElementById("canvas");
+        var currenciesElement=document.getElementById("currencies");
+        var minValueElement=document.getElementById("min-value");
+        var maxValueElement=document.getElementById("max-value");
+        var minDateElement=document.getElementById("min-date");
+        var maxDateElement=document.getElementById("max-date");
+        function updateExtremes(min,max,minDate,maxDate){
+            minValueElement.innerHTML=String(min);
+            maxValueElement.innerHTML=String(max);
+            minDateElement.innerHTML=minDate;
+            maxDateElement.innerHTML=maxDate;
+        }
+        function showError(error){
+            infoElement.innerHTML=error||"";
+            infoElement.style.color="red";
+        }
+        function showInfo(info){
+            infoElement.innerHTML=info||"";
+            infoElement.style.color="blue";
+        }
+        function getOptionElement(id,text){
+            let optionElement=document.createElement('option');
+            optionElement.value=id;
+            optionElement.text=text;
+            return optionElement;
+        }
+        function showCurrencies(){
+            let usdIndex=-1;
+            currencies.forEach((currency)=>{
+                if(currency.currency==="USD")usdIndex=currenciesElement.options.length;
+                currenciesElement.add(getOptionElement(currency.currency,currency.country));
+            });
+            currenciesElement.selectedIndex=usdIndex; // select USD
+        }
+        function yyyy_mm_dd(dd_mm_yyyy){
+            return(dd_mm_yyyy.length==10?dd_mm_yyyy.substring(6,10)+dd_mm_yyyy.substring(2,6)+dd_mm_yyyy.substring(0,2):null);
+        }
+        function dd_mm_yyyy(yyyy_mm_dd){ // input might be longer than 10 characters!!
+            return(yyyy_mm_dd.length>=10?yyyy_mm_dd.substring(8,10)+yyyy_mm_dd.substring(4,8)+yyyy_mm_dd.substring(0,4):null);
+        }
+        // StackOverflow to the rescue!!!
+        function isAValidDate(dateString){
+            var regEx = /^\d{4}-\d{2}-\d{2}$/;
+            if(!dateString.match(regEx))return false;  // Invalid format
+            var d = new Date(dateString);
+            var dNum = d.getTime();
+            if(!dNum && dNum !== 0) return false; // NaN value, Invalid date
+            return d.toISOString().slice(0,10) === dateString;
+        }
+        // dynamically called functions
+        function updateChart(dates,indexes){
+            showInfo("Showing the Bitcoin Price Indexes...");
+            // spread the indexes into min and max
+            let minBpi=Math.min(...indexes),maxBpi=Math.max(...indexes);
+            let minDate=dates[indexes.indexOf(minBpi)],maxDate=dates[indexes.indexOf(maxBpi)];
+            updateExtremes(minBpi,maxBpi,minDate,maxDate);
+            var ctx = canvasElement.getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Bitcoin Price Index',
+                        data: indexes,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });      
+            showInfo("Bitcoin Price Indexes showing.");
+        }
+        function getCurrency(){return currenciesElement.options[currenciesElement.selectedIndex].value;}
+        function getCurrencyText(){return currenciesElement.options[currenciesElement.selectedIndex].text;}
+        function updateData(fromDate,toDate){
+            
+            // clear extremes showing
+            minValueElement.innerHTML="?";
+            maxValueElement.innerHTML="?";
+            minDateElement.innerHTML="?";
+            maxDateElement.innerHTML="?";
+
+            if(!isAValidDate(fromDate)){error("Invalid start date!");return;}
+            if(!isAValidDate(toDate)){error("Invalid end date!");return;}
+            if(fromDate>toDate){error("Start date after end date!");return;}
+
+            showInfo("Getting the Bitcoin Price Index (in "+getCurrencyText()+") from '"+fromDate+"' to '"+toDate+"'.");
+            axios.get(COINDESK_API_HOST+"?currency="+getCurrency()+"&start="+fromDate+"&end="+toDate)
+            .then((result)=>{
+                if(!result){showError("No data!");return;}
+                console.log("Result: ",result);
+                if(result.status!=200){
+                    showError("Result HTTP error code: "+result.status);
+                    return;
+                }
+                let data=result.data;
+                if(data&&data.hasOwnProperty("bpi")){
+                    // console.log("Data: ",data.bpi);
+                    updateChart(Object.keys(data.bpi),Object.values(data.bpi));
+                }else
+                    error("Something wrong with the received data!");
+            })
+            .catch((error)=>{showError(error);});
+        }
+        /**
+         * call datesChanged() whenever the from or to date changes
+         */
+        function datesChanged(){
+            updateData(fromDateElement.value,toDateElement.value);
+        }
+        function currencyChanged(){
+            // update wherever currency is displayed
+            let currency=getCurrency();
+            for(currencyElement of document.getElementsByClassName("currency"))
+                currencyElement.innerHTML=currency;
+            // update the shown data
+            datesChanged();
+        }
+        // show the currencies on load
+        window.onload=function(){
+            showInfo("Welcome!");
+            showCurrencies();
+            document.getElementById("from-date").value=(new Date()).toISOString().substring(0,10);
+            document.getElementById("to-date").value=(new Date()).toISOString().substring(0,10);
+            currenciesElement.onchange=currencyChanged; // after setting initial dates!!!
+        }
+    </script>
+
+</body>
+</html>
