@@ -3,10 +3,25 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{!-- Chart calling code --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Date Selector</h1>
+    <!--  use input's id to grab the value from the input field -->
+    <input id="theStartDate" type="date" />
+    <input id="theEndDate" type="date" />
+    <button id="theButton">Get the dates</button>
+
+    <!-- the data we get from the API will be populated in here:   -->
+    <h2 id="countryName"></h2>
+    <p id="countryCapital"></p>
+
+    <canvas id="myChart"></canvas>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    {{!-- We removed the script below because it is not included in the front end / not applicable --}}
+    {{!-- <script type="text/javascript" src="index.js"></script> --}}
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
