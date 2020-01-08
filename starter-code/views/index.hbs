@@ -7,11 +7,14 @@
   {{!-- put CDN here --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8" defer></script>
+  <script src="/javascripts/getData.js" charset="utf-8" type="module" defer></script>
 </head>
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
+  <label for="start">From:</label>
+  <input id="startDate" type="date" id="start" name="start" value="">
+  <label for="start">To:</label>
+  <input id="endDate" type="date" id="end" name="end" value="">
+  <button id="update-chart">update view</button>
   <canvas id="chart"></canvas>
 </body>
 
