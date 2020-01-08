@@ -8,7 +8,8 @@
 const refreshDate = () => {
   const fromDate = document.getElementById('fromDate').value;
   const toDate = document.getElementById('toDate').value;
-  const dateURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`;
+  const currencyChange = document.getElementById('currency').value;
+  const dateURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currencyChange}`;
   refreshGraph(dateURL)
 }
 
