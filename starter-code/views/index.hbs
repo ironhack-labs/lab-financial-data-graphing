@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <div class="nav">
+    <div>
+      <h1>Filters</h1>
+      <label for="start-date">From:</label>
+      <input type="date" name="start-date" id="start-date" class="period-dates">
+      <label for="end-date">To:</label>
+      <input type="date" name="end-date" id="end-date" class="period-dates">
+      <label for="currency">Currency:</label>
+      <select type="text" name="currency" id="currency">
+        <option value="USD">US Dollar ($)</option>
+        <option value="EUR">Euro (€)</option>
+      </select>
+    </div>
 
     <div>
-      <h2>Filters</h2>
-      <label for="start-date">From:</label>
-      <input type="date" name="start-date" id="start-date">
-      <label for="end-date">To:</label>
-      <input type="date" name="end-date" id="end-date">
-    </div>
-    <div>
-      <h2>Values</h2>
+      <h1>Values</h1>
       <p id="max-value"></p>
       <p id="min-value"></p>
     </div>
-    <canvas id="myChart"></canvas> 
-    
+  </div>
+  <canvas id="myChart"></canvas>
 
-  </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 </html>
