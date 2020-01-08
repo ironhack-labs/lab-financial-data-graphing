@@ -5,8 +5,21 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Lab Financial Chart </h1>
+    <label for="startDateInput">From:</label>
+    <input id="startDateInput" type="date" value="2019-12-07" oninput="getData()"/>
+    <label for="endDateInput">To:</label>
+    <input id="endDateInput" type="date" value="2020-01-07" oninput="getData()"/>
+    <label for="">Currency:</label>
+    <select name="currency" id="currencySelect" oninput="getData()"> 
+      <option value="USD">US Dollar</option>
+      <option value="EUR">EUR Euro</option>
+      <option value="BRL">BRL Real</option>
+    </select>
+    
+    <canvas id="myChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
