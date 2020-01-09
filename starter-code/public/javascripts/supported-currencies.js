@@ -151,7 +151,6 @@ export default {
     {currency: 'XAF', country: 'CFA Franc BEAC'},
     {currency: 'XAG', country: 'Silver (troy ounce)'},
     {currency: 'XAU', country: 'Gold (troy ounce)'},
-    {currency: 'XBT', country: 'Bitcoin'},
     {currency: 'XCD', country: 'East Caribbean Dollar'},
     {currency: 'XDR', country: 'Special Drawing Rights'},
     {currency: 'XOF', country: 'CFA Franc BCEAO'},

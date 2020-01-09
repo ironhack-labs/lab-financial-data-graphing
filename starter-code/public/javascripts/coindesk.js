@@ -1,8 +1,11 @@
+
+// FIXME: esse baseURL não realmente faz sentido, porque o path da currency devolve um objeto com outra cara
 export const getData = async (path = '/historical/close.json', queryParams = '') => {
   try {
     const baseURL = 'http://api.coindesk.com/v1/bpi';
     const endpoint = baseURL+path+queryParams;
     const {data} = await axios.get(endpoint);
+    console.log('essa e a data bruta: ', data)
     const {bpi} = data;
     const labels = Object.keys(bpi);
     const values = Object.values(bpi);

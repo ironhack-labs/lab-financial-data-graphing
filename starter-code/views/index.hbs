@@ -9,12 +9,22 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/getData.js" charset="utf-8" type="module" defer></script>
 </head>
+
 <body>
   <label for="start">From:</label>
   <input id="startDate" type="date" id="start" name="start" value="">
   <label for="start">To:</label>
   <input id="endDate" type="date" id="end" name="end" value="">
   <button id="update-chart">update view</button>
+  <hr>
+  <form>
+    <label for="currencies">pick currency</label>
+    <input id="currencyInput" type="text" list="curr" id="currencies" name="currencies">
+    <datalist id="curr">
+    </datalist>
+    <hr>
+  </form>
+
   <canvas id="chart"></canvas>
 </body>
 
