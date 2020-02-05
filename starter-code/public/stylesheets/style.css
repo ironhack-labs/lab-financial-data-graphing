@@ -10,3 +10,7 @@ a {
 canvas{
   border: 1px solid black;
 }
+
+label{
+  padding: 3%;
+}
