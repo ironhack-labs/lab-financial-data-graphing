@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <label for="from">From:
+    <input id="start-date" type="date" onchange="getStartObject(this)">
+  </label>
+  <label for="to">To:
+    <input id="end-date" type="date">
+  </label>
+  <button onclick="getEndObject()">New chart</button>
+
+  <canvas id="myChart"></canvas>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+
+</body>
+
 </html>
