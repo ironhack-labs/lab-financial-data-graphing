@@ -17,8 +17,8 @@ const drawChart = (labels, values) => {
 };
 
 const begin = () => {
-  return axios
-    .get("http://api.coindesk.com/v1/bpi/historical/close.json")
+  axios
+    .get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
     .then(response => {
       console.log(response.data.bpi);
       // const dates
@@ -41,7 +41,7 @@ const minAndMax = val => {
 };
 
 const updated = () => {
-  return axios
+  axios
     .get(
       `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currencyInput}&start=${startInput}&end=${endInput}`
     )
@@ -84,34 +84,3 @@ currency.onchange = () => {
 };
 
 bitcoinPriceTracker();
-
-/*
-const getDataForCountry = countryName => {
-  axios
-    .get(`https://restcountries.eu/rest/v2/name/${countryName}`)
-    .then(response => {
-      const countryDetail = response.data[0];
-      console.log(countryDetail);
-      document.getElementById("country-name").innerText = countryDetail.name;
-      document.getElementById("country-population").innerText =
-        countryDetail.population;
-      document
-        .getElementById("country-flag")
-        .setAttribute("src", countryDetail.flag);
-    });
-};
-
-
-
-//
-
-
-const name = document.getElementById("name");
-
-name.onkeyup = () => {
-  let userInput = document.getElementById("name").value;
-  if (!userInput.length) userInput = "Portugal";
-  getDataForCountry(userInput);
-};
-
-*/
