@@ -50,6 +50,7 @@ const updated = () => {
       const values = Object.values(response.data.bpi);
       minAndMax(values);
       drawChart(keys, values);
+      //
     });
 };
 
