@@ -4,5 +4,21 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+#filters {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}
+#values {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  text-align: right;
+}
+canvas {
+  position: absolute;
+  top: 230px;
 }

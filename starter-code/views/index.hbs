@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+</head>
+
+<body>
+  <div id="filters">
+    <h1> Filters </h1>
+    From:
+    <input type="date" id="date-from" onchange="updateChart();">
+    To:
+    <input type="date" id="date-to" onchange="updateChart();">
+    <br><br>
+    Currency:
+    <select name="currency" id="currency" onchange="updateChart();">
+      <option value="USD">US Dollar ($)</option>
+      <option value="EUR">Euro (€)</option>
+    </select>
+  </div>
+  <div id="values">
+    <h1> Values </h1>
+    <p id="max"></p>
+    <p id="min"></p>
+  </div>
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<canvas id="myChart" width="400" height="400"></canvas>
+
 </html>
