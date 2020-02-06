@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <canvas id='myChart' width='500' height='500'></canvas>
+  <form action="/" method='GET'>
+    <input id="startDate" type="date" name='startDate'>
+    <input id="endDate" type='date' name='endDate'>
+  </form>
+</body>
+
 </html>

@@ -43,4 +43,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/', (req, res) => {
+  const sDate = request.query.startDate;
+  const eDate = request.query.endDate;
+});
+
+const getValueRange = (startDate, endDate) => {
+  axios.get('https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}');
+};
+
+// document.getElementById('startDate').addEventListener('input',
+
 module.exports = app;
