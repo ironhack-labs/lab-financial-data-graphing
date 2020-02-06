@@ -10,6 +10,16 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 
+  <div>
+    <h2>Filters</h2>
+    <form action="#">
+      <label for="from">From:</label>
+      <input type="date" id="from" value="2020-01-06" onchange="refresh()">
+      <label for="to">To:</label>
+      <input type="date" id="to" value="2020-02-06" onchange="refresh()">
+    </form>
+  </div>
+
   <canvas id="myChart" width="400" height="400"></canvas>
 
 
