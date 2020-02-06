@@ -2,8 +2,6 @@ let graph;
 axios
   .get("http://api.coindesk.com/v1/bpi/historical/close.json")
   .then(response => {
-    //
-
     graph = response.data.bpi;
     let result = Object.keys(graph).map(function(key, value) {
       return [graph(key), graph[value]];
