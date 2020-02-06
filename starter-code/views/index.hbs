@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body>
+  <h1> Bitcoin Price Index </h1>
+  <div>
+    <h2>Filters</h2>
+    <form action="#">
+      <label for="from">From:</label>
+      <input type="date" id="from" value="2020-01-06" onchange="valueChange()">
+      <label for="to">To:</label>
+      <input type="date" id="to" value="2020-02-06" onchange="valueChange()">
+    </form>
+  </div>
+  <canvas id="myChart" width="300" height="100"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="/javascripts/financial-data.js"></script>
+</body>
+
 </html>
