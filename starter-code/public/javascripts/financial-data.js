@@ -46,10 +46,10 @@ var myChart = new Chart(ctx, {
 });
 
 
-// $startDate.addEventListener('change', () => {
-//     filterData()
-// })
+$startDate.addEventListener('change', () => {
+    filterData()
+})
 
-// $finalDate.addEventListener('change', () => {
-//     filterData()
-// })
+$finalDate.addEventListener('change', () => {
+    filterData()
+})
