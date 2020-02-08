@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Filters</h2>
+        <p>From: </p>
+        <input type="date" id="fromDate" onchange="selectDate()">
+        <br><br>
+        <p>To: </p>
+        <input type="date" id="toDate" onchange="selectDate()">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div style="text-align: right;" class="card">
+      <div class="card-body">
+        <h2 class="card-title">Values</h2>
+        <br><br>
+        <p><strong>Max: </strong></p>
+        <p id="maxValue"></p>
+        <br><br>
+        <p><strong>Min: </strong></p>
+        <p id="minValue"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<canvas id="myChart" width="400" height="400"></canvas>
