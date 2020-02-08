@@ -1,5 +1,12 @@
-const getData = (initDate, endDate, currency) => {
-const apiBit = "http://api.coindesk.com/v1/bpi/historical/close.json"
+const $start = document.querySelector("#start")
+const $end = document.querySelector("#end")
+const $currency = document.querySelector("#currency")
+const ctx = document.querySelector('#myChart').getContext('2d');
+
+
+
+const getData = (startDate='2020-01-01', endDate='2020-01-31', currency='USD') => {
+const apiBit = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`
 
 axios.get(apiBit).then(re => {
     
@@ -7,8 +14,6 @@ axios.get(apiBit).then(re => {
     const data = re.data.bpi
 
 
-
-const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -48,8 +53,12 @@ const myChart = new Chart(ctx, {
 })
 }
 
+const updateInfo = ()=> getData($start.value, $end.value, $currency.value)
 
-InputDeviceInfo.onchanege = ()=>{ 
-    getData()
+//getData('2020-01-01', '2020-01-10', 'USD')
 
-}
+$start.addEventListener('change', updateInfo)
+
+$end.addEventListener('change', updateInfo)
+
+$currency.addEventListener('change', updateInfo)

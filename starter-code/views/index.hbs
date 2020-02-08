@@ -7,10 +7,15 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input id="start" type="date">
+    <input id="end" type="date">
+    <select id="currency">
+    <option value="USD">USD</option>
+    <option value="MXN">MXN</option>
+   </select>
+
     <canvas id="myChart" width="400" height="400"></canvas>
-
-
-
+    
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
