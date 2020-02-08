@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> BTC CHART</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1 style="font-size: 3.5rem;">BTC / USD CHART</h1>
+
+
+    <label for="From">From</label>
+    <input type="date" id="firstDate" required>
+    <label for="To">To</label>
+    <input type="date" id="secondDate" required>
+   
+
+    <label for="curr">Choose currency:</label>
+<select id="curr" name="curr" form="curr">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="MXN">MXN</option>
+  <option value="JPY">JPY</option>
+</select>
+    <button class="submitDates"> Update </button>
+
+
+
+    <canvas id="myChart"></canvas>
+
+    <label for="max">Max Value=</label><input id="maxValue" type="text">
+    <label for="min">Min Value=</label><input id="minValue" type="text">
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
 </html>
