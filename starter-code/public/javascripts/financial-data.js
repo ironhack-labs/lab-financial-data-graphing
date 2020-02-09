@@ -1,19 +1,31 @@
-const drawChart = (labels, values) => {
-  const ctx = document.getElementById("myChart").getContext("2d");
+const start = document.getElementById("start");
+const end = document.getElementById("end");
+const currency = document.getElementById("currency");
+const mini = document.getElementById("min");
+const maxi = document.getElementById("max");
+let currencyInput, startInput, endInput;
 
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          backgroundColor: "rgba(255,88,132,0.2",
-          label: "Bitcoin Price Index",
-          data: values
-        }
-      ]
-    }
-  });
+start.onchange = () => {
+  bitcoinPriceTracker();
+};
+
+end.onchange = () => {
+  bitcoinPriceTracker();
+};
+
+currency.onchange = () => {
+  bitcoinPriceTracker();
+};
+
+const bitcoinPriceTracker = () => {
+  startInput = start.value;
+  endInput = end.value;
+  currencyInput = currency.value;
+  if (!startInput || !endInput) {
+    begin();
+  } else {
+    updated();
+  }
 };
 
 const begin = () => {
@@ -54,34 +66,22 @@ const updated = () => {
     });
 };
 
-bitcoinPriceTracker = () => {
-  startInput = start.value;
-  endInput = end.value;
-  currencyInput = currency.value;
-  if (!startInput || !endInput) {
-    begin();
-  } else {
-    updated();
-  }
-};
+const drawChart = (labels, values) => {
+  const ctx = document.getElementById("myChart").getContext("2d");
 
-const start = document.getElementById("start");
-const end = document.getElementById("end");
-const currency = document.getElementById("currency");
-const mini = document.getElementById("min");
-const maxi = document.getElementById("max");
-let currencyInput, startInput, endInput;
-
-start.onchange = () => {
-  bitcoinPriceTracker();
-};
-
-end.onchange = () => {
-  bitcoinPriceTracker();
-};
-
-currency.onchange = () => {
-  bitcoinPriceTracker();
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          backgroundColor: "rgba(255,88,132,0.2",
+          label: "Bitcoin Price Index",
+          data: values
+        }
+      ]
+    }
+  });
 };
 
 bitcoinPriceTracker();
