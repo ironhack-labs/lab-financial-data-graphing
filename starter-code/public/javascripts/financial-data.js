@@ -57,7 +57,6 @@ function printChart(data) {
 }
 
 function setMaxMin() {
-    console.log(prices)
 
     max.innerText = "Max: " + Math.max(...prices).toFixed(2) + " " + currency.value
     min.innerText = "Min: " + Math.min(...prices).toFixed(2) + " " + currency.value
