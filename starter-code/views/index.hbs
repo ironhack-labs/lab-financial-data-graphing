@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>From</p>
+        <input type="date" id="start" name="trip-start" value="start" min="2018-01-01" max="2018-12-31">
+        <p>To</p>
+        <input type="date" id="end" name="trip-start" value="end" min="2018-01-01" max="2018-12-31">
+        <p>Currency:</p>
+        <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+
+        </select>
+      </div>
+      <div class="col-md-6">
+        <h4>Values</h4>
+
+        <p>Max:</p>
+        <p id="maxValue"></p>
+
+        <p>Min:</p>
+        <p id="minValue"></p>
+
+
+      </div>
+    </div>
+  </div>
+
+  <canvas id="myChart"></canvas>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
+
+
+
 </html>
