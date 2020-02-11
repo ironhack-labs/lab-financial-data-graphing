@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+
+
+<body>
+  <div>
+    <h1> Filters </h1>
+    <form action="">
+      <label for="">From</label>
+      <input id="date-1" type="Date" value="2018-11-20">
+
+      <label for="">To</label>
+      <input id="date-2" type="Date" value="2019-11-20">
+    </form>
+  </div>
+
+  <div>
+    <h1>Values</h1>
+    <label for="">Max:</label>
+    <input type="text">
+    <label for="">Min:</label>
+    <input type="text">
+  </div>
+
+  <div>
+    <h3>Currency</h3>
+    <select name="" id="">
+      <option value="1">US Dolar $</option>
+      <option value="2">Euro </option>
+    </select>
+
+  </div>
+
+
+  <canvas id="myChart"></canvas>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+
+</body>
+
 </html>
