@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+</body>
+From:
+<input type="date" id="from" value="2020-01-13">
+To:
+<input type="date" id="to" value="2020-04-02">
+Currency:
+<select name="currency" id="currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+  <option value="JPY">JPY</option>
+  <option value="CAD">CAD</option>
+  <option value="GBP">GBP</option>
+  <option value="AUD">AUD</option>
+</select>
+Filter
+<button onclick='getFilter()'>Click Me</button>
+
+<p id="max">Max:</p>
+<p id="min">Min:</p>
+
+
+<canvas id="myChart"></canvas>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+
 </html>
