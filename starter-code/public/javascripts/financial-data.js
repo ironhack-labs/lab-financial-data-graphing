@@ -1,19 +1,43 @@
+//Global variables declaration 
 
-// const axiosApp = axios.create({ baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json` })
+const inputs = document.querySelectorAll("input")
+const currency = document.getElementById("currency")
+const error = document.getElementById("error")
 
-axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
-    //.then(response => console.log(response.data.bpi))
-    .then(response => printChart(response.data.bpi))
-    .catch(err => console.log('Ha habido un error ', err))
+const max = document.getElementById("max")
+const min = document.getElementById("min")
+
+let prices
+
+setChart()
+setListeners()
+
+function setChart() {
+
+    if (inputs[0].value > inputs[1].value) error.innerText = "La fecha inicial no puede ser mayor que la final"
+    else error.innerText = ""
+
+
+    const axiosApp = axios.create({ baseURL: `http://api.coindesk.com/` })
+
+    axiosApp.get(`v1/bpi/historical/close.json?start=${inputs[0].value}&end=${inputs[1].value}&currency=${currency.value}`)
+        .then(response => printChart(response.data.bpi))
+        .then(x => setMaxMin())
+        .catch(err => console.log('Ha habido un error ', err))
+}
+
+function setListeners() {
+    inputs.forEach(elm => elm.onchange = () => setChart())
+
+    currency.onchange = () => setChart()
+}
 
 function printChart(data) {
 
     const dates = Object.keys(data)
-    const prices = dates.map(date => data[date])
+    prices = dates.map(date => data[date])
 
     const ctx = document.getElementById("myChart").getContext("2d")
-
-    console.log(dates, prices)
 
     new Chart(ctx, {
         type: "line",
@@ -30,4 +54,11 @@ function printChart(data) {
         }
     })
 
+}
+
+function setMaxMin() {
+    console.log(prices)
+
+    max.innerText = "Max: " + Math.max(...prices).toFixed(2) + " " + currency.value
+    min.innerText = "Min: " + Math.min(...prices).toFixed(2) + " " + currency.value
 }

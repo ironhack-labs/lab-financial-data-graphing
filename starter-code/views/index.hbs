@@ -3,6 +3,8 @@
 
 <head>
   <title> {{title}} </title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+    integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
@@ -10,6 +12,38 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 </body>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <h5>From:</h5><input type="date" min="2020-01-12" max="2020-02-10" value="2020-01-12">
+    </div>
+    <div class="col-md-4">
+      <h5>To:</h5><input type="date" min="2020-01-12" max="2020-02-10" value="2020-02-10">
+    </div>
+    <div class="col-md-4">
+
+      <h3>values</h3><br>
+
+      <h6 id="max"></h6>
+      <h6 id="min"></h6>
+
+    </div>
+  </div>
+</div>
+<br><br>
+<select name="" id="currency">
+
+  <option value="USD">American Dollar</option>
+  <option value="EUR">Euro</option>
+  <option value="KRW">Won surcoreano</option>
+
+</select>
+<br><br>
+
+<h6 id="error"></h6>
 
 <canvas id="myChart"></canvas>
 
