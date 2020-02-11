@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> Graph </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> Graph </h1>
+  <p>Welcome to {{title}} </p>
+</body>
+
+<label for="start">From:</label>
+<input type="date" id="start" name="trip-start" value="2018-07-22">
+
+<label for="end">To:</label>
+<input type="date" id="end" name="trip-end  " onchange="changedata">
+
+
+<canvas id="myChart"></canvas>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
