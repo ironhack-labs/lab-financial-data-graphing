@@ -3,10 +3,24 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Bitcoin Price Index </h1>
+
+  <select id="change-currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+  </select>
+
+  <input type="date" id="fromDate" name="fromDate" value="2020-01-02">
+  <input type="date" id="toDate" name="toDate" value="2020-02-01">
+
+  <div>Max Value <span id="maxvalue"></span> Min Value <span id="minvalue"></span></div>
+
+    <canvas id="myChart"></canvas>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
 </html>
