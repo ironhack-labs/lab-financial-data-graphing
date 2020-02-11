@@ -7,7 +7,9 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.18.3",
+    "chart.js": "^2.9.3",
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.0",
     "express": "^4.16.4",
