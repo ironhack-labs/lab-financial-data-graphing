@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <label for="start">From:</label>
+  <input type="date" id="dateStart" name="dateStart" value="2020-01-11" min="2015-01-01" onchange="updateChart()">
+
+  <label for="start">To:</label>
+  <input type="date" id="dateFinish" name="dateFinish" value="2020-02-10" min="2015-01-01" onchange="updateChart()">
+
+  <label for="currency">Choose a currency:</label>
+  <select id="currency" onchange="updateChart()">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+    <option value="JPY">JPY</option>
+    <option value="CNY">CNY</option>
+  </select>
+  <br>
+  <br>
+  Max:<p id="max"></p>
+  Min:<p id="min"></p>
+
+  <canvas id="chart"></canvas>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
