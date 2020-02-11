@@ -13,7 +13,7 @@ const data = async () => {
 data();
 
 
-function printChart(info){
+function printChart(info){ //funcion para pintar el chart
     const dates = Object.keys(info);
     console.log(dates);
     const price = Object.values(info)
