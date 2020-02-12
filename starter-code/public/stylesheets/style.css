@@ -1,8 +1,57 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #4F4F4F;
+  background-color: #F0F0F0;
 }
 
 a {
-  color: #00B7FF;
+  color: #149972;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #34D5A6;
+  text-decoration: none;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+nav img {
+  max-width: 50px;
+}
+
+h1, h2 {
+  color: #149972;
+  margin-bottom: 30px;  
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #149972;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  left: 0;
+}
+
+footer p {
+  margin-bottom: 0px;
+}
+
+
+.button-color {
+  background-color: #149972;
+  border: none;
+}
+
+.button-color:hover {
+  background-color: #34D5A6;
+  border: none;
 }

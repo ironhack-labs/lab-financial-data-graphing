@@ -21,8 +21,8 @@ function printChart(data) {
             datasets: [
                 {
                     label: "Value",
-                    backgroundColor: "rgba(247,255,255, .5)",
-                    borderColor: "rgb(247,0,255)",
+                    backgroundColor: "rgba(208, 136, 26, .1)",
+                    borderColor: "rgb(59, 229, 179)",
                     fill: true,
                     data: myValues
                 }
