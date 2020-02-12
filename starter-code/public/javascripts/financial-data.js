@@ -1,25 +1,23 @@
 document.getElementById("button").onclick = () => {
     const iDate = document.getElementById("fromDate").value
     const tDate = document.getElementById("toDate").value
+    const curren = document.getElementById("currency").value
     console.log(iDate)
     console.log(tDate)
     if(iDate && tDate){
-        data(iDate,tDate)
+        data(iDate, tDate, curren)
     }
 }
 
-function data(iDate, tDate){
-    const urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${iDate}&end=${tDate}`;
+function data(iDate, tDate, curren){
+    const urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${iDate}&end=${tDate}&currency=${curren}`;
     console.log(urlApi)
-
     axios
     .get(urlApi)
     .then(response => printChart(response.data.bpi))
     .catch(error => console.log(`error:${error}`))
    
 }
-
-
 
 // const data = async () => {
 //     try {
