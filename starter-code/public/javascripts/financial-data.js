@@ -1,12 +1,13 @@
-const getData = async () => {
+const callApi = async () => {
 	try {
-		const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice.json');
-		console.log(response.data);
-		const bpi = response.data.bpi.USD.rate_float;
-		document.getElementById('value').innerText = bpi;
+		const response = await axios.get('https://api.coindesk.com/v1/bpi/historical/close.json');
+		const values = Object.values(response.data.bpi);
+		const dates = Object.keys(response.data.bpi);
+
+		printChart(values, dates);
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-getData();
+window.onload = callApi;
