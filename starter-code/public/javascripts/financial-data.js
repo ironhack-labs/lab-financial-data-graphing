@@ -1,17 +1,39 @@
-const data = async () => {
-    try {
-        const response = await axios.get('http://api.coindesk.com/v1/bpi/historical/close.json');
-        console.log(response.data.bpi); //se ve en la consola del navegador
-        printChart(response.data.bpi);//para pasarlo a la funcion que pintará el chart
-        // const bpi = response.data.bpi;
-        // document.getElementById('value').innerText = bpi; //pasamos "value" para poderla llamar desde index
-    } catch (error){
-        console.log(error)
+document.getElementById("button").onclick = () => {
+    const iDate = document.getElementById("fromDate").value
+    const tDate = document.getElementById("toDate").value
+    console.log(iDate)
+    console.log(tDate)
+    if(iDate && tDate){
+        data(iDate,tDate)
     }
 }
 
-data();
+function data(iDate, tDate){
+    const urlApi = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${iDate}&end=${tDate}`;
+    console.log(urlApi)
 
+    axios
+    .get(urlApi)
+    .then(response => printChart(response.data.bpi))
+    .catch(error => console.log(`error:${error}`))
+   
+}
+
+
+
+// const data = async () => {
+//     try {
+//         const response = await axios.get('http://api.coindesk.com/v1/bpi/historical/close.json');
+//         console.log(response.data.bpi); //se ve en la consola del navegador
+//         printChart(response.data.bpi);//para pasarlo a la funcion que pintará el chart
+//         // const bpi = response.data.bpi;
+//         // document.getElementById('value').innerText = bpi; //pasamos "value" para poderla llamar desde index
+//     } catch (error){
+//         console.log(error)
+//     }
+// }
+
+// data();
 
 function printChart(info){ //funcion para pintar el chart
     const dates = Object.keys(info);

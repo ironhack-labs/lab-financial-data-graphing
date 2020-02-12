@@ -9,9 +9,18 @@
     <p>Welcome to  {{title}} </p>
     {{!-- para ver los datos que nos traemos del js --}}
     {{!-- <p>Bitcoin value: <span id="value"></span> in Eur</p> --}} 
-  </body>
-  {{!-- definir el chart en canvas para poder pintar --}}
-  <canvas id="myChart"></canvas> 
+  
+    {{!-- imput de entrada de datos --}}
+    <input type="date" id="fromDate">
+    <input type="date" id="toDate">
+
+    {{!-- boton para e chart --}}
+    <button id= "button">Get Chart</button>
+
+    {{!-- definir el chart en canvas para poder pintar --}}
+    <canvas id="myChart"></canvas> 
+
+  </body> 
 
   {{!-- this is necesary to use axios --}}
   <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
