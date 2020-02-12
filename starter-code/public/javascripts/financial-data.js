@@ -35,7 +35,6 @@ function data(iDate, tDate){
 
 // data();
 
-
 function printChart(info){ //funcion para pintar el chart
     const dates = Object.keys(info);
     console.log(dates);
