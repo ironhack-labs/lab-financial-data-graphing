@@ -8,13 +8,11 @@
 
 <body>
   <h1 style="text-align: center;">Bitcoin Info</h1>
-  <!--  use input's id to grab the value from the input field 
-  <input id="theInput" type="text" />
-  <button id="theButton">Get the values</button>
 
-   the data we get from the API will be populated in here:   
-  <h2 id="countryName"></h2>
-  <p id="countryCapital"></p> -->
+  <label for="">From</label>
+  <input type="date" id="dateFrom" onclick="dateFilter()" value="2020-01-01">
+  <label for="">To</label>
+  <input type="date" id="dateTo" onclick="dateFilter()" value="2020-02-01">
 
   <canvas id="myChart"></canvas>
 
