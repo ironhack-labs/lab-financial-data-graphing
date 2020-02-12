@@ -16,9 +16,18 @@
   <canvas id="chart"></canvas>
 
   From:
-  <input type="date" id="from" onclick="getFilter()" value="2016-01-12">
+  <input type="date" id="from" value="2016-01-12">
   To:
-  <input type="date" id="to" onclick="getFilter()" value="2020-02-29">
+  <input type="date" id="to" value="2020-02-29">
+
+  <select id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+
+  Filter
+  <button onclick="Filter()">Click Me</button>
+
 
 </body>
 

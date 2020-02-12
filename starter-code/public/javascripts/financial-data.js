@@ -31,13 +31,14 @@ function printTheChart(stockData) {
   });
 }
 
-function getFilter() {
+function Filter() {
   let fromValue = document.getElementById("from").value;
   let toValue = document.getElementById("to").value;
+  let currencyValue = document.getElementById("currency").value;
 
   axios
     .get(
-      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromValue}&end=${toValue}`
+      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromValue}&end=${toValue}&currency=${currencyValue}`
     )
     .then(responseFromAPI => {
       printTheChart(responseFromAPI.data);
