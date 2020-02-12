@@ -15,6 +15,7 @@ function getCoinInfo() {
 getCoinInfo();
 
 function printTheChart(data) {
+  Chart.defaults.global.defaultFontColor = "rgb(169, 169, 169)";
   const dailyData = data["bpi"];
 
   const dates = Object.keys(dailyData);
@@ -28,8 +29,8 @@ function printTheChart(data) {
       datasets: [
         {
           label: "Bitcoin Price Index",
-          backgroundColor: "rgba(255, 99, 132, 0.5)",
-          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "rgba(30, 144, 255, 0.5)",
+          borderColor: "rgb(30, 144, 255)",
           data: coinValues
         }
       ]
