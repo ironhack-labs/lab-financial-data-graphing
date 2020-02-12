@@ -1,10 +1,12 @@
-const coinDeskApi = axios.create({
-  baseURL: "http://api.coindesk.com/v1/bpi/historical/close.json"
-});
-
-function getCoinInfo() {
-  coinDeskApi
-    .get()
+// get request with Axios
+function getCoinInfo(start = "2020-02-01", end = "2020-02-11") {
+  axios
+    .get("http://api.coindesk.com/v1/bpi/historical/close.json", {
+      params: {
+        start,
+        end
+      }
+    })
     .then(responseFromAPI => {
       let data = responseFromAPI.data;
       printTheChart(data);
@@ -12,8 +14,7 @@ function getCoinInfo() {
     .catch(e => console.log(e));
 }
 
-getCoinInfo();
-
+// print chart
 function printTheChart(data) {
   Chart.defaults.global.defaultFontColor = "rgb(169, 169, 169)";
   const dailyData = data["bpi"];
@@ -37,3 +38,5 @@ function printTheChart(data) {
     }
   });
 }
+
+getCoinInfo();
