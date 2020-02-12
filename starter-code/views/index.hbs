@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-      <h1>Countries Info</h1>
-    <!--  use input's id to grab the value from the input field -->
-    <input id="theInput" type="text" />
-    <button id="theButton">Get the country</button>
 
-    <!-- the data we get from the API will be populated in here:   -->
-    <h2 id="countryName"></h2>
-    <p id="countryCapital"></p>
-    
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1 style="text-align: center;">Bitcoin Info</h1>
+  <!--  use input's id to grab the value from the input field 
+  <input id="theInput" type="text" />
+  <button id="theButton">Get the values</button>
+
+   the data we get from the API will be populated in here:   
+  <h2 id="countryName"></h2>
+  <p id="countryCapital"></p> -->
+
+  <canvas id="myChart"></canvas>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>
