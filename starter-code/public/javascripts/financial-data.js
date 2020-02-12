@@ -21,12 +21,26 @@ function printTheChart(stockData) {
       labels: stockDates,
       datasets: [
         {
-          label: "Bitcoin prices",
+          label: "Bitcoin Price Index",
           backgroundColor: "rgb(255, 99, 132)",
           borderColor: "rgb(255, 99, 132)",
           data: stockPrices
         }
       ]
     }
-  }); 
-} 
+  });
+}
+
+function getFilter() {
+  let fromValue = document.getElementById("from").value;
+  let toValue = document.getElementById("to").value;
+
+  axios
+    .get(
+      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromValue}&end=${toValue}`
+    )
+    .then(responseFromAPI => {
+      printTheChart(responseFromAPI.data);
+    })
+    .catch(err => console.log("Error while getting the data: ", err));
+}

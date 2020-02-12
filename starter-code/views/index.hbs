@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-
-  
-    <canvas id="chart"></canvas>
-
-  
+<head>
+  <title> {{title}} </title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-  </body>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <canvas id="chart"></canvas>
+
+  From:
+  <input type="date" id="from" onclick="getFilter()" value="2016-01-12">
+  To:
+  <input type="date" id="to" onclick="getFilter()" value="2020-02-29">
+
+</body>
+
 </html>
