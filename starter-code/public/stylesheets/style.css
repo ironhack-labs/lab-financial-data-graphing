@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+h1,
+p {
+  text-align: center;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+.currency-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.currency-dashboard div {
+  /* height: 30px; */
+  display: flex;
+  flex-direction: column;
 }

@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  {{!-- we need this script in order to use Chart() --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <div class="currency-dashboard">
+    <div>
+      <h2>Filters</h2>
+      <span>From: </span><input type="date" name="startDate" id="startDate">
+      <span>To: </span><input type="date" name="endDate" id="endDate"><br>
+      <span>Currency: <select name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="RUB">RUB</option>
+          <option value="EUR">EUR</option>
+        </select></span>
+    </div>
+    <div>
+      <h2>Values</h2>
+      <span>Max: <span id="max"></span> </span><br>
+      <span>Min: <span id="min"></span></span>
+    </div>
+  </div>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>
