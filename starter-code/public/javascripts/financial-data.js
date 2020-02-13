@@ -17,7 +17,8 @@ function chartMaster() {
         });
 
         const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
+        if (window.bar != undefined) window.bar.destroy();
+        window.bar = new Chart(ctx, {
           type: "line",
           data: {
             labels: myKeys,
