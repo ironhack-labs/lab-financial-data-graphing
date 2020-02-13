@@ -15,5 +15,20 @@ async function getHistoricalData() {
   return result;
 }
 
+async function getHistoricalDataByDate(dateA, dateB) {
+  let result = "";
 
-//getHistoricalData();
+  await coinDeskService
+  .get('', {
+    params: {
+      start: dateA,
+      end: dateB
+    }
+  })
+  .then( response => {
+    result = response.data;
+  })
+  .catch( error => console.log(`ERROR: ${error}`));
+
+  return result;
+}
