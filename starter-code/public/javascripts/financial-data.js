@@ -1,13 +1,13 @@
 let chart;
 const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
 axios
-    .get(apiUrl)
-    .then(responseFromAPI => {
-        printTheChart(responseFromAPI.data);
-    })
-    .catch(err => {
-        console.log("Error while getting the data: ", err);
-    });
+.get(apiUrl)
+.then(responseFromAPI => {
+    printTheChart(responseFromAPI.data);
+})
+.catch(err => {
+    console.log("Error while getting the data: ", err);
+});
 
 function filters() {
     let fromDate = document.getElementById("dateFrom").value;
@@ -27,12 +27,16 @@ function filters() {
 
 function printTheChart(stockData) {
     const dailyData = stockData["bpi"];
-
     const stockDates = Object.keys(dailyData);
     const stockPrices = stockDates.map(date => {
         return dailyData[date];
     });
-
+    
+    let minPrice = Math.min(...stockPrices)
+    let maxPrice = Math.max(...stockPrices)
+    document.getElementById('min').innerHTML = minPrice
+    document.getElementById('max').innerHTML = maxPrice
+   
     if (chart) {
         chart.destroy();
       }
@@ -44,8 +48,8 @@ function printTheChart(stockData) {
             labels: stockDates,
             datasets: [{
                 label: "Bitcoin Price Index",
-                backgroundColor: "rgb(217, 224, 223)",
-                borderColor: "rgb(105, 155, 152)",
+                backgroundColor: "#D2AF79",
+                borderColor: "#382513",
                 pointBackgroundColor: "white",
                 data: stockPrices
             }],

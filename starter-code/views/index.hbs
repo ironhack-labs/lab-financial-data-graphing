@@ -8,25 +8,40 @@
 
 <body>
   <h1 style="text-align: center;">Bitcoin Info</h1>
+  <section class="data">
+    <div class="filters">
+      <div class="dates">
+        <label for="">From</label>
+        <input style="background: #D2AF79" type="date" id="dateFrom" onchange="filters()" value="2020-01-01">
+        <label for="">To</label>
+        <input style="background: #D2AF79" type="date" id="dateTo" onchange="filters()" value="2020-02-01">
+      </div>
 
-  <div>
-    <label for="">From</label>
-    <input type="date" id="dateFrom" onchange="filters()" value="2020-01-01">
-    <label for="">To</label>
-    <input type="date" id="dateTo" onchange="filters()" value="2020-02-01">
-  </div>
+      <div style="margin: 3rem;">
+        <label for="currency">Currency</label>
+        <select style="background: #D2AF79" name="currency" id="currency" onchange="filters()">
+          <option name="Euro" value="EUR">Euro</option>
+          <option name="Dolar" value="USD">American Dolar</option>
+          <option name="Argentine Peso" value="ARS">Argentine Peso</option>
+          <option name="Sri Lankan Rupee" value="LKR">Sri Lankan Rupee</option>
+        </select>
+      </div>
+    </div>
 
-  <div style="margin: 3rem;">
-    <label for="currency">Currency</label>
-    <select name="currency" id="currency" onchange="filters()">
-      <option name="Euro" value="EUR">Euro</option>
-      <option name="Dolar" value="USD">American Dolar</option>
-      <option name="Argentine Peso" value="ARS">Argentine Peso</option>
-      <option name="Sri Lankan Rupee" value="LKR">Sri Lankan Rupee</option>
-    </select>
-  </div>
+    <div class="min-max">
+      <h2>Values</h2>
+      <div class="min-max-align">
+      <label class="minmaxvalues" for="min">Min: </label>
+      <p id="min"></p>
+      <label class="minmaxvalues" for="max">Max: </label>
+      <p id="max"></p>
+      </div>
+    </div>
+  </section>
 
+  <div class="canvas">
   <canvas id="myChart"></canvas>
+  </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
