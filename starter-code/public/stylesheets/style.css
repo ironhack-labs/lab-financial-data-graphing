@@ -4,11 +4,20 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
-.box{
+.box {
   display: flex;
   justify-content: space-between;
-  max-width: 292px;
+  align-items: flex-end;
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+
+.box div {
+  margin-right: 15px;
+}
+.box div:last-child {
+  margin-right: 0;
 }

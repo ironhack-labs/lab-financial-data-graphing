@@ -14,14 +14,25 @@
       <p>Date from:</p><input type="date" name="dateFrom" id="dateFrom" value="2019-05-13">
     </div>
     <div>
-      <p>Date to:</p><input type="date" name="dateTo" id="dateTo" value="2019-10-13">
+      <p>Date to:</p><input type="date" name="dateTo" id="dateTo" value="2019-05-20">
     </div>
+    <div>
+      <p>Currency:</p>
+      <select name="currency" id="currency">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+    <div>MINVALOR = <span id="min"></span></div>
+    <div>MAXVALOR = <span id="max"></span></div>
   </div>
-  <canvas id="myChart"></canvas>
+  <div style="width: 800px; height:500px">
+    <canvas id="myChart"></canvas>
+  </div>
 
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
 </html>
