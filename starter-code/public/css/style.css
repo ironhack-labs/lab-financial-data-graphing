@@ -3,8 +3,8 @@ body {
 }
 
 header {
-  background-color: #474b4e;
-  color: #fff;
+  background-color: #1c375c;
+  color: #40e0d0;
   padding: 1%;
   margin-bottom: 1%;
   text-align: center;
@@ -19,9 +19,16 @@ main {
   align-items: flex-start;
 }
 
+#chart-wrapper {
+  justify-content: center;
+}
+
 #chart-container {
-  height: 360px;
-  padding: 1%;
+  width: 80%;
+}
+
+#financial-chart {
+  width: 80%;
 }
 
 #info-container {
@@ -32,10 +39,6 @@ main {
 .title-info {
   font-size: 1.3em;
   font-weight: bold;
-}
-
-#chart-container {
-  justify-content: center;
 }
 
 #value-wrapper span {
