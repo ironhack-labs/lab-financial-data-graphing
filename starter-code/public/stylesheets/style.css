@@ -1,8 +1,77 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Optima", Helvetica, Arial, sans-serif;
+  background-color: rgb(252, 250, 246);
+  color: #382513"
 }
 
 a {
   color: #00B7FF;
 }
+
+p{
+  margin-top: 5px;
+}
+
+h2{
+  margin-bottom: 7px;
+  text-align: center;
+  width: 17rem;
+}
+
+label{
+  font-weight: 600;
+}
+
+.filters{
+  margin-left: 4rem;
+  text-align: center;
+}
+
+.dates{
+  width: 25rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: #382513"
+}
+
+.dates input{
+  background-color: #382513"
+}
+
+.min-max{
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  align-items: end;
+  margin-right: 4rem;
+}
+
+.min-max-align{
+  display: flex;
+  align-items: baseline;
+  width: 17rem;
+  justify-content: space-around
+}
+
+.data{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.minmaxvalues{
+  display: flex;
+  align-items: center;
+}
+
+.canvas{
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  text-size-adjust: auto;
+  margin-left: 10rem;
+  margin-top: 3rem
+}
+
