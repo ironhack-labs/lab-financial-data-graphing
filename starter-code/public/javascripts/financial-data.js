@@ -13,6 +13,5 @@ function getCoinDeskInfo() {
 }
 
 document.getElementById("theButton").onclick = function() {
-  //const country = document.getElementById("theInput").value;
   getCoinDeskInfo();
 };
