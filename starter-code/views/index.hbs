@@ -8,6 +8,7 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    
     <div class="form-group">
       <div class="col-2">
         <label for="dateA">Start date</label>
@@ -31,9 +32,21 @@
       </select>
     </div>
   </div>  
+
+    <div class="col-2">
+      <div class="alert alert-primary" role="alert">
+        <h5 id="maxValue"></h5>
+      </div>
+      <div class="alert alert-danger" role="alert">
+        <h5 id="minValue"></h5>
+      </div>
+    </div>
+
     <div style="width:800px; height:800px;">
       <canvas id="coinChart"></canvas>
     </div>
+
+
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -41,41 +54,5 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-
-  <script>
-    const ctx = document.getElementById("coinChart").getContext("2d");
-    const lineChart = new Chart(ctx,{
-      type: 'line',
-    });
-
-    async function updateChart() {
-      const dateA = document.getElementById("dateA").value;
-      const dateB = document.getElementById("dateB").value;
-      const currency = document.getElementById("currency").value;
-  
-      let financialData = null;
-
-      if(dateA.length > 0 && dateB.length > 0) {
-        financialData = await getHistoricalDataByDate(currency, dateA, dateB);
-      } else {
-        financialData = await getHistoricalData(currency);
-      }
-      
-  
-      const labels = Object.keys(financialData.bpi)
-      const data = labels.map(label => financialData.bpi[label]);
-
-      lineChart.data.labels = labels;
-      lineChart.data.datasets = [{
-          label: 'Coin Desk',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: data
-        }];
-      lineChart.update();
-    }
-
-    updateChart();
-
-  </script>
+  <script src="/javascripts/index.js" charset="utf-8"></script>
 </html>
