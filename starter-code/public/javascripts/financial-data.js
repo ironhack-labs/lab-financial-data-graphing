@@ -1,3 +1,6 @@
+// variable para que cuando entre en la funcion solo le cargue los datos
+let myChart
+
 document.getElementById("button").onclick = () => {
     const iDate = document.getElementById("fromDate").value
     const tDate = document.getElementById("toDate").value
@@ -37,7 +40,7 @@ function printChart(info){ //funcion para pintar el chart
 
     const ctx = document.getElementById("canvasChart").getContext("2d");
     if(!myChart){
-    myChart =  new Chart(ctx, {
+    myChart =  new Chart(ctx, { //no la definimos aqui porque si no cada vez que salga de la funcion perderiamos la variable y crearia una nueva cada vez que entre
         type: "line",
         data: {
         labels: dates,
@@ -47,14 +50,14 @@ function printChart(info){ //funcion para pintar el chart
             borderColor: "rgb(0, 255, 182)",
             data: price
         }]
-    }
+        }
     })
 } else {
+    //para poder utilizar el update hay que poner previamente los datos que queremos actualizar. Importante el datasets[0]
     myChart.data.labels = dates
-    myChart.data.datasets.data = price
+    myChart.data.datasets[0].data = price
     myChart.update()
 }
 console.log(myChart)
 }
 
-let myChart
