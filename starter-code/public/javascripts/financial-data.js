@@ -16,7 +16,6 @@ axios
 
     const dailyData = stockData.bpi;
     const stockDates = Object.keys(dailyData);
-    console.log(stockDates);
     const stockPrices = stockDates.map( date => dailyData[date] );
 
     const ctx = document.getElementById("myChart").getContext("2d");
@@ -26,9 +25,9 @@ axios
         labels: stockDates,
         datasets: [
           {
-            label: "Stock Chart",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
+            label: "Bitcoin Price Index",
+            backgroundColor: "rgba(137, 196, 244, 1)",
+            borderColor: "rgba(1, 50, 67, 1)",
             data: stockPrices
           }
         ]
