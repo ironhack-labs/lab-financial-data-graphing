@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
+  padding: 5%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+
+}
+
+#info-container {
+  padding: 5%;
+  justify-content: space-between;
+}
+
+.title-info {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#chart-container {
+  justify-content: center;
+}
+
+#value-wrapper p {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+#value-wrapper span {
+  font-weight: normal;
+  color: #666;
 }
