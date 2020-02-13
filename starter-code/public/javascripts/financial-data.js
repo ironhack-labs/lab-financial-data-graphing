@@ -1,5 +1,3 @@
-//const bodyParser = require("body-parser");
-
 let chart;
 
 // get request with Axios
@@ -16,6 +14,7 @@ function getCoinInfo(start, end, currency, cb) {
       const dailyData = responseFromAPI.data["bpi"];
       const dates = Object.keys(dailyData);
       const coinValues = dates.map(date => dailyData[date]);
+      updateMaxMin(Math.min(...coinValues), Math.max(...coinValues));
       cb(dates, coinValues);
     })
     .catch(e => console.log(e));
@@ -62,5 +61,12 @@ inputs.forEach(input => {
     else getCoinInfo(null, null, currency.value, updateChart);
   });
 });
+
+function updateMaxMin(min, max) {
+  const minSpan = document.querySelector("#min");
+  const maxSpan = document.querySelector("#max");
+  minSpan.innerHTML = min;
+  maxSpan.innerHTML = max;
+}
 
 getCoinInfo(null, null, "USD", printTheChart); // api request and print the chart the first time
