@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <canvas id="myChart" width="400" height="400"></canvas>
-  </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  
+</head>
+
+<body>
+  <h1>Bitcoins</h1>
+  <p>Show me the money</p>
+  <div>
+    <p>From</p>
+    <input type="date" name="dateFrom" id="dateFrom" value="2019-05-15">
+  </div>
+  <div>
+    <p>To</p>
+  <input type="date" name="dateTo" id="dateTo" value="2019-10-03">
+  </div>
+  <div style="width: 100vh;">
+  <canvas id="myChart"></canvas>
+  </div>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
