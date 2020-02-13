@@ -22,6 +22,15 @@
       </div>
     </div>
 
+  <div class="form-group">
+    <div class="col-2">
+      <label for="currency">Currency</label>
+      <select class="custom-select" id="currency" name="currency" onchange="updateChart()">
+          <option value="EUR">Euros</option>
+          <option value="USD">Dollars</option>
+      </select>
+    </div>
+  </div>  
     <div style="width:800px; height:800px;">
       <canvas id="coinChart"></canvas>
     </div>
@@ -35,20 +44,21 @@
 
   <script>
     const ctx = document.getElementById("coinChart").getContext("2d");
-    const dateA = document.getElementById("dateA");
-    const dateB = document.getElementById("dateB");
-    
     const lineChart = new Chart(ctx,{
       type: 'line',
     });
 
     async function updateChart() {
+      const dateA = document.getElementById("dateA").value;
+      const dateB = document.getElementById("dateB").value;
+      const currency = document.getElementById("currency").value;
+  
       let financialData = null;
 
-      if(dateA.value.length > 0 && dateB.value.length > 0) {
-        financialData = await getHistoricalDataByDate(dateA.value, dateB.value);
+      if(dateA.length > 0 && dateB.length > 0) {
+        financialData = await getHistoricalDataByDate(currency, dateA, dateB);
       } else {
-        financialData = await getHistoricalData();
+        financialData = await getHistoricalData(currency);
       }
       
   
