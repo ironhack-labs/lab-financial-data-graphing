@@ -2,15 +2,18 @@ const coinDeskService = axios.create({
   baseURL: "http://api.coindesk.com/v1/bpi/historical/close.json"
 });
 
-function getHistoricalData() {
-  coinDeskService
+async function getHistoricalData() {
+  let result = "";
+
+  await coinDeskService
   .get()
   .then( response => {
-    console.log(`RESPONSE FROM COIN DESK SERVICE ${JSON.stringify(response.data)}`);
-    return response.data;
+    result = response.data;
   })
   .catch( error => console.log(`ERROR: ${error}`));
+
+  return result;
 }
 
 
-getHistoricalData();
+//getHistoricalData();
