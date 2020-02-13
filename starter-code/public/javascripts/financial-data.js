@@ -7,12 +7,18 @@ const callApi = async (initialDate, endDate, currency = 'USD') => {
 			);
 			console.log(`data from ${initialDate} to ${endDate} in ${currency}`);
 		} else {
-			response = await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?`);
+			response = await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`);
 			console.log('data from last 31 days');
 		}
 		const values = Object.values(response.data.bpi);
 		const dates = Object.keys(response.data.bpi);
 		console.log('data:', response.data);
+		const maxValue = Math.max(...values);
+		const minValue = Math.min(...values);
+		console.log('Maximum value:', maxValue);
+		console.log('Minimum value:', minValue);
+		document.getElementById('max').textContent = `${maxValue} ${currency}`;
+		document.getElementById('min').textContent = `${minValue} ${currency}`;
 		printChart(values, dates);
 	} catch (error) {
 		console.log(error);

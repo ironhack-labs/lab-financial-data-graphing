@@ -5,16 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <label for="initial-date">From:</label>
-    <input type="date" name="initial-date" id="initial-date">
-    <label for="last-date">To:</label>
-    <input type="date" name="last-date" id="last-date">
-    <label for="currency">Currency:</label>
-    <select name="currency" id="currency">
-      <option value="USD">US Dollar</option>
-      <option value="EUR">Euro</option>
-      <option value="GBP">British Pound Sterling</option>
-    </select>
+    <div class="container" style="display: flex; justify-content:space-around">
+      <div style="align-self: center;">
+        <label for="initial-date">From:</label>
+        <input type="date" name="initial-date" id="initial-date">
+        <label for="last-date">To:</label>
+        <input type="date" name="last-date" id="last-date">
+        <label for="currency">Currency:</label>
+        <select name="currency" id="currency">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">British Pound Sterling</option>
+        </select>
+      </div>
+   
+      <div class="values" >
+        <p>Values</p>
+        <p>Max: <span id="max"></span></p>
+        <p>Min: <span id="min"></span></p>
+      </div>
+    </div>
     <canvas id="chart"></canvas>
 
   </body>
