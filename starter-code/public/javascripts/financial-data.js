@@ -1,5 +1,11 @@
+let input1 = document.getElementById("date1");
+let input2 = document.getElementById("date2");
+
+let date1 = document.getElementById("date1").value;
+let date2 = document.getElementById("date2").value;
+
 const restCoinDeskApi = axios.create({
-    baseURL: "http://api.coindesk.com/v1/bpi/historical/close.json"
+    baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${date1}&end=${date2}`
   });
   
   function getCoinDeskInfo() {
@@ -33,9 +39,21 @@ const restCoinDeskApi = axios.create({
         ]
       }
     }); // closes chart = new Chart()
+    
   } // closes printTheChart()
 
-  document.getElementById("theButton").onclick = function() {
-    // const country = document.getElementById("theInput").value;
+//   document.getElementById("theButton").onclick = function() {
+//     getCoinDeskInfo();
+//   };
+
+  
+  input1.addEventListener("change", function() {
+   
     getCoinDeskInfo();
-  };
+});
+
+input2.addEventListener("change", function() {
+    
+    getCoinDeskInfo();
+});
+
