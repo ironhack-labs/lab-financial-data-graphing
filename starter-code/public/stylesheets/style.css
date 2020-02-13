@@ -1,24 +1,36 @@
 body {
-  padding: 5%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1 {
+header {
+  background-color: #474b4e;
+  color: #fff;
+  padding: 1%;
+  margin-bottom: 1%;
   text-align: center;
+}
+
+main {
+  padding: 0 5%;
 }
 
 .flex {
   display: flex;
+  align-items: flex-start;
+}
 
+#chart-container {
+  height: 360px;
+  padding: 1%;
 }
 
 #info-container {
-  padding: 5%;
+  padding: 0 5%;
   justify-content: space-between;
 }
 
 .title-info {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -26,12 +38,23 @@ h1 {
   justify-content: center;
 }
 
-#value-wrapper p {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
 #value-wrapper span {
   font-weight: normal;
   color: #666;
+}
+
+.form-control,
+.custom-select {
+  height: 30px;
+  padding: 0 15px;
+  margin: 10px;
+}
+
+#filter-wrapper {
+  width: 60%;
+}
+
+#value-wrapper {
+  width: 20%;
+  text-align: end;
 }
