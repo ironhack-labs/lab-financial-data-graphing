@@ -8,7 +8,9 @@
     <h1>💸💸 {{title}} 💸💸</h1>
     
     {{!-- para ver los datos que nos traemos del js --}}
-    {{!-- <p>Bitcoin value: <span id="value"></span> in Eur</p> --}} 
+
+    <p>Max price: <span id="maxValue"></span> in <span id="curren"></span></p>
+    <p>Min price: <span id="minValue"></span> in <span id="curren1"></span></p>
   
     {{!-- imput de entrada de datos --}}
     <input type="date" id="fromDate">
@@ -26,7 +28,7 @@
     <button id= "button">Get Chart</button>
 
     {{!-- definir el chart en canvas para poder pintar --}}
-    <canvas id="myChart"></canvas> 
+    <canvas id="canvasChart"></canvas> 
 
   </body> 
 
@@ -34,7 +36,7 @@
   <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
   {{!-- ----- --}}
 
-  {{!-- this is necesary to use chart --}}
+  {{!-- this is necesary to use chart, mejor coger la del bundle--}} 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   {{!-- ----- --}}
 
