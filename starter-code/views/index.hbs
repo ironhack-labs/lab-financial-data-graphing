@@ -11,14 +11,15 @@
   <p>Welcome to {{title}} </p>
   <div>From <input type="date" name="from-date" id="fromDate" value="2019-01-01"></div>
   <div>To <input type="date" name="to-date" id="toDate" value="2019-12-01"></div>
-  <div style="width:90%;">
-    <canvas id="myChart"></canvas>
-  </div>
-
+  <select name="currency" id="currency">
+    <option value="USD" id="usd">USD</option>
+    <option value="EUR" id="eur">EUR</option>
+  </select>
+  <canvas id="myChart"></canvas>
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
 </html>

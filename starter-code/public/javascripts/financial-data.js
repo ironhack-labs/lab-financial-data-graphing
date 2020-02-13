@@ -1,12 +1,14 @@
 const dateFromDomEl = document.querySelector("#fromDate");
 const dateToDomEl = document.querySelector("#toDate");
+const currencyDomEl = document.querySelector("#currency");
 
 function chartMaster() {
   const dateFrom = dateFromDomEl.value;
   const dateTo = dateToDomEl.value;
-  const baseURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}`;
+  const currency = currencyDomEl.value;
+  const baseURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}&currency=${currency}`;
 
-  function getDataAndPrint(baseURL) {
+  function getDataAndPrint(baseURL, currency) {
     axios
       .get(baseURL)
       .then(dataPayload => {
@@ -17,7 +19,8 @@ function chartMaster() {
         });
 
         const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
+        if (window.bar != undefined) window.bar.destroy();
+        window.bar = new Chart(ctx, {
           type: "line",
           data: {
             labels: myKeys,
@@ -44,8 +47,9 @@ function chartMaster() {
       })
       .catch(err => console.log(err));
   }
-  getDataAndPrint(baseURL);
+  getDataAndPrint(baseURL, currency);
 }
+currencyDomEl.addEventListener("change", chartMaster);
 dateFromDomEl.addEventListener("change", chartMaster);
 dateToDomEl.addEventListener("change", chartMaster);
 chartMaster();
