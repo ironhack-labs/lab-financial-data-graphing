@@ -10,7 +10,7 @@ function chartMaster() {
     axios
       .get(baseURL)
       .then(dataPayload => {
-        console.log(dataPayload.data);
+        //console.log(dataPayload.data);
         printTheChart(dataPayload.data);
       })
       .catch(err => console.log(err));
