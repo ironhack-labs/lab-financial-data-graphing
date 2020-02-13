@@ -36,8 +36,8 @@ function printChart(info){ //funcion para pintar el chart
     document.getElementById("maxValue").innerText = maxValue
 
     const ctx = document.getElementById("canvasChart").getContext("2d");
-    
-   const myChart =  new Chart(ctx, {
+    if(!myChart){
+    myChart =  new Chart(ctx, {
         type: "line",
         data: {
         labels: dates,
@@ -49,6 +49,12 @@ function printChart(info){ //funcion para pintar el chart
         }]
     }
     })
+} else {
+    myChart.data.labels = dates
+    myChart.data.datasets.data = price
     myChart.update()
-    console.log(myChart)
 }
+console.log(myChart)
+}
+
+let myChart
