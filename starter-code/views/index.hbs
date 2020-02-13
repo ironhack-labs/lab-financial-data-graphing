@@ -5,7 +5,11 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    {{!-- <p>Bitcoin value in dollars: <span id="value"></span></p> --}}
+    <label for="initial-date">From:</label>
+    <input type="date" name="initial-date" id="initial-date">
+    <label for="last-date">To:</label>
+    <input type="date" name="last-date" id="last-date">
+    <p id="date"></p>
     <canvas id="chart"></canvas>
 
   </body>
