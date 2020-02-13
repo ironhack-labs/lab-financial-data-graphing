@@ -33,7 +33,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #149972;
-  height: 120px;
+  height: 80px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -54,4 +54,10 @@ footer p {
 .button-color:hover {
   background-color: #34D5A6;
   border: none;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  max-width: 292px;
 }
