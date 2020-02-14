@@ -78,37 +78,35 @@ const chart = new Chart(ctx, {
   }
 });
 
-function removeData(ch) {
-  ch.data.labels.pop();
-  ch.data.datasets.forEach(dataset => {
-    dataset.data.pop();
-  });
-  ch.update();
-}
-function addData(chart, label, data) {
-  chart.data.labels.push(label);
-  chart.data.datasets.forEach(dataset => {
-    dataset.data.push(data);
-  });
-  chart.update();
-}
+// Checking for dates
+const beforeAfter = function(from, to) {
+  const initial = new Date(from);
+  const final = new Date(to);
+  if (from || to) {
+    return initial.getTime() <= final.getTime()
+      ? console.log('Good')
+      : console.log('Invalid date configuration!');
+  } else {
+    return console.log('You can set the dates!');
+  }
+};
 
 document.querySelector('#button').onclick = function() {
   const from = document.querySelector('#from').value;
   const to = document.querySelector('#to').value;
-  console.log(from, to);
+  beforeAfter(from, to);
   const response = Price.getDate(from, to);
   response.then(res => {
-    console.log(res);
     const { bpi } = res.data;
     const years = Object.keys(bpi);
     const price = Object.values(bpi);
-    removeData(chart);
-    chart.data.labels.push(...years);
-    chart.data.datasets.push({
+    chart.data.labels = [...years];
+    chart.data.datasets[0] = {
       label: 'Bitcoin price index',
-      data: [...price]
-    });
+      data: [...price],
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgb(255, 99, 132)'
+    };
     chart.update();
   });
 };
