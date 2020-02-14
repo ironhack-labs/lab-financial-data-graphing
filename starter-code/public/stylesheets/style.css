@@ -4,5 +4,17 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+.graph-data {
+  height: 100px;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.data {
+  display: flex;
+  flex-direction: column;
 }
