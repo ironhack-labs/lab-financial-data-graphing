@@ -1,13 +1,9 @@
 axios
   .get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  //.then(responseFromAPI => console.log("The response from API: ", responseFromAPI, responseFromAPI.data.bpi))
   .then(responseFromAPI => {
     printTheChart(responseFromAPI.data);
   })
   .catch(err => console.log("Error while getting the data: ", err));
-
-
-//const data = [12, 19, 3, 35, 2, 38];
 
 
 function printTheChart(stockData) {
@@ -43,5 +39,5 @@ function printTheChart(stockData) {
         }]
       }
     }
-  }); // closes chart = new Chart()
+  });
 }
