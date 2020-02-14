@@ -14,11 +14,11 @@
 <body>
   <h1> {{title}} </h1>
   <label for="sDate">Start date:</label>
-  <input type="date" id="sDate" name="sDate">
+  <input type="date" id="sDate" name="sDate"> <br>
   <label for="eDate">End date:</label>
   <input type="date" id="eDate" name="eDate">
+  <p id="error"></p>
 
-  <button id="refreshButton">Refresh</button>
   <canvas id="chart"></canvas>
 
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
