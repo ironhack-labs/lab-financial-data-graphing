@@ -17,6 +17,14 @@ From:
 To:
 <input type="date" id="to" onclick="getFilter()" value="2020-02-14">
 
+<select id="currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+</select>
+
+
+<button onclick="getFilter()">Filter</button>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
