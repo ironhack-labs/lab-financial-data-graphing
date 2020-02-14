@@ -3,6 +3,8 @@
 const dataFromSelector = document.getElementById("dataFrom");
 const dataToSelector = document.getElementById("dataTo");
 const currencySelector = document.getElementById("currency");
+const minVal = document.getElementById("minVal");
+const maxVal = document.getElementById("maxVal");
 
 let chart;
 
@@ -16,14 +18,14 @@ function printChartMain() {
   });
   console.log(restCoinDeskApi);
 
-  function getCoinDeskInfo(restCoinDeskApi) {
+  function getCoinDeskInfo(restCoinDeskApi, currency) {
     restCoinDeskApi
       .get()
-      .then(responseFromAPI => printTheChart(responseFromAPI.data))
+      .then(responseFromAPI => printTheChart(responseFromAPI.data, currency))
       .catch(err => console.log("Error is: ", err));
   }
 
-  function printTheChart(data) {
+  function printTheChart(data, currency) {
     console.log(fromDate);
     console.log(toDate);
     const bpi = data["bpi"];
@@ -33,6 +35,15 @@ function printChartMain() {
 
     const yAxis = xAxis.map(e => bpi[e]); //get the values
     console.log("EJE Y " + yAxis);
+
+    let minValue = Math.min(...yAxis);
+    let maxValue = Math.max(...yAxis);
+
+    console.log(minValue);
+    console.log(maxValue);
+
+    minVal.innerHTML = minValue + " " + currency;
+    maxVal.innerHTML = maxValue + " " + currency;
 
     const ctx = document.getElementById("myChart").getContext("2d");
     chart = new Chart(ctx, {
@@ -50,7 +61,7 @@ function printChartMain() {
       }
     }); // closes chart = new Chart()
   } // closes printTheChart()
-  getCoinDeskInfo(restCoinDeskApi);
+  getCoinDeskInfo(restCoinDeskApi, currency);
 }
 
 // document.getElementById("theButton").onclick = function() {
