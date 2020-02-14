@@ -1,12 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
-</html>
+<div id="info-container" class="flex">
+  <div id="filter-wrapper">
+    <p class="title-info">Filters</p>
+    <div class="flex">
+      <div class="flex">
+        <label for="from-input" class="col-form-label selector" >From</label>
+        <input class="form-control" type="date" id="from-input" oninput="listeners()">
+      </div>
+      <div class="flex">
+        <label for="to-input" class="col-form-label selector">To</label>
+        <input class="form-control" type="date" id="to-input" oninput="listeners()">
+      </div>
+    </div>
+    <div class="flex">
+      <label for="currency-input" class="col-form-label selector">Currency</label>
+      <select id="currency-input" class="col-4 custom-select" onchange="listeners()">
+        <option selected value="USD">USD ($)</option>
+        <option value="EUR">EUR (€)</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="value-wrapper">
+    <p class="title-info">Values</p>
+    <p>Max: <span id="max-val"></span></p>
+    <p>Min: <span id="min-val"></span></p>
+  </div>
+</div>
+
+<div id="chart-wrapper" class="flex">
+<div id="chart-container">
+  <canvas id="financial-chart"></canvas>
+</div>
+</div>
