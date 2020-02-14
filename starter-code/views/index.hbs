@@ -13,10 +13,16 @@
 
 <body>
   <h1> {{title}} </h1>
+  <h2>Filters</h2>
   <label for="sDate">Start date:</label>
   <input type="date" id="sDate" name="sDate"> <br>
   <label for="eDate">End date:</label>
-  <input type="date" id="eDate" name="eDate">
+  <input type="date" id="eDate" name="eDate"> <br>
+  <label for="currency">Choose currency: </label>
+  <select id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
   <p id="error"></p>
 
   <canvas id="chart"></canvas>
