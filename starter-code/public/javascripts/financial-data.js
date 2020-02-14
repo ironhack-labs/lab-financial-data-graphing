@@ -6,13 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   //Get and represent data from api
-  const coinDeskApi = axios.create({
-    baseURL: "http://api.coindesk.com/v1/bpi/historical/close.json"
-  });
+  const coinDeskApiBaseUrl =
+    "http://api.coindesk.com/v1/bpi/historical/close.json";
 
-  function getData() {
-    coinDeskApi
-      .get()
+  function getData(url = coinDeskApiBaseUrl) {
+    axios
+      .get(url)
       .then(responseFromAPI => {
         let { bpi } = responseFromAPI.data;
         myLineChart.data.labels = Object.keys(bpi);
@@ -30,6 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
   getData();
 
   document.getElementById("refreshButton").onclick = function() {
-    getData();
+    if (sDate.value.length != 0 && eDate.value.length != 0) {
+      let url =
+        coinDeskApiBaseUrl + "?start=" + sDate.value + "&end=" + eDate.value;
+      getData(url);
+    } else {
+      getData();
+    }
   };
 });
