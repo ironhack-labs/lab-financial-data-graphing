@@ -2,10 +2,14 @@ const dateFromDomEl = document.querySelector("#fromDate");
 const dateToDomEl = document.querySelector("#toDate");
 const currencyDomEl = document.querySelector("#currency");
 
+const minId = document.querySelector("#min");
+const maxId = document.querySelector("#max");
+
 function chartMaster() {
   const dateFrom = dateFromDomEl.value;
   const dateTo = dateToDomEl.value;
   const currency = currencyDomEl.value;
+
   const baseURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}&currency=${currency}`;
 
   function getDataAndPrint(baseURL, currency) {
@@ -44,6 +48,14 @@ function chartMaster() {
             }
           }
         });
+        // const sorter = myValues.sort((a, b) => a - b);
+        // const max = sorter[0];
+        // const min = sorter[myValues.length - 1];
+
+        const min = Math.min(...myValues);
+        const max = Math.max(...myValues);
+        maxId.innerHTML = max + " " + currency;
+        minId.innerHTML = min + " " + currency;
       })
       .catch(err => console.log(err));
   }
