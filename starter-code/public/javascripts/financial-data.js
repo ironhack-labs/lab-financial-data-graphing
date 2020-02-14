@@ -32,9 +32,11 @@ let endDate = document.getElementById('last-date').value;
 let currencyInput = document.getElementById('currency').value;
 
 // Implement functionalities
-function dateListener(id) {
+function handleChange(id) {
 	document.getElementById(id).addEventListener('change', e => {
-		e.target.name === 'initial-date' ? (initialDate = e.target.value) : (endDate = e.target.value);
+		e.target.name === 'currency'
+			? (currencyInput = e.target.value)
+			: e.target.name === 'initial-date' ? (initialDate = e.target.value) : (endDate = e.target.value);
 		currencyInput === '' ? callApi(initialDate, endDate) : callApi(initialDate, endDate, currencyInput);
 	});
 }
@@ -46,11 +48,6 @@ function printValues(variable, id, apiValues, currency) {
 }
 
 // Set up event listeners
-dateListener('initial-date');
-dateListener('last-date');
-
-document.getElementById('currency').addEventListener('change', e => {
-	currencyInput = e.target.value;
-	console.log('currency changed to', e.target.value);
-	callApi(initialDate, endDate, currencyInput);
-});
+handleChange('initial-date');
+handleChange('last-date');
+handleChange('currency');
