@@ -14,8 +14,6 @@ window.onload = () => {
 
 async function requestAPI(start, end, currency, fn) {
   try {
-    console.log(start)
-    console.log(end)
     const response = await axiosInstance.get("", { params: { start, end, currency } });
     const keys = Object.keys(response.data.bpi);
     const values = keys.map(k => response.data.bpi[k]);
@@ -56,7 +54,6 @@ function putExtremPoints(min, max) {
 }
 
 function listeners() {
-  console.log("hola")
   if (dateTo.value && dateFrom.value) requestAPI(dateFrom.value, dateTo.value, currency.value, updateChart) 
   else requestAPI(null, null, currency.value, updateChart) 
 }
