@@ -11,8 +11,14 @@ document.getElementById('update').addEventListener('click', () => {
   currSymb = document.getElementById('currency-symbol').value;
 
   if ( dateFrom && dateTo && currSymb ) {
-    apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currSymb}&start=${dateFrom}&end=${dateTo}`;
-    callAxios();
+    if ( dateFrom >= dateTo) {
+      printError()
+    }
+    else {
+      apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currSymb}&start=${dateFrom}&end=${dateTo}`;
+      removeError();
+      callAxios();
+    }
   }
   else return;
 })
@@ -53,6 +59,14 @@ function callAxios() {
         }
     }); // closes chart = new Chart()
   } // closes printTheChart()
+}
+
+function printError() {
+  document.getElementById('error').innerText = `Please check your dates`
+}
+
+function removeError() {
+  document.getElementById('error').innerText = ``
 }
 
 callAxios();

@@ -43,3 +43,8 @@ a {
 #update {
   margin: 0 .8em;
 }
+
+#error {
+  color: red;
+  font-weight: 200;
+}
