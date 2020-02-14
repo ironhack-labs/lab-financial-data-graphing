@@ -56,11 +56,9 @@ function printValues(variable, id, apiValues, currency) {
 }
 
 function fixDate(id, date) {
-	if (id === 'end-date') {
-		return moment(date).add(31, 'days').format('YYYY-MM-DD');
-	} else {
-		return moment(date).subtract(31, 'days').format('YYYY-MM-DD');
-	}
+	return id === 'end-date'
+		? moment(date).add(31, 'days').format('YYYY-MM-DD')
+		: moment(date).subtract(31, 'days').format('YYYY-MM-DD');
 }
 
 // Set up event listeners
