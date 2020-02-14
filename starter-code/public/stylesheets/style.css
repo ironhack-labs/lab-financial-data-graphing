@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+#chart{
+  display: flex
+}
+
+#the-chart{
+  margin-top: 100px;
+  width: 600px; 
+  max-height: 600px;
+}
