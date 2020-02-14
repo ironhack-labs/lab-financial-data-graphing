@@ -5,8 +5,47 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="container">
+        <header class="filters-values">
+            <!-- Filter -->
+            <div class="filters">
+                <h2>Filters</h2>
+                <div class="date-filter">
+                    <label>
+                        <span>From:</span>
+                        <input id="filter-start" type="date" max="2020-02-14">
+                    </label>
+                    <label>
+                        <span>To:</span>
+                        <input id="filter-end" type="date">
+                    </label>
+                </div>
+                <div class="currency-filter">
+                    <label>
+                        <span>Currency:</span>
+                        <select name="currency" id="filter-currency"></select>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Values -->
+            <div class="values">
+                <h2>Values</h2>
+                <dl>
+                    <dt>Max:</dt>
+                    <dd id="max-value"></dd>
+                    <dt>Min:</dt>
+                    <dd id="min-value"></dd>
+                </dl>
+            </div>
+        </header>
+
+        <!-- Chart -->
+        <canvas id="lineChart"></canvas>
+    </div>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
