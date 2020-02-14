@@ -7,23 +7,31 @@ const callApi = async (initialDate, endDate, currency = 'USD') => {
 			);
 			console.log(`data from ${initialDate} to ${endDate} in ${currency}`);
 		} else {
-			response = await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?`);
+			response = await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`);
 			console.log('data from last 31 days');
 		}
 		const values = Object.values(response.data.bpi);
 		const dates = Object.keys(response.data.bpi);
 		console.log('data:', response.data);
+
+		let maxValue, minValue;
+		printValues(maxValue, 'max', values, currency);
+		printValues(minValue, 'min', values, currency);
+
 		printChart(values, dates);
 	} catch (error) {
 		console.log(error);
 	}
 };
+
 callApi();
 
+// Global variables
 let initialDate = document.getElementById('initial-date').value;
 let endDate = document.getElementById('last-date').value;
 let currencyInput = document.getElementById('currency').value;
 
+// Implement functionalities
 function dateListener(id) {
 	document.getElementById(id).addEventListener('change', e => {
 		e.target.name === 'initial-date' ? (initialDate = e.target.value) : (endDate = e.target.value);
@@ -31,12 +39,18 @@ function dateListener(id) {
 	});
 }
 
+function printValues(variable, id, apiValues, currency) {
+	id === 'max' ? (variable = Math.max(...apiValues)) : (variable = Math.min(...apiValues));
+	console.log(id, variable);
+	document.getElementById(id).textContent = `${variable} ${currency}`;
+}
+
+// Set up event listeners
+dateListener('initial-date');
+dateListener('last-date');
+
 document.getElementById('currency').addEventListener('change', e => {
 	currencyInput = e.target.value;
 	console.log('currency changed to', e.target.value);
 	callApi(initialDate, endDate, currencyInput);
 });
-
-// Set up event listeners
-dateListener('initial-date');
-dateListener('last-date');
