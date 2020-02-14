@@ -1,13 +1,18 @@
+// Global variables
+const baseURL = 'https://api.coindesk.com/v1/bpi/historical/close.json?';
+let initialDate = document.getElementById('initial-date').value;
+let endDate = document.getElementById('last-date').value;
+let currencyInput = document.getElementById('currency').value;
+
+// Fetch API data
 const callApi = async (initialDate, endDate, currency = 'USD') => {
 	try {
 		let response;
 		if (initialDate && endDate) {
-			response = await axios.get(
-				`https://api.coindesk.com/v1/bpi/historical/close.json?start=${initialDate}&end=${endDate}&currency=${currency}`
-			);
+			response = await axios.get(`${baseURL}start=${initialDate}&end=${endDate}&currency=${currency}`);
 			console.log(`data from ${initialDate} to ${endDate} in ${currency}`);
 		} else {
-			response = await axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`);
+			response = await axios.get(`${baseURL}?currency=${currency}`);
 			console.log('data from last 31 days');
 		}
 		const values = Object.values(response.data.bpi);
@@ -25,11 +30,6 @@ const callApi = async (initialDate, endDate, currency = 'USD') => {
 };
 
 callApi();
-
-// Global variables
-let initialDate = document.getElementById('initial-date').value;
-let endDate = document.getElementById('last-date').value;
-let currencyInput = document.getElementById('currency').value;
 
 // Implement functionalities
 function handleChange(id) {
