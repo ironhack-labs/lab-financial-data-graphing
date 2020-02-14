@@ -8,11 +8,19 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <div id="chart">
-      <p>From:</p><input type="date" name="dateFrom" id="dateFrom" value="2020-01-12" >
-      <p>To:</p><input type="date" name="dateTo" id="dateTo" value="2020-02-14" >
+    <div id="chart" >
+      <p>From: </p><input type="date" name="dateFrom" id="dateFrom" value="2020-01-12" >
+      <p>To: </p><input type="date" name="dateTo" id="dateTo" value="2020-02-14" >
+      <select name="currency" id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
     </div>
+    <div id="the-chart">
     <canvas id="myChart"></canvas>
+    </div>
+    <div id="maxPrice"></div>
+    <div id="minPrice"></div>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
