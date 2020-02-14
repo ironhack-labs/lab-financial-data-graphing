@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const errorMsg = document.getElementById("error");
 
+  //Date range filter
   [sDate, eDate].forEach(e => {
     e.addEventListener("input", function() {
       if (e.value.length == 0) {
@@ -61,5 +62,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     });
+  });
+
+  //Currency filter
+  currency.addEventListener("change", function() {
+    const url = coinDeskApiBaseUrl + "?currency=" + currency.value;
+    getBPI(url);
   });
 });
