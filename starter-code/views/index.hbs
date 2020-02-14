@@ -16,7 +16,17 @@
   <div>
     <p>Date to:</p><input type="date" name="toId" id="toId" value="2020-02-01">
   </div>
-
+  <div>
+    <p>Currency:</p>
+    <select name="currencyId" id="currencyId">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+  </div>
+  <div>
+    <div>Min Value: <span id="min"></span></div>
+    <div>Max Value: <span id="max"></span></div>
+  </div>
   <canvas id="myChart"></canvas>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
