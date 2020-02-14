@@ -5,18 +5,18 @@ const currencyId = document.querySelector("#currencyId");
 const minId = document.querySelector("#min");
 const maxId = document.querySelector("#max");
 
-function chartMaster() {
+function chartCreate() {
   const dateFrom = dateFromId.value;
   const dateTo = dateToId.value;
   const currency = currencyId.value;
   const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}&currency=${currency}`;
 
-  function getDataandPrint(apiUrl) {
+  function getDataPrint(apiUrl) {
     axios
       .get(apiUrl)
-      .then(responseFromAPI => {
-        const chartDates = Object.keys(responseFromAPI.data.bpi);
-        const chartCoin = Object.values(responseFromAPI.data.bpi);
+      .then(res => {
+        const chartDates = Object.keys(res.data.bpi);
+        const chartCoin = Object.values(res.data.bpi);
         const min = Math.min(...chartCoin);
         const max = Math.max(...chartCoin);
         minId.innerHTML = min;
@@ -32,8 +32,8 @@ function chartMaster() {
             datasets: [
               {
                 label: "BitCoin",
-                backgroundColor: "teal",
-                borderColor: "lightblue",
+                backgroundColor: "lightGray",
+                borderColor: "red",
                 data: chartCoin
               }
             ]
@@ -42,22 +42,22 @@ function chartMaster() {
       })
       .catch(err => console.log("Error while getting the data: ", err));
   }
-  getDataandPrint(apiUrl);
+  getDataPrint(apiUrl);
 }
 
 dateFromId.addEventListener("change", function() {
   chart.destroy();
-  chartMaster();
+  chartCreate();
 });
 
 dateToId.addEventListener("change", function() {
   chart.destroy();
-  chartMaster();
+  chartCreate();
 });
 
 currencyId.addEventListener("change", function() {
   chart.destroy();
-  chartMaster();
+  chartCreate();
 });
 
-chartMaster();
+chartCreate();
