@@ -17,6 +17,8 @@ function printTheChart(data) {
   const dates = Object.keys(dailyData);
   const coin = dates.map(date => dailyData[date]);
 
+  updateValue(Math.min(...coin), Math.max(...coin));
+
   const ctx = document.getElementById("historialChart").getContext("2d");
   const chart = new Chart(ctx, {
     type: "line",
@@ -46,4 +48,11 @@ function getFilter() {
       printTheChart(responseFromAPI.data);
     })
     .catch(err => console.log("Error while getting the data: ", err));
+}
+
+function updateValue(min, max) {
+  const minSpan = document.querySelector("#min");
+  const maxSpan = document.querySelector("#max");
+  minSpan.innerHTML = min;
+  maxSpan.innerHTML = max;
 }
