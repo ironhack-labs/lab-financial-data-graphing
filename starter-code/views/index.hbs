@@ -5,8 +5,39 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <h1>💸💸 {{title}} 💸💸</h1>
+    
+    {{!-- para ver los datos que nos traemos del js --}}
+
+    <p>Max price: <span id="maxValue"></span> in <span id="curren"></span></p>
+    <p>Min price: <span id="minValue"></span> in <span id="curren1"></span></p>
+  
+    {{!-- imput de entrada de datos --}}
+    <input type="date" id="fromDate">
+    <input type="date" id="toDate">
+
+    {{!-- para seleccionar la moneda --}}
+    <select name="select" id="currency" >
+      <option value="USD" selected="true">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+    {{!-- boton para e chart --}}
+    <button id= "button">Get Chart</button>
+
+    {{!-- definir el chart en canvas para poder pintar --}}
+    <div style="width:1600px; height:600px;">
+    <canvas id="canvasChart"></canvas> 
+    </div>
+  </body> 
+
+  {{!-- this is necesary to use axios --}}
+  <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+  {{!-- ----- --}}
+
+  {{!-- this is necesary to use chart, mejor coger la del bundle--}} 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  {{!-- ----- --}}
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
