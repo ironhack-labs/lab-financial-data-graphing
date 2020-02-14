@@ -8,10 +8,11 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <div width="400" height="400">
-    <canvas id="myChart"></canvas>
+    <div id="chart">
+      <p>From:</p><input type="date" name="dateFrom" id="dateFrom" value="2020-01-12" >
+      <p>To:</p><input type="date" name="dateTo" id="dateTo" value="2020-02-14" >
     </div>
+    <canvas id="myChart"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
