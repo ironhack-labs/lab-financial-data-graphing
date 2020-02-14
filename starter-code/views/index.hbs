@@ -3,17 +3,17 @@
     <p class="title-info">Filters</p>
     <div class="flex">
       <div class="flex">
-        <label for="from-input" class="col-form-label">From</label>
-        <input class="form-control" type="date" id="from-inpu">
+        <label for="from-input" class="col-form-label selector" >From</label>
+        <input class="form-control" type="date" id="from-input" oninput="listeners()">
       </div>
       <div class="flex">
-        <label for="to-input" class="col-form-label">To</label>
-        <input class="form-control" type="date" id="to-input">
+        <label for="to-input" class="col-form-label selector">To</label>
+        <input class="form-control" type="date" id="to-input" oninput="listeners()">
       </div>
     </div>
     <div class="flex">
-      <label for="to-input" class="col-form-label">Currency</label>
-      <select class="col-4 custom-select">
+      <label for="currency-input" class="col-form-label selector">Currency</label>
+      <select id="currency-input" class="col-4 custom-select" onchange="listeners()">
         <option selected value="USD">USD ($)</option>
         <option value="EUR">EUR (€)</option>
       </select>
