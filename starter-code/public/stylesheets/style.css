@@ -6,3 +6,42 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container {
+    max-width: 990px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.filters-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.date-filter {
+    margin-bottom: 10px;
+}
+
+.values {
+    text-align: right;
+}
+
+dt,
+dd {
+    display: inline;
+    margin: 0;
+}
+
+dd:after {
+    content: '';
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+     opacity:0;
+    -webkit-appearance: none;
+ }
