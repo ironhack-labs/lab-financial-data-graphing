@@ -17,13 +17,19 @@
   <label for="sDate">Start date:</label>
   <input type="date" id="sDate" name="sDate"> <br>
   <label for="eDate">End date:</label>
-  <input type="date" id="eDate" name="eDate"> <br>
+  <input type="date" id="eDate" name="eDate">
+  <p id="error" style="color:red"></p>
   <label for="currency">Choose currency: </label>
   <select id="currency">
     <option value="USD">USD</option>
     <option value="EUR">EUR</option>
   </select>
-  <p id="error"></p>
+  <br>
+  <h2>Values</h2>
+  <label for="maxVal">Max value:</label>
+  <p id="maxVal"></p>
+  <label for="minVal">Min value:</label>
+  <p id="minVal"></p>
 
   <canvas id="chart"></canvas>
 

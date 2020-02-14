@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
     axios
       .get(url)
       .then(responseFromAPI => {
+        //Get data from API
         const { bpi } = responseFromAPI.data;
+
+        //Represent data and update chart
         myLineChart.data.labels = Object.keys(bpi);
         myLineChart.data.datasets = [
           {
@@ -23,12 +26,15 @@ document.addEventListener("DOMContentLoaded", function() {
         ];
         myLineChart.update();
 
+        //Extreme values
+        minVal.innerHTML =
+          Math.min(...Object.values(bpi)) + " " + currency.value;
+        maxVal.innerHTML =
+          Math.max(...Object.values(bpi)) + " " + currency.value;
+
         //Set default date
-        if (url == coinDeskApiBaseUrl) {
-          // !!!! Why is this ONLY working at first load
-          sDate.defaultValue = Object.keys(bpi)[0];
-          eDate.defaultValue = Object.keys(bpi)[30];
-        }
+        sDate.defaultValue = Object.keys(bpi)[0];
+        eDate.defaultValue = Object.keys(bpi)[Object.keys(bpi).length - 1];
       })
       .catch(err => console.log("Error is: ", err));
   }
@@ -39,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //Date range filter
   [sDate, eDate].forEach(e => {
-    e.addEventListener("input", function() {
+    e.addEventListener("change", function() {
       if (e.value.length == 0) {
         //If user deletes field input, input gets retrieves default value. nOT WORKING
         getBPI();
