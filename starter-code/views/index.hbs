@@ -5,8 +5,35 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="container">
+      <div class="filters-container">
+        <p class="filters title">Choose your filters</p>
+        <label for="initial-date">From:</label>
+        <input type="date" name="initial-date" id="initial-date">
+        <label for="last-date">To:</label>
+        <input type="date" name="last-date" id="last-date">
+        <label for="currency">Currency:</label>
+        <select name="currency" id="currency">
+          <option value="USD">US Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">British Pound Sterling</option>
+        </select>
+      </div>
+   
+      <div>
+        <p class="values title">Values</p>
+        <p>Max: <span id="max"></span></p>
+        <p>Min: <span id="min"></span></p>
+      </div>
+    </div>
+    <canvas id="chart"></canvas>
+
   </body>
+  {{!-- libraries --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+  {{!-- own scripts --}}
+  <script src="/javascripts/chart.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
