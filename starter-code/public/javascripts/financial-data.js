@@ -6,15 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   //Get and represent data from api
-  const coinDeskApi = axios.create({
-    baseURL: "http://api.coindesk.com/v1/bpi/historical/close.json"
-  });
+  const coinDeskApiBaseUrl =
+    "http://api.coindesk.com/v1/bpi/historical/close.json";
 
-  function getData() {
-    coinDeskApi
-      .get()
+  function getBPI(url = coinDeskApiBaseUrl) {
+    axios
+      .get(url)
       .then(responseFromAPI => {
-        let { bpi } = responseFromAPI.data;
+        const { bpi } = responseFromAPI.data;
         myLineChart.data.labels = Object.keys(bpi);
         myLineChart.data.datasets = [
           {
@@ -23,13 +22,44 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         ];
         myLineChart.update();
+
+        //Set default date
+        if (url == coinDeskApiBaseUrl) {
+          // !!!! Why is this ONLY working at first load
+          sDate.defaultValue = Object.keys(bpi)[0];
+          eDate.defaultValue = Object.keys(bpi)[30];
+        }
       })
       .catch(err => console.log("Error is: ", err));
   }
 
-  getData();
+  getBPI();
 
-  document.getElementById("refreshButton").onclick = function() {
-    getData();
-  };
+  const errorMsg = document.getElementById("error");
+
+  [sDate, eDate].forEach(e => {
+    e.addEventListener("input", function() {
+      if (e.value.length == 0) {
+        //If user deletes field input, input gets retrieves default value. nOT WORKING
+        getBPI();
+      } else {
+        const date1 = new Date(sDate.value);
+        const date2 = new Date(eDate.value);
+        const now = new Date();
+
+        if (date1.getTime() < date2.getTime() && date2 <= now.getTime()) {
+          errorMsg.innerHTML = "";
+          const url =
+            coinDeskApiBaseUrl +
+            "?start=" +
+            sDate.value +
+            "&end=" +
+            eDate.value;
+          getBPI(url);
+        } else {
+          errorMsg.innerHTML = "Please select a valid date range";
+        }
+      }
+    });
+  });
 });
