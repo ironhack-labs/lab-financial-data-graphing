@@ -10,16 +10,21 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
   <!-- use input's id to grab the value from the input field -->
-  <label for="theInput"></label>
+  {{!-- <label for="theInput"></label>
   <input id="theInput" type="text" />
   <button id="theButton">Get the daTa</button>
-  <br>
+  <br><br> --}}
 
   <!-- the data we get from the API will be populated in here: -->
 
+  <input type="date" id="dataFrom" name="dataFrom" value="2020-01-01">
+  <input type="date" id="dataTo" name="dataTo" value="2020-01-31">
+  {{!-- <button id="theButton">Get the daTa</button> --}}
+
+
+  <br><br>
   <div style="width:600px; height:600px;">
     <canvas id="myChart" width="1" height="1"></canvas>
-
   </div>
 
 
