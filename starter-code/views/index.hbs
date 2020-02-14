@@ -2,23 +2,35 @@
 <html>
 
 <head>
-  <title> {{title}} </title>
+  <title> Financial Data Graphing </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
-  <div>From <input type="date" name="from-date" id="fromDate" value="2019-01-01"></div>
-  <div>To <input type="date" name="to-date" id="toDate" value="2019-12-01"></div>
-  <select name="currency" id="currency">
-    <option value="USD" id="usd">USD</option>
-    <option value="EUR" id="eur">EUR</option>
-  </select>
-  <div>MAXVALOR = <span id="max"></span></div>
-  <div>MINVALOR = <span id="min"></span></div>
+  <h1> Financial Data Graphing </h1>
+  <p>Check your Bitcoin Price Index 🚀</p>
+  <div class="graph-data">
+    <div class="data">
+      From: <input type="date" name="from-date" id="fromDate" value="2019-01-01">
+      To: <input type="date" name="to-date" id="toDate" value="2019-12-01">
+    </div>
+    <div class="data">
+      Choose the currency:
+      <select name="currency" id="currency">
+        <option value="USD" id="usd">USD</option>
+        <option value="EUR" id="eur">EUR</option>
+      </select>
+    </div>
 
-  <canvas id="myChart"></canvas>
+    <div class="data">
+      Max Value = <span id="max"></span>
+      Min Value = <span id="min"></span>
+    </div>
+  </div>
+
+  <div style="width:90%;">
+    <canvas id="myChart"></canvas>
+  </div>
 </body>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -48,9 +48,6 @@ function chartMaster() {
             }
           }
         });
-        // const sorter = myValues.sort((a, b) => a - b);
-        // const max = sorter[0];
-        // const min = sorter[myValues.length - 1];
 
         const min = Math.min(...myValues);
         const max = Math.max(...myValues);
