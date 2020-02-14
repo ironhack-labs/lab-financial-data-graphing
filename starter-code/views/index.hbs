@@ -7,26 +7,34 @@
 </head>
 
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
+  <nav>
+    <h1> {{title}} </h1>
+  </nav>
+  
   <!-- use input's id to grab the value from the input field -->
-  <div>
-    <p>Date from:</p><input type="date" name="fromId" id="fromId" value="2019-12-31">
+  <div class="container">
+    <div class="dates">
+      <div>
+      <p>Date from:</p><input type="date" name="fromId" id="fromId" value="2019-12-31">
+    </div>
+    <div>
+      <p>Date to:</p><input type="date" name="toId" id="toId" value="2020-02-01">
+    </div>
+    </div>
+    
+    <div>
+      <p>Currency:</p>
+      <select name="currencyId" id="currencyId">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+    <div class="values">
+      <div>Min Value: <span id="min"></span></div>
+      <div>Max Value: <span id="max"></span></div>
+    </div>
   </div>
-  <div>
-    <p>Date to:</p><input type="date" name="toId" id="toId" value="2020-02-01">
-  </div>
-  <div>
-    <p>Currency:</p>
-    <select name="currencyId" id="currencyId">
-      <option value="EUR">EUR</option>
-      <option value="USD">USD</option>
-    </select>
-  </div>
-  <div>
-    <div>Min Value: <span id="min"></span></div>
-    <div>Max Value: <span id="max"></span></div>
-  </div>
+
   <canvas id="myChart"></canvas>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>

@@ -6,3 +6,29 @@ body {
 a {
   color: #00B7FF;
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+.container, .dates {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.values{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.dates{
+  width: 33%;
+}
+
