@@ -29,10 +29,24 @@ a {
     text-align: right;
 }
 
+.date-filter label:first-of-type {
+    margin-right: 10px;
+}
+
+label span {
+    display: inline-block;
+    margin-right: 3px;
+}
+
 dt,
 dd {
     display: inline;
     margin: 0;
+}
+
+dt,
+label span {
+    font-weight: 700;
 }
 
 dd:after {
