@@ -1,8 +1,23 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 10px 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+	color: #00b7ff;
+}
+
+.container {
+	display: flex;
+	justify-content: space-around;
+}
+.filters {
+	align-self: center;
+}
+.values {
+	text-align: center;
+}
+.title {
+	font-size: 1.2rem;
+	font-weight: bold;
 }

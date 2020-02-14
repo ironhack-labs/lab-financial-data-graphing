@@ -5,8 +5,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="container" style="display: flex; justify-content:space-around">
-      <div style="align-self: center;">
+    <div class="container">
+      <div class="filters-container">
+        <p class="filters title">Choose your filters</p>
         <label for="initial-date">From:</label>
         <input type="date" name="initial-date" id="initial-date">
         <label for="last-date">To:</label>
@@ -19,8 +20,8 @@
         </select>
       </div>
    
-      <div class="values" >
-        <p>Values</p>
+      <div>
+        <p class="values title">Values</p>
         <p>Max: <span id="max"></span></p>
         <p>Min: <span id="min"></span></p>
       </div>

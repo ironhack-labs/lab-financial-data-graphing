@@ -25,7 +25,7 @@ const printChart = (values, dates) => {
 			elements: {
 				line: {
 					tension: 0.2,
-					borderWidth: 1
+					borderWidth: 1.5
 				}
 			},
 			scales: {
