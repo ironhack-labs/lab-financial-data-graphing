@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <!-- use input's id to grab the value from the input field -->
+  {{!-- <label for="theInput"></label>
+  <input id="theInput" type="text" />
+  <button id="theButton">Get the daTa</button>
+  <br><br> --}}
+
+  <!-- the data we get from the API will be populated in here: -->
+
+  <input type="date" id="dataFrom" name="dataFrom" value="2020-01-01">
+  <input type="date" id="dataTo" name="dataTo" value="2020-01-31">
+  <select id="currency" name="currency">
+    <option value="USD" selected>USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+
+  <div id="minVal"></div>
+  <div id="maxVal"></div>
+  {{!-- <button id="theButton">Get the daTa</button> --}}
+
+
+  <br><br>
+  <div style="width:600px; height:600px;">
+    <canvas id="myChart" width="1" height="1"></canvas>
+  </div>
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
