@@ -1,14 +1,18 @@
 /*jshint esversion: 6 */
 
-const input1 = document.getElementById("dataFrom");
-const input2 = document.getElementById("dataTo");
+const dataFromSelector = document.getElementById("dataFrom");
+const dataToSelector = document.getElementById("dataTo");
+const currencySelector = document.getElementById("currency");
+
 let chart;
 
 function printChartMain() {
-  let fromDate = document.getElementById("dataFrom").value;
-  let toDate = document.getElementById("dataTo").value;
+  let fromDate = dataFromSelector.value;
+  let toDate = dataToSelector.value;
+  let currency = currencySelector.value;
+  console.log(currency);
   const restCoinDeskApi = axios.create({
-    baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`
+    baseURL: `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`
   });
   console.log(restCoinDeskApi);
 
@@ -53,15 +57,19 @@ function printChartMain() {
 //   getCoinDeskInfo();
 // };
 
-input1.addEventListener("change", function() {
-  console.log("HOLA");
+dataFromSelector.addEventListener("change", function() {
   chart.destroy();
   printChartMain();
 });
 
-input2.addEventListener("change", function() {
-  console.log("ADIÓS");
+dataToSelector.addEventListener("change", function() {
   chart.destroy();
   printChartMain();
 });
+
+currencySelector.addEventListener("change", function() {
+  chart.destroy();
+  printChartMain();
+});
+
 printChartMain();
