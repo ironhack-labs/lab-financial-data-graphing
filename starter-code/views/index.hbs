@@ -12,7 +12,37 @@
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
+  <div class="container">
+    <div class="dates">
+      <div>
+        <p>Date from:</p><input type="date" name="fromId" id="fromId" value="2019-12-31">
+      </div>
+      <div>
+        <p>Date to:</p><input type="date" name="toId" id="toId" value="2020-02-01">
+      </div>
+    </div>
 
+    <div>
+      <p>Currency:</p>
+      <select name="currencyId" id="currencyId">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+    <div class="values">
+      <div>
+        <p>Min Value:</p><span id="min"></span>
+      </div>
+      <div>
+        <p>Max Value:</p><span id="max"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="height:700px; width:700px;">
+    <canvas id="myChart"></canvas>
+  </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
