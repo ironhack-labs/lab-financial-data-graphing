@@ -43,7 +43,6 @@ function handleChange(id) {
 
 function printValues(variable, id, apiValues, currency) {
 	id === 'max' ? (variable = Math.max(...apiValues)) : (variable = Math.min(...apiValues));
-	console.log(id, variable);
 	document.getElementById(id).textContent = `${variable} ${currency}`;
 }
 
