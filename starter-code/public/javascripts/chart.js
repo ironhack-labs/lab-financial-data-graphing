@@ -1,6 +1,9 @@
+//Create canvas and chart
+
+let chart;
 const ctx = document.getElementById("myChart").getContext("2d");
 let myChart = (labels, data, title) => {
-  new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: "line",
     data: {
       labels: labels,
@@ -16,6 +19,8 @@ let myChart = (labels, data, title) => {
     }
   });
 };
+
+//Set default dates with 30 day interval starting today
 
 let date = new Date();
 const today = date.toJSON().slice(0, 10);
@@ -37,21 +42,17 @@ document.addEventListener("DOMContentLoaded", chartHistoricalBPI());
 
 const dateFrom = document.getElementById("dateFrom");
 const dateTo = document.getElementById("dateTo");
-const dateFromValue = (dateFrom.onchange = () => {
-  dateFrom.value;
-});
-const dateToValue = (dateTo.onchange = () => {
-  dateTo.value;
-});
 
+//Set default values to input fields
 dateFrom.setAttribute("value", minusThirty);
 dateTo.setAttribute("value", today);
 
+//Re-draw chart on input date change
 dateFrom.onchange = () => {
-  myChart.destroy();
-  chartHistoricalBPI(dateFrom.value);
+  chart.destroy();
+  chartHistoricalBPI(dateFrom.value, dateTo.value);
 };
 dateTo.onchange = () => {
-  myChart.destroy();
-  chartHistoricalBPI(minusThirty, dateTo.value);
+  chart.destroy();
+  chartHistoricalBPI(dateFrom.value, dateTo.value);
 };
