@@ -6,3 +6,40 @@ body {
 a {
   color: #00B7FF;
 }
+
+.col-8, .col-6 {
+  margin-bottom: 15px !important;
+}
+
+.info-container {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: stretch;
+}
+
+.filter, .values {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+}
+
+.filter {
+  align-items: flex-start;
+}
+
+.values {
+  align-items: flex-end;
+}
+
+.date-filter, .currency-filter, .max, .min  {
+  margin: .8em 0;
+}
+
+#update {
+  margin: 0 .8em;
+}
