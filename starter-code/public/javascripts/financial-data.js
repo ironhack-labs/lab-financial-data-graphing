@@ -12,7 +12,7 @@ const callApi = async (initialDate, endDate, currency = 'USD') => {
 			response = await axios.get(`${baseURL}start=${initialDate}&end=${endDate}&currency=${currency}`);
 			console.log(`data from ${initialDate} to ${endDate} in ${currency}`);
 		} else if (!initialDate && !endDate) {
-			response = await axios.get(`${baseURL}?currency=${currency}`);
+			response = await axios.get(`${baseURL}currency=${currency}`);
 			console.log(`data from last 31 days`);
 		} else {
 			const fixEndDate = fixDate('end-date', initialDateInput);
