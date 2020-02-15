@@ -1,65 +1,81 @@
-axios({
-  method: 'GET',
-  url: 'http://api.coindesk.com/v1/bpi/historical/close.json'
-})
-  .then(response => {
-    // Here we can do something with the response object
-  })
-  .catch(err => {
-    // Here we catch the error and display it
-  });
+// Capture all the changing elements
 
-class BPI {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
+const start = document.getElementById('start');
+const end = document.getElementById('end');
+const currency = document.getElementById('currency');
+const params = {};
+
+// Set the axios config
+
+const API = axios.create({
+  baseURL: 'https://api.coindesk.com/v1/bpi',
+  timeout: 5000
+});
+
+// Checking for min and max values
+
+const minAndMax = function(values) {
+  document.querySelector('#min').innerHTML = `${Math.min(...values)} ${
+    currency.value
+  }`;
+  document.querySelector('#max').innerHTML = `${Math.max(...values)} ${
+    currency.value
+  }`;
+};
+
+// Checking for dates (to see if the config is valid)
+
+const beforeAfter = function(from, to) {
+  const initial = new Date(from.value);
+  const final = new Date(to.value);
+  if (from.value || to.value) {
+    return initial.getTime() <= final.getTime()
+      ? console.log('Good')
+      : console.log('Invalid date configuration!');
+  } else {
+    return console.log('You can set the dates!');
   }
+};
 
-  getDate(date1, date2) {
-    return date1 && date2
-      ? axios.get(`${this.baseURL}?start=${date1}&end=${date2}`)
-      : axios.get(`${this.baseURL}`);
-  }
-}
+// Function to render the changes
 
-const Price = new BPI('http://api.coindesk.com/v1/bpi/historical/close.json');
-/*
-document.querySelector('#button').onclick = function() {
-  const response = axios.get(
-    `http://api.coindesk.com/v1/bpi/historical/close.json`
-  );
-  response.then(res => {
-    console.log(res);
-    const bpi = res.data.bpi;
+const refresh = function(params) {
+  console.log(params);
+  API.get('/historical/close.json', { params }).then(res => {
+    const { bpi } = res.data;
     const years = Object.keys(bpi);
-    const price = Object.values(bpi);
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: years,
-        datasets: [
-          {
-            label: 'Bitcoin price index',
-            data: price
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
-        }
-      }
-    });
+    const price = Object.values(bpi).map(e => e.toFixed(2));
+    minAndMax(price);
+    beforeAfter(start, end);
+    chart.data.labels = [...years];
+    chart.data.datasets[0] = {
+      label: 'Bitcoin price index',
+      data: [...price],
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgb(255, 99, 132)'
+    };
+    chart.update();
   });
-};*/
+};
 
+// Event listener to see changes on the filters
+
+start.addEventListener('change', e => {
+  params.start = start.value;
+  refresh(params);
+});
+
+end.addEventListener('change', e => {
+  params.end = end.value;
+  refresh(params);
+});
+
+currency.addEventListener('change', e => {
+  params.currency = currency.value;
+  refresh(params);
+});
+
+// Set the basic config for the chart
 const ctx = document.getElementById('chart').getContext('2d');
 const chart = new Chart(ctx, {
   type: 'line',
@@ -78,35 +94,5 @@ const chart = new Chart(ctx, {
   }
 });
 
-// Checking for dates
-const beforeAfter = function(from, to) {
-  const initial = new Date(from);
-  const final = new Date(to);
-  if (from || to) {
-    return initial.getTime() <= final.getTime()
-      ? console.log('Good')
-      : console.log('Invalid date configuration!');
-  } else {
-    return console.log('You can set the dates!');
-  }
-};
-
-document.querySelector('#button').onclick = function() {
-  const from = document.querySelector('#from').value;
-  const to = document.querySelector('#to').value;
-  beforeAfter(from, to);
-  const response = Price.getDate(from, to);
-  response.then(res => {
-    const { bpi } = res.data;
-    const years = Object.keys(bpi);
-    const price = Object.values(bpi);
-    chart.data.labels = [...years];
-    chart.data.datasets[0] = {
-      label: 'Bitcoin price index',
-      data: [...price],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      borderColor: 'rgb(255, 99, 132)'
-    };
-    chart.update();
-  });
-};
+// Render the chart for the first time
+refresh(params);
