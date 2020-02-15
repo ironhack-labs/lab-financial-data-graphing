@@ -5,8 +5,27 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Courrency Info</h1>
+    <!-- use input's id to grab the value from the input field -->
+    <label for="theInput"></label>
+    <input id="date1" type="date" value="2019-01-15"/>
+     <input id="date2" type="date" value="2019-01-19"/>
+     <select name="" id="currency">
+       <option selected="true" value="USD">USD</option>
+       <option value="EUR">EUR</option>
+     </select>
+    <button id="theButton">Get the data</button>
+
+    <!-- the data we get from the API will be populated in here: -->
+    <h2 id="countryName"></h2>
+    <p id="countryCapital"></p>
+<div style="width: 400px; height: 400px;">
+ <canvas id="myChart" height="1" width="1"></canvas>
+</div>
+   
   </body>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
