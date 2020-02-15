@@ -4,31 +4,31 @@
 <head>
   <title> {{title}} </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </head>
 
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
   <p>Max price</p>
-
-
   <div>
-    <span>Start Date:</span><input id="startDate" type="date" onchange="prueba()" data-date-format="YYYY-MM-DD">
+
+    <button id="button">Update dates</button>
   </div>
 
   <div>
-    <span>End Date:</span><input id="endDate" type="date" onchange="prueba()" data-date=""
-      data-date-format="YYYY-MM-DD">
+    <span>Start Date:</span><input id="startDate" type="date" data-date-format="YYYY-MM-DD">
+  </div>
+
+  <div>
+    <span>End Date:</span><input id="endDate" type="date" data-date-format="YYYY-MM-DD">
   </div>
   <canvas id="myChart"></canvas>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </body>
-
-
 
 
 </html>
