@@ -5,10 +5,13 @@ let minDisplay = document.getElementById("min");
 let maxDisplay = document.getElementById("max");
 
 //Set default dates with 30 day interval starting today
-let date = new Date();
-const today = date.toJSON().slice(0, 10);
-date.setDate(date.getDate() - 30);
-const minusThirty = date.toJSON().slice(0, 10);
+const setDateBack = days => {
+  let date = new Date();
+  date.setDate(date.getDate() - days);
+  return date.toJSON().slice(0, 10);
+};
+const today = setDateBack(0);
+const minusThirty = setDateBack(30);
 
 //Get BPI from API and draw chart
 const getDataAndDraw = (currency, start = minusThirty, end = today) => {
@@ -28,13 +31,14 @@ const getDataAndDraw = (currency, start = minusThirty, end = today) => {
     .catch(err => console.log("ERROR", err));
 };
 
-document.addEventListener("DOMContentLoaded", getDataAndDraw("USD"));
-
-//Set default values to input fields
+//Set default values for input fields
 dateFrom.setAttribute("value", minusThirty);
 dateTo.setAttribute("value", today);
 
-//Re-draw chart on input date change
+//Draw chart
+document.addEventListener("DOMContentLoaded", getDataAndDraw("USD"));
+
+//Re-draw chart on date and currency change
 dateFrom.onchange = () => {
   chart.destroy();
   getDataAndDraw(currency.value, dateFrom.value, dateTo.value);
