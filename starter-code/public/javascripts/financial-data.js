@@ -22,7 +22,8 @@ function chartMaster() {
                 return dailyData[value];
             });
             const ctx = document.getElementById("myChart").getContext("2d");
-            const chart = new Chart(ctx, {
+            if (window.bar != undefined) window.bar.destroy();
+            window.bar = new Chart(ctx, {
                 type: "line",
                 data: {
                     labels: myKeys,
