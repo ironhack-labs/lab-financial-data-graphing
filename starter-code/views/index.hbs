@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>A web page to play with APIs</p>
+
+  <h2>Filters</h2>
+  <label for="start">From:</label>
+  <input id="start" type="date">
+
+  <label for="end">To:</label>
+  <input id="end" type="date">
+
+  <label for="currency">Currency:</label>
+  <select id="currency">
+    <option value="USD">US Dollar ($)</option>
+    <option value="EUR">Euros (€)</option>
+  </select>
+
+  <h2>Values</h2>
+  <dl>
+    <dt>Max:</dt>
+    <dd id="max"></dd>
+    <dt>Min:</dt>
+    <dd id="min"></dd>
+  </dl>
+
+  <div class="chart-container">
+    <canvas id="chart" width="400" height="400"></canvas>
+  </div>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
