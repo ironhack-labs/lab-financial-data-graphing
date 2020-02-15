@@ -40,7 +40,6 @@ const beforeAfter = function(from, to) {
 // Function to render the changes
 
 const refresh = function(params) {
-  console.log(params);
   API.get('/historical/close.json', { params }).then(res => {
     const { bpi } = res.data;
     const years = Object.keys(bpi);
