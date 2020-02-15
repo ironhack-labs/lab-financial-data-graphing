@@ -6,9 +6,30 @@ axios
   .catch(err => console.log("Error while getting the data: ", err));
 
 
-function printTheChart(stockData) {
-  const dailyData = stockData["bpi"]; //devulve objeto con fecha y precio
+function prueba() {
 
+  let startDate = document.getElementById("startDate").value;
+  let endDate = document.getElementById("endDate").value;
+  console.log("hellooooooooooo")
+  console.log(startDate)
+  console.log(endDate)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function printTheChart(stockData) {
+
+  const dailyData = stockData["bpi"]; //devulve objeto con fecha y precio
   const stockDates = Object.keys(dailyData); //devuelve fechas
   const stockPrices = stockDates.map(date => dailyData[date]); //devuelve precios
 
@@ -23,7 +44,6 @@ function printTheChart(stockData) {
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)'
         ],
-
         borderColor: [
           'rgba(255, 206, 86, 1)'
         ],
@@ -40,4 +60,5 @@ function printTheChart(stockData) {
       }
     }
   });
+
 }
