@@ -11,8 +11,8 @@ let myChart = (labels, data, title) => {
         {
           label: title,
           data: data,
-          backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-          borderColor: ["rgba(255, 99, 132, 1)"],
+          backgroundColor: ["rgba(26, 162, 97, 0.2)"],
+          borderColor: ["rgba(26, 162, 97, 1)"],
           borderWidth: 1
         }
       ]
@@ -27,21 +27,23 @@ const today = date.toJSON().slice(0, 10);
 date.setDate(date.getDate() - 30);
 const minusThirty = date.toJSON().slice(0, 10);
 
-const chartHistoricalBPI = (start = minusThirty, end = today) => {
+const getDataAndDraw = (currency, start = minusThirty, end = today) => {
+  console.log(currency);
   axios
-    .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+    .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`)
     .then(res => {
       const chartDates = Object.keys(res.data.bpi);
       const chartValues = Object.values(res.data.bpi);
-      return myChart(chartDates, chartValues, "Title");
+      return myChart(chartDates, chartValues, `BPI to ${currency} Exchange`);
     })
     .catch(err => console.log("ERROR", err));
 };
 
-document.addEventListener("DOMContentLoaded", chartHistoricalBPI());
-
 const dateFrom = document.getElementById("dateFrom");
 const dateTo = document.getElementById("dateTo");
+const currency = document.getElementById("currency");
+
+document.addEventListener("DOMContentLoaded", getDataAndDraw("USD"));
 
 //Set default values to input fields
 dateFrom.setAttribute("value", minusThirty);
@@ -50,9 +52,13 @@ dateTo.setAttribute("value", today);
 //Re-draw chart on input date change
 dateFrom.onchange = () => {
   chart.destroy();
-  chartHistoricalBPI(dateFrom.value, dateTo.value);
+  getDataAndDraw(currency.value, dateFrom.value, dateTo.value);
 };
 dateTo.onchange = () => {
   chart.destroy();
-  chartHistoricalBPI(dateFrom.value, dateTo.value);
+  getDataAndDraw(currency.value, dateFrom.value, dateTo.value);
+};
+currency.onchange = () => {
+  chart.destroy();
+  getDataAndDraw(currency.value);
 };
