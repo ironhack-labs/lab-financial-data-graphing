@@ -9,17 +9,28 @@
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
 
-    <h3>Filters</h3>
-    <label for="">From: </label>
-    <input type="date" id="first-date" onchange="selectDate();">
-    <label for="">To: </label>
-    <input type="date" id="second-date" onchange="selectDate();">
+    <div class="container">
+      <div>
+        <h3>Filters</h3>  
+        <label for="first-date">From: </label>
+        <input type="date" id="first-date">
+        <label for="second-date">To: </label>
+        <input type="date" id="second-date">
+      </div>
+      <div>
+        <h3>Values</h3>
+        <div id="max">Max: </div>
+        <div id="min">Min: </div>
+      </div>
+    </div>
 
-    <select id="theInput" name="" id="">
-      <option value="">Currency ($US)</option>
-      <option value="">Currency (EUR)</option>
+    <br>
+    <select id="currency" name="currency">
+      <option value="USD">Currency ($US)</option>
+      <option value="EUR">Currency (EUR)</option>
     </select>
-    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <canvas id="myChart" width="400" height="250"></canvas>
 
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
