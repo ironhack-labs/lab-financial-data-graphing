@@ -36,9 +36,14 @@ function printTheChart(stockData) {
   const stockDates = Object.keys(dailyData); //devuelve fechas
   const stockPrices = stockDates.map(date => dailyData[date]); //devuelve precios
 
-  console.log(dailyData)
-  console.log(stockDates)
-  console.log(stockPrices)
+  // console.log(dailyData)
+  // console.log(stockDates)
+  //console.log(stockPrices)
+
+  //Max and Min Prices
+  let maxPrice = Math.max(...stockPrices);
+  let minPrice = Math.min(...stockPrices);
+
 
   const ctx = document.getElementById("myChart").getContext("2d");
   const chart = new Chart(ctx, {
