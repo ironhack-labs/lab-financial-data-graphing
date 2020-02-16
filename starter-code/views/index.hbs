@@ -4,18 +4,21 @@
 <head>
   <title> {{title}} </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-
 </head>
 
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
-  <p>Max price</p>
-  <div>
+  <p>Max price: </p>
+  <p>Min price: </p>
 
+
+  {{!-- Button --}}
+  <div>
     <button id="button">Update dates</button>
   </div>
 
+  {{!-- Start and End Filter --}}
   <div>
     <span>Start Date:</span><input id="startDate" type="date" data-date-format="YYYY-MM-DD">
   </div>
@@ -23,6 +26,25 @@
   <div>
     <span>End Date:</span><input id="endDate" type="date" data-date-format="YYYY-MM-DD">
   </div>
+
+  {{!-- Currency label --}}
+  <div>
+    <label>Currency:</label>
+    <select id="currency">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+      <option value="CAD">CAD</option>
+      <option value="JPY">JPY</option>
+      <option value="SEK">SEK</option>
+      <option value="NZD">NZD</option>
+      <option value="NOK">NOK</option>
+      <option value="HKD">HKD</option>
+      <option value="GBP">GBP</option>
+      <option value="CHF">CHF</option>
+    </select>
+  </div>
+
+
   <canvas id="myChart"></canvas>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
