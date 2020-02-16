@@ -1,5 +1,4 @@
-
-//Initial Request Done When Page Loads
+//Initial Request Done When Page Loads.
 axios
   .get("http://api.coindesk.com/v1/bpi/historical/close.json")
   .then(responseFromAPI => {
@@ -7,7 +6,7 @@ axios
   })
   .catch(err => console.log("Error while getting the data: ", err));
 
-//Once selected start and end dates we make new request
+//Once selected start date, end date and currency we make new request.
 document.getElementById("button").onclick = function () {
 
   const startDate = document.getElementById("startDate").value;
@@ -16,7 +15,7 @@ document.getElementById("button").onclick = function () {
 
   const urlApi = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`;
 
-  console.log(urlApi)
+  // console.log(urlApi)
 
   axios
     .get(urlApi)
@@ -28,17 +27,23 @@ document.getElementById("button").onclick = function () {
     });
 }
 
-
-
+//Function that Draws each time new data is uploaded
 function printTheChart(stockData) {
 
   const dailyData = stockData["bpi"]; //devuelve objeto con fecha y precio
   const stockDates = Object.keys(dailyData); //devuelve fechas
   const stockPrices = stockDates.map(date => dailyData[date]); //devuelve precios
 
-  console.log(dailyData)
-  console.log(stockDates)
-  console.log(stockPrices)
+  // console.log(dailyData)
+  // console.log(stockDates)
+  //console.log(stockPrices)
+
+  //Max and Min Prices
+  let maxPrice = Math.max(...stockPrices);
+  let minPrice = Math.min(...stockPrices);
+
+  document.getElementById("maxPrice").innerHTML = maxPrice
+  document.getElementById("minPrice").innerHTML = minPrice
 
   const ctx = document.getElementById("myChart").getContext("2d");
   const chart = new Chart(ctx, {
