@@ -12,8 +12,11 @@ document.getElementById("button").onclick = function () {
 
   const startDate = document.getElementById("startDate").value;
   const endDate = document.getElementById("endDate").value;
+  const currency = document.getElementById("currency").value;
 
-  const urlApi = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`;
+  const urlApi = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`;
+
+  console.log(urlApi)
 
   axios
     .get(urlApi)
