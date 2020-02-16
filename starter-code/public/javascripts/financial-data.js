@@ -1,20 +1,41 @@
+
+//Initial Request Done When Page Loads
 axios
   .get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  //.then(responseFromAPI => console.log("The response from API: ", responseFromAPI, responseFromAPI.data.bpi))
   .then(responseFromAPI => {
     printTheChart(responseFromAPI.data);
   })
   .catch(err => console.log("Error while getting the data: ", err));
 
+//Once selected start and end dates we make new request
+document.getElementById("button").onclick = function () {
 
-//const data = [12, 19, 3, 35, 2, 38];
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+
+  const urlApi = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`;
+
+  axios
+    .get(urlApi)
+    .then(responseFromAPI => {
+      printTheChart(responseFromAPI.data);
+    })
+    .catch(error => {
+      console.log("The error is: ", error);
+    });
+}
+
 
 
 function printTheChart(stockData) {
-  const dailyData = stockData["bpi"]; //devulve objeto con fecha y precio
 
+  const dailyData = stockData["bpi"]; //devuelve objeto con fecha y precio
   const stockDates = Object.keys(dailyData); //devuelve fechas
   const stockPrices = stockDates.map(date => dailyData[date]); //devuelve precios
+
+  console.log(dailyData)
+  console.log(stockDates)
+  console.log(stockPrices)
 
   const ctx = document.getElementById("myChart").getContext("2d");
   const chart = new Chart(ctx, {
@@ -27,7 +48,6 @@ function printTheChart(stockData) {
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)'
         ],
-
         borderColor: [
           'rgba(255, 206, 86, 1)'
         ],
@@ -43,5 +63,6 @@ function printTheChart(stockData) {
         }]
       }
     }
-  }); // closes chart = new Chart()
+  });
+
 }
