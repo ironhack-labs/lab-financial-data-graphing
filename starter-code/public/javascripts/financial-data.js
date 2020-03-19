@@ -3,7 +3,6 @@ let $update = document.getElementById("update");
 let $currency = document.getElementById("currency");
 
 
-
 //EVENT LISTENER
 $update.addEventListener("click", () => {
 
@@ -16,12 +15,12 @@ $update.addEventListener("click", () => {
   }
   else {
     newApiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${$currency.value}&start=${$fromDate.value}&end=${$toDate.value}`;
-    getAxios(newApiUrl)
+    drawData(newApiUrl)
   }
 });
 
 //////
-function getAxios(url){
+function drawData(url){
   axios
     .get(url)
     .then(responseFromAPI => {
@@ -34,7 +33,6 @@ function getAxios(url){
 
 function printTheChart(data) {
   let $chart = document.getElementById("myChart").getContext("2d");
-  let $currency = document.getElementById("currency");
 
   let myChart = new Chart($chart, {
     type: "line",
@@ -44,10 +42,10 @@ function printTheChart(data) {
         {
           label: "Bitcoin Price Index",
           data: Object.values(data),
-          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          backgroundColor: "rgba(52, 164, 239, 0.2)",
           borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1,
-          pointBackgroundColor: "rgb(128, 128, 128)",
+          pointBackgroundColor: "rgb(31, 101, 147)",
           pointHoverBackgroundColor: "rgb(20, 19, 19)"
         }
       ]
@@ -65,5 +63,5 @@ function printTheChart(data) {
   }); 
 } 
 
-getAxios(apiUrl)
+drawData(apiUrl)
 
