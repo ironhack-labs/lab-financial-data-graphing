@@ -1,20 +1,21 @@
 let apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`;
 let $update = document.getElementById("update");
+let $currency = document.getElementById("currency");
 
-getAxios(apiUrl)
+
 
 //EVENT LISTENER
 $update.addEventListener("click", () => {
-  debugger
-  let fromDate = document.getElementById("from-date");
-  let toDate = document.getElementById("to-date");
 
-  if (fromDate.value >= toDate.value) {
+  let $fromDate = document.getElementById("from-date");
+  let $toDate = document.getElementById("to-date");
+
+  if ($fromDate.value >= $toDate.value) {
     let $error = document.getElementById("error");
     $error.innerText = `The end date can not be smaller than the start date`;
   }
   else {
-    newApiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate.value}&end=${toDate.value}`;
+    newApiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${$currency.value}&start=${$fromDate.value}&end=${$toDate.value}`;
     getAxios(newApiUrl)
   }
 });
@@ -31,9 +32,10 @@ function getAxios(url){
     });
 }
 
-
 function printTheChart(data) {
   let $chart = document.getElementById("myChart").getContext("2d");
+  let $currency = document.getElementById("currency");
+
   let myChart = new Chart($chart, {
     type: "line",
     data: {
@@ -49,6 +51,19 @@ function printTheChart(data) {
           pointHoverBackgroundColor: "rgb(20, 19, 19)"
         }
       ]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: `currency ${currency.value}`
+          }
+        }]
+      }     
     }
   }); 
 } 
+
+getAxios(apiUrl)
+
