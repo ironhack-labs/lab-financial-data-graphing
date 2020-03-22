@@ -7,12 +7,15 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.3",
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.0",
-    "express": "^4.16.4",
-    "hbs": "^4.0.1",
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
     "morgan": "^1.9.1",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "webdev": "^1.0.0"
   }
 }

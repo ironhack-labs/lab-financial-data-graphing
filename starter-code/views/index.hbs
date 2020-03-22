@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <input type="date" id="start-date">    <input type="date" id="end-date">
+  <select id="currency">
+      <option id="EUR">EUR</option>
+      <option id="USD">USD</option>
+      <option id="JPY">JPY</option>
+      <option id="HKD">HKD</option>
+      <option id="AUD">AUD</option>
+      <option id="MXN">MXN</option>
+  </select>
+  <button id="update-chart">Update chart</button>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>
