@@ -5,6 +5,17 @@ axios
   })
   .catch(err => console.log("Error while getting the data: ", err));
 
+const dateFilter = e => {
+    const startDate = document.getElementById('startInput').value;
+    const endDate = document.getElementById('endInput').value;
+    axios
+    .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+    .then(results => {
+      priceChart(results.data.bpi);
+    })
+    .catch(err => console.log("Error while getting the data: ", err));os
+}
+
 const priceChart = results => {
   const ctx = document.getElementById("myChart").getContext("2d");
   const stockDates = Object.keys(results);
@@ -25,3 +36,6 @@ const priceChart = results => {
     }
   });
 };
+
+const button = document.getElementById("button-submit");
+button.addEventlistener("click", dateFilter);
