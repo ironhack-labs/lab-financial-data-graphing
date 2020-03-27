@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+#currency {
+  margin-bottom: 10px;
+}
+#statics {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
