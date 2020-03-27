@@ -1,6 +1,6 @@
 # Environment Variables should NEVER be published
 # For learning purposes we will leave .env visible, but make sure you never push it when working on your projects  
-# .env
+.env
 
 package-lock.json
 
@@ -8,7 +8,7 @@ package-lock.json
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
 
-
+.DS_Store
 
 
 

@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#canvasContainer {
+  width: 70%;
+  margin: 3% 0 0 0;
+}

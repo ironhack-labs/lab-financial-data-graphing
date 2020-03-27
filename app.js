@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 const index = require('./routes/index.routes');
 app.use('/', index);
 
+const apiRoute = require('./routes/coindesk.routes');
+app.use('/api', apiRoute);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

@@ -6,14 +6,22 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Please type a start and end date to retrieve the data: </p>
     <label for="start">Start date</label>
-    <input type="date" name="start" id="startInput">
+    <input type="date" name="start" id="startInput" value="{{startingDate}}">
     <label for="end">End date</label>
-    <input type="date" name="end" id="endInput">
-    <button type="submit" id="button-submit">Submit</button>
-    <br />
+    <input type="date" name="end" id="endInput" value="{{endingDate}}">
+    <label for="currency">Currency: </label>
+    <select name=" currency" id="currencyInput">
+      <option value="EUR" selected>EUR</option>
+      <option value="USD">USD</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <button type="submit" id="buttonSubmit">Submit</button>
+    <div id="canvasContainer">
     <canvas id="myChart"></canvas>
+    </div>
+    <p>Currency selected: <strong><span id="currencySelected">EUR</span></strong> - Min: <span id="minPrice"></span>  - Max: <span id="maxPrice"></span></p>
   </body>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
