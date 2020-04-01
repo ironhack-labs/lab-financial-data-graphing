@@ -7,6 +7,7 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.0",
@@ -14,5 +15,10 @@
     "hbs": "^4.0.1",
     "morgan": "^1.9.1",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
