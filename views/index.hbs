@@ -7,6 +7,20 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+     <input id="start" type="date" value="2020-03-01">
+     <input id="end" type="date" value="2020-03-31">
+
+     <select id="currency">
+       <option value="USD">USD</option>
+       <option value="EUR">EUR</option>
+     </select>
+     <div></div><p>Max value</p><p id="max-value"></p></div>
+     <div><p>Min value</p><p id="min-value"></p></div>
+
+
+      <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="../javascripts/financial-data.js" charset="utf-8"></script>
+   </body>
 </html>
