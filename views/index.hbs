@@ -11,9 +11,9 @@
       <div class="dates_currency_container">
         <div class="date_container">
           <label for="from">From</label>
-          <input type="date">
+          <input class="from" type="date" min="2013-09-01" value="2020-03-01">
           <label for="to">To</label>
-          <input type="date">
+          <input  class="to" type="date" max="2020-03-31" value="">
         </div>
         <label for="currency">Currency</label>
         <select name="currency" id="currency">
@@ -24,12 +24,14 @@
       <div class="values">
         <h1 class="title">Values</h1>
         <div class="values_container">
-          <h3 class="values">Max:</h3>
-          <h3 class="values">Min:</h3>
+          <h3 class="max">Max:</h3>
+          <h3 class="min">Min:</h3>
         </div>
       </div>
     </form>
+    <canvas id="canvas"></canvas>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 
