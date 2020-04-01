@@ -1,112 +1,86 @@
+// API URL
 const urlApi = 'http://api.coindesk.com/v1/bpi/historical/close.json';
 
+// HTML ELEMENTS
 const pMax = document.createElement('p');
 const pMin = document.createElement('p');
-
-const printTheChart = response => {
-  // Object with dates and prices
-  const datesAndPrices = response.data.bpi;
-  // console.log(datesAndPrices);
-
-  // Array with dates
-  const arrayDates = Object.keys(datesAndPrices);
-
-  // Array with prices
-  const arrayPrices = arrayDates.map(date => datesAndPrices[date]);
-  // console.log(arrayPrices);
-
-  const maxAndMinValues = document.querySelector('#maxAndMinValues');
-
-  const maxValue = Math.max(...arrayPrices);
-  const minValue = Math.min(...arrayPrices);
-
-  pMax.innerHTML = maxValue;
-  pMin.innerHTML = minValue;
-
-  maxAndMinValues.appendChild(pMax);
-  maxAndMinValues.appendChild(pMin);
-
-  const ctx = document.getElementById('myChart').getContext('2d');
-  const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: arrayDates, 
-      datasets: [
-        {
-          label: 'Bitcoin Price Index',
-          data: arrayPrices,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }
-      ]
-    },
-    options: {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        ]
-      }
-    }
-  });
-};
-
-axios
-	.get(urlApi)
-	.then(responseFromApi => {
-		// console.log(responseFromApi);
-		printTheChart(responseFromApi)
-	})
-	.catch(error => console.log(error));
-
+const maxAndMinValues = document.querySelector('#maxAndMinValues');
 const fromInput = document.querySelector('#fromInput');
 const toInput = document.querySelector('#toInput');
+const currencySelect = document.querySelector('#currencySelect');
 
-const inputs = [fromInput, toInput];
+// DATE CONFIG
+const dateFormater = () => {
+	const date = new Date();
 
+	let month = date.getMonth() + 1;
+	let day = date.getDate();
+	let year = date.getFullYear();
 
-inputs.forEach(input => input.addEventListener("change", () => {
+	if (day < 10) day = `0${day}`;
+	if (month < 10) month = `0${month}`;
 
-  if(fromInput && toInput) {
-    axios
-    .get(urlApi + '?start=' + fromInput.value + '&end=' + toInput.value)
-    .then(responseFromApi => {
-      // console.log(responseFromApi);
-      printTheChart(responseFromApi)
-    })
-    .catch(error => console.log(error));
-  }
-}));
+	return `${year}-${month}-${day}`;
+};
 
-const selectCurrency = document.querySelector('#selectCurrency');
+toInput.max = dateFormater();
+toInput.value = dateFormater();
+fromInput.max = dateFormater();
+fromInput.value = dateFormater();
 
-selectCurrency.addEventListener("change", () => {
-  console.log(selectCurrency.value);
-  axios
-    .get(urlApi + '?currency=' + selectCurrency.value + '&start=' + fromInput.value + '&end=' + toInput.value)
-    .then(responseFromApi => {
-      // console.log(responseFromApi);
-      // console.log(responseFromApi);
-      printTheChart(responseFromApi)
-    })
-    .catch(error => console.log(error));
-});
+// REQUEST AND CHART
+const printTheChart = responseFromApi => {
+	// Object with dates and prices
+	const datesAndPrices = responseFromApi.data.bpi;
 
+	// Array with dates
+	const arrayDates = Object.keys(datesAndPrices);
+
+	// Array with prices
+	const arrayPrices = arrayDates.map(date => datesAndPrices[date]);
+
+	// Value config
+	const maxValue = Math.max(...arrayPrices);
+	const minValue = Math.min(...arrayPrices);
+
+	pMax.innerHTML = `Max: ${maxValue.toFixed(2)} ${currencySelect.value}`;
+	pMin.innerHTML = `Min: ${minValue.toFixed(2)} ${currencySelect.value}`;
+
+	maxAndMinValues.appendChild(pMax);
+	maxAndMinValues.appendChild(pMin);
+
+	// Chart
+	const ctx = document.getElementById('myChart').getContext('2d');
+	const chart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: arrayDates,
+			datasets: [
+				{
+					label: 'Bitcoin Prices Chart',
+					backgroundColor: 'rgba(233,233,233,0.6)',
+					borderColor: 'rgb(185,185,185)',
+					data: arrayPrices
+				}
+			]
+		}
+	});
+};
+
+// EVENT LISTENERS
+const inputs = [fromInput, toInput, currencySelect];
+
+inputs.forEach(input =>
+	input.addEventListener('change', async () => {
+		if (!fromInput.value || !toInput.value) return;
+
+		try {
+			const responseFromApi = await axios.get(
+				`${urlApi}?currency=${currencySelect.value}&start=${fromInput.value}&end=${toInput.value}`
+			);
+			printTheChart(responseFromApi);
+		} catch (error) {
+			console.log(error);
+		}
+	})
+);

@@ -1,14 +1,33 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+	color: #00b7ff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#selectCurrency {
+	border: 1px solid rgb(185, 185, 185);
+	background-color: white;
+	padding: 1.5px;
+}
+
+#maxAndMinValues {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-items: flex-start;
 }
