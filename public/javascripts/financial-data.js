@@ -1,4 +1,7 @@
 let apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
+let dataArray
+let max
+let min
 
 // API call
  function apiCall() {
@@ -6,10 +9,12 @@ let apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
         .get(apiUrl)
         .then(responseFromAPI => {
             printTheChart(responseFromAPI.data);
-            console.log(responseFromAPI.data)
+            console.log(responseFromAPI.data);
+            
         })
         .catch(err => console.log("Error while getting the data: ", err));
 } 
+
 
 
 //graph 
@@ -43,6 +48,8 @@ document.getElementById('fromDate').addEventListener('input', (event) => {
    toDate= document.getElementById('toDate').value
     apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`
     apiCall()
+    // maxMin()
+    updateMaxMinAfterApiCall()
 })
 
 document.getElementById('toDate').addEventListener('input', (event) => {
@@ -50,20 +57,23 @@ document.getElementById('toDate').addEventListener('input', (event) => {
     fromDate= document.getElementById('fromDate').value
     apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`
     apiCall()
-    maxMin()
+    // maxMin()
+    updateMaxMinAfterApiCall()
 })
        
 document.getElementById('currency').addEventListener('change', (event) => {
   let  currency = event.target.value
     apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`
     apiCall()
-    maxMin()
+    // maxMin()
+   
 })
 
 function maxMin(...bitcoinPrices) {
     max = Math.max(...bitcoinPrices)
     min = Math.min(...bitcoinPrices)
-    DocumentType.getElementById('maxValue').innerText = `Max:${max}`
-    DocumentType.getElementById('minValue').innerText = `Min:${min}`
+    DocumentType.getElementById('maxValue').innerHTML = `Max:${max}`
+    DocumentType.getElementById('minValue').innerHTML = `Min:${min}`
 }
+
 
