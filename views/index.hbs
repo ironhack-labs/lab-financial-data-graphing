@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> Coindesk API Exercise </h1>
+  <p>Welcome to Coindesk API</p>
+  <div class="info">
+
+  </div>
+  <canvas id="myChart"></canvas>
+  <input type="date" id="initial-date">
+  <input type="date" id="final-date">
+  <select id="currency-select" name="currency">
+    <option value="USD" selected>Dolar</option>
+    <option value="EUR">Euro</option>
+  </select>
+  <button  id="start-btn">Start
+  </button>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
+
+
+{{!-- ADICIONADO CDN AXIOS --}}
+
+{{!-- ?index=[USD/CNY]The index to return data for. Defaults to USD. --}}
