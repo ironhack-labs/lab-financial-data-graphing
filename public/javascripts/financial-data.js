@@ -1,7 +1,5 @@
 let apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
-let dataArray
-let max
-let min
+
 
 // API call
  function apiCall() {
@@ -69,11 +67,11 @@ document.getElementById('currency').addEventListener('change', (event) => {
    
 })
 
-function maxMin(...bitcoinPrices) {
-    max = Math.max(...bitcoinPrices)
-    min = Math.min(...bitcoinPrices)
-    DocumentType.getElementById('maxValue').innerHTML = `Max:${max}`
-    DocumentType.getElementById('minValue').innerHTML = `Min:${min}`
-}
+// function maxMin(...bitcoinPrices) {
+//     max = Math.max(...bitcoinPrices)
+//     min = Math.min(...bitcoinPrices)
+//     DocumentType.getElementById('maxValue').innerHTML = `Max:${max}`
+//     DocumentType.getElementById('minValue').innerHTML = `Min:${min}`
+// }
 
 
