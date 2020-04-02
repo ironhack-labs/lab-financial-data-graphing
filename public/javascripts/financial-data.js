@@ -43,8 +43,15 @@ const printTheChart = responseFromApi => {
 	const maxValue = Math.max(...arrayPrices);
 	const minValue = Math.min(...arrayPrices);
 
-	pMax.innerHTML = `Max: ${maxValue.toFixed(2)} ${currencySelect.value}`;
-	pMin.innerHTML = `Min: ${minValue.toFixed(2)} ${currencySelect.value}`;
+	pMax.innerHTML = `Max: ${new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: `${currencySelect.value}`
+	}).format(maxValue)}`;
+
+	pMin.innerHTML = `Min: ${new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: `${currencySelect.value}`
+	}).format(minValue)}`;
 
 	maxAndMinValues.appendChild(pMax);
 	maxAndMinValues.appendChild(pMin);
