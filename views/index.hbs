@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+ 
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <canvas id="myCanvas">  
+    </canvas>
+    <label for="startDate">Starting Date</label>
+    <input type="date" id="startDate" value="2020-01-01" name="startDate">
+      
+    <label for="endDate">Ending Date</label>
+    <input type="date" id="endDate" value="2020-01-30" name="endDate">
+    <button id="sendRequest">Send</button>
+
   </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
