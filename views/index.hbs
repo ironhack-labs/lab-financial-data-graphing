@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+
+  <form action="">
+    <label for="start">Start date:</label>
+    <input type="date" for="start" id="input-start" name="trip-start" value="2020-07-22" min="2020-01-01"
+      max="2020-12-31">
+
+    <label for="finish">Finish date:</label>
+    <input type="date" for="finish" id="input-finish" name="trip-start" value="2020-07-22" min="2020-01-01"
+      max="2020-12-31">
+
+    <canvas id="my-canvas"></canvas>
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
