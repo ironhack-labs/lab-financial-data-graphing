@@ -1,7 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 
 /* GET home page. */
-router.get('/', (req, res) => res.render('index', { title: 'Express' }));
+router.get("/", cors(), (request, response) => {
+  response.render("index", { title: "Express" });
+});
 
 module.exports = router;
