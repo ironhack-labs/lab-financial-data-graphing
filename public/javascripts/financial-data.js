@@ -1,4 +1,4 @@
-const ctx = document.getElementById('blockChain').getContext('2d')
+const ctx = document.getElementById('bitCoin').getContext('2d')
 
 const filterLoad = () => {
   const initDate = document.getElementById('start-date').value
@@ -20,7 +20,7 @@ const filterLoad = () => {
           labels: dates,
           datasets: [
             {
-              label: 'Block Chain behavior figures',
+              label: 'BitCoin behavior figures',
               data: values,
               backgroundColor: ['rgba(94, 240, 200, 1)'],
               borderColor: [
