@@ -40,7 +40,17 @@ getStuff(fURL);
 console.log("reload");
 
 //user can change dates
-document.getElementById("search").onclick = (event) => {
+document.getElementById("startdate").onchange = (event) => {
+  event.preventDefault();
+  let startdate = document.getElementById("startdate").value;
+  let enddate = document.getElementById("enddate").value;
+  console.log(startdate);
+  console.log(enddate);
+  getStuff(
+    `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startdate}&end=${enddate}`
+  );
+};
+document.getElementById("enddate").onchange = (event) => {
   event.preventDefault();
   let startdate = document.getElementById("startdate").value;
   let enddate = document.getElementById("enddate").value;
