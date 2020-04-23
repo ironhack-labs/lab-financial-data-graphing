@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon -e js,hbs,scss ./bin/www",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chart": "^0.1.2",
+    "chartjs": "^0.3.24",
     "cookie-parser": "^1.4.5",
     "debug": "^4.1.1",
     "express": "^4.17.1",

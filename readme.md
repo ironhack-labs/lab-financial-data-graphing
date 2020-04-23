@@ -41,7 +41,7 @@ The app will be a super simple exercise where we are going to represent some dat
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_b94d2137d3737b49ecf92ee8709f5a14.png)
 
-Let's start!
+Let"s start!
 
 ## Iteration #1: Get data
 
@@ -51,7 +51,7 @@ Since we want to present historical data on the chart, as you can see, you have 
 
 As you can see in the image above, the Y-axis will represent the bitcoin value, while the X-axis will represent the date of each value.
 
-We are going to use Axios to make the AJAX Request, so we have to import Axios through it's CDN.
+We are going to use Axios to make the AJAX Request, so we have to import Axios through it"s CDN.
 
 **Tasks**
 
@@ -75,7 +75,7 @@ Once we have added the CDN reference in the HTML file, we have to represent the 
 
 ## Iteration #3: Dates Filter
 
-As you can see, by default, the API response gives us the last month's Price Index. In this iteration, we are going to add two date `input` to be able to filter these dates.
+As you can see, by default, the API response gives us the last month"s Price Index. In this iteration, we are going to add two date `input` to be able to filter these dates.
 
 Check out the [CoinDesk API documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api) (Historical BPI data) to figure out how we can filter the data and get the values between two dates.
 
@@ -105,7 +105,7 @@ As in the dates filter, the data has to be reloaded every time the currency chan
 
 ## Iteration #5 (Bonus): Max/Min Values
 
-To finish up with the exercise, let's add an information box where we are going to show which are the maximum and minimum values in the indicated filters.
+To finish up with the exercise, let"s add an information box where we are going to show which are the maximum and minimum values in the indicated filters.
 
 To do that, we have to get the prices from the response we got in the first iteration and select the max and min values. Once we have these values, we have to show them in the view.
 
