@@ -10,7 +10,9 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
   <div>
-  <p>From:</p><input type="date"><p>To:</p><input type="date">
+  <p>From:</p><input type="date" id="startDate">
+  <p>To:</p><input type="date" id="endDate">
+  <button id="btn-filter" onclick="filterLoad()">Filter</button>
   </div>
   <canvas id="myChart" width="400" height="400"></canvas>
 
