@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  {{!-- Axios CDN: https://github.com/axios/axios --}}
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  {{!-- Chart.js CDN: https://cdnjs.com/libraries/Chart.js --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  {{!-- Error: <script> src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'</script> --}}
+</head>
+
+<body>
+  {{!-- <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p> --}}
+
+  <div class="left-right-container">
+    <div class="left-container">
+      <h3>Filters</h3>
+
+      <form action="" method="">
+        <label for="from">From</label>
+        <input id="from" type="date">
+
+        <label for="to">To</label>
+        <input id="to" type="date">
+      </form>
+
+      <br>
+
+      <form action="" method="">
+        <label for="currency">Currency</label>
+        <select name="currency" id="currency">
+          <option value="">Choose a currency (default = USD)</option>
+          <option value="usd">USD</option>
+          <option value="usd">EUR</option>
+          <option value="huf">HUF</option>
+        </select>
+      </form>
+
+    </div>
+
+    <div class="right-container">
+      <h3>Values</h3>
+      <p>Max: <span id="max">2</span></p>
+      <p>Min: <span id="min">1</span></p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
+
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>

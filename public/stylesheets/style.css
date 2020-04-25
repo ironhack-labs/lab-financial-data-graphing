@@ -4,5 +4,18 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.left-right-container {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.chart-container {
+  position: relative;
+  height: 30vh;
+  width: 80vw;
 }
