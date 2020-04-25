@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+</body>
+<form action="/action_page.php">
+  <label for="birthday">From:</label>
+  <input class="start" type="date" id="birthday" name="">
+  <label for="">To:</label>
+  <input class="end" type="date" id="" name="">
+  <select name="" id="">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+  </select>
+</form>
+<div class="extreme-values">
+
+</div>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
