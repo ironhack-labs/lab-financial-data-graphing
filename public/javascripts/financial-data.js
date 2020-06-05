@@ -1,22 +1,19 @@
-//const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
-let dates = document.querySelectorAll('input')
+window.addEventListener('load', (event) => {
+    checkBtcPrice();
+});
+
+
+const dates = document.querySelectorAll('input')
 dates.forEach(elem => elem.addEventListener('input', () => {
-    checkByDates()
+    checkBtcPrice()
 }))
 
 const currency = document.querySelector('select#currencyCode')
 currency.addEventListener('change', () => {
-
+    checkBtcPrice()
 })
 
-axios
-    .get('http://api.coindesk.com/v1/bpi/historical/close.json')
-    .then(({data: {bpi }}) => {
-        printTheChart(bpi);
-        const prices = Array.from(Object.values(bpi));
-        showValues(prices);
-    })
-    .catch(err => console.log('Error while getting the data: ', err));
+
 
     function printTheChart(bpiData) {
         
@@ -37,16 +34,23 @@ axios
         })}
 
         function showValues(pricesArr){
-            let maxV = document.getElementById('maxValue');
-            let minV = document.getElementById('minValue');
-            maxV.innerHTML = Math.max(...pricesArr)
-            minV.innerHTML = Math.min(...pricesArr)
+            const maxV = document.getElementById('maxValue');
+            const minV = document.getElementById('minValue');
+            const currency = document.querySelector('select#currencyCode').value
+            maxV.innerHTML = `${Math.max(...pricesArr)} ${currency}`
+            minV.innerHTML = `${Math.min(...pricesArr)} ${currency}`
         }
 
-        function checkByDates () {
+        function checkBtcPrice () {
             const fromDate = document.querySelector('#fromDate').value
             const toDate = document.querySelector('#toDate').value
-            const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`
+            const currency = document.querySelector('select#currencyCode').value
+            let apiUrl = "";
+            if (toDate === "" || fromDate === ""){
+                apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`
+            } else {
+                apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`
+            }
             axios
                 .get(apiUrl)
                 .then(({
