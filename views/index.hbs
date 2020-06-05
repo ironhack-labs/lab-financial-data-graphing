@@ -15,8 +15,31 @@
 </head>
 
 <body>
-   
-<canvas id="canvasB" width="500px" height="500px"></canvas>
+   <div class="container">
+     <div class="d-flex justify-content-between">
+       <div>
+          <h3>Filter</h3>
+          <label for="from">From:</label>
+          <input type="date" name="from" id="fromDate">
+          <label for="to">To:</label>
+          <input type="date" name="to" id="toDate">
+          <br>
+          <label for="currencyCode">Currency</label>
+          <select name="currencyCode" id="currencyCode">
+            <option value="USD">US Dollars</option>
+            <option value="EUR">EURO</option>
+            <option value="ARS">Argentinian Pesos</option>
+          </select>
+       </div>
+       <div>
+         <h3>Values</h3>
+         <p>Max: <span id="maxValue"></span><span id="maxCurrency"></span></p>
+         <p>Min: <span id="minValue"></span><span id="minCurrency"></span></p>
+       </div>
+     </div>
+    <canvas id="canvasB"></canvas>
+   </div>
+
    
   <!-- Optional JavaScript -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -1,14 +1,22 @@
-const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
+//const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
+let dates = document.querySelectorAll('input')
+dates.forEach(elem => elem.addEventListener('input', () => {
+    checkByDates()
+}))
+
+const currency = document.querySelector('select#currencyCode')
+currency.addEventListener('change', () => {
+
+})
 
 axios
-    .get(apiUrl)
+    .get('http://api.coindesk.com/v1/bpi/historical/close.json')
     .then(({data: {bpi }}) => {
-        console.log(bpi)
-        printTheChart(bpi); // <== call the function here where you used to console.log() the response
+        printTheChart(bpi);
+        const prices = Array.from(Object.values(bpi));
+        showValues(prices);
     })
     .catch(err => console.log('Error while getting the data: ', err));
-
-
 
     function printTheChart(bpiData) {
         
@@ -21,9 +29,37 @@ axios
                 labels: bpiDate,
                 datasets: [{
                     label: 'Bitcoin Price',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(10, 70, 90, .4)',
+                    borderColor: 'rgb(25, 99, 132)',
                     data: bpiValues
                 }]
             }
         })}
+
+        function showValues(pricesArr){
+            let maxV = document.getElementById('maxValue');
+            let minV = document.getElementById('minValue');
+            maxV.innerHTML = Math.max(...pricesArr)
+            minV.innerHTML = Math.min(...pricesArr)
+        }
+
+        function checkByDates () {
+            const fromDate = document.querySelector('#fromDate').value
+            const toDate = document.querySelector('#toDate').value
+            const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`
+            axios
+                .get(apiUrl)
+                .then(({
+                    data: {
+                        bpi
+                    }
+                }) => {
+                    printTheChart(bpi);
+                    const prices = Array.from(Object.values(bpi));
+                    showValues(prices);
+                })
+                .catch(err => console.log('Error while getting the data: ', err));
+        }
+
+         
+
