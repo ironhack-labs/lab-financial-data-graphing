@@ -1,4 +1,5 @@
 function callApi() {
+  
   const currency = document.getElementById("currency").value;
   const initDate = document.getElementById("init").value;
   const finalDate = document.getElementById("final").value;
@@ -34,7 +35,7 @@ function printChart(btcData, currency) {
       datasets: [
         {
           label: "Bitcoin Values (" + currency + ")",
-          backgroundColor: "blue",
+          backgroundColor: "#D4AF37",
           borderColor: "red",
           data: btcPrice,
         },
@@ -42,3 +43,5 @@ function printChart(btcData, currency) {
     },
   });
 }
+
+window.onload(callApi());
