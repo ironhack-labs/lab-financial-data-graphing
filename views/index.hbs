@@ -8,20 +8,27 @@
 
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <label for="">Start Date</label>
-    <input type="date" name="start-date" id="start-date">
-    <label for="">End Date</label>
-    <input type="date" name="end-date" id="end-date">
-    <label for="">Currency</label>
-    <select name="currency" id="currency">
-      <option value="eur" selected>Euro</option>
-      <option value="usd">USD</option>
-      <option value="gbp">GBP</option>
-    </select>
-    <p>Highest Value: <span id="max-value"></span></p>
-    <p>Lowest Value: <span id="min-value"></span></p>
+    <div class="container">
+      <div class="filters">
+        <h1> Filters </h1>
+        <label for="">From</label>
+        <input type="date" name="start-date" id="start-date">
+        <label for="">To</label>
+        <input type="date" name="end-date" id="end-date">
+        <label for="">Currency</label>
+        <select name="currency" id="currency">
+          <option value="EUR" selected>Euro (€)</option>
+          <option value="USD">US Dollar ($)</option>
+          <option value="GBP">GB Pound (£)</option>
+        </select>
+      </div>
+      <div class="values">
+        <h1>Values</h1>
+        <p>Max: <span id="max-value"></span></p>
+        <p>Min: <span id="min-value"></span></p>
+      </div>
+    </div>
+
     <div class="graph">
       <canvas id="myChart"></canvas>
     </div>

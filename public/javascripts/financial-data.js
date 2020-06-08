@@ -25,7 +25,7 @@ let end = "";
 let currency = $currency.value;
 
 window.onload = (event) => {
-    printTheChart()
+    printTheChart();
   };
 
 function printTheChart() {
@@ -36,7 +36,6 @@ function printTheChart() {
     }
     axios.get(url)
     .then(function (response) {
-      // handle success
       values = Object.values(response.data.bpi);
       dates = Object.keys(response.data.bpi);
       var ctx = document.getElementById('myChart').getContext('2d');
@@ -45,7 +44,7 @@ function printTheChart() {
         data: {
             labels: dates,
             datasets: [{
-                label: 'worth',
+                label: 'Bitcoin Price Index',
                 data: values,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -57,17 +56,20 @@ function printTheChart() {
                 borderWidth: 1
             }]
         },
+        options :{
+            responsive: true,
+            maintainAspectRatio: false,
+        }
     });
-    document.getElementById('min-value').innerHTML = Math.min(...values);
-    document.getElementById('max-value').innerHTML = Math.max(...values);
+    document.getElementById('min-value').innerHTML = `${Math.min(...values)} ${currency}`;
+    document.getElementById('max-value').innerHTML = `${Math.max(...values)} ${currency}`;
 
 
 
     })
     .catch(function (error) {
-      // handle error
       console.log(error);
-    })
+    });
 }
 
 

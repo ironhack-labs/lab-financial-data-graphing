@@ -7,6 +7,12 @@ a {
   color: #00B7FF;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .graph {
-  width: 70vw;
+  position: relative;
+  height: 70vh;
 }
