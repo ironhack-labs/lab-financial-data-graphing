@@ -3,10 +3,31 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class="container">
+      <div class="input-container">
+          <h1> Welcome to Bitcoin graphical data UI</h1>
+          <label for="date">From</label>
+          <input type="date" name="from" id="from">
+          <label for="to">To</label>
+          <input type="date" name="to" id="to">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="usd" selected="selected">USD</option>
+            <option value="eur">EUR</option>
+          </select>
+      </div>
+      <div id="info-box">
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+    
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

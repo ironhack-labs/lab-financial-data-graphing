@@ -1,8 +1,52 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.chart-container{
+  position: relative;
+  width: 80vw;
+  height: 10vh;
+}
+
+#info-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  right: 350px;
+  bottom: 85px;
+  width: 7%;
+  float: right;
+}
+
+#info-box p{
+  font-size: 1.8em;
+  margin: 0;
+  padding:5px;
+}
+
+.input-container label{
+  padding: 1px;
+  font-weight: bold;
+}
+
+.input-container input{
+  padding:0.2%;
+  margin: 5px;
+}
+
+.input-container select{
+  padding: 0.35%;  
+}
+
+#max span{
+  color:green;
+}
+
+#min span{
+  color:red;
 }
