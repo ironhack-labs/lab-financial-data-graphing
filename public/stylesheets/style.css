@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.wrapper .values-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+  <body>  
+    <div class="wrapper">
+      <div class="filter-bar">
+        <h1>Filters</h1>
+        <label for="startDate">From: </label>
+        <input type="date" name="startDate" id="startDate">
+        <label for="endDate">To:</label>
+        <input type="date" name="endDate" id="endDate">
+        <label for="currencySelector">Currency:</label>
+        <select name="currencySelector" id="currencySelector">
+          <option value="1">US Dollar ($)</option>
+          <option value="2">Euro (€)</option>
+          <option value="3">British Pound (£)</option>
+        </select>
+      </div>
+      <div class="values-bar">
+        <h2>Values</h2>
+        <ul>
+          <li>Max: <span>00000</span> USD</li>
+          <li>Min: <span>00000</span> USD</li>
+        </ul>
+      </div>
+    </div>
+
+    <canvas id="myChart"></canvas>
+    
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
