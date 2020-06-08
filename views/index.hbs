@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <main class="container">
+    <span>From: </span>
+    <input type="date" id="init" value="2020-05-04">
+    <span>To: </span>
+    <input type="date" id="final" value="2020-06-03">
+    <br><br>
+    <span>Currency: </span>
+    <select id="currency">
+      <option value="EUR" selected>EUR</option>
+      <option value="USD">US</option>
+    </select>
+    <button onclick="callApi()">Print Chart</button>
+    <span>Max Value: </span> <span id="max-value"></span>
+    <span>Min Value: </span> <span id="min-value"></span>
+    <br><br>
+    <hr>
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </main>
+</body>
+
+
+
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
