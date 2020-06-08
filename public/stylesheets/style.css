@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+label{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dates{
+  margin-bottom: 20px;
+}
+
+.values{
+  text-align: right;
+}

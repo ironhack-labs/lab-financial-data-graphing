@@ -7,17 +7,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-    <label for="startDate">Start date:</label>
-    <input id="startDate" type="date" name="startDate" >
-    <label for="endDate">End date:</label>
-    <input id="endDate" type="date" name="endDate" >
-    <label for="currency">Currency:</label>
-    <input id="currency" type = "text" name="currency" value="USD">
-    <button id="submitBtn">Submit</button>
+    <div class="container">
+      <div class="prompt">
+        <h1> Filters </h1>
+        <div class="dates">
+          <label for="startDate">From:</label>
+          <input id="startDate" class="input" type="date" name="startDate">
+          <label for="endDate">To:</label>
+          <input id="endDate" class="input" type="date" name="endDate" >
+        </div>
+        <div class="currencies">
+          <label for="currency">Currency:</label>
+          <select id="currency" class="input" name="currency">
+            <optgroup>
+              <option value="USD">US Dollar ($)</option>
+              <option value="EUR">Euro (€)</option>
+            </optgroup>
+            <optgroup>
+                <option value="GBP">Pound (£)</option>
+                <option value="JPY">Japanese yen (¥)</option>
+                <option value="CNY">Renminbi (元)</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      
+      <div class="values">
+        <h1>Values</h1>
+        <p>Min: <span class="value-min"></span></p>
+        <p>Maxn <span class="value-max"></span></p>
+      </div>
+    </div>
+
+
 
     <canvas id="myChart" width="400" height="200"></canvas>
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
