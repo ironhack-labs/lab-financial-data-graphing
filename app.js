@@ -40,4 +40,8 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
+app.listen(3000, ()=> {
+  console.log("Webserver is listening");
+});
+
 module.exports = app;
