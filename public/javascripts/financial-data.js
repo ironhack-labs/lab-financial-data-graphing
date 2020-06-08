@@ -9,6 +9,12 @@ $endDate.addEventListener('change', function(){
     printTheChart();
 });
 
+$startDate.addEventListener('change', function(){
+    start = $startDate.value;
+    end = $endDate.value;
+    printTheChart();
+});
+
 $currency.addEventListener('change', function(){
     currency = $currency.value;
     printTheChart();
@@ -23,7 +29,7 @@ window.onload = (event) => {
   };
 
 function printTheChart() {
-    let url = `https://api.coindesk.com/v1/bpi/historical/close.json?`;
+    let url = `https://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`;
 
     if (start && end) {
         url += `&start=${start}&end=${end}`;
@@ -54,6 +60,9 @@ function printTheChart() {
     });
     document.getElementById('min-value').innerHTML = Math.min(...values);
     document.getElementById('max-value').innerHTML = Math.max(...values);
+
+
+
     })
     .catch(function (error) {
       // handle error

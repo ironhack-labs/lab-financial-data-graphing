@@ -2,7 +2,7 @@
 <html>
   <head>
     <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='./stylesheets/style.css'>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
@@ -22,8 +22,9 @@
     </select>
     <p>Highest Value: <span id="max-value"></span></p>
     <p>Lowest Value: <span id="min-value"></span></p>
-
-    <canvas id="myChart" width="0.1" height="100"></canvas>
+    <div class="graph">
+      <canvas id="myChart"></canvas>
+    </div>
     <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
 
