@@ -19,12 +19,11 @@ a {
   position: relative;
   right: 350px;
   bottom: 85px;
-  width: 7%;
   float: right;
 }
 
 #info-box p{
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 0;
   padding:5px;
 }
