@@ -2,11 +2,30 @@
 <html>
   <head>
     <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <h2>Filters:</h2>
+      <label for="start-date">From:</label>
+      <input type="date" id="start-date" class="input-dates" name="startDate">
+      <label for="date">To:</label>
+      <input type="date" id="end-date" class="input-dates" name="endDate">
+
+    <h2>Currency:</h2>
+    <label for="currencies">Choose a car:</label>
+      <select name="currencies" id="currencies">
+        <option value="USD">US Dollar</option>
+        <option value="EUR">Euro</option>
+      </select>
+
+    <h3>Lowest value:</h3>
+    <p id="min-value"> </p>
+    <h3>Highest value:</h3>
+    <p id="max-value"></p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
 </html>

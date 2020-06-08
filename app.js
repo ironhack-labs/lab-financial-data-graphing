@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const axios = require('axios').default;
 
 const app = express();
 
@@ -41,3 +42,5 @@ app.use((err, req, res) => {
 });
 
 module.exports = app;
+
+app.listen(3000, console.log("App up and running!"))
