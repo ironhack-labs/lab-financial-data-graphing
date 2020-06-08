@@ -1,5 +1,7 @@
 const $startDate = document.getElementById('start-date');
 const $endDate = document.getElementById('end-date');
+const $currency = document.getElementById('currency');
+
 
 $endDate.addEventListener('change', function(){
     start = $startDate.value;
@@ -7,8 +9,14 @@ $endDate.addEventListener('change', function(){
     printTheChart();
 });
 
+$currency.addEventListener('change', function(){
+    currency = $currency.value;
+    printTheChart();
+});
+
 let start = "";
 let end = "";
+let currency = $currency.value;
 
 window.onload = (event) => {
     printTheChart()
@@ -18,7 +26,7 @@ function printTheChart() {
     let url = `https://api.coindesk.com/v1/bpi/historical/close.json?`;
 
     if (start && end) {
-        url += `start=${start}&end=${end}`;
+        url += `&start=${start}&end=${end}`;
     }
     axios.get(url)
     .then(function (response) {
@@ -44,12 +52,14 @@ function printTheChart() {
             }]
         },
     });
-
+    document.getElementById('min-value').innerHTML = Math.min(...values);
+    document.getElementById('max-value').innerHTML = Math.max(...values);
     })
     .catch(function (error) {
       // handle error
       console.log(error);
     })
 }
+
 
 

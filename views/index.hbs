@@ -16,10 +16,13 @@
     <input type="date" name="end-date" id="end-date">
     <label for="">Currency</label>
     <select name="currency" id="currency">
-      <option value="EUR" selected>Euro</option>
-      <option value="USD">USD</option>
-      <option value="GBP">GBP</option>
+      <option value="eur" selected>Euro</option>
+      <option value="usd">USD</option>
+      <option value="gbp">GBP</option>
     </select>
+    <p>Highest Value: <span id="max-value"></span></p>
+    <p>Lowest Value: <span id="min-value"></span></p>
+
     <canvas id="myChart" width="0.1" height="100"></canvas>
     <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
