@@ -4,27 +4,25 @@ axios
     .get(apiUrl)
     .then(apiResponse => {
         console.log(apiResponse);
-        printChart(apiResponse.data)
+        printChart(apiResponse.data.bpi)
     })
     .catch(err => console.log('Error getting data from API', err))
 
 
 const printChart = graphData => {
-    const dailyData = graphData['Time Series (Daily)'];
-    const stockDates = Object.keys(dailyData);
-    const stockPrices = stockDates.map(date => dailyData[date]['4. close']);
-
+    const dates = Object.keys(graphData);
+    const prices = Object.values(graphData)
     const ctx = document.getElementById('myChart').getContext('2d');
-    const chart = new chart(ctx, {
+    const chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: stockDates,
+            labels: dates,
             datasets: [
                 {
                     label: 'Bitcoin Price Index Chart',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: stockPrices
+                    data: prices
                 }
             ]
         }
