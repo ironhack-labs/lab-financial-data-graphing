@@ -16,16 +16,17 @@
         <input type="date" name="endDate" id="endDate">
         <label for="currencySelector">Currency:</label>
         <select name="currencySelector" id="currencySelector">
-          <option value="1">US Dollar ($)</option>
-          <option value="2">Euro (€)</option>
-          <option value="3">British Pound (£)</option>
+          <option value="USD">US Dollar ($)</option>
+          <option value="EUR">Euro (€)</option>
+          <option value="GBP">British Pound (£)</option>
         </select>
+        <button id="showBtn">Show</button>
       </div>
       <div class="values-bar">
         <h2>Values</h2>
         <ul>
-          <li>Max: <span>00000</span> USD</li>
-          <li>Min: <span>00000</span> USD</li>
+          <li>Max: <span id="maxValue"></span></li>
+          <li>Min: <span id="minValue"></span></li>
         </ul>
       </div>
     </div>
