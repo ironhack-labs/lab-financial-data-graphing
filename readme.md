@@ -117,3 +117,10 @@ To do that, we have to get the prices from the response we got in the first iter
 - Show these values in the information box we have added to the view.
 
 Happy coding! :heart:
+
+**PART 2**
+- Flujo de Sign up
+- Flujo de Login
+- Opción para logout
+- Mostrar las acciones del usuario logueado solamente en una página protegida por autenticación
+
