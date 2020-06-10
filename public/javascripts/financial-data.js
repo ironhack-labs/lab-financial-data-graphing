@@ -1,6 +1,6 @@
 // Initial load
 axios
-        .get(`http://api.coindesk.com/v1/bpi/historical/close.json`)
+        .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=2020-01-01&end=2020-06-01&currency=USD`)
         .then(responseApi => {
             const bitcoinValue = responseApi.data.bpi
             const dates = Object.keys(bitcoinValue)
