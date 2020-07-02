@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+  <div class="row">
+    <div class="col-4">
+      <h2>Filters</h2>
+      <input type="date" id="start">
+      <input type="date" id="end">
+      <select id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <button id="canvas-update">Update</button>
+    </div>
+    <div class="col-4">
+      <h2>Values</h2>
+      <h4>Max: <span id="max"></span></h4>
+      <h4>Min: <span id="min"></span></h4>
+    </div>
+  </div>
+
+  <canvas width="550px" height="150px" id="bitcoin-canvas"></canvas>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
