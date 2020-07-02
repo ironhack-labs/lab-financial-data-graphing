@@ -2,9 +2,15 @@ const api = axios.create({
     baseURL: 'http://api.coindesk.com/v1/bpi',
 });
 
-const fetchHistoricalData = async () => {
+const fetchHistoricalData = async (start, end, currency) => {
+
+    start = start === '' ? "2020-05-01" : start
+    end = end === '' ? "2020-06-01" : end
+
+
+
     try {
-        const { data } = await api.get('/historical/close.json');
+        const { data } = await api.get(`/historical/close.json?start=${start}&end=${end}&currency=${currency}`);
         return data
     } catch (error) {
         console.error(error);
@@ -12,25 +18,25 @@ const fetchHistoricalData = async () => {
 }
 
 
-const getHistoricalData = async () => {
-    const result = await fetchHistoricalData()
-    console.log(result)
+const getHistoricalData = async (start, end, currency) => {
+    const result = await fetchHistoricalData(start, end, currency)
     return result
 }
 
-
-const ctx = document.getElementById('myChart').getContext('2d');
-
 const printChart = async () => {
-    const data = await getHistoricalData()
-    const dailyData = "Coins"
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+
+    const dateFrom = document.getElementById('dateFrom').value;
+    const dateTo = document.getElementById('dateTo').value;
+    const currency = document.getElementById('currency').value;
+
+    const data = await fetchHistoricalData(dateFrom, dateTo, currency)
     //data for x
     const timeData = Object.keys(data.bpi)
     //data for y
-    const coinsValue = Object.values(data.bpi)
-    console.log('timeData', timeData)
-    console.log('coinsValue', coinsValue)
-
+    const biticoinValue = Object.values(data.bpi)
 
     const myChart = new Chart(ctx, {
         type: 'line',
@@ -38,7 +44,7 @@ const printChart = async () => {
             labels: timeData,
             datasets: [{
                 label: 'Biticoin Price Index',
-                data: coinsValue,
+                data: biticoinValue,
                 backgroundColor: [
 
                     'rgba(54, 162, 235, 0.2)',
@@ -48,21 +54,18 @@ const printChart = async () => {
                     'rgba(255, 99, 132, 1)',
 
                 ],
-                borderWidth: 1
+                borderWidth: 2
             }]
         },
         options: {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 }]
             }
         }
     });
-
-
-
 }
 printChart()

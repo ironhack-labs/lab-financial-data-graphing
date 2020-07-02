@@ -11,7 +11,15 @@
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
-
+  <label for="dateFrom">From</label><input type="date" name="dateFrom" id="dateFrom" onchange="printChart()">
+  <label for=" dateTo">To</label><input type="date" name="dateTo" id="dateTo" onchange="printChart()">
+  <label for=" select">Currency</label>
+  <select name="currency" id="currency" onchange="printChart()">
+    <optgroup label="Currency">
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+    </optgroup>
+  </select>
   <canvas id="myChart" width="400" height="400"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
