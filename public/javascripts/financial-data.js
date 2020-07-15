@@ -1,4 +1,14 @@
- const renderChart = (data) => {
+window.onload = () => {
+  const today = Date.now('YYYY/MM/DD')
+  console.log(today);
+  // $('#end').attr('value', today)
+
+  $('#start, #end').datepicker({
+      uiLibrary: 'bootstrap4'
+  });
+} 
+ 
+const renderChart = (data) => {
   const dataStock = data.bpi
   const dataLabels = Object.keys(dataStock)
   const dataSets = Object.values(dataStock)
@@ -23,6 +33,10 @@
 axios.interceptors.response.use(config => {return config.data})
 
 // Get data from api
-axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
+const url = 'http://api.coindesk.com/v1/bpi/historical/close.json'
+const start = '2013-09-01'
+const end = '2013-09-05'
+
+axios.get(`${url}?start=${start}&end=${end}`)
   .then(data => renderChart(data))
   .catch(error => console.error(error))
