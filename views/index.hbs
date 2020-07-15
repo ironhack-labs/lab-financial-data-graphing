@@ -7,6 +7,15 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <form action="">
+      <label for="from">From: </label>
+      <input type="date" id="start-date">
+      <label for="to">To: </label>
+      <input type="date" id="end-date">
+    </form>
+    <canvas id="my-chart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
