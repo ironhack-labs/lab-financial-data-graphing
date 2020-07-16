@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Financial data </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div id="value">
+      <h2>Values</h2>
+      <div>Max: <span id="max-value"></span></div>
+      <div>Min: <span id="min-value"></span></div>
+    </div>
+
+    <div>
+      <h2>Filters</h2>
+      <div>
+        <span>From:</span>
+        <input type="date" class="change" id="date-start">
+        <span>To:</span>
+        <input type="date" class="change" id="date-end">
+      </div>
+      <div>
+        <span>Currency:</span>
+        <select class="change" id="select-current">
+          <option value="USD">US Dollar ($)</option>
+          <option value="EUR">Euro (€)</option>
+          <option value="GBP">Libra (£)</option>
+        </select>
+      </div>
+    </div>
+
+    <canvas id="my-chart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

@@ -1,8 +1,19 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+#value {
+  float: right;
+}
+#value > div {
+  margin: 15px 0;
+}
+#select-current {
+  margin: 30px 0;
 }
