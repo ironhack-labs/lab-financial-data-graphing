@@ -10,12 +10,17 @@
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
 
-<form id="form1">
-  <label for="dateFrom">Date From:</label>
-  <input type="date" id="dateFrom" name="dateFrom">
-  <label for="dateTo">Date To:</label>
-  <input type="date" id="dateTo" name="dateTo">
-</form>
+  <form id="form1">
+    <label for="dateFrom">Date From:</label>
+    <input type="date" id="dateFrom" name="dateFrom">
+    <label for="dateTo">Date To:</label>
+    <input type="date" id="dateTo" name="dateTo">
+    <select name="select" id="currency">
+      <option value="EUR" selected>EUR</option>
+      <option value="USD">USD</option>
+      <option value="GBP">GBP</option>
+    </select>
+  </form>
   <canvas id="myChart"></canvas>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
