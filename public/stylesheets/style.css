@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+div.flex{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+}
+div.values{
+  text-align: right;
+}

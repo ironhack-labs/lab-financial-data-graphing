@@ -1,55 +1,58 @@
 const inputs = document.querySelectorAll("input[type=date]")
 const currencyOption = document.getElementById("currency")
-const currency = document.getElementById("currency").value
+
+const allElements = [currencyOption,...inputs]
 
 
-
-
-
-inputs.forEach((el) =>
+allElements.forEach((el) =>
   el.addEventListener("change", function () {
-    const startDate = document.getElementById("date-value-start").value;
-    const endDate = document.getElementById("date-value-end").value;
-    getData(startDate, endDate);
+    const currency = document.getElementById("currency").value
+    const startDate = document.getElementById("date-value-start").value
+    const endDate = document.getElementById("date-value-end").value
+    getData(startDate, endDate, currency)
   })
-);
+)
 
-const startDate = document.getElementById("date-value-start").value;
-const endDate = document.getElementById("date-value-end").value;
+const currency = document.getElementById("currency").value
+const startDate = document.getElementById("date-value-start").value
+const endDate = document.getElementById("date-value-end").value
 
 function getData(startDate, endDate, currency) {
   axios
     .get(
-      `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}?currency=${currency}`
+      `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}&?start=${startDate}&end=${endDate}&`
     )
     .then((responseFromAPI) => {
       printTheChart(responseFromAPI.data.bpi);
-      // <== call the function here where you used to console.log() the response
     })
     .catch((err) => console.log("Error while getting the data: ", err));
-
-  function printTheChart(bitcoinPriceIndex) {
-    const dailyData = bitcoinPriceIndex;
-    const dates = Object.keys(bitcoinPriceIndex);
-    const valuesPrice = dates.map((value) => dailyData[value]);
-    const ctx = document.getElementById("my-chart").getContext("2d");
-    const chart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: dates,
-        datasets: [
-          {
-            label: "Bitcoin Price Index",
-            backgroundColor: "rgba(255, 99, 132, .5)",
-            borderColor: "grey",
-            data: valuesPrice,
-          },
-        ],
-      },
-    }); // closes chart = new Chart()
-  } // closes printTheChart()
 }
 
-currencyOption.addEventListener("change", getData(startDate, endDate, currency) )
+function printTheChart(bitcoinPriceIndex) {
+  const dailyData = bitcoinPriceIndex;
+  const dates = Object.keys(bitcoinPriceIndex);
+  const valuesPrice = dates.map((value) => dailyData[value])
+  const maxPrice = Math.max.apply( Math, valuesPrice ) 
+  const minPrice = Math.min.apply( Math, valuesPrice ) 
+  document.getElementById('max-value').innerText = `${maxPrice}`
+  document.getElementById('min-value').innerText = `${minPrice}`
+  const ctx = document.getElementById("my-chart").getContext("2d");
+  const chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: dates,
+      datasets: [
+        {
+          label: "Bitcoin Price Index",
+          backgroundColor: "rgba(255, 99, 132, .5)",
+          borderColor: "grey",
+          data: valuesPrice,
+        },
+      ],
+    },
+  })
+} 
 
-window.addEventListener("load", getData(startDate, endDate, currency), false);
+
+
+getData(startDate, endDate, currency)
