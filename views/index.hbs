@@ -8,13 +8,19 @@
 
 <body>
   <h2>Filters</h2>
-  <button onclick="getInfo()">Data</button>
   <form action="">
     <label for="from">From:</label>
-    <input type="date" name="from" id="date-from">
+    <input type="date" name="from" id="date-from" value="2013-09-01">
     <label for="to">To:</label>
-    <input type="date" name="to" id="date-to">
+    <input type="date" name="to" id="date-to" value="2013-09-05">
   </form>
+
+  <div>
+    <select name="currency" id="select-currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
 
   <div>
     <canvas id="myChart" width="400" height="400"></canvas>

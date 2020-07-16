@@ -1,7 +1,26 @@
-function getInfo() {
-    axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
+const dateFromInput = document.getElementById('date-from');
+const dateToInput = document.getElementById('date-to');
+const currencyInput = document.getElementById('select-currency');
+let from = dateFromInput.value;
+let to = dateToInput.value;
+let currency = currencyInput.value;
+
+window.addEventListener('load', getInfo(from, to));
+
+dateFromInput.addEventListener('input', () => {
+  from = dateFromInput.value;
+  getInfo(from, to);
+});
+
+dateToInput.addEventListener('input', () => {
+  to = dateToInput.value;
+  getInfo(from, to);
+});
+
+
+function getInfo(from, to) {
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}` )
         .then(response => printChart(response.data))
-        //.then(r => console.log(r))
         .catch(error => console.error(error));
 }
 
