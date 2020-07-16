@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;800&display=swap');
+
+$black: #000;
+$white: #fff;
+$yellow: #fcc118;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font: 1.4rem 'Mulish', sans-serif;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.banner {
+  background: $black;
+  padding: 2rem;
+
+  img {
+    height: 4rem;
+  }
+}
+
+.select-dates {
+  background: $yellow;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  input {
+    background: transparent;
+    border: solid 0.1rem $white;
+    color: $white;
+    padding: 1rem;
+    margin-left: 1rem;
+  }
+
+  [type='date']::-webkit-calendar-picker-indicator {
+    opacity: 1;
+  }
+
+  select {
+    background: transparent;
+    border: solid 0.1rem $white;
+    color: $white;
+    height: 4.5rem;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+  }
+}
+
+.canvas {
+  canvas {
+    margin-top: 6rem;
+  }
+
+  .block-val {
+    border-top: solid 0.1rem $yellow;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+
+    .values {
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .max,
+      .min {
+        font-weight: 800;
+      }
+    }
+  }
+}

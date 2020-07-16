@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <section class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center banner">
+        <img src="../images/logo.svg">
+      </div>
+    </div>
+    <div class="row select-dates">
+      <h3>Filters</h3>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-4 d-flex justify-content-center">
+            <label for="from">
+              From
+              <input id="from" type="date">
+            </label>
+          </div>
+          <div class="col-4 d-flex justify-content-center">
+            <label for="to">
+              To
+              <input id="to" type="date">
+            </label>
+          </div>
+
+          <div class="col-4 d-flex align-items-center justify-content-center">
+            <label for="currency">Currency</label>
+            <select class="custom-select" id="currency">
+              <option selected>Change currency</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <section class="container home canvas">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <canvas id="my-chart"></canvas>
+      </div>
+      <div class="block-val col-12">
+        <div class="col-6 values">
+          <h3>Values</h3>
+          <div class="value">Max value: <span class="max"></span></div>
+          <div class="value">Min value: <span class="min"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>

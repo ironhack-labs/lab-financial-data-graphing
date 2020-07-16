@@ -1,8 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;800&display=swap");
+html {
+  font-size: 10px;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.4rem 'Mulish', sans-serif;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
+
+.banner {
+  background: #000;
+  padding: 2rem;
+}
+
+.banner img {
+  height: 4rem;
+}
+
+.select-dates {
+  background: #fcc118;
+  padding: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.select-dates input {
+  background: transparent;
+  border: solid 0.1rem #fff;
+  color: #fff;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.select-dates [type='date']::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+.select-dates select {
+  background: transparent;
+  border: solid 0.1rem #fff;
+  color: #fff;
+  height: 4.5rem;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+}
+
+.canvas canvas {
+  margin-top: 6rem;
+}
+
+.canvas .block-val {
+  border-top: solid 0.1rem #fcc118;
+  margin-top: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.canvas .block-val .values {
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.canvas .block-val .values .max,
+.canvas .block-val .values .min {
+  font-weight: 800;
+}
+/*# sourceMappingURL=style.css.map */
