@@ -6,6 +6,13 @@ function showMaxAndMin(data) {
 }
 
 function drawChart(data) {
+    const displayChart = document.getElementById('display-chart');
+    displayChart.innerHTML = '';
+
+    const canvasTag = document.createElement('canvas');
+    canvasTag.setAttribute('id', 'my-chart');
+    displayChart.appendChild(canvasTag);
+
     const dates = Object.keys(data);
     const values = Object.values(data);
     showMaxAndMin(values);
