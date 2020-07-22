@@ -18,21 +18,29 @@
       </div>
       <div class="col-12">
         <h4>Filter from</h4>
+        <div id="error" class="alert alert-danger d-none">
+
+        </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <label for="start">Select start</label>
         <input id="start" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <label for="end">Select end</label>
         <input id="end" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <label for="currency">State</label>
         <select id="currency" class="form-control">
           <option selected>USD</option>
-          <option>EU</option>
+          <option>EUR</option>
         </select>
+      </div>
+      <div class="col-12 col-md-3">
+        <h4>Values</h4>
+        <p id="maxV"></p>
+        <p id="minV"></p>
       </div>
       <div class="col-12">
         <canvas id="myChart" width="400" height="200"></canvas>

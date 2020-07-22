@@ -1,40 +1,72 @@
+const twoDigits = value => { return value > 9 ? value : `0${value}`}
+const today = new Date().toISOString().slice(0,10);
+const monthAgo = new Date().getUTCFullYear() + '-' + twoDigits(new Date().getUTCMonth()) + '-' + twoDigits(new Date().getUTCDate())
+
+let currency = 'USD'
+
 window.onload = () => {
-  const today = Date.now("YYYY-MM-DD")
-  console.log(today)
-  // $('#end').attr('value', today)
-  $("#start").datepicker({
+  $("#start, #end").datepicker({
     format: 'yyyy-mm-dd',
     uiLibrary: "bootstrap4",
   })
 
-  $("#end").datepicker({
-    format: 'yyyy-mm-dd',
-    uiLibrary: "bootstrap4",
-  })
-  const startV = $("#start").val("2013-09-01").toString()
-  const endV = $("#end").val("2013-09-05").toString()
-  refreshChart("2013-09-01", "2013-09-05")
+  $("#start").val(monthAgo)
+  $("#end").val(today)
+
+  refreshChart(monthAgo, today, currency)
 }
 
-$("#start").change(function () {
-  console.log($("#start").val())
-  const startV = $("#start").val().toString()
-  const endV = $("#end").val().toString()
-  refreshChart(startV, endV)
+const errorDates = () => {
+  $("#errror").removeClass('d-none')
+  $("#errror").innerText('Start date cannot be greater than or equal to end date') 
+  setTimeout(() => {
+    $("#errror").addClass('d-none')
+  }, 3000);
+}
+
+$("#start, #end").change(function () {
+  const startV = $("#start").val()
+  const endV = $("#end").val()
+  if (startV > endV) {
+    return errorDates()
+  }
+  refreshChart(startV, endV, currency)
+})
+$("#currency").change(function () {
+  const startV = $("#start").val()
+  const endV = $("#end").val()
+  currency = $("#currency").val()
+  if (startV > endV) {
+    return errorDates()
+  }
+  refreshChart(startV, endV, currency)
 })
 
-$("#end").change(function () {
-  console.log($("#end").val())
-  const startV = $("#start").val().toString()
-  const endV = $("#end").val().toString()
-  refreshChart(startV, endV)
+$("#start, #end").change(function () {
+  const startV = $("#start").val()
+  const endV = $("#end").val()
+  if (startV > endV) {
+    return errorDates()
+  }
+  refreshChart(startV, endV, currency)
 })
+
+const updateValuesMaxMin = (maxVal, minVal) => {
+  $("#maxV").html(`Max: ${maxVal} ${currency}`)
+  $("#minV").html(`Min: ${minVal} ${currency}`)
+}
 
 const renderChart = (data) => {
   const dataStock = data.bpi
   const dataLabels = Object.keys(dataStock)
   const dataSets = Object.values(dataStock)
-
+  const maxVal = dataSets.reduce((a, b) => {
+      return a > b ? a : b 
+  })
+  const minVal = dataSets.reduce((a, b) => {
+      return a < b ? a : b 
+  })
+  updateValuesMaxMin(maxVal, minVal)  
   const ctx = document.getElementById("myChart").getContext("2d")
   const myChart = new Chart(ctx, {
     type: "line",
@@ -58,12 +90,12 @@ axios.interceptors.response.use((config) => {
   return config.data
 })
 
-const refreshChart = (start, end) => {
+const refreshChart = (start, end, currency) => {
   // Get data from api
   const url = "http://api.coindesk.com/v1/bpi/historical/close.json"
 
   axios
-    .get(`${url}?start=${start}&end=${end}`)
+    .get(`${url}?start=${start}&end=${end}&currency=${currency}`)
     .then((data) => renderChart(data))
     .catch((error) => console.error(error))
 }
