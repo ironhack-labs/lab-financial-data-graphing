@@ -5,7 +5,11 @@ const monthAgo = new Date().getUTCFullYear() + '-' + twoDigits(new Date().getUTC
 let currency = 'USD'
 
 window.onload = () => {
-  $("#start, #end").datepicker({
+  $("#start").datepicker({
+    format: 'yyyy-mm-dd',
+    uiLibrary: "bootstrap4",
+  })
+  $("#end").datepicker({
     format: 'yyyy-mm-dd',
     uiLibrary: "bootstrap4",
   })
@@ -17,14 +21,24 @@ window.onload = () => {
 }
 
 const errorDates = () => {
-  $("#errror").removeClass('d-none')
-  $("#errror").innerText('Start date cannot be greater than or equal to end date') 
+  $("#error").removeClass('d-none')
+  $("#start").addClass('is-invalid')
+  $("#error").html('Start date cannot be greater than or equal to end date') 
   setTimeout(() => {
-    $("#errror").addClass('d-none')
-  }, 3000);
+    $("#error").addClass('d-none')
+    $("#start").removeClass('is-invalid')
+  }, 5000);
 }
 
-$("#start, #end").change(function () {
+$("#start").change(function () {
+  const startV = $("#start").val()
+  const endV = $("#end").val()
+  if (startV > endV) {
+    return errorDates()
+  }
+  refreshChart(startV, endV, currency)
+})
+$("#end").change(function () {
   const startV = $("#start").val()
   const endV = $("#end").val()
   if (startV > endV) {
