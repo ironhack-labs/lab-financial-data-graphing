@@ -11,6 +11,7 @@
     "cookie-parser": "^1.4.5",
     "debug": "^4.1.1",
     "express": "^4.17.1",
+    "favicon": "0.0.2",
     "hbs": "^4.1.0",
     "morgan": "^1.9.1",
     "serve-favicon": "^2.5.0"

@@ -6,7 +6,30 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to my Graphs {{title}} </p>
+     <h2>Filters</h2>
+    <div class="container">
+    <label>From: </label>
+    <input type="date" name="startDate" id="startDate" value="2020-06-01">
+    <label>To: </label>
+    <input type="date" name="endDate" id="endDate" value="2020-06-31">
+    <label for="">Currency: </label>
+    <select name="" id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="BRL">BRL</option>
+    </select>
+    <button id="btnupdate" type="submit">Update</button>
+    </div>
+    <h3>Values</h3>
+    <p id="max"></p>
+    <p id="min"></p>
+    <canvas id="myChart"></canvas>
+    <footer>
+      <p> Developed by Robson Santos</p>
+    </footer>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </html>
