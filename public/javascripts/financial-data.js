@@ -5,9 +5,10 @@ axios
     .then(response => {
         console.log('Response from API is: ', response);
         printTheChart(response.data);
-        console.log('a single days details: ', dayDetail);
     })
     .catch(err => console.log(`error while getting the data`, err));
+
+
 
 function printTheChart(stockData) {
     const dailyData = stockData.bpi;
@@ -47,3 +48,18 @@ function printTheChart(stockData) {
         },
     }); // closes chart = new Chart()
 } // closes printTheChart()
+
+document.querySelector("#btnUpdate").onclick = () => {
+    const startDate = document.querySelector("#startDate").value;
+    const endDate = document.querySelector("#endDate").value;
+    if (startDate && endDate) {
+        axios
+            .get(`${apiUrl}?start=${startDate}&end=${endDate}`)
+            .then((response) => {
+                printTheChart(response.data);
+            })
+            .catch((err) => {
+                console.log(`Error returning filtered data: ${err}`)
+            })
+    }
+}
