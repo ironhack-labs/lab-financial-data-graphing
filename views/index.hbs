@@ -13,7 +13,19 @@
       <label>From :<input id="startDate" type="date" value="2020-07-14"></label>
       <label>To :<input id="endDate" type="date" value="2020-08-14"></label>
     </div>
-    
+
+    <label>currency:
+      <select id="currency" name="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </label>
+
+    <div id="infoBox">
+      <h3 id="maxValue"></h3>
+      <h3 id="minValue"></h3>
+    </div>
+
     <canvas id="myChart"></canvas>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>

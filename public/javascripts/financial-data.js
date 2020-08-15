@@ -1,31 +1,40 @@
 const input = document.getElementsByTagName('input');
 const startDate = document.getElementById("startDate");
 const endDate = document.getElementById("endDate");
+const currency = document.getElementById("currency");
+const maxValue = document.getElementById("maxValue");
+const minValue = document.getElementById("minValue");
+
+// console.log(currency.value);
 
 window.onload = () => {
     getBitocoinData()
 }
 
 startDate.addEventListener('input', event => {
-    console.log({event});
+    // console.log({event});
     startDate.value = event.srcElement.value;
-    getBitocoinData()
+    getBitocoinData();
 });
 
 endDate.addEventListener('input', event => {
-    console.log({event});
+    // console.log({event});
     endDate.value = event.srcElement.value;
-    getBitocoinData()
+    getBitocoinData();
 });
+
+currency.addEventListener('change', event => {
+    currency.value = event.target.value;
+    console.log(currency.value);
+    getBitocoinData();
+})
 
 const getBitocoinData = () => {
 
-    const rootApiUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
+    let apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`;
 
     if (startDate || endDate) {
-        apiUrl = rootApiUrl + `?start=${startDate.value}&end=${endDate.value}`;
-    } else {
-        apiUrl = rootApiUrl;
+        apiUrl += `&start=${startDate.value}&end=${endDate.value}`;
     }
     
     axios
@@ -33,7 +42,6 @@ const getBitocoinData = () => {
       .then(responseFromAPI => {
     
             console.log('The response from API: ', responseFromAPI);
-            // getBitocoinData();
             printTheChart(responseFromAPI.data.bpi);
     
         })
@@ -49,6 +57,11 @@ function printTheChart(stockData) {
     const stockDates = Object.keys(stockData);
     const stockPrices = stockDates.map((date) => stockData[date]);
 
+    // console.log(stockPrices);
+
+    maxValue.innerHTML = `Max: ${Math.max(...stockPrices)}`;
+    minValue.innerHTML = `Min: ${Math.min(...stockPrices)}`;
+
     const ctx = document.getElementById("myChart").getContext("2d");
     const chart = new Chart(ctx, {
         type: "line",
@@ -56,22 +69,12 @@ function printTheChart(stockData) {
             labels: stockDates,
             datasets: [
                 {
-                    label: "Stock Chart",
+                    label: "Bitcoin Chart",
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
                     ],
                     borderColor: [
                         "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
                     ],
                     borderWidth: 1,
                     data: stockPrices,
