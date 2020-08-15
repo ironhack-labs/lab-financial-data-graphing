@@ -1,7 +1,7 @@
-const input = document.getElementsByTagName('input');
 const startDate = document.getElementById("startDate");
 const endDate = document.getElementById("endDate");
 const currency = document.getElementById("currency");
+
 const maxValue = document.getElementById("maxValue");
 const minValue = document.getElementById("minValue");
 
@@ -47,10 +47,6 @@ const getBitocoinData = () => {
         })
       .catch(err => console.log('Error while getting the data: ', err));
 }
-
-
-
-
 
 function printTheChart(stockData) {
 
