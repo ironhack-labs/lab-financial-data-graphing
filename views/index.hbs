@@ -5,8 +5,32 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+  <section id="info">
+  <div id="date-filter">
+    <h1> Filters</h1>
+      <label>From :<input id="startDate" type="date" value="2020-07-14"></label>
+      <label>To :<input id="endDate" type="date" value="2020-08-14"></label>
+  </div>
+
+  <div id="infoBox">
+    <h1> Values</h1>
+    <p id="maxValue"></p>
+    <p id="minValue"></p>
+  </div>
+  </section>
+
+  <label>Currency:
+    <select id="currency" name="currency">
+      <option value="USD">USD Dollar ($)</option>
+      <option value="EUR">EUR Euro (€)</option>
+    </select>
+  </label>
+
+  <canvas id="myChart"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  </body>
 </html>
