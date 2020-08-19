@@ -1,6 +1,9 @@
 //list variables here
+document.getElementById("myBtn").addEventListener("click", function(){
+    const start = document.getElementById('startInput').value
+    const end = document.getElementById('endInput').value  
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
 
-const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json'
 axios
     .get(apiUrl)
     .then(responseFromAPI => {
@@ -9,15 +12,12 @@ axios
     })
     .catch(err => ('Error occurred while getting the data: ', err));
 
-
    function printTheChart(coinData){
     
-
     const coinDates = Object.keys(coinData.bpi);
     console.log(`COINDATES:,${coinDates}`);
 
     const coinPrices = Object.values(coinData.bpi)
-
 
     const ctx = document.getElementById('myChart').getContext('2d');
     
@@ -37,3 +37,4 @@ axios
 
     });
 }
+});

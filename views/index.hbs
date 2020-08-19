@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Bitcoin</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1>Price tracker</h1>
+    <h2>Filters</h2>
+
+
+  <label for="start">Start:</label>
+  <input type="date" id="startInput" value='2020-07-01'>
+  <label for="end">End:</label>
+  <input type="date" id="endInput" value='2020-07-30'>
+  <input type="submit" id='myBtn'>
+
+
 <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
