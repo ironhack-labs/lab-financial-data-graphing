@@ -47,3 +47,19 @@ function printTheChart(stockData) {
         },
     }); // closes chart = new Chart()
 } // closes printTheChart() 
+
+
+document.querySelector("#btnUpdate").onclick = () => {
+  const startDate = document.querySelector("#startDate").value;
+  const endDate = document.querySelector("#endDate").value;
+  if (startDate && endDate) {
+      axios
+          .get(`${apiUrl}?start=${startDate}&end=${endDate}`)
+          .then((response) => {
+              printTheChart(response.data);
+          })
+          .catch((err) => {
+              console.log(`Error returning filtered data: ${err}`)
+          })
+  }
+} 
