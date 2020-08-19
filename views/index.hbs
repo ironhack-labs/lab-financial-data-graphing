@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p>
+
+  <label for="from-date">From Date: </label>
+  <input type="date" name="from-date" id="from-date" value="2020-07-14">
+
+  <label for="to-date">To Date: </label>
+  <input type="date" name="to-date" id="to-date" value="2020-07-14">
+
+  <canvas id="my-chart" width="400" height="400"> </canvas>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
+
 </html>
