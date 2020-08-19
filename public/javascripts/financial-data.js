@@ -5,5 +5,35 @@ axios
     .get(apiUrl)
     .then(responseFromAPI => {
         console.log(responseFromAPI)
+        printTheChart(responseFromAPI.data);
     })
     .catch(err => ('Error occurred while getting the data: ', err));
+
+
+   function printTheChart(coinData){
+    
+
+    const coinDates = Object.keys(coinData.bpi);
+    console.log(`COINDATES:,${coinDates}`);
+
+    const coinPrices = Object.values(coinData.bpi)
+
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    
+    const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: coinDates,
+        datasets: [{
+            label: 'Bitcoin Price',
+            data: coinPrices,
+            backgroundColor: 'blue',
+            borderColor: 
+                'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    }
+
+    });
+}
