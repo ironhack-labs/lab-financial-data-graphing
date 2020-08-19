@@ -1,8 +1,7 @@
 /**
- *
+ *  requests the server for Bit Coins data
  */
 function requestDataFromServer(url) {
-  // const requestDataFromServer = "http://api.coindesk.com/v1/bpi/historical/close.json";
   axios
     .get(url)
     .then((response) => {
@@ -15,7 +14,7 @@ function requestDataFromServer(url) {
 }
 
 /**
- *
+ * draws the BitCoins chart
  * @param {*} bitCoinData
  */
 function drawChart(bitCoinData) {
@@ -24,7 +23,11 @@ function drawChart(bitCoinData) {
   const coinDeskDates = Object.keys(bitCoinData);
   const coinDeskPrices = coinDeskDates.map((date) => bitCoinData[date]);
 
-  console.log(coinDeskDates);
+  // console.log(coinDeskDates);
+  console.log(coinDeskPrices);
+
+  // console.log(Math.min(...coinDeskPrices));
+
   let myLineChart = new Chart(ctx, {
     type: "line",
     title: {
@@ -42,17 +45,44 @@ function drawChart(bitCoinData) {
       ],
     },
   });
+
+  // Update min and max
+  document.getElementById("min").innerHTML = Math.min(...coinDeskPrices);
+  document.getElementById("max").innerHTML = Math.max(...coinDeskPrices);
+
+  Array.from(document.getElementsByClassName("curr")).forEach((element) => {
+    element.innerHTML = " " + document.getElementById("currency").value;
+  });
 }
 
-// from-date  to-date
+/**
+ * Event  listener to   from-date
+ */
 document.getElementById("from-date").addEventListener("change", () => {
   getDatesCoinsData();
 });
 
+/**
+ * Event  listener to   to-date
+ */
 document.getElementById("to-date").addEventListener("change", () => {
   getDatesCoinsData();
 });
 
+/**
+ * Event  listener to  country currency
+ */
+document.getElementById("currency").addEventListener("change", () => {
+  const choosedCurrency = document.getElementById("currency").value;
+  console.log(choosedCurrency);
+  const reqUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${choosedCurrency}`;
+  console.log(reqUrl);
+  requestDataFromServer(reqUrl);
+});
+
+/**
+ * updates the chart with start and end dates
+ */
 function getDatesCoinsData() {
   const fromDate = document.getElementById("from-date").value;
   const toDate = document.getElementById("to-date").value;
