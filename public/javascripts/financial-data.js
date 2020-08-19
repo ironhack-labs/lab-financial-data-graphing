@@ -18,6 +18,8 @@ function printTheChart(stockData) {
     });
 
     const ctx = document.getElementById('myChart').getContext('2d');
+    const maxValue = document.getElementById("maxValue");
+    const minValue = document.getElementById("minValue");
 
     const lineChart = new Chart(ctx, {
         type: "line",
@@ -46,6 +48,8 @@ function printTheChart(stockData) {
             }, ],
         },
     }); // closes chart = new Chart()
+    maxValue.innerHTML = `Max: ${Math.max(...stockPrices)}`;
+    minValue.innerHTML = `Min: ${Math.min(...stockPrices)}`;
 } // closes printTheChart() 
 
 
@@ -63,3 +67,17 @@ document.querySelector("#btnUpdate").onclick = () => {
           })
   }
 } 
+
+document.getElementById("currency").addEventListener("change", () => {
+  const choosedCurrency = document.getElementById("currency").value;
+  axios
+  .get(`${apiUrl}?currency=${choosedCurrency}`)
+  .then((response) => {
+              printTheChart(response.data);
+          })
+          .catch((err) => {
+              console.log(`Error returning filtered data: ${err}`)
+          })
+  });
+
+

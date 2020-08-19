@@ -15,8 +15,24 @@
   <label>To: </label>
   <input type='date' name='endDate' id='endDate' value='2020-07-31'>
   <button id='btnUpdate' type='submit'>Update</button>
+</br>
+   <div>
+        <label for="currency">Choose currency: </label>
+        <select name="currency" id="currency">
+          <option value="USD"> US Dollar</option>
+          <option value="EUR" selected> Europe Euros</option>
+          <option value="JPY"> Japan Yen </option>
+          <option value="INR"> Indian Rupee</option>
+        </select>
+      </div>
 
-  <canvas id="myChart"></canvas>
+  <div id="infoBox">
+    <h1> Values</h1>
+    <p id="maxValue"></p>
+    <p id="minValue"></p>
+  </div>
+
+  <canvas id="myChart" width="300" height="300"></canvas>></canvas>
 
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
