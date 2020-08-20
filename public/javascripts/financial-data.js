@@ -1,4 +1,5 @@
-const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
+const apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json`
+
 
 axios.get(apiUrl)
 .then(responseFromApi => {
@@ -12,6 +13,9 @@ function printTheChart(stockData) {
   const stockPrices = stockDates.map((date) => stockData[date]);   
 
   const ctx = document.getElementById('myChart').getContext('2d');
+  const maxValue = document.getElementById("maxValue");
+  const minValue = document.getElementById("minValue");
+  
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -25,8 +29,12 @@ function printTheChart(stockData) {
     ]
   }
 }); // closes chart = new Chart()
+maxValue.innerHTML = `Max: ${Math.max(...stockPrices)}`;
+minValue.innerHTML = `Min: ${Math.min(...stockPrices)}`;
 } // closes printTheChart()
 
+
+//Filter
 
 document.getElementById("btn-update").onclick = () => {
     const startDate = document.getElementById('date-start').value;
@@ -43,3 +51,18 @@ document.getElementById("btn-update").onclick = () => {
             })
     }
   } 
+
+  // Currency
+
+  document.getElementById("btn-currency").addEventListener("change", () => {
+    const Currency = document.getElementById("btn-currency").value;
+    axios
+    .get(`${apiUrl}?currency=${Currency}`)
+    .then((response) => {
+                printTheChart(response.data);
+            })
+            .catch((err) => {
+                console.log(`Error returning filtered data: ${err}`)
+            })
+    });
+

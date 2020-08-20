@@ -5,13 +5,28 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> Bitcoin Index </h1>
+    <h1> Bitcoin Index</h1>
     
-    <p>Filter</p>
     <p>From: <input id="date-start" type="date"> To: <input id="date-end" type="date"> 
     <button id='btn-update' type='submit'>Filter</button></p>
 
-    <canvas id="myChart" height="120px"></canvas>
+   <label for="currency">Currency: </label>
+   <select name="currency" id="currency">
+	   <option value="USD" selected="selected">Dollars</option>
+	   <option value="EUR">Euro</option>
+	   <option value="GBP">Libra esterlina</option>
+	   <option value="DZD">Dinars</option>
+    </select>
+    <button id='btn-currency' type='submit'>Index</button></p>
+
+    <div>
+    <h1> Values</h1>
+    <p id="maxValue"></p>
+    <p id="minValue"></p>
+    </div>
+    
+   <canvas id="myChart" height="120px"></canvas>
+
 
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
