@@ -7,6 +7,31 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+      <p>Find USD data between </p>
+      <input type="date" id="start-date" name="start-date"> 
+      <p>and</p> 
+      <input type="date" id="end-date" name="end-date"> 
+
+      <br>
+      <input type="submit" id="find-dates"></button>
+
+      <br>
+      <p>Currency index</p>
+      <select name="currency" id="currency-select">
+        <option value="">Select a currency</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+      <input type="submit" id="find-currency"></button>
+      <h4 id="currency-rate"></h4>
+
+    <canvas id="myChart"></canvas>
+    <h4 id="min-max"></h4>
+
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
