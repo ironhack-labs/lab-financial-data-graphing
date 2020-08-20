@@ -6,7 +6,55 @@
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <input type="date" name="startDate" id="startDate" onchange="getNewData()">
+    <input type="date" name="endDate" id="endDate" onchange="getNewData()">
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  <script>
+    const createGraph = (response) => {
+      const { data } = response;
+      const keys = Object.keys(data.bpi);
+      const values = Object.values(data.bpi);
+      const { disclaimer } = data;
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: keys,
+              datasets: [{
+                  label: disclaimer,
+                  data: values,
+              }]
+          }
+      });
+    }
+
+    axios.get('http://api.coindesk.com/v1/bpi/historical/close.json')
+      .then(response => {
+        createGraph(response);
+      })
+      .catch(err => {
+          // res.render('index', { title: 'Express', err });
+      })
+
+    const getNewData = () => {
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      if (startDate && endDate) {
+        axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+          .then(response => {
+            createGraph(response);
+          })
+          .catch(err => {})
+        } else {
+        console.error('Please provide both dates')
+      }
+    } 
+
+  </script>
 </html>
