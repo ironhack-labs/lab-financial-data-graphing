@@ -1,7 +1,4 @@
 const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
-const startDate = document.querySelector('#startDate').value;
-const endDate = document.querySelector('#endDate').value;
-// const currency = document.querySelector('#currency').value;
 
 axios
   .get(apiUrl)
@@ -40,7 +37,11 @@ function printTheChart(bitcoinData) {
 }
 
 // Iteration 3
-document.querySelector('.btn-dates').onclick = () => {
+document.querySelector('.btn-submit').onclick = () => {
+  const startDate = document.querySelector('#startDate').value;
+  const endDate = document.querySelector('#endDate').value;
+  // console.log('button clicked');
+
   if (startDate && endDate) {
     axios
       .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
