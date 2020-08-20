@@ -3,14 +3,15 @@ const apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json`;
 axios
   .get(apiUrl)
   .then((responseFromAPI) => {
-    //console.log("This is the response from API", responseFromAPI.data); //iteration 1
+    //console.log("This is the response from API", responseFromAPI.data); //ITERATION 1
     printTheChart(responseFromAPI.data);
   })
   .catch((err) => {
     console.log("Error while getting the data: ", err);
   });
 
-function printTheChart(bitcoinData) {
+//print chart on canvas
+const printTheChart = (bitcoinData) => {
   const dailyData = bitcoinData.bpi; //retrieve single pairs date/price
 
   const monthDates = Object.keys(dailyData); //retrieve dates from above pairs
@@ -22,50 +23,39 @@ function printTheChart(bitcoinData) {
     type: "line",
 
     data: {
-      labels: monthDates, //labels on the x axis in my chart
+      labels: monthDates, //labels on the x axis
       datasets: [
         {
           label: "Bitcoin Price Index Chart",
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
           ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
+          borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
           borderWidth: 1,
-          data: bitcoinPrices, //labels on the y axis in my chart
+          data: bitcoinPrices, //labels on the y axis
         },
       ],
     },
   });
-}
+};
 
-// changes data in chart if dates are updated
+// ITERATION 3: dates filter: changes data in chart if dates are updated
 const input = document.getElementsByTagName("input");
 const startDate = document.getElementById("startDate");
 const endDate = document.getElementById("endDate");
 
 startDate.addEventListener("input", (event) => {
   startDate.value = event.srcElement.value; //input event is actioned when there is a change in the value
-  getDataFromAPI();
+  getSelectedDates();
 });
 
 endDate.addEventListener("input", (event) => {
   endDate.value = event.srcElement.value; //input event is actioned when there is a change in the value
-  getDataFromAPI();
+  getSelectedDates();
 });
 
-getDataFromAPI = () => {
+getSelectedDates = () => {
   if (startDate.value && endDate.value) {
     axios
       .get(`${apiUrl}?start=${startDate.value}&end=${endDate.value}`)
@@ -78,4 +68,20 @@ getDataFromAPI = () => {
   } else {
     alert("Select from and to date");
   }
+};
+
+//ITERATION 4 - BONUS: Show data for different currencies
+const pickCurrency = () => {
+  const currency = document.getElementById("currency").value;
+
+  axios
+    .get(`${apiUrl}?currency=${currency}`)
+    .then((responseFromAPI) => {
+      //console.log(responseFromAPI.data);
+      if (startDate.value && endDate.value) getSelectedDates(); // consider filter dates
+      printTheChart(responseFromAPI.data);
+    })
+    .catch((err) =>
+      console.log("Error retrieving the selected currency: ", err)
+    );
 };
