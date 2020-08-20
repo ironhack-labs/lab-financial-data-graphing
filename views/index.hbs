@@ -5,8 +5,24 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div id="filter-container">
+      <h1>Filters</h1>
+      <p>From: <input id="start-date" type="date" /></p>
+      <p>To: <input id="stop-date" type="date" /></p>
+      <p>Currency: <select id="currency" >
+        <option value="USD">USD US Dollars</option>
+        <option value="EUR">EUR Euros</option>
+        </select>
+      </p>
+    </div>
+    <div id="max-min-container">
+      <h1>Max and Min Values</h1>
+      <p>Min Value: <span id="min-value">0</span></p>
+      <p>Max Value: <span id="max-value">0</span></p>
+    </div>
+    <canvas id="my-chart"></canvas>
   </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
