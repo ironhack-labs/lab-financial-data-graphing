@@ -1,4 +1,7 @@
 const apiUrl = 'http://api.coindesk.com/v1/bpi/historical/close.json';
+const startDate = document.querySelector('#startDate').value;
+const endDate = document.querySelector('#endDate').value;
+// const currency = document.querySelector('#currency').value;
 
 axios
   .get(apiUrl)
@@ -8,15 +11,15 @@ axios
   })
   .catch(err => console.log('Error while getting the data: ', err));
 
-
+// Iteration 2
 function printTheChart(bitcoinData) {
   const dailyData = bitcoinData.bpi;
 
   const dates = Object.keys(dailyData);
   const bitcoinPrices = dates.map(date => dailyData[date]);
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
 
@@ -34,4 +37,16 @@ var chart = new Chart(ctx, {
     // // Configuration options go here
     // options: {}
   });
+}
+
+// Iteration 3
+document.querySelector('.btn-dates').onclick = () => {
+  if (startDate && endDate) {
+    axios
+      .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`)
+      .then(responseFromAPI => {
+        printTheChart(responseFromAPI.data); 
+      })
+      .catch(err => console.err('Please select a starting and ending date.'));
+  }
 }
