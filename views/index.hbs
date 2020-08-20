@@ -9,9 +9,20 @@
     <p>Welcome to  {{title}} </p>
     <form action="">
       <label for="from">From: </label>
-      <input type="date" id="start-date">
+      <input type="date" id="start-date" value="2020-01-01">
       <label for="to">To: </label>
-      <input type="date" id="end-date">
+      <input type="date" id="end-date" value="2020-08-20">
+      <select name="" id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="MXN">MXN</option>
+        <option value="BRL">BRL</option>
+        <option value="CLP">CLP</option>
+        <option value="COP">COP</option>
+        <option value="ARS">ARS</option>
+      </select>
+    <button id="btnupdate" type="submit">Go</button>
     </form>
     <canvas id="myChart"></canvas>
   </body>

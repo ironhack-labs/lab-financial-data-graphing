@@ -31,7 +31,38 @@ var chart = new Chart(ctx, {
         }]
     },
 
-    // // Configuration options go here
-    // options: {}
+    
   });
 }
+
+document.querySelector("#go-btn").onclick = () => {
+  const endDate = document.querySelector("#end-date").value;
+  const startDate = document.querySelector("#start-date").value;
+  const currency = document.querySelector("#currency-selector").value;
+  if (endDate && startDate) {
+    axios
+      .get(
+        apiUrl +
+          "?start=" +
+          startDate +
+          "&end=" +
+          endDate +
+          `&currency=${currency}`
+      )
+      .then((responseFromAPI) => {
+        printTheChart(responseFromAPI.data);
+      })
+      .catch((err) => {
+        console.log("Error while getting the data: ", err);
+      });
+  } else {
+    axios
+      .get(apiUrl + `?currency=${currency}`)
+      .then((responseFromAPI) => {
+        printTheChart(responseFromAPI.data);
+      })
+      .catch((err) => {
+        console.log("Error while getting the data: ", err);
+      });
+  }
+};
