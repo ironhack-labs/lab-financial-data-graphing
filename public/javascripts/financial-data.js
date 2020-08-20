@@ -1,9 +1,23 @@
-//list variables here
 document.getElementById("myBtn").addEventListener("click", function(){
     const start = document.getElementById('startInput').value
     const end = document.getElementById('endInput').value  
     const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`
+    printChart(apiUrl);
+});
 
+
+
+document.getElementById("currency").addEventListener("change", function () {
+    console.log(document.getElementById("currency").value)
+    const changeCurrency = document.getElementById("currency").value
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?function=${changeCurrency}`
+    printChart(apiUrl)
+});
+
+
+
+
+const printChart = (apiUrl) => {
 axios
     .get(apiUrl)
     .then(responseFromAPI => {
@@ -37,4 +51,4 @@ axios
 
     });
 }
-});
+}

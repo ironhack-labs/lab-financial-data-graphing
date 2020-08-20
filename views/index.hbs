@@ -9,14 +9,22 @@
     <h2>Filters</h2>
 
 
-  <label for="start">Start:</label>
-  <input type="date" id="startInput" value='2020-07-01'>
-  <label for="end">End:</label>
-  <input type="date" id="endInput" value='2020-07-30'>
+  <label for="startInput">Start:</label>
+  <input name= "startInput" type="date" id="startInput" value='2020-07-01'>
+  <label for="endInput">End:</label>
+  <input name="endInput" type="date" id="endInput" value='2020-07-30'>
   <input type="submit" id='myBtn'>
+
+  <label for="currency">Choose a currency:</label>
+
+<select name="currency" id="currency">
+  <option value="USD">USD</option>
+  <option value="EUR">EUR</option>
+</select>
 
 
 <canvas id="myChart" width="400" height="400"></canvas>
+
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
