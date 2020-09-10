@@ -3,10 +3,24 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" id="start-date" class="selector" value="2020-01-01"> <input class="selector" type="date" id="end-date" value="2020-09-01">
+    <select name="currency" id="currency" class="selector">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+    </select>
+
+    <div>
+        <h4>Min/Max Values</h4>
+        <p id="min"></p>
+        <p id="max"></p>
+      </div>
+    <canvas id="bitcoinChart" height="400" width="400"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
