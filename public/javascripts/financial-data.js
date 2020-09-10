@@ -45,7 +45,7 @@ inputTo.addEventListener("change", () => {
     axiosGet(dateInputFrom, dateInputTo);
 });
 
-currency.addEventListener("select", () => {
+currency.addEventListener("change", () => {
     const changeCurrency = currency.value;
     axiosGet(changeCurrency);
 })
@@ -56,6 +56,12 @@ const axiosGet = (dateInputFrom, dateInputTo, changeCurrency) => {
       ? apiUrl + `?start=${dateInputFrom}&end=${dateInputTo}`
       : apiUrl ;
       console.log(apiUrlDates);
+  
+let apiUrlCurrency = 
+  changeCurrency ? 
+  apiUrl + `?currency=${changeCurrency}`
+  : apiUrl ;
+  console.log(apiUrlCurrency); 
   axios
     .get(apiUrlDates)
     .then((response) => {
@@ -67,4 +73,4 @@ const axiosGet = (dateInputFrom, dateInputTo, changeCurrency) => {
     });
 };
 
-axiosGet(dateInputFrom, dateInputTo);
+axiosGet(dateInputFrom, dateInputTo, changeCurrency);
