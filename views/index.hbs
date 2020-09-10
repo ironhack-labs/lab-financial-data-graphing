@@ -3,10 +3,24 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1> Chart </h1>
+
+    <input type="date" id="inputone" value="2020-09-01">
+    <input type="date" id="inputtwo" value="2020-09-02">
+
+<select name="currency" id="currency">
+  <option value="dollar" id="dollar">$ Dollar</option>
+  <option value="euro" id="euro">€ Euro</option>
+
+</select>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
