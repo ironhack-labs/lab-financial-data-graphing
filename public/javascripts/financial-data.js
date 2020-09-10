@@ -46,10 +46,24 @@ function changeDate(){
 });
 }
 
-
+function changeCurrency(){
+    const currencyState = document.getElementById('currency').value;
+    console.log('Währung:' , currencyState);
+    axios
+.get(`${apiUrl}?currency=${currencyState}`)
+.then(response => {
+    console.log(response.data);
+    printTheChart(response.data);
+})
+.catch(err => {
+    console.log('error while getting the data', err);
+});
+}
 
 document.getElementById("start").addEventListener('change', changeDate);
 document.getElementById("end").addEventListener('change', changeDate);
+
+document.getElementById("currency").addEventListener('change', changeCurrency);
 
 
 
