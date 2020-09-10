@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <title> Chart Line </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <p>Welcome to the Chart </p>
+    <input type="date" id="from">
+    <input type="date" id="to">
+    <select name="currency" id="">
+      <option value="dollar" id="dollar">USD</option>
+      <option value="euro" id="euro">EU</option>
+    </select>
+    <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
