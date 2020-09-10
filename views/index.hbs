@@ -3,10 +3,16 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
+    <h1 onclick="getData()"> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" name="start-date" onchange="handler(event);">
+    <input type="date" name="end-date" onchange="handler(event);">
+    <canvas id="myChart" width="80vw" height="40vh"></canvas>
+    <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
