@@ -2,11 +2,19 @@
 <html>
   <head>
     <title> {{title}} </title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <input type="date" name="date" id="from">
+    <input type="date" name="date" id="to">
+    <select name="currency" id="currency">Currency</select>
+  <canvas id="myChart" width="80vw" height="40vh">
+  </canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
