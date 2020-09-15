@@ -4,7 +4,7 @@ let ctx = document.getElementById("myChart").getContext("2d");
 axios
   .get(url)
   .then((data) => {
-    // console.log(data.data.bpi);
+     console.log(data);
     let keys = Object.keys(data.data.bpi);
     let values = Object.values(data.data.bpi);
     // console.log(keys);
@@ -62,7 +62,7 @@ finishDate.addEventListener("change", (event) => {
 
 function filterData() {
   const urlFilter = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${finishDate.value}`;
-  console.log(urlFilter);
+ // console.log(urlFilter);
   axios
     .get(urlFilter)
     .then((data) => {
@@ -75,4 +75,27 @@ function filterData() {
      // console.log(error.response.data)
     });
 }
+
+/* 4th iteration */
+const currency = document.getElementById('currency')
+
+function changeCurrency() {
+    const currencyUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`
+    console.log(currencyUrl)
+    axios
+        .get(currencyUrl)
+        .then((data) => {
+            let keys = Object.keys(data.data.bpi);
+            let values = Object.values(data.data.bpi);
+            createChart(keys, values);
+        })
+        .catch((err) => {
+            console.log(err);
+           // console.log(error.response.data)
+          });
+}
+
+currency.addEventListener('change', event => {
+    changeCurrency()
+})
 
