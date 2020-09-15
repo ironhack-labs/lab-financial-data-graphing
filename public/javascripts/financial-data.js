@@ -1,19 +1,7 @@
 const url = `http://api.coindesk.com/v1/bpi/historical/close.json`;
 let ctx = document.getElementById("myChart").getContext("2d");
-
-axios
-  .get(url)
-  .then((data) => {
-     console.log(data);
-    let keys = Object.keys(data.data.bpi);
-    let values = Object.values(data.data.bpi);
-    // console.log(keys);
-    // console.log(values)
-    createChart(keys, values);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+const maxValue = document.getElementsByClassName("max-value")[0];
+const minValue = document.getElementsByClassName("min-value")[0];
 
 function createChart(xaxis, yaxis) {
   let myChart = new Chart(ctx, {
@@ -23,7 +11,7 @@ function createChart(xaxis, yaxis) {
       labels: xaxis,
       datasets: [
         {
-          label: "Bitcoin Prica Index",
+          label: "Bitcoin Price Index",
           //y axis
           data: yaxis,
           borderWidth: 1,
@@ -44,58 +32,53 @@ function createChart(xaxis, yaxis) {
   });
 }
 
+function getResponse(urlVar) {
+  axios
+    .get(urlVar)
+    .then((data) => {
+      console.log(data);
+      let keys = Object.keys(data.data.bpi);
+      let values = Object.values(data.data.bpi);
+      createChart(keys, values);
+      maxValue.innerHTML = Math.max.apply(Math, values);
+      minValue.innerHTML = Math.min.apply(Math, values);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+getResponse(url);
+
 /* 3rd iteration */
 const startDate = document.getElementById("start-date");
 const finishDate = document.getElementById("finish-date");
 
-startDate.addEventListener("change", (event) => {
+function filterData() {
+  const urlFilter = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${finishDate.value}`;
+  getResponse(urlFilter);
+}
+
+startDate.addEventListener("change", () => {
   if (finishDate.value) {
     filterData();
   }
 });
 
-finishDate.addEventListener("change", (event) => {
+finishDate.addEventListener("change", () => {
   if (startDate.value) {
     filterData();
   }
 });
 
-function filterData() {
-  const urlFilter = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${finishDate.value}`;
- // console.log(urlFilter);
-  axios
-    .get(urlFilter)
-    .then((data) => {
-        let keys = Object.keys(data.data.bpi);
-        let values = Object.values(data.data.bpi);
-        createChart(keys, values);
-    })
-    .catch((err) => {
-      console.log(err);
-     // console.log(error.response.data)
-    });
-}
-
 /* 4th iteration */
-const currency = document.getElementById('currency')
+const currency = document.getElementById("currency");
 
 function changeCurrency() {
-    const currencyUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`
-    console.log(currencyUrl)
-    axios
-        .get(currencyUrl)
-        .then((data) => {
-            let keys = Object.keys(data.data.bpi);
-            let values = Object.values(data.data.bpi);
-            createChart(keys, values);
-        })
-        .catch((err) => {
-            console.log(err);
-           // console.log(error.response.data)
-          });
+  const currencyUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency.value}`;
+  getResponse(currencyUrl);
 }
 
-currency.addEventListener('change', event => {
-    changeCurrency()
-})
-
+currency.addEventListener("change", () => {
+  changeCurrency();
+});
