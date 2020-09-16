@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.values {
+  float: right;
+}
+
+.filters {
+  float: left;
+}
