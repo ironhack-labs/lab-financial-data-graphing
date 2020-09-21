@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.currency{
+  margin-top: 20px
+}

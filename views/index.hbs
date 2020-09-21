@@ -3,10 +3,39 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <div class='main-div'>
+      <div>
+        <h1>Filters</h1>
+        <form name='form'>
+          <div class='dates'>
+            <label for='dtIni'>From:</label>
+            <input type="date" name='dtIni' id='dtIni' value='2020-08-21'></input>
+            <label for='dtFim'>To:</label>
+            <input type="date" name='dtFim' id='dtFim' value='2020-09-21'></input>
+          </div>
+          <div class='currency'>
+            <label for="currency">Currency:</label>
+            <select id="currency" name='currency'>
+              <option value="USD">US Dollar ($)</option>
+              <option value="EUR">Euro ($)</option>
+              <option value="BRL">Real ($)</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div>
+        <h1>Values</h1>
+        <p>Max: <span id='maxValue'>0</span> USD</p>
+        <p>Min: <span id='minValue'>0</span> USD</p>
+      </div>
+    </div>
+
+    </divb>
+    <canvas id="my-chart"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
