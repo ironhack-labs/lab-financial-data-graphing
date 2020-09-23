@@ -3,10 +3,30 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    
+    <div class="filters">
+    <h2>Filter</h2>
+    <form id="date">
+      <label for="start-date">From:</label>
+      <input type="date" id="start-date" value='2019-12-01'>
+      <label for="end-date">To:</label>
+      <input type="date" id="end-date" value="2020-01-01">
+    </form>
+    <br>
+    <label for="currency">Currency:</label>
+    <select name="currency" id="currency">
+      <option value="USD">US Dollar ($)</option>
+      <option value="EUR">EURO (€)</option>
+    </select>
+
+  </div>
+    <canvas id="myChart"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

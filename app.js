@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -40,4 +41,4 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(process.env.PORT,()=>console.log(`app running on port ${process.env.PORT}`));
