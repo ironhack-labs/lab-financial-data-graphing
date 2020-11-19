@@ -15,11 +15,20 @@
   <h1> Filters </h1>
   <form id='filters'>
     <label for="start-date">From</label>
-    <input type="date">
+    <input type="date" id="from">
     <label for="end-date">To</label>
-    <input type="date">
+    <input type="date" id="to">
   </form>
-
+  <br>
+  <select id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+  <br>
+  <div>
+    <h2 id="minVal"></h2>
+    <h2 id="maxVal"></h2>
+  </div>
   <canvas id="myChart" width="200" height="200"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
