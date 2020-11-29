@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div class="main">
+
+    <h1>Bitcoin</h1>
+
+    <div class="categories">
+      <div class="left">
+        <h2>Filter</h2>
+        <form>
+          <label for="fromDate">From:</label>
+          <input type="date" id="fromDate">
+
+          <label for="toDate">To:</label>
+          <input type="date" id="toDate">
+        </form>
+
+        <h2>Currency</h2>
+        <select id="currency">
+          <option value="USD">US Dollar ($)</option>
+          <option value="EUR">Euro (€)</option>
+        </select>
+      </div>
+
+      <div class="right">
+        <h2>Values</h2>
+        <p>Max: <span id="maxValue"></span></p>
+        <p>Min: <span id="minValue"></span></p>
+      </div>
+    </div>
+
+    <canvas id="myChart"></canvas>
+
+  </div>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
