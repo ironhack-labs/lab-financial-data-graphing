@@ -3,10 +3,21 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <form id="search" action="/" method="GET">
+        <label>
+          Filter search dates (from-to):
+          <input type="date" class="start-date">
+          <input type="date" class="end-date">
+        </label>
+        <button type="submit" id="search-button">Search</button>
+      </form>
+    <canvas id="my-chart">
+    </canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
