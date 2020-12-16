@@ -12,10 +12,24 @@
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "hbs": "^4.1.0",
-    "morgan": "^1.9.1",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
+  },
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomytubert/lab-financial-data-graphing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomytubert/lab-financial-data-graphing/issues"
+  },
+  "homepage": "https://github.com/tomytubert/lab-financial-data-graphing#readme"
 }
