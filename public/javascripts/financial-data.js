@@ -29,6 +29,10 @@ async function bpiChart(apiUrl) {
         const canvas = document.querySelector('#bpi-canvas').getContext('2d')
         const dates = Object.keys(bpi)
         const prices = Object.values(bpi)
+        const maxPrice = Math.max(...prices)
+        const minPrice = Math.min(...prices)
+        console.log(maxPrice)
+        console.log(minPrice)
         
         const chart = new Chart(canvas, {
             type: 'line',
@@ -61,8 +65,6 @@ function updateChart() {
     const newApiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`;
     bpiChart(newApiUrl)
 }
-
-
 
 document.querySelector('#end-date').addEventListener('change', updateChart)
 document.querySelector('#start-date').addEventListener('change', updateChart)
