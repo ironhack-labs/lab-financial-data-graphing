@@ -1,24 +1,15 @@
 //Fecha del dia actual y del mes anterior mismo dia
-
 const today = new Date().toJSON().slice(0,10).split('-').join ('-')
 const month = new Date()
 const othermonth = month.getDate() -30
 month.setDate(othermonth)
-console.log(today)
 const lastMonth  = month.toJSON().slice(0,10).split('-').join ('-')
-console.log(lastMonth)
-
-
 
 //Pasar el mes al value del input
 document.querySelector('.endDate').value = today
 document.querySelector('.startDate').value = lastMonth
-// const dateStart = document.querySelector('.startDate').value
-// const dateEnd = document.querySelector('.endDate').value
-// const currency = document.querySelector('#currency').value
 
-
-//const apiURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}&currency=${currency}`
+//URL API
 const apiURL = "http://api.coindesk.com/v1/bpi/historical/close.json"
 
 //Funcion que pinta el chart
@@ -43,17 +34,11 @@ async function showChart(url){
         ],
       },
     });
-    console.log(btcValues)
     const max = Math.max(...btcValues).toFixed(0)
     const min = Math.min(...btcValues).toFixed(0)
     const currency = document.querySelector('#currency').value
-    if(currency === "EUR"){
-    document.querySelector('#max').textContent = `${max} EUR`
-    document.querySelector('#min').textContent = `${min} EUR`
-    } else if (currency === "USD") {
-      document.querySelector('#max').textContent = `${max} USD`
-      document.querySelector('#min').textContent = `${min} USD`
-    }
+    document.querySelector('#max').textContent = `${max} ${currency}`
+    document.querySelector('#min').textContent = `${min} ${currency}`
   
   } catch(e){
     console.error(e)
