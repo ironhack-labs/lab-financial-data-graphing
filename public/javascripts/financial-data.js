@@ -56,10 +56,6 @@ async function updateChart(){
 //---------Inicial data and function-----------//
 showChart(apiUrl)
 
-
-const endDateTag = document.querySelector("#endDate")
-const currencyTag = document.querySelector("#currency")
-
-endDateTag.addEventListener("change", updateChart)
-currencyTag.addEventListener("change", updateChart)
-
+//---------------Update button-----------------//
+const updateTag = document.querySelector("#update")
+updateTag.addEventListener("click",updateChart)
