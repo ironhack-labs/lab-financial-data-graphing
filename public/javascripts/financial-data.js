@@ -1,60 +1,18 @@
+const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
 
-const startDate = document.querySelector("#startDate").value
-const endDate = document.querySelector("#endDate").value
-
-const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`
-
-async function updateChart(){
-    const startDate = document.querySelector("#startDate").value
-    const endDate = document.querySelector("#endDate").value
-    const apiUrl =`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`
-    const {data} = await axios.get(apiUrl);
-    //console.log(data);
-    const bpi = data["bpi"];
-    //console.log(bpi);
-    const arrLabel = Object.keys(bpi)
-    //console.log(arrLabel);
-    const arrValues = Object.values(bpi)
-    //console.log(arrValues);
-    const ctx = document.querySelector("#canvas").getContext("2d");
-        const chart = new Chart(ctx,{
-            type:"line",
-            data: {
-                labels: arrLabel,
-                datasets: [
-                    {
-                        label:"BTC",
-                        backgroundColor:"yellow",
-                        borderColor:"black",
-                        data: arrValues
-                    }
-                ]
-            }
-        })
-}
-const endDateTag = document.querySelector("#endDate")
-
-endDateTag.addEventListener("change", updateChart)
-
-// async function getAll(){
-//     try{
-//         const {data} = await axios.get(apiUrl);
-//         //console.log("Data",data);
-//     }catch(err){
-//         console.error(err);
-//     }
-// }
-
-async function showChart(){
+async function showChart(url){
     try{
-        const {data} = await axios.get(apiUrl);
-        //console.log(data);
+        const {data} = await axios.get(url);
         const bpi = data["bpi"];
-        //console.log(bpi);
+        console.log(bpi);
         const arrLabel = Object.keys(bpi)
-        //console.log(arrLabel);
         const arrValues = Object.values(bpi)
-        //console.log(arrValues);
+        const max = Math.max(...arrValues).toFixed(2)
+        const min = Math.min(...arrValues).toFixed(2)
+        document.querySelector("#max").innerText = max
+        document.querySelector("#min").innerText = min;
+
+//-----------------------CHART-------------------------------------------//
         const ctx = document.querySelector("#canvas").getContext("2d");
         const chart = new Chart(ctx,{
             type:"line",
@@ -75,4 +33,22 @@ async function showChart(){
     }
 }
 
-showChart();
+//-----------Funcion that Update Chart--------------------//
+async function updateChart(){
+    const startDate = document.querySelector("#startDate").value
+    const endDate = document.querySelector("#endDate").value
+    const currency = document.querySelector("#currency").value
+    const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}&currency=${currency}`
+    showChart(apiUrl)
+}
+
+//---------Inicial data and function-----------//
+showChart(apiUrl)
+
+
+const endDateTag = document.querySelector("#endDate")
+const currencyTag = document.querySelector("#currency")
+
+endDateTag.addEventListener("change", updateChart)
+currencyTag.addEventListener("change", updateChart)
+
