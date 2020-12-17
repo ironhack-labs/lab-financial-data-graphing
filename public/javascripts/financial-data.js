@@ -1,5 +1,16 @@
 const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
 
+//----------------Update inputs date to actual days------//
+//Done by projav23 & TomyTubert
+const todayString = new Date().toJSON().slice(0,10).split('-').join ('-')
+const today = new Date()
+const othermonth = today.getDate()-30
+today.setDate(othermonth)
+const lastMonth  = today.toJSON().slice(0,10).split('-').join ('-')
+document.querySelector("#startDate").value = lastMonth 
+document.querySelector("#endDate").value = todayString
+
+
 async function showChart(url){
     try{
         const {data} = await axios.get(url);
