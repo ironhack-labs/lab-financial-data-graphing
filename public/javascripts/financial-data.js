@@ -1,20 +1,27 @@
-const dateStart = document.querySelector('.startDate').value
-const dateEnd = document.querySelector('.endDate').value
-const currency = document.querySelector('#currency').value
-console.log(dateStart)
-console.log(dateEnd)
+//Fecha del dia actual y del mes anterior mismo dia
 
-const apiURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}&currency=${currency}`
+const today = new Date().toJSON().slice(0,10).split('-').join ('-')
+const month = new Date()
+const othermonth = month.getDate() -30
+month.setDate(othermonth)
+console.log(today)
+const lastMonth  = month.toJSON().slice(0,10).split('-').join ('-')
+console.log(lastMonth)
 
-// async function getAll(){
-//   try{
-//     const {data} = await axios.get(apiURL);
-//     console.log("data:", data)
-//   } catch(e){
-//     console.error(e)
-//   }
-// }
 
+
+//Pasar el mes al value del input
+document.querySelector('.endDate').value = today
+document.querySelector('.startDate').value = lastMonth
+// const dateStart = document.querySelector('.startDate').value
+// const dateEnd = document.querySelector('.endDate').value
+// const currency = document.querySelector('#currency').value
+
+
+//const apiURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}&currency=${currency}`
+const apiURL = "http://api.coindesk.com/v1/bpi/historical/close.json"
+
+//Funcion que pinta el chart
 async function showChart(url){
   try{
     const {data} = await axios.get(url);
@@ -47,26 +54,27 @@ async function showChart(url){
       document.querySelector('#max').textContent = `${max} USD`
       document.querySelector('#min').textContent = `${min} USD`
     }
+  
   } catch(e){
     console.error(e)
   }
 }
 showChart(apiURL)
 
-document.querySelector('.endDate').addEventListener('change', () =>{
+//Funcion que hace el update del grafico
+async function update(){
+  try{
   const dateStart = document.querySelector('.startDate').value;
   const dateEnd = document.querySelector('.endDate').value;
   const currency = document.querySelector('#currency').value
-
   const url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}&currency=${currency}`
-  showChart(url)
-})
+  await showChart(url)
+  } catch(e){
+    console.error(e)
+  }
+  }
+//EventListener de los input de fecha y moneda
+document.querySelector('.endDate').addEventListener('change', update)
+document.querySelector('.startDate').addEventListener('change', update)
+document.querySelector('#currency').addEventListener('change', update)
 
-document.querySelector('#currency').addEventListener('change', ()=>{
-  const dateStart = document.querySelector('.startDate').value;
-  const dateEnd = document.querySelector('.endDate').value;
-  const currency = document.querySelector('#currency').value
-
-  const url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${dateStart}&end=${dateEnd}&currency=${currency}`
-  showChart(url)
-})
