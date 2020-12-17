@@ -7,6 +7,16 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <div>
+     <label>Since:</label>
+     <input id="date-start" type="date" name="start" >
+     <label>To:</label>
+     <input id="date-end" type="date" name="end" >
+     <button class="btn">Search date</button>
+    <canvas class="grap"></canvas>
+    </div>
   </body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
