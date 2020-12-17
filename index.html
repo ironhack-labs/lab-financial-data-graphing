@@ -4,10 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bitcoin Graph</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
 <body>
+    <div>
+        <h2>Filters</h2>
+        <label for="inicio">From: </label><input type="date" name="inicio" id="inicio">
+        <label for="fin"> To: </label><input type="date" name="fin" id="fin">
+        <label for="moneda">Currency: </label><select name="moneda" id="moneda">
+            <option value="EUR">Euro</option>
+            <option value="USD">US Dollar</option>
+            <option value="GBP">Pound Sterling</option>
+            <option value="SAR">Saudi Riyal</option>
+            <option value="AED">UAE Dirham</option>
+        </select>
+        <button type="submit" id="create">Create Graph</button>
+    </div>
+    <div id="values">
+        <h2>Values</h2>
+        <p id="max"></p>
+        <p id="min"></p>
+    </div>
     <canvas id="grafico"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
