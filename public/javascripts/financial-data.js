@@ -2,6 +2,8 @@
 let inicio ="2013-09-01";
 let fin = "2013-09-04";
 let moneda = "USD";
+let max =0;
+let min = 0;
 var ctx = document.getElementById('my-chart').getContext('2d');
 
 const chartBtn = document.querySelector("#get-bitcoinChart-btn");
@@ -9,9 +11,12 @@ chartBtn.addEventListener("click", async ()=>{
     const data = await getData();
     const ejeX = Object.keys(data);
     const ejeY = Object.values(data);
-    console.log(data)
-    console.log(ejeX,ejeY)
+    max = Math.max(...ejeY);
+    min = Math.min(...ejeY);
+    // console.log(data)
+    // console.log(ejeX,ejeY)
     printChart(ejeX,ejeY);
+    maxMin(max,min);
 });
 
 const start = document.querySelector("#start");
@@ -33,7 +38,7 @@ coin.addEventListener("change", (event)=>{ moneda =event.target.value
 const apiUrl = ` https://api.coindesk.com/v1/bpi/historical/close.json`;
 async function getData() {
   try {
-    mostrarDatos();
+    //mostrarDatos();
     const  {data:{bpi}}  = await axios.get(apiUrl,
         {
             params:{
@@ -49,9 +54,9 @@ async function getData() {
   }
 }
 
-function mostrarDatos(){
-    console.log(inicio,fin);
-}
+// function mostrarDatos(){
+//     console.log(inicio,fin);
+// }
 
 function printChart(X,Y){
     var myChart = new Chart(ctx, {
@@ -73,4 +78,9 @@ function printChart(X,Y){
             }]
         }
     });
+}
+
+function maxMin(max,min){
+    document.querySelector("#Max-value").innerHTML=max;
+    document.querySelector("#Min-value").innerHTML=min;
 }
