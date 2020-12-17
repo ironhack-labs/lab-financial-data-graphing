@@ -11,7 +11,7 @@ const currencyApi = axios({
     const currency = currencyValue['bpi'] ;
     const currencyVal = Object.keys(currency);
    
-    const newData = currencyVal.map(dollar => currency[dollar]['bpi']);
+    const newData = currencyVal.map(dollar => currency[dollar]['rate']);
     console.log(newData)
     
   
