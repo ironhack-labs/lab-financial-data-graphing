@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title> {{title}} </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> Financial Data Graphing </h1>
+
+
+  <div class="input">
+    <div class="left-section">
+      <h1>FILTERS</h1>
+      <div>
+        <h2>From : </h2>
+        <input type="date" id="startDate" name="startDate" required>
+        <h2>To: </h2>
+        <input type="date" id="endDate" name="endDate" required>
+      </div>
+
+      <div>
+        <h2>Currency</h2>
+        <select name="currency" id="currency">
+          <option value="USD" selected>USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="CHF">CHF</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="right-section">
+      <h1>VALUES </h1>
+      <h3>Min: <strong id="min"></strong></h3>
+      <h3>Max: <strong id="max"></strong></h3>
+    </div>
+
+  </div>
+
+<div class="chart-container" style="position: relative; height:30vh; width:60vw">
+  <canvas id="myChart" ></canvas>
+</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+</body>
+
 </html>

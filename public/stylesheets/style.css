@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
+  padding: 60px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-
 a {
   color: #00B7FF;
+}
+.input, .left-section div{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.chart-container{
+  align-self: center;
+
 }
