@@ -3,14 +3,15 @@
   <head>
     {{!-- <title> {{title}} </title> --}}
     <title>Bitcoin Price Index</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
     {{!-- <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p> --}}
     <h1>BITCOIN PRICE INDEX</h1>
-    <p>Home Page</p>
-    
+    <canvas id="bitcoin-price-index"></canvas>
+
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
