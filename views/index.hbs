@@ -13,39 +13,46 @@
 <body>
   {{!-- <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p> --}}
-  <h1 class="fw-bold text-center">BITCOIN PRICE INDEX</h1>
+  <h1 class="fw-bold text-center mt-3">BITCOIN PRICE INDEX</h1>
 
-  <div class="container align-items-baseline">
-    <div class="row">
-      <div class="col form mt-3">
-        <label for="start-date">From</label>
-        <input class="mb-2 form-control" type="date" name="start-date" id="start-date">
-        <label for="end-date">To</label>
-        <input class="mb-2 form-control" type="date" name="end-date" id="end-date">
-        <button class="btn btn-secondary" type="submit" id="filter-by-date-btn">Filter</button>
-      </div>
+  <div class="content">
+    <div class="container align-items-baseline">
+      <div class="row">
+        <div class="col form mt-3">
+          <label for="start-date">From</label>
+          <input class="mb-2 form-control" type="date" name="start-date" id="start-date">
+          <label for="end-date">To</label>
+          <input class="mb-2 form-control" type="date" name="end-date" id="end-date">
+          <button class="btn btn-secondary" type="submit" id="filter-by-date-btn">Filter</button>
+        </div>
 
-      <div class="col form mt-3">
-        <label for="currency">Currency</label>
-        <select class="form-control" name="currency" id="currency">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="CNY">CNY</option>
-          <option value="JPY">JPY</option>
-        </select>
-      </div>
+        <div class="col form mt-3">
+          <label for="currency">Currency</label>
+          <select class="form-control" name="currency" id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CNY">CNY</option>
+            <option value="JPY">JPY</option>
+          </select>
+        </div>
 
-      <div class="col mt-3">
-        <h3>Values</h3>
-        <p>Max: <span id="max-value"></span> <span class="currency-value"></span></p>
-        <p>Min: <span id="min-value"></span> <span class="currency-value"></span></p>
+        <div class="col mt-3">
+          <h3>Values</h3>
+          <p>Max: <span id="max-value"></span> <span class="currency-value"></span></p>
+          <p>Min: <span id="min-value"></span> <span class="currency-value"></span></p>
+        </div>
       </div>
     </div>
+
+    <canvas id="bitcoin-price-index" class="mb-5"></canvas>
   </div>
 
 
-  <canvas id="bitcoin-price-index"></canvas>
+  <footer class="navbar sticky-bottom bg-dark d-flex justify-content-center align-items-baseline mt-5">
+    <p class="text-white mx-3">Ironhack Lab - Developed by <a href="https://github.com/xavirepi" target="_blank"
+        class="developer">Javier Repi</a></p>
+  </footer>
 
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

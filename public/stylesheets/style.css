@@ -1,9 +1,17 @@
-body {
-  padding: 50px;
+.content {
+  padding: 20px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+body,
+html {
   background-color: #f3eac2;
+  height: 100%;
 }
 
 a {
   color: #00B7FF;
+}
+
+footer {
+  width: 100%;
 }
