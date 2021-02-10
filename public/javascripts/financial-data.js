@@ -1,14 +1,18 @@
 const apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json`
+//const dateFilterUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`
 //const currencyUrl = `https://api.coindesk.com/v1/bpi/currentprice/<CODE>.json`
 
-axios.get(apiUrl)
+// Axios Get Request
+const getBPI = (url) => {
+    axios.get(url)
     .then(responseFromAPI => {
         console.log('responseFromAPI: ', responseFromAPI);
         printTheChart(responseFromAPI.data)
     })
     .catch(err => console.log('Error while getting the data: ', err))
+}
 
-
+// Printing the Chart
 function printTheChart(data) {
     const bpiHistory = data['bpi'];
     
@@ -31,3 +35,14 @@ function printTheChart(data) {
         }
     })
 }
+
+// Filtering by date
+
+document.onload = (getBPI(apiUrl));
+
+document.getElementById('filter-by-date-btn').addEventListener('click', () => {
+    let startDate = document.getElementById('start-date').value;
+    let endDate = document.getElementById('end-date').value;
+    console.log(startDate, endDate);
+    getBPI(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`);
+})

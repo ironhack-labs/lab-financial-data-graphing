@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    {{!-- <title> {{title}} </title> --}}
-    <title>Bitcoin Price Index</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-  </head>
-  <body>
-    {{!-- <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p> --}}
-    <h1>BITCOIN PRICE INDEX</h1>
-    <canvas id="bitcoin-price-index"></canvas>
 
-  </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<head>
+  {{!-- <title> {{title}} </title> --}}
+  <title>Bitcoin Price Index</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  {{!-- <h1> {{title}} </h1>
+  <p>Welcome to {{title}} </p> --}}
+  <h1>BITCOIN PRICE INDEX</h1>
+
+  <div>
+    <label for="start-date">From</label>
+    <input type="date" name="start-date" id="start-date">
+    <label for="end-date">To</label>
+    <input type="date" name="end-date" id="end-date">
+    <button type="submit" id="filter-by-date-btn">Filter</button>
+  </div>
+
+  <canvas id="bitcoin-price-index"></canvas>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
