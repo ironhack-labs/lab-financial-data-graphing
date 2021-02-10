@@ -5,36 +5,45 @@
   {{!-- <title> {{title}} </title> --}}
   <title>Bitcoin Price Index</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
   {{!-- <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p> --}}
-  <h1>BITCOIN PRICE INDEX</h1>
+  <h1 class="fw-bold text-center">BITCOIN PRICE INDEX</h1>
 
-  <div>
-    <label for="start-date">From</label>
-    <input type="date" name="start-date" id="start-date">
-    <label for="end-date">To</label>
-    <input type="date" name="end-date" id="end-date">
-    <button type="submit" id="filter-by-date-btn">Filter</button>
+  <div class="container align-items-baseline">
+    <div class="row">
+      <div class="col form mt-3">
+        <label for="start-date">From</label>
+        <input class="mb-2 form-control" type="date" name="start-date" id="start-date">
+        <label for="end-date">To</label>
+        <input class="mb-2 form-control" type="date" name="end-date" id="end-date">
+        <button class="btn btn-secondary" type="submit" id="filter-by-date-btn">Filter</button>
+      </div>
+
+      <div class="col form mt-3">
+        <label for="currency">Currency</label>
+        <select class="form-control" name="currency" id="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="CNY">CNY</option>
+          <option value="JPY">JPY</option>
+        </select>
+      </div>
+
+      <div class="col mt-3">
+        <h3>Values</h3>
+        <p>Max: <span id="max-value"></span> <span class="currency-value"></span></p>
+        <p>Min: <span id="min-value"></span> <span class="currency-value"></span></p>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <label for="currency">Currency</label>
-    <select name="currency" id="currency">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="GBP">GBP</option>
-      <option value="CNY">CNY</option>
-      <option value="JPY">JPY</option>
-    </select>
-  </div>
-
-  <div>
-    
-  </div>
 
   <canvas id="bitcoin-price-index"></canvas>
 
