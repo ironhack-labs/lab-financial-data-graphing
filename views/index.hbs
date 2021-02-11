@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
   </body>
+  <canvas id="myChart"></canvas> 
+  <p>Start</p>
+  <input type="date" onchange="handler1(event);">
+  <p>End</p>
+  <input type="date" onchange="handler2(event);">
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
