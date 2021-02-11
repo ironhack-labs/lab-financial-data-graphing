@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
 
     let apiURL = "http://api.coindesk.com/v1/bpi/historical/close.json"
     const ctx = document.getElementById('chart').getContext('2d')
+    const MAX_VALUE = document.getElementById('max')
+    const MIN_VALUE = document.getElementById('min')
     let CHART;
 
     axios.get(apiURL)
@@ -10,13 +12,16 @@ window.addEventListener('load', () => {
     })
     .catch(e => console.log(e))
 
-    const apiCall = (url, chart) => {
+    const apiCall = (url, chart, currency) => {
         axios.get(url)
             .then(data => {
                 removeData()
                 dates = Object.keys(data.data.bpi)
                 prices = Object.values(data.data.bpi)
                 updateData(chart, dates, prices)
+                
+                MAX_VALUE.innerHTML = Math.max(...prices).toFixed(2) + ' ' + currency
+                MIN_VALUE.innerHTML = Math.min(...prices).toFixed(2) + ' ' + currency
             })
             .catch(e => console.log(e))
     }
@@ -38,7 +43,6 @@ window.addEventListener('load', () => {
         ]
 
         chart.update();
-        console.log(chart)
     }
 
     const createChart = (data) => {
@@ -59,7 +63,9 @@ window.addEventListener('load', () => {
             ]
             }
         })
-        console.log(CHART)
+
+        MAX_VALUE.innerHTML = Math.max(...prices).toFixed(2) + ' USD'
+        MIN_VALUE.innerHTML = Math.min(...prices).toFixed(2) + ' USD'
     }
     
     const formSubmit = document.querySelector('#formDates')
@@ -72,10 +78,10 @@ window.addEventListener('load', () => {
 
         if(fromDate && toDate && currency){
             apiURL = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`
-            apiCall(apiURL, CHART)
+            apiCall(apiURL, CHART, currency)
         } else {
             apiURL = "http://api.coindesk.com/v1/bpi/historical/close.json"
-            apiCall(apiURL, CHART)
+            apiCall(apiURL, CHART, currency)
         }
     })
 
