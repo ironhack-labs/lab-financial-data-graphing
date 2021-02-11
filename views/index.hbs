@@ -3,10 +3,37 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <div class="container">
+      <div class="row py-3 justify-content-center">
+        <div class="col">
+          <h5>Filters:</h5>
+          <p>From: <input type="date" id="fromDate" onchange="setFromDate()"></p>
+          <p>To: <input type="date" id="toDate" onchange="setToDate()"></p>
+          <p>Currency: 
+            <select name="currency" id="currency" onchange="changeCurrency()">
+              <option value="USD">Dolar ($)</option>
+              <option value="EUR">Euro (€)</option>
+            </select>
+          </p>
+        </div>
+        <div class="col">
+          <h5>Values:</h5>
+          <p>Max: <span id="maxSpan"></span></p>
+          <p>Min: <span id="minSpan"></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="container py-3">
+      <canvas id="my-chart"></canvas>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
