@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> {{title}} </title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title> {{title}} </title>
   </head>
   <body>
-    <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <div id="date-search">
+      <label for="start-date">From: </label>
+      <input type="date" id="start-date" name="start-date" onchange="dateSearch()">
+
+      <label for="end-date">To: </label>
+      <input type="date" id="end-date" name="end-date" onchange="dateSearch()">
+
+    </div>
+    
+    <label for="currency">Currency  </label>
+    <select name="currency" id="currency" onchange="currencyChange()">
+      <option value="usd" selected>US dollar</option>
+      <option value="eur">EU euro</option>
+      <option value="gbp"> BG pound</option>
+    </select>
+    
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <div class='display'>
+      <label for="max">max price</label>
+      <div class="max-min" name='max' id="max"></div>
+    </div>
+    <div class='display'>
+      <label for="min">min price</label>
+      <div class="max-min"name='min' id="min"></div>
+    </div>
+   
+
+
+     <script src="/javascripts/financial-data.js" charset="utf-8"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>

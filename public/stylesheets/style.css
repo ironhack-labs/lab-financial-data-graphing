@@ -1,8 +1,30 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
+}
+#date-search {
+    display: flex;
+    flex-direction: column;
+}
+#currency {
+    margin-top: 10%;
+}
+canvas {
+    margin-top: 10%;
+}
+
+.max-min {
+    margin-top: 10%;
+    width: 15rem;
+    height: 5rem;
+}
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.3rem;
 }
