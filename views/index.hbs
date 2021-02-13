@@ -7,11 +7,31 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Chart install script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
   </head>
   <body>
-    <h1> {{title}} </h1>
+    <h1> Title </h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 >Filters</h1>
+          <p>From:</p>
+          <input id='from__date' type="date">
+          <p>to:</p>
+          <input id='to__date' type="date">
+        </div>
+        <div class="col">
+          <h1>Values</h1>
+          
+        </div>
+
+      </div>
+    </div>
    <canvas id="myChart"></canvas>
-  </body>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+  </body>
+  
 </html>
