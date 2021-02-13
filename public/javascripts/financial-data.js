@@ -1,5 +1,3 @@
-const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
-
 //GET data from API
 const getDataInfo = (url) => {
     axios
@@ -33,7 +31,9 @@ const paintData = (xAxis, yAxis) => {
     })
 }
 
-document.onload = getDataInfo(apiUrl)
+const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
+
+getDataInfo(apiUrl)
 
 document.getElementById('getValueBtn').addEventListener('click', () => {
     let startDate = document.getElementById('startValue').value
