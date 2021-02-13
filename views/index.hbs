@@ -19,13 +19,20 @@
           <p>From:</p>
           <input id='from__date' type="date">
           <p>to:</p>
-          <input id='to__date' type="date">
+          <input id='to__date' class='my-3' type="date">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Currency</label>
+            <select class="form-select" id="currency">
+              <option selected>USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
         </div>
         <div class="col">
           <h1>Values</h1>
           
         </div>
-
       </div>
     </div>
    <canvas id="myChart"></canvas>

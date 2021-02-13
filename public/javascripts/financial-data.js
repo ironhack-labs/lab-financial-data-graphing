@@ -2,6 +2,7 @@
 const apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json`
 let from;
 let to;
+let currency;
 
 const apiRequest = (url) => {
     axios.get(url)
@@ -50,13 +51,26 @@ const apiRequest = (url) => {
      to = document.getElementById('to__date').value  
      refreshChart()
   })
+  document.getElementById('currency').addEventListener('change', () => {
+    currency = document.getElementById('currency').value
+    console.log(currency)
+    refreshChart()
+ })
 
   //Refresh chart with new values if both inputs are changed
   const refreshChart = () => {
     if(to != undefined && from !=undefined){
-        apiRequest(`${apiUrl}?start=${from}&end=${to}`)
+        if(!currency){
+            apiRequest(`${apiUrl}?start=${from}&end=${to}`)
+        }else{
+            apiRequest(`${apiUrl}?start=${from}&end=${to}&currency=${currency}`) 
+        }
     }else{
-        apiRequest(apiUrl)  
+        if(!currency){
+            apiRequest(apiUrl) 
+        }else{
+            apiRequest(`${apiUrl}?currency=${currency}`) 
+        }   
     }
   }
   
