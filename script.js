@@ -5,6 +5,8 @@ const myUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
 
 let initDate = document.getElementById('init-date')
 let endedDate = document.getElementById('ended-date')
+let currency = document.getElementById('currency')
+
 
 
 //GET the data
@@ -55,7 +57,7 @@ const paintBitcoinHistoric = (xAxis, yAxis) => {
  //       if (!initDate.value) {initDate.value = minDate}
 
    //     if (!endedDate.value) { endedDate.value = maxDate}
-        const url = myUrl+`?start=${initDate.value}&end=${endedDate.value}` 
+        const url = myUrl+`?start=${initDate.value}&end=${endedDate.value}&currency=${currency.value}` 
         
         coindeskRequest(url);
 
@@ -82,6 +84,11 @@ const paintBitcoinHistoric = (xAxis, yAxis) => {
     });
 
 
-
+    // listener ended date
+    document.getElementById('currency').addEventListener('change', function (event) {
+        //   console.log(`Entra en listener ended date`)
+           filterRequest();
+       });
+   
 
 
