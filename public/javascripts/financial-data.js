@@ -11,6 +11,7 @@ const getDataInfo = (url) => {
         //console.log(yAxis)
         
         paintData(xAxis, yAxis)
+        max_minValue(yAxis)
     })
     .catch((e) => console.log(e))
 }
@@ -29,6 +30,18 @@ const paintData = (xAxis, yAxis) => {
             }]
         }, 
     })
+}
+
+const max_minValue = (yAxis) => {
+    let max = Math.max(...yAxis)
+    let min = Math.min(...yAxis)
+    //console.log(max)
+    //console.log(min)
+    const maxValue = document.getElementById('maxValue')
+    const minValue = document.getElementById('minValue')
+
+    maxValue.innerHTML = max
+    minValue.innerHTML = min
 }
 
 const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
