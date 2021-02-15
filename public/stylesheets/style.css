@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+h3{
+  margin: 10px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.datesFromGraphic, .infoGraphic {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.values {
+  margin-left: 150px;
+}
+
+button {
+  margin: 10px;
+}
+
+canvas {
+  margin-top: 50px;
+}

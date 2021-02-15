@@ -8,13 +8,15 @@
   <body>
     <h1> Bitcoin Price Index </h1>
     {{!-- <p>Welcome to  {{title}} </p> --}}
-    <div>
+    <div class="datesFromGraphic">
       <h3>From:</h3>
         <input id="startValue" name="startValue" type="date">
       <h3>To:</h3>
         <input id="endValue" name="endValue" type="date">
         <button id="getValueBtn" type="submit">Search</button>
-    
+    </div>
+
+    <div class="infoGraphic">
       <h3>Currency:</h3>
         <select name="currency" id="currency">
           <option>Select coin</option>
@@ -23,12 +25,13 @@
           <option value="CNY">CNY</option>
         </select>
 
-      <h3>Values</h3>
-        <p>Max: <span id="maxValue"></span></p>
-        <p>Min: <span id="minValue"></span></p>
-
+      <h3 class="values">Values</h3>
+        <div>
+          <p>Max: <span id="maxValue"></span></p>
+          <p>Min: <span id="minValue"></span></p>
+        </div>
     </div>
-
+        
     <canvas id="myChart"></canvas>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
