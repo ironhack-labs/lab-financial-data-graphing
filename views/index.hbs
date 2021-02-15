@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-   <canvas id="myChart"></canvas>
 
-    <input id="startValue" name="startValue" type="date">
+<head>
+  <title> {{title}} </title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+
+<body>
+  <h1> Bitcoin Price Index </h1>
+
+  <div class="infoDate">
+    <h3>From:</h3>
+    <input id="startValue" name="startValue" type="date">  
+    <h3>To:</h3> 
     <input id="endValue" name="endValue" type="date">
+  
     <button id="getValueBtn" type="submit">Search</button>
+  </div>
 
-    
-  </body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  <div class="infoCurrency">
+    <h3>Currency:</h3>
+    <select name="currency" id="currency">
+      <option>Select currency</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+
+    <canvas id="myChart"></canvas>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>

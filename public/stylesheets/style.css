@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            padding: 50px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        }
+        
+        a {
+            color: #00B7FF;
+        }
+        
+        h3 {
+            margin: 15px;
+            display: inline;
+            color: #040c3d;
+        }
+        
+        h1 {
+            margin-bottom: 40px;
+            text-align: center;
+            color: #040c3d;
+            font-size: 60px;
+        }
+        
+        .infoDates {
+            display: flex;
+            flex-direction: row;
+            margin: 25px;
+            text-align: center;
+            align-items: center;
+        }
+        
+        button {
+            margin: 15px;
+        }
+        
+        canvas {
+            margin-top: 50px;
+        }
