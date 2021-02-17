@@ -3,10 +3,38 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
+    <br>
+    <br>
+
+<form action="">
+<label for=""> Start Date
+  <input id="start" type="date" >
+</label> 
+
+<label for=""> End Date
+  <input id="start" type="date" >
+</label> 
+
+
+
+
+
+
+  
+  <br>
+  <br>
+  
+  <canvas id="my-chart"></canvas>
+
+
+
+
+
+  </body>  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
