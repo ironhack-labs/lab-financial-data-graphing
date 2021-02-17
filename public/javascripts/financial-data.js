@@ -1,18 +1,31 @@
 const apiUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
 let startDate
 let endDate
+let currentCurrency = 'USD'
+let minValue
+let maxValue
 
-const renderData = (url, start, end) => {
+const renderMaxMin = (minValue, maxValue) => {
+  document.getElementById('min-value').innerHTML = `${minValue} ${currentCurrency}`
+  document.getElementById('max-value').innerHTML = `${maxValue} ${currentCurrency}`
+}
+
+const renderData = (url, start, end, currentCurrency) => {
   if (start && end) {
-    url = `${url}?start=${start}&end=${end}`
+    url = `${url}?start=${start}&end=${end}&currency=${currentCurrency}`
+  } else {
+    url = `${url}?currency=${currentCurrency}`
   }
+
   axios.get(url)
     .then((response) => {
-      console.log(url)
       const { data } = response
       const xAxis = Object.keys(data["bpi"]);
       const yAxis = Object.values(data["bpi"]);
+      minValue = Math.min(...yAxis).toFixed(2)
+      maxValue = Math.max(...yAxis).toFixed(2)
       renderChart(xAxis, yAxis)
+      renderMaxMin(minValue, maxValue)
     })
     .catch((error) => {
       console.log(error)
@@ -39,7 +52,7 @@ const renderChart = (xAxis, yAxis) => {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'BPI'
+            labelString: `BPI ${currentCurrency}`
           }
         }],
         xAxes: [{
@@ -53,22 +66,26 @@ const renderChart = (xAxis, yAxis) => {
   })
 }
 
-renderData(apiUrl)
+renderData(apiUrl, startDate, endDate, currentCurrency)
 
-//Iteration3
+
+
 const startDateInput = document.getElementById('start-date')
 const endDateInput = document.getElementById('end-date')
+const currentCurrencyInput = document.getElementById('current-currency')
 
 startDateInput.addEventListener('change', () => {
   startDate = startDateInput.value
-  console.log(startDate, endDate)
-  renderData(apiUrl, startDate, endDate)
+  renderData(apiUrl, startDate, endDate, currentCurrency)
 })
 endDateInput.addEventListener('change', () => {
   endDate = endDateInput.value
-  console.log(startDate, endDate)
-  renderData(apiUrl, startDate, endDate)
+  renderData(apiUrl, startDate, endDate, currentCurrency)
 })
 
-console.log(startDate)
+currentCurrencyInput.addEventListener('change', () => {
+  currentCurrency = currentCurrencyInput.value
+  renderData(apiUrl, startDate, endDate, currentCurrency)
+})
+
 
