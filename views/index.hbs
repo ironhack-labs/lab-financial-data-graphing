@@ -6,13 +6,32 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
 <body>
   <h1> {{title}} </h1>
   <p>Welcome to {{title}} </p>
+  <div class="container d-flex justify-content-between">
+    <div class="col">
+      <h2>Filters</h2>
+      <div class="d-inline-flex p-2">
+        <h5>From:</h5>
+        <input id='start-date' type="date">
+        <h5>to:</h5>
+        <input id='end-date' type="date">
+      </div>
+    </div>
+    <div class="col-3">
+      <h2>Values</h2>
+    </div>
+  </div>
+  </div>
   <canvas id="myChart"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 </html>

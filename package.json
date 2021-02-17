@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon -e hbs,css,js ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
