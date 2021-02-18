@@ -3,10 +3,30 @@
   <head>
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
+    <h1 style="margin-bottom: 35px;">Welcome to  IronBitcoin</h1>
+
+    <label>From</label>
+    <input type="date" id="start-value">
+
+    <label>To</label>
+    <input type="date" id="end-value">
+
+    <button id="getValueBtn" type="submit">Search</button>
+
+    <div class="infoCurrency">
+      <h3>Currency:</h3>
+      <select name="currency" id="currency">
+        <option>Select currency</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    
+
+    <canvas id="my-chart" width="400" height="100"></canvas>
   </body>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
