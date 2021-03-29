@@ -9,8 +9,25 @@
 </head>
 
 <body>
-  <h1> {{title}} </h1>
-  <p>Welcome to {{title}} </p>
+  <div id="filters">
+    <h1> Filters</h1>
+    <p><label for="from-date">From:</label> <input name="from-date" id="from-date" type="date"> <label
+        for="to-date">To:</label> <input name="to-date" id="to-date" type="date">
+      <span id="date-warning" style="color:brown;"></span>
+    </p>
+    <p>
+      <label for="currency">Currency:</label>
+      <select name="currency" id="currency">
+        <option value="USD">USD $</option>
+        <option value="EUR">EUR €</option>
+      </select>
+    </p>
+  </div>
+  <div id="values">
+    <h1>Values</h1>
+    <p>Max:</p>
+    <p>Min:</p>
+  </div>
   <canvas id="myChart" width="400" height="400"></canvas>
 
 </body>
