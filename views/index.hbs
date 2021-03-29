@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> {{title}} </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> {{title}} </h1>
-    <p>Welcome to  {{title}} </p>
-  </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
+<head>
+  <title> {{title}} </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1> {{title}} </h1>
+  <p>Bitcoin Price Index </p>
+
+  <div class="container">
+    <p>Enter date range: </p>
+    <p id="values"></p>
+    <input placeholder="Enter some text" type="date" id="from-date">
+    <input type="date" id="to-date">
+    <a href=""><button id="action-button">search dates</button> </a>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+</body>
+<script src="/javascripts/financial-data.js" charset="utf-8"></script>
+
 </html>
