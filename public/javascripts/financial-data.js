@@ -6,6 +6,8 @@ let fromDate = document.getElementById("from-date");
 let toDate = document.getElementById("to-date");
 let currency = document.getElementById("currency");
 let dateWarning = document.getElementById("date-warning");
+let valueMax = document.getElementById("value-max");
+let valueMin = document.getElementById("value-min");
 
 const baseUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
 
@@ -23,6 +25,7 @@ function getRequest(url) {
     })
     .then((bitCoinData) => {
       drawChart(bitCoinData);
+      calculateMinMax(bitCoinData);
     })
     .catch((error) => {
       console.log(error);
@@ -46,6 +49,12 @@ function drawChart(bitCoinData) {
       ],
     },
   });
+}
+
+function calculateMinMax(bitCoinData) {
+  let bitCoinValue = Object.values(bitCoinData);
+  valueMax.innerHTML = Math.max(...bitCoinValue);
+  valueMin.innerHTML = Math.min(...bitCoinValue);
 }
 
 function updateChart() {
