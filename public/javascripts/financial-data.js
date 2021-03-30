@@ -7,21 +7,27 @@ let toDate = document.getElementById("to-date");
 let currency = document.getElementById("currency");
 let dateWarning = document.getElementById("date-warning");
 
+const baseUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
+
 fromDate.addEventListener("change", updateChart);
 toDate.addEventListener("change", updateChart);
 currency.addEventListener("change", updateChart);
 
-axios
-  .get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then((response) => {
-    return response.data.bpi;
-  })
-  .then((bitCoinData) => {
-    drawChart(bitCoinData);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+getRequest(baseUrl);
+
+function getRequest(url) {
+  axios
+    .get(url)
+    .then((response) => {
+      return response.data.bpi;
+    })
+    .then((bitCoinData) => {
+      drawChart(bitCoinData);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
 function drawChart(bitCoinData) {
   let bitCoinValue = Object.values(bitCoinData);
@@ -46,33 +52,13 @@ function updateChart() {
   let fromDateString = fromDate.value;
   let toDateString = toDate.value;
   let currencyString = currency.value;
-  let requestUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDateString}&end=${toDateString}&currency=${currencyString}`;
-  let requestUrlCurrencyOnly = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currencyString}`;
+  let requestUrl = `${baseUrl}?start=${fromDateString}&end=${toDateString}&currency=${currencyString}`;
+  let requestUrlCurrencyOnly = `${baseUrl}?currency=${currencyString}`;
   if (fromDateString && toDateString && toDateString > fromDateString) {
-    axios
-      .get(requestUrl)
-      .then((response) => {
-        return response.data.bpi;
-      })
-      .then((bitCoinData) => {
-        drawChart(bitCoinData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    getRequest(requestUrl);
     dateWarning.innerHTML = "";
   } else {
     dateWarning.innerHTML = "Please enter valid From and To dates";
-    axios
-      .get(requestUrlCurrencyOnly)
-      .then((response) => {
-        return response.data.bpi;
-      })
-      .then((bitCoinData) => {
-        drawChart(bitCoinData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    getRequest(requestUrlCurrencyOnly);
   }
 }
