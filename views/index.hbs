@@ -13,6 +13,16 @@
   <p>Welcome to {{title}} </p>
   <input type="date" id="StartDate">
   <input type="date" id="EndDate">
+
+  <select id="currency">
+    <option value="USD" selected>USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+  </select>
+
+  <p>Maximum value: <span id="maxValue"></span> <span id="maxCurrency"></span></p>
+  <p>Minimum value: <span id="minValue"></span> <span id="minCurrency"></span></p>
+
   <canvas id="myChart" width="400" height="400"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>
