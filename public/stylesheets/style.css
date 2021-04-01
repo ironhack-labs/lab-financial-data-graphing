@@ -7,6 +7,16 @@ a {
   color: #00b7ff;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.values {
+  margin-right: 15px;
+  text-align: right;
+}
+
 label {
   font-weight: bold;
 }

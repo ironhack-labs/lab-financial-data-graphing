@@ -10,19 +10,32 @@
 
 <body>
   <h1> {{title}} </h1>
-  <h2>Filters</h2>
-  <label for="start-date">From:</label>
-  <input type="date" name="start" id="start">
-  <label for="end-date">To:</label>
-  <input type="date" name="end" id="end">
-  <br>
-  <br>
-  <label for="currency">Currency:</label>
-  <select name="currency" id="currency">
-    <option value="USD" selected>USD</option>
-    <option value="EUR">EUR</option>
-    <option value="GBP">GBP</option>
-  </select>
+  <div class="header">
+    <div class="filters">
+      <h2>Filters</h2>
+      <label for="start-date">From:</label>
+      <input type="date" name="start" id="start">
+      <label for="end-date">To:</label>
+      <input type="date" name="end" id="end">
+      <br>
+      <br>
+      <label for="currency">Currency:</label>
+      <select name="currency" id="currency">
+        <option value="USD" selected>USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+    <div class="values">
+      <h2>Values</h2>
+      <p>Max: <span id="max"></span></p>
+      <p>Min: <span id="min"></span></p>
+    </div>
+  </div>
+
+
+
+
   <canvas id="myChart" width="400" height="400"></canvas>
 </body>
 <script src="/javascripts/financial-data.js" charset="utf-8"></script>

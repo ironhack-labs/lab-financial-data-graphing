@@ -2,11 +2,13 @@ const apiUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
 const startDateInput = document.getElementById("start");
 const endDateInput = document.getElementById("end");
 const currencyInput = document.getElementById("currency");
+const minValueInput = document.getElementById("min");
+const maxValueInput = document.getElementById("max");
 let start;
 let end;
 let currency = currencyInput.value;
 
-updateChart();
+updateChart(`${apiUrl}?currency=${currency}`);
 
 startDateInput.addEventListener("change", (event) => {
   start = event.target.value;
@@ -18,10 +20,14 @@ endDateInput.addEventListener("change", (event) => {
   getHistoricalData();
 });
 
-currencyInput.onChange = (event) => {
+currencyInput.addEventListener("change", (event) => {
   currency = event.target.value;
-  updateChart();
-};
+  if (!end && !start) {
+    updateChart(`${apiUrl}?currency=${currency}`);
+  } else {
+    updateChart(`${apiUrl}?start=${start}&end=${end}&currency=${currency}`);
+  }
+});
 
 function getHistoricalData() {
   if (!end || !start) {
@@ -33,21 +39,18 @@ function getHistoricalData() {
   if (endDate < startDate) {
     return;
   }
-
-  axios
-    .get(`${apiUrl}?start=${start}&end=${end}&currency=${currency}`)
-    .then((response) => {
-      const axisX = Object.keys(response.data.bpi);
-      const axisY = Object.values(response.data.bpi);
-      drawChart(axisX, axisY);
-    });
+  updateChart(`${apiUrl}?start=${start}&end=${end}&currency=${currency}`);
 }
 
-function updateChart() {
-  axios.get(`${apiUrl}?currency=${currency}`).then((response) => {
+function updateChart(url) {
+  axios.get(url).then((response) => {
     const axisX = Object.keys(response.data.bpi);
     const axisY = Object.values(response.data.bpi);
     drawChart(axisX, axisY);
+    const minValue = Math.min(...axisY);
+    const maxValue = Math.max(...axisY);
+    minValueInput.innerText = `${minValue} ${currency}`;
+    maxValueInput.innerText = `${maxValue} ${currency}`;
   });
 }
 
