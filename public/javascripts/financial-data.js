@@ -34,10 +34,13 @@ axios
   }
 
 function dateFilter(startDate, endDate){
-  const apiUrl =  `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}$end=${endDate}`
+    console.log(startDate)
+    console.log(endDate)
+  const apiUrl =  `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate}&end=${endDate}`
   axios
     .get(apiUrl)
     .then(responseFromAPI => {
+        console.log(responseFromAPI.data)
         const bitcoin = responseFromAPI.data.bpi
         const date = Object.keys(bitcoin)
         const price = Object.values(bitcoin)
