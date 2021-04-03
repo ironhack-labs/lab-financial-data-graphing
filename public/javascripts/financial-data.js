@@ -1,20 +1,51 @@
-axios
-  .get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then((response) => {
-    console.log("response: ", response.data);
-    // Y-axis will represent the bitcoin value
-    const bitcoinData = response.data.bpi;
-    const yAxis = Object.values(bitcoinData);
-    //  X-axis will represent the date of each value
-    const xAxis = Object.keys(bitcoinData);
-    console.log(xAxis);
+const startDateInput = document.getElementById("start-date");
+const endDateInput = document.getElementById("end-date");
+const baseUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
 
-    drawChart(yAxis, xAxis);
-  })
+let start;
+let end;
 
-  .catch((error) => {
-    console.log(error);
-  });
+startDateInput.onchange = (event) => {
+  start = event.target.value;
+  console.log(start);
+  getHistoricalData();
+};
+
+endDateInput.onchange = (event) => {
+  end = event.target.value;
+  console.log(end);
+  getHistoricalData();
+};
+
+function getHistoricalData() {
+  if (!end || !start) {
+    return;
+  }
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+
+  if (endDate < startDate) {
+    console.log(
+      "You end date is earlier than your start date. Fix it, you silly goose!"
+    );
+    return;
+  }
+
+  axios
+    .get(`${baseUrl}?start=${start}&end=${end}`)
+    .then((response) => {
+      console.log(response);
+      const bitcoinData = response.data.bpi;
+      const yAxis = Object.values(bitcoinData);
+      const xAxis = Object.keys(bitcoinData);
+      drawChart(yAxis, xAxis);
+    })
+
+    .catch((error) => {
+      console.log(error);
+      // Create a message to user using DOM! :)
+    });
+}
 
 function drawChart(yAxis, xAxis) {
   const ctx = document.getElementById("myChart");
@@ -33,3 +64,4 @@ function drawChart(yAxis, xAxis) {
     },
   });
 }
+getHistoricalData();
