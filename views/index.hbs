@@ -7,6 +7,34 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <label for="startDate">Start Date:</label>
+    <input class="chartSetting" type="date" id="startDate" >
+
+    <label for="startDate">End Date: </label>
+    <input class="chartSetting"  type="date" id="endDate">
+
+    <select class="chartSetting" name="cur" id="cur">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+    <div>
+      <h5>
+        Minimum Value:
+        <span id="minVal"></span>
+      </h5>
+      <h5>
+        Maximum Value:
+        <span id="maxVal"></span>
+      </h5>
+
+    </div>
+
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js" integrity="sha512-BqNYFBAzGfZDnIWSAEGZSD/QFKeVxms2dIBPfw11gZubWwKUjEgmFUtUls8vZ6xTRZN/jaXGHD/ZaxD9+fDo0A==" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/financial-data.js" charset="utf-8"></script>
 </html>
