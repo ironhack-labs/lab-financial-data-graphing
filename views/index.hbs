@@ -7,6 +7,13 @@
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <label for="starter-date">From</label>
+    <input type="date" name="starter-date" id="starter-date">
+
+    <label for="end-date">To</label>
+    <input type="date" name="end-date" id="end-date">
+
+    <button id="get-dates-btn">Load</button>
     <canvas id="myChart" width="400" height="400"></canvas>
   </body>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
