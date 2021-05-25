@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title> {{title}} </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body>
     <h1> {{title}} </h1>
     <p>Welcome to  {{title}} </p>
+    <h2>Select dates</h2>
+    <div>
+        <label for="start_date">From : </label>
+        <input id="start_date" type="date" />
+        <label for="end_date">To : </label>
+        <input id="end_date" type="date" />
+    </div>
+    <label for="currency">Currency : </label>
+    <select name="currency" id="currency_select">
+    </select>
+    <h2>Values</h2>
+    <p>Min : <span id="min"></span></p>
+    <p>Max : <span id="max"></span></p>
+    <canvas id="bitcoin_price_index_chart"></canvas>
+    <script src="/js/luxon.js"></script>
+    <script src="/js/financial-data.js"></script>
   </body>
-  <script src="/javascripts/financial-data.js" charset="utf-8"></script>
+  
 </html>

@@ -3,6 +3,7 @@
 # .env
 
 package-lock.json
+.jshintrc
 
 # Dependency directory
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
