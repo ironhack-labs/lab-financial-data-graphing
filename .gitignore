@@ -1,17 +1,14 @@
-# Environment Variables should NEVER be published
-# For learning purposes we will leave .env visible, but make sure you never push it when working on your projects  
-# .env
-
-package-lock.json
-
 # Dependency directory
-# https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
 
+# Debug log from npm
+npm-debug.log
 
+# Environment Variables should NEVER be published
+# We are submitting it for learning purposes 
+# .env
 
-
-
-
+# for maintenance purposes - not best practices
+package-lock.json
 
 
