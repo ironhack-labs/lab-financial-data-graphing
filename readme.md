@@ -61,7 +61,7 @@ Since we want to present historical data on the chart, as you can see, you have 
 
 As you can see in the image above, the Y-axis will represent the bitcoin value, while the X-axis will represent the date of each value.
 
-We are going to use Axios to make the AJAX Request, so we have to import Axios through it's CDN.
+We are going to use Axios to make the AJAX Request, so we have to import Axios through its CDN.
 
 **Tasks**
 
