@@ -2,15 +2,21 @@
 
 # LAB | Financial Data Graphing
 
+<br><br>
+
 ## Introduction
 
+<br>
+
 ![](http://i.giphy.com/l3Uct2K9N3CqxeCoU.gif)
+
+<br>
 
 [CoinDesk](http://www.coindesk.com/) is the world leader in news and information on digital currencies such as bitcoin, and its underlying technology - the blockchain.
 
 They cover news and analysis on the trends, price movements, technologies, companies, and people in bitcoin as well as the digital currency world.
 
-In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
+In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
 The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show these variations in a graphic with [Chart.js](http://www.chartjs.org/).
 
@@ -33,9 +39,11 @@ $ git push origin master
 
 - Create Pull Request so your TAs can check up your work.
 
+<br>
+
 # Instructions
 
-We have already created a JavaScript file to add all your AJAX code: `public/javascripts/financial-data.js`
+We have already created a JavaScript file to add all your AJAX code: `public/js/financial-data.js`
 
 The app will be a super simple exercise where we are going to represent some data in a line chart.
 
@@ -43,9 +51,11 @@ The app will be a super simple exercise where we are going to represent some dat
 
 Let's start!
 
-## Iteration #1: Get data
+<br>
 
-The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api).
+## Iteration #1: Get the data
+
+The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://www.coindesk.com/coindesk-api).
 
 Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the `http://api.coindesk.com/v1/bpi/historical/close.json` URL. The response will be a JSON with the data we want to represent.
 
@@ -58,7 +68,9 @@ We are going to use Axios to make the AJAX Request, so we have to import Axios t
 - Add the Axios reference in the HTML through CDN to be able to use it.
 - You have to create an Axios Request to this URL and get the data. Use a `console.log()` to be sure that we are getting the correct data.
 
-## Iteration #2: Create a chart
+<br>
+
+## Iteration #2: Create the chart
 
 Once we have the desired data, we have to show it as a chart. We are going to use [Chart.js](http://www.chartjs.org/) to do that. So we have to add the library through CDN.
 
@@ -73,11 +85,13 @@ Once we have added the CDN reference in the HTML file, we have to represent the 
 - Practice reading documentation with the [Chart line documentation](http://www.chartjs.org/docs/#line-chart-introduction).
 - Create a line chart and show the data.
 
+<br>
+
 ## Iteration #3: Dates Filter
 
 As you can see, by default, the API response gives us the last month's Price Index. In this iteration, we are going to add two date `input` to be able to filter these dates.
 
-Check out the [CoinDesk API documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api) (Historical BPI data) to figure out how we can filter the data and get the values between two dates.
+Check out the [CoinDesk API documentation](https://www.coindesk.com/coindesk-api) (Historical BPI data) to figure out how we can filter the data and get the values between two dates.
 
 To finish up this iteration, remember that the data has to be loaded every time we select a date, so you must add a listener and trigger the load data function every time that the date selector changes its value.
 
@@ -86,6 +100,8 @@ To finish up this iteration, remember that the data has to be loaded every time 
 - Add two `<input type="date">` fields to indicate the dates between which you are going to search: from date - to date.
 - Add a listener to this `input` to search the data every time that its values change.
 - Add the dates to the API URL to get the correct data.
+
+<br>
 
 ## Iteration #4 (Bonus): Currency
 
@@ -103,6 +119,8 @@ As in the dates filter, the data has to be reloaded every time the currency chan
 - Add a listener to the `select` field to reload the data every time its value changes.
 - Add the currency to the API URL to load the correct values in our application.
 
+<br>
+
 ## Iteration #5 (Bonus): Max/Min Values
 
 To finish up with the exercise, let's add an information box where we are going to show which are the maximum and minimum values in the indicated filters.
@@ -116,4 +134,6 @@ To do that, we have to get the prices from the response we got in the first iter
 - Use `Math.min()` and `Math.max()` to filter the array and get the min/max values.
 - Show these values in the information box we have added to the view.
 
-Happy coding! :heart:
+<br><br>
+
+**Happy coding!** :heart:
