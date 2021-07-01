@@ -1,6 +1,10 @@
+// const from = document.querySelector('#from').onclick;
+// const to = document.querySelector('#to').onclick;
+
 const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
 console.log(apiUrl)
 
+    
 const printChart = stockData => {
     const dailyData = stockData.data.bpi
     console.log(dailyData)
