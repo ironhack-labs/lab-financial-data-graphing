@@ -1,5 +1,3 @@
-// const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json`
-// let apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05`;
 let fromDate = '2021-06-01';
 let toDate = '2021-06-30';
 let apiUrl = `https://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}`;
@@ -21,7 +19,7 @@ const printChart = bitcoinData => {
 	// the chart
 	const ctx = document.querySelector('#myChart').getContext('2d');
 
-    if (chart) {
+    if (chart) { // destroy if a chart already exists, otherwise canvas will not work
         chart.destroy();
     }
 
