@@ -1,6 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="date">
+    <label for="fromDate"> From Date: </label>
+    <input class="from" id="fromDate" type="date" value="2021-01-01">
+    <label for="toDate"> To Date: </label>
+    <input class="from" id="toDate" type="date" value="2021-03-01">
+    <button id="btn">Get Period</button>
+</div>
 
-<canvas id="my-chart">
-    
-</canvas>
+<label for="currency">Select currency
+</label>
+<select name="currency" id="currency">
+    <option value="usd">US dollar</option>
+    <option selected value="eur">EU euro</option>
+    <option value="gbp"> BG pound</option>
+</select>
+<canvas id="my-chart"></canvas>
+
+<div>
+    <label for="max-price"><strong>Max Price: </strong></label>
+    <span class="max-min" name='max' id="max"></span>
+</div>
+<div>
+    <label for="min-price"><strong>Min Price: </strong></label>
+    <span class="max-min" name='min' id="min"></span>
+</div>
