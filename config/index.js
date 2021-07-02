@@ -30,9 +30,4 @@
 //   // Handles access to the public folder
 //   app.use(express.static(path.join(__dirname, "..", "public")));
 // };
-//Peticion a Axios para hacer peticiones HTTP que nos devuelve promesas
-axios.get("http://api.coindesk.com/v1/bpi/historical/close.json")
-  .then((response) => {
-    console.log(response)
-  })
-  .catch(e => console.error(e))
+

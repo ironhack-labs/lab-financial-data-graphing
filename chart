@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>BITCOIN Financial Data Graphic</title>
+    <title>Bitcoin</title>
 </head>
 
 <body>
-    <p>Loading...</p>
-   
+    <h1>Chart</h1>
     <!-- Requerimos axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Requerimos la libreria grafica ChartJS -->
@@ -19,7 +17,7 @@
     <!-- Requerimos canvas (necesario para usar ChartJS) -->
     <canvas id="my-chart"></canvas>
     <!-- Requerimos el script del chart.js -->
-    <script src="./public/js/financial-data.js"></script>
+    <script src="./public/js/finacial-data.js"></script>
 </body>
 
 </html>
