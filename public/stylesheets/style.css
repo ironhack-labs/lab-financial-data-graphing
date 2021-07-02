@@ -1,8 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  box-sizing: border-box;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.date {
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
 }
+
+.date label {
+  padding-left: 30px;
+}
+
+#btn {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(255,215,0);
+  color: rgb(26, 24, 24);
+  cursor: pointer;
+}
+
+.from {
+  padding-left: 20px;
+}
+/* 
+.form-select {
+  padding: 5px;
+  background-color: rgb(255,215,0);
+  color: rgb(26, 24, 24);
+}
+ */
