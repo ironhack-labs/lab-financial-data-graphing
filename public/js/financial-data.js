@@ -11,6 +11,7 @@ axios.get(apiUrl)
     //Crear un title
     const title = document.createElement('h1')
     title.textContent = "Chart"
+    document.body.prepend(title)
     // //Crear un unorderer list
     // const list = document.createElement('ul')
     // document.body.append(list)
@@ -33,7 +34,8 @@ function printTheChart(stockData) {
 
   const ctx = document.getElementById('my-chart').getContext('2d');
   const chart = new Chart(ctx, {
-    type: 'line',
+    //Tipo de grafica (type): line, bar, radar, radar, doughnut,etc
+    type: 'bar',
     data: {
       labels: stockDates,
       datasets: [
