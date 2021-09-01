@@ -14,6 +14,7 @@ window.onload = () => {
         const ctx = document.getElementById("myChart").getContext("2d");
             myChart = new Chart(ctx, {
             type: "line",
+            responsive: true,
             data: {
                 labels,
                 datasets: [
