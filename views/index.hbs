@@ -1,6 +1,12 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <div style="width:1000px; height:1000px">
+    <div>
+        <select name="currency" id="pickCurrency">
+            <option value="USD">$USD</option>
+            <option value="EUR">€EUR</option>
+        </select>
+    </div>
     <canvas id="myChart"></canvas>
     <label for="date">Date Range:</label>
     <input type="date" id="start-date">
