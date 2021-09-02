@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="control">
+        <div class="filters">
+            <label for="">
+                From: <input type="date" id="from" name="from">
+            </label>
+        </div>
+        <div class="values">
+            <label for="">
+                To: <input type="date" id="to" name="to">
+            </label>
+        </div>
+        <div id="reload-button"><button id='reload'>Reload</button></div>
+    </div>
+    <div class="currency">
+        <select name="" id="">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+        </select>
+    </div>
+
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./public/js/financial-data.js"></script>
+    <script src="./public/js/script.js"></script>
+
+
+</body>
+
+</html>
