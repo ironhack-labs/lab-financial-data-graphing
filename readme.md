@@ -57,7 +57,7 @@ Let's start!
 
 The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api).
 
-Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the `[http://api.coindesk.com/v1/bpi/historical/close.json](http://api.coindesk.com/v1/bpi/historical/close.json)` URL. The response will be a JSON with the data we want to represent.
+Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the **[http://api.coindesk.com/v1/bpi/historical/close.json](http://api.coindesk.com/v1/bpi/historical/close.json)** URL. The response will be a JSON with the data we want to represent.
 
 As you can see in the image above, the Y-axis will represent the bitcoin value, while the X-axis will represent the date of each value.
 
