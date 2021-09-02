@@ -16,7 +16,7 @@
 
 They cover news and analysis on the trends, price movements, technologies, companies, and people in bitcoin as well as the digital currency world.
 
-In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
+In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
 The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show these variations in a graphic with [Chart.js](http://www.chartjs.org/).
 
@@ -55,9 +55,9 @@ Let's start!
 
 ## Iteration #1: Get the data
 
-The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://www.coindesk.com/coindesk-api).
+The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api).
 
-Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the `http://api.coindesk.com/v1/bpi/historical/close.json` URL. The response will be a JSON with the data we want to represent.
+Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the `[http://api.coindesk.com/v1/bpi/historical/close.json](http://api.coindesk.com/v1/bpi/historical/close.json)` URL. The response will be a JSON with the data we want to represent.
 
 As you can see in the image above, the Y-axis will represent the bitcoin value, while the X-axis will represent the date of each value.
 
@@ -91,7 +91,13 @@ Once we have added the CDN reference in the HTML file, we have to represent the 
 
 As you can see, by default, the API response gives us the last month's Price Index. In this iteration, we are going to add two date `input` to be able to filter these dates.
 
-Check out the [CoinDesk API documentation](https://www.coindesk.com/coindesk-api) (Historical BPI data) to figure out how we can filter the data and get the values between two dates.
+<!-- Check out the [CoinDesk API documentation](https://web.archive.org/web/20191106152143/https://www.coindesk.com/api) (Historical BPI data) to figure out how we can filter the data and get the values between two dates. -->
+
+Use the following API endpoint to filter the data and get the values between two dates:
+
+```shell
+http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}
+```
 
 To finish up this iteration, remember that the data has to be loaded every time we select a date, so you must add a listener and trigger the load data function every time that the date selector changes its value.
 
