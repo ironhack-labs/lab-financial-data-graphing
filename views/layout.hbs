@@ -5,13 +5,20 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <title>{{title}}</title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
    </head>
 
    <body>
-
       {{{body}}}
+      <h3>Filters</h3>
+      <label>From: </label>
+      <input onchange="filterDate()" id="start-date" type="date" value="2021-08-09">
+      <label for="">To: </label>
+      <input onchange="filterDates()" id="end-date" type="date" value="2021-09-08">
+      <canvas id="myChart" width="400" height="200"></canvas>
 
       <script src="/js/script.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
