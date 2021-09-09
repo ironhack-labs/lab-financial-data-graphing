@@ -13,11 +13,23 @@
 
    <body>
       {{{body}}}
-      <h3>Filters</h3>
-      <label>From: </label>
-      <input onchange="filterDate()" id="start-date" type="date" value="2021-08-09">
-      <label for="">To: </label>
-      <input onchange="filterDates()" id="end-date" type="date" value="2021-09-08">
+      <div>
+         <h3>Filters</h3>
+         <label>From: </label>
+         <input onchange="filterDates()" id="start-date" type="date" value="2021-08-09">
+         <label for="">To: </label>
+         <input onchange="filterDates()" id="end-date" type="date" value="2021-09-08">
+      </div>
+      
+      <div id="select-box">
+         <label>Currency:</label>
+         <select id="select-currency">
+            <option value="USD">USD 💵</option>
+            <option value="EUR">EUR 💶</option>
+         </select>
+      </div>
+      
+
       <canvas id="myChart" width="400" height="200"></canvas>
 
       <script src="/js/script.js"></script>
