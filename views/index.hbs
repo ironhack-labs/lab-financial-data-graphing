@@ -1,2 +1,18 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h2>Filters</h2>
+<div>
+<label for="date">Date Range:</label>
+<input type="date" id="start-date">
+<input type="date" id="end-date">
+<button>Select Dates</button>
+</div>
+<br>
+<div>
+    <label for="date">Currency:</label>
+    <select name="currency" id="pick-currency">
+        <option value="USD">$USD - US Dollar</option>
+        <option value="EUR">€EUR - Euros</option>
+        <option value="GBP">£GPB - British Pound Sterling</option>
+        <option value="JPY">¥JPY - Japanese Yen</option>
+    </select>
+</div>
+<canvas id="myChart" width="400" height="400"></canvas>
