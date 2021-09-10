@@ -1,7 +1,9 @@
-// const { default: axios } = require("axios");
 window.onload = () => {
   const apiUrl = "http://api.coindesk.com/v1/bpi/historical/close.json";
   let newChart;
+  let minValue = 0;
+  let maxValue = 0;
+  let bitcoinValue;
   const printChart = (dataFromApi) => {
     const dailyData = dataFromApi["bpi"];
     //console.log(dailyData);
@@ -9,12 +11,13 @@ window.onload = () => {
     const dates = Object.keys(dailyData);
     //console.log(dates);
     // data for y-axis
-    const bitcoinValue = dates.map((dailyValue) => {
+    bitcoinValue = dates.map((dailyValue) => {
       return dailyData[dailyValue];
     });
     // console.log(bitcoinValue);
     const ctx = document.querySelector("#myChart").getContext("2d");
-
+    minValue = Math.min(...bitcoinValue);
+    maxValue = Math.max(...bitcoinValue);
     newChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -43,31 +46,35 @@ window.onload = () => {
     .then((response) => {
       console.log(response.data);
       printChart(response.data);
+      document.querySelector('#minVal').innerText = `Min Value: ${minValue}`;
+      document.querySelector('#maxVal').innerText = `Min Value: ${maxValue}`;
     })
     .catch((err) => {
       console.log(err);
     });
 
+  // changing dates and currency type
 
   let currencyType = "USD";  
   let fromDate = "2021-05-23";
   let toDate = "2021-08-31";
-  // I decided to do a button instead
 
-  document.querySelector("button").onclick = () => {
-    // get the value of the input field
-    fromDate = document.getElementById("start-date").value;
-    toDate = document.getElementById("end-date").value;
-    //let currency = document.getElementById("pick-currency").value;
-    getDateAndCurrencyData();
+  document.getElementById("start-date").addEventListener('change', () => {
     newChart.destroy();
-  };
+    fromDate = document.getElementById("start-date").value;
+    getDateAndCurrencyData();
+  })
+
+  document.getElementById("end-date").addEventListener('change', () => {
+    newChart.destroy();
+    toDate = document.getElementById("end-date").value;
+    getDateAndCurrencyData();
+  })
 
   document.getElementById("pick-currency").addEventListener('change', () => {
     newChart.destroy();
     currencyType = document.getElementById("pick-currency").value;
     getDateAndCurrencyData();
-    console.log("load");
   })
 
   const getDateAndCurrencyData = () => {
@@ -78,6 +85,8 @@ window.onload = () => {
       .then((response) => {
         console.log(response.data);
         printChart(response.data);
+        document.querySelector('#minVal').innerText = `Min Value: ${minValue}`;
+        document.querySelector('#maxVal').innerText = `Min Value: ${maxValue}`;
       })
       .catch((err) => {
         console.log(err);
