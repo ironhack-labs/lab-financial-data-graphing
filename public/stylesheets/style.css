@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+canvas{
+  width: 80vw;
+  height: 50vh !important;
+}

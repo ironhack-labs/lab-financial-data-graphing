@@ -37,6 +37,9 @@ window.onload = () => {
 				]
 			},
 			options: {
+				responsive: true,
+				//add this to read keys
+				maintainAspectRatio: false,
 				scales: {
 					y: {
 						beginAtZero: true
