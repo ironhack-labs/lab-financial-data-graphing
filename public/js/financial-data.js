@@ -7,6 +7,17 @@ window.onload = () => {
 		//Get key
 		const labels = Object.keys(responseFromAPI.data.bpi);
 		const prices = labels.map((key) => responseFromAPI.data.bpi[key]);
+		// console.log(prices);
+		// console.log(Math.min(...prices));
+		// console.log(Math.max(...prices));
+		let minimumPrice = Math.min(...prices);
+		let maximumPrice = Math.max(...prices);
+		//Adding min max prices to input
+		let minPrice = document.getElementById('minPrice');
+		let maxPrice = document.getElementById('maxPrice');
+		maxPrice.value = maximumPrice;
+		minPrice.value = minimumPrice;
+
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var myChart = new Chart(ctx, {
 			type: 'line',
@@ -61,6 +72,16 @@ window.onload = () => {
 			//console.log(responseFromAPI);
 			const labels = Object.keys(responseFromAPI.data.bpi);
 			const prices = labels.map((key) => responseFromAPI.data.bpi[key]);
+			// console.log(prices);
+			// console.log(Math.min(...prices));
+			// console.log(Math.max(...prices));
+			let minimumPrice = Math.min(...prices);
+			let maximumPrice = Math.max(...prices);
+			//Adding min max prices to input
+			let minPrice = document.getElementById('minPrice');
+			let maxPrice = document.getElementById('maxPrice');
+			maxPrice.value = maximumPrice;
+			minPrice.value = minimumPrice;
 			const ctx = document.getElementById('myChart').getContext('2d');
 			const myChart = new Chart(ctx, {
 				type: 'line',
@@ -110,9 +131,7 @@ window.onload = () => {
 		const startingDate = document.getElementById('startingDate').value;
 		const endingDate = document.getElementById('endingDate').value;
 		const currency = document.getElementById('currency').value;
-		//console.log(currency);
-		//console.log(startingDate);
-		//console.log(endingDate);
+
 		let url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${startingDate}&end=${endingDate}&currency=${currency}`;
 		if (!startingDate && !endingDate) {
 			url = `http://api.coindesk.com/v1/bpi/historical/close.json?currency=${currency}`;
@@ -125,6 +144,17 @@ window.onload = () => {
 			//console.log(responseFromAPI);
 			const labels = Object.keys(responseFromAPI.data.bpi);
 			const prices = labels.map((key) => responseFromAPI.data.bpi[key]);
+			// console.log(prices);
+			// console.log(Math.min(...prices));
+			// console.log(Math.max(...prices));
+			let minimumPrice = Math.min(...prices);
+			let maximumPrice = Math.max(...prices);
+			//Adding min max prices to input
+			let minPrice = document.getElementById('minPrice');
+			let maxPrice = document.getElementById('maxPrice');
+			maxPrice.value = maximumPrice;
+			minPrice.value = minimumPrice;
+
 			const ctx = document.getElementById('myChart').getContext('2d');
 			const myChart = new Chart(ctx, {
 				type: 'line',

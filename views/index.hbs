@@ -6,7 +6,7 @@
 {{!-- Selecting dates --}}
 <input type="date" id='startingDate'>
 <input type="date" id='endingDate'>
-<button id='searchDates'>Fetch Dates</button>
+<button id='searchDates'>Select Dates</button>
 {{!-- Selecting currency --}}
 <label for="currency">Select currency:</label>
 <select name="currency" id="currency">
@@ -14,3 +14,7 @@
     <option value="EUR">EUR</option>
     <option value="BTC">BTC</option>
 </select>
+{{!-- Selecting MIN / MAX prices --}}
+<br><br>
+<label for="maxPrice">Max. current price:</label><input type="text" id='maxPrice' disabled><br>
+<label for="minPrice">Min. current price:</label><input type="text" id='minPrice' disabled>
