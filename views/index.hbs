@@ -3,7 +3,14 @@
 <canvas id="myChart" width='400px' height='400px'>
 
 </canvas>
-
+{{!-- Selecting dates --}}
 <input type="date" id='startingDate'>
 <input type="date" id='endingDate'>
 <button id='searchDates'>Fetch Dates</button>
+{{!-- Selecting currency --}}
+<label for="currency">Select currency:</label>
+<select name="currency" id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="BTC">BTC</option>
+</select>
