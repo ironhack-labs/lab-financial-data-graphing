@@ -1,2 +1,20 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<div class="inputs">
+    <label for="fromDate">From date</label>
+    <input type="date" id="fromDate" name="fromDate" min="2021-10-18" max="2021-11-17" />
+
+    <label for="toDate">To date</label>
+    <input type="date" name="toDate" id="toDate" min="2021-10-18" max="2021-11-17">
+
+    <label for="currency">Currency</label>
+    <select name="currency" id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+
+    <button id="search">Search</button>
+</div>
+
+<canvas id="chart"></canvas>
