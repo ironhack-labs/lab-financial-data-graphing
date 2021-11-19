@@ -28,7 +28,6 @@ function draw(bpi) {
 function update(bpi) {
     removeData();
     updateData(genData(bpi));
-    updateMinAndMax();
 }
 
 function genData(bpi) {
@@ -68,6 +67,6 @@ function removeData() {
 }
 
 function updateMinAndMax(min, max) {
-    document.querySelector('#min > span').innerText = min;
-    document.querySelector('#max > span').innerText = max;
+    document.querySelector('#min > span').innerText = min + ` ${currency}`;
+    document.querySelector('#max > span').innerText = max + ` ${currency}`;
 }
