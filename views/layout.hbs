@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{title}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+</head>
 
-   <body>
+<body>
 
-      {{{body}}}
+{{{body}}}
+<form>
+    <label for="fromDate"> From:</label>
+    <input type="date" name="fromDate" value=>
+    <label for="toDate"> To:</label>
+    <input type="date" name="toDate">
+    <label for="currency"> Currency:</label>
+    <select id="currency" name="currency" onchange="changeCurrency(event)">
+        <option value="USD"> USD</option>
+        <option value="EUR"> EUR</option>
+        <option value="MAD"> MAD</option>
+    </select>
+    <label id="min"> <strong>Min:</strong> <span>0</span></label>
+    <label id="max"> <strong>Max:</strong> <span>0</span></label>
 
-      <script src="/js/script.js"></script>
-      <script src="/js/financial-data.js" charset="utf-8"></script>
-   </body>
+</form>
+<canvas id="myChart" width="200px" height="50px"></canvas>
+
+<script src="/js/financial-data.js" charset="utf-8"></script>
+<script src="/js/script.js"></script>
+</body>
 
 </html>
