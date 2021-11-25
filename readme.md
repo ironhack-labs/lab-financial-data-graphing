@@ -16,7 +16,7 @@
 
 They cover news and analysis on the trends, price movements, technologies, companies, and people in bitcoin as well as the digital currency world.
 
-In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://www.coindesk.com/coindesk-api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
+In this exercise, we will be using one of their data repositories: the [Bitcoin Price Index](https://old.coindesk.com/coindesk-api). CoinDesk provides a simple API to make its Bitcoin Price Index data programmatically, and we are going to use it to represent the values in a chart.
 
 The Bitcoin Price Index is the value that has bitcoin in different currencies. So we are going to show these variations in a graphic with [Chart.js](http://www.chartjs.org/).
 
@@ -55,7 +55,7 @@ Let's start!
 
 ## Iteration #1: Get the data
 
-The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://www.coindesk.com/coindesk-api).
+The first thing we need to do is to get the data we are going to represent in our chart. To do that, we will use the [CoinDesk API Documentation](https://old.coindesk.com/coindesk-api).
 
 Since we want to present historical data on the chart, as you can see, you have to make a `GET` request to the `http://api.coindesk.com/v1/bpi/historical/close.json` URL. The response will be a JSON with the data we want to represent.
 
