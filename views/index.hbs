@@ -2,18 +2,27 @@
 <p>Welcome to {{title}}</p>
 
 <div class="values">
-    <h2>Values</h2>
-    <p class="minValue">Min: <span></span></p>
-    <p class="maxValue">Max: <span></span></p>
+  <h2>Values</h2>
+  <p class="minValue">Min: <span></span></p>
+  <p class="maxValue">Max: <span></span></p>
 </div>
 
 <label>From
-    <input type="date" name="start-date" id="start-date">
+  <input type="date" name="start-date" id="start-date">
 </label>
 
-
 <label>To
-    <input type="date" name="end-date" id="end-date">
+  <input type="date" name="end-date" id="end-date">
+</label>
+
+<label>Currency:
+  <select name="currency" id="currency">
+    <option value="USD" selected>USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+    <option value="CAD">CAD</option>
+    <option value="COP">COP</option>
+  </select>
 </label>
 
 <button id="search-btn">Search</button>
