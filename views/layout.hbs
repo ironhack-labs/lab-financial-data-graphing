@@ -11,12 +11,28 @@
   <body>
 
     {{{body}}}
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <label for="fromDate"></label>
+    <input type="date" id="fromDate" value="2017-06-01" />
+    <label for="toDate"></label>
+    <input type="date" id="toDate" value="2021-11-30" />
+    <select name="currency" id="currency">
+       <option value="USD" selected>US Dollar</option>
+       <option value="EUR">Euro</option>
+       <option value="CNY">Chinese Yuan</option>
+       <option value="XAU">Gold (Troy Ounce)</option>
+       <option value="NOK">Norwegian Krone</option>
+       <option value="SEK">Swedish Krona</option>
+    </select>
+
+    <div id="ctn-canvas">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"
+    ></script>
 
-    
     <script src="/js/financial-data.js" charset="utf-8"></script>
     <script src="/js/script.js"></script>
   </body>
