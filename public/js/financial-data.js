@@ -11,6 +11,7 @@ const currencyElem = document.querySelector('#currency');
 const getHistoricalData = async (fromDate, toDate, currency) => {
   try {
     let url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`;
+
     const data = await axios.get(url);
     printChart(data);
     // console.log(data);
