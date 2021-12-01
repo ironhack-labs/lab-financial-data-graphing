@@ -1,17 +1,16 @@
-let url = 'http://api.coindesk.com/v1/bpi/historical/close.json';
-const currency = 'USD';
+let currency = 'USD';
+let fromDate = '2021-10-01';
+let toDate = new Date().toISOString().split('T')[0];
 
-let fromDateElem = document.querySelector('#fromDate');
-let fromDate = document.querySelector('#fromDate').value;
-let toDateElem = document.querySelector('#toDate');
-let toDate = document.querySelector('#toDate').value;
+const fromDateElem = document.querySelector('#fromDate');
+// let fromDate = document.querySelector('#fromDate').value;
+const toDateElem = document.querySelector('#toDate');
+// let toDate = document.querySelector('#toDate').value;
+const currencyElem = document.querySelector('#currency');
 
-const getHistoricalData = async (fromDate, toDate) => {
+const getHistoricalData = async (fromDate, toDate, currency) => {
   try {
-    if (fromDate && toDate) {
-      url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`;
-    }
-
+    let url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`;
     const data = await axios.get(url);
     printChart(data);
     // console.log(data);
@@ -44,14 +43,19 @@ const printChart = (input) => {
   }); // closes chart = new Chart()
 };
 
-getHistoricalData(fromDate, toDate);
+getHistoricalData(fromDate, toDate, currency);
 
 fromDateElem.addEventListener('change', function (event) {
   fromDate = event.target.value;
-  getHistoricalData(fromDate, toDate);
+  getHistoricalData(fromDate, toDate, currency);
 });
 
 toDateElem.addEventListener('change', function (event) {
   toDate = event.target.value;
-  getHistoricalData(fromDate, toDate);
+  getHistoricalData(fromDate, toDate, currency);
+});
+
+currencyElem.addEventListener('change', function (event) {
+  currency = event.target.value;
+  getHistoricalData(fromDate, toDate, currency);
 });

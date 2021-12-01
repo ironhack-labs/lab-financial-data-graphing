@@ -13,6 +13,16 @@
     {{{body}}}
     <input type='date' name='fromDate' id='fromDate' />
     <input type='date' name='toDate' id='toDate' />
+
+    <label for='currency'>Choose a currency:</label>
+
+    <select name='currency' id='currency'>
+      <option value='USD'>USD</option>
+      <option value='EUR'>EURO</option>
+      <option value='HUF'>Hungarian Forint</option>
+      <option value='DKK'>Danish Kroner</option>
+      <option value='GBP'>GBP</option>
+    </select>
     <canvas id='my-chart'></canvas>
 
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
