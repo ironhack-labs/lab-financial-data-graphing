@@ -13,16 +13,22 @@ const getHistoricalData = async (fromDate, toDate, currency) => {
     let url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}`;
 
     const data = await axios.get(url);
-    printChart(data);
+    printChart(data, currency);
     // console.log(data);
   } catch (error) {
     console.log(error);
   }
 };
 
-const printChart = (input) => {
+const printChart = (input, currency) => {
   const dailyData = input.data['bpi'];
   console.log(dailyData);
+  document.querySelector('.max').textContent = `Max: ${Math.max
+    .apply(null, Object.values(dailyData))
+    .toFixed(2)} ${currency}`;
+  document.querySelector('.min').textContent = `Min: ${Math.min
+    .apply(null, Object.values(dailyData))
+    .toFixed(2)} ${currency}`;
 
   const stockDates = Object.keys(dailyData);
   const stockPrices = stockDates.map((date) => dailyData[date]);
