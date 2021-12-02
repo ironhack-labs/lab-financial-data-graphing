@@ -3,45 +3,39 @@ document.addEventListener(
 
   "DOMContentLoaded",
   () => {
-  
 
     var fromDate = document.querySelector('#fromDate')
     var toDate = document.querySelector('#toDate')
 
     var currency = document.querySelector('#currency')
 
+    eventListener(fromDate)
+    eventListener(toDate)
+    eventListener(currency)
 
-    fromDate.addEventListener('change', function(){
-      fromDate.value = this.value;
-      console.log(fromDate.value)
-      newCanvas();
-      getData()
-      
-    })
-    toDate.addEventListener('change', function(){
-      toDate.value = this.value;
-      console.log(toDate.value)
-      newCanvas();
-      getData()
-      
-    })
-
-    currency.addEventListener('change', function(){
-      currency.value = this.value;
-      console.log(currency.value)
-      newCanvas();
-      getData()
-      
-    })
+    function eventListener(data){
+      data.addEventListener('change', function(){
+        data.value = this.value;
+        console.log(data.value)
+        newCanvas();
+        getData()
+        
+      })
+    }
 
     getData();
     function getData(){
 
-    
   const apiUrl = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate.value}&end=${toDate.value}&currency=${currency.value}`
     axios
     axios.get(apiUrl)
     .then(responseFromAPI => {
+      console.log(responseFromAPI.data)
+      const arr = Object.values(responseFromAPI.data.bpi)
+     const minValue = Math.min(...arr)
+      const maxValue = Math.max(...arr)
+      document.querySelector('#minValue').innerHTML = `${minValue}`
+      document.querySelector('#maxValue').innerHTML = `${maxValue}`
 
       printTheChart(responseFromAPI.data)
     })
