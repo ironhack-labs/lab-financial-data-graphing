@@ -1,0 +1,28 @@
+<div class="markup">
+    <h2>Bitcoin Financial Index</h2>
+
+    <label> From: 
+        <input type="date" name="from" id="from-date">
+    </label>
+
+    <label> To:
+        <input type="date" name="to" id="to-date">
+    </label>
+
+    <label> Currency:
+        <select name="currency" id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="MXN">MXN</option>
+            <option value="EGP">EGP</option>
+        </select>
+    </label>
+
+    <div id="valueDiv">
+        <h2>Values</h2>
+        <b id="maxVal"></b> <br>
+        <b id="minVal"></b>
+    </div>
+
+    <canvas id="graph"></canvas>
+</div>
