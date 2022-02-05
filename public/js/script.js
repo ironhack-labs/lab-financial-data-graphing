@@ -14,8 +14,6 @@ document.addEventListener(
 document.addEventListener("input",function(){
 let start = document.getElementById("start").value;
 let end = document.getElementById("end").value;
-if (!start || !end) {
-  return;
-}
-refreshData(start,end);
+let currency = document.getElementById("currency").value;
+refreshData(start,end,currency);
 });

@@ -1,11 +1,11 @@
 // let url = "http://api.coindesk.com/v1/bpi/historical/close.json";
     let date = new Date;
-   let today = date.toISOString().split('T')[0]
+   let today = date.toISOString().slice(0, 10);
    
-refreshData("2022-01-01",today);
+refreshData("2022-01-01",today, "USD");
 
-function refreshData(start, end) {
-    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`;
+function refreshData(start, end, currency) {
+    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`;
     axios.get(url)
     .then((data)=>{
     let bpi = data.data.bpi;
