@@ -23,6 +23,7 @@ document.getElementById("max").innerHTML = `Max value: ${info(value)[1]} ${curre
 
 function printChart(data){
     const time = Object.keys(data);
+    value = [];
    
     for (let key in data ){
         value.push(data[key]);
