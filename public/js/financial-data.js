@@ -1,14 +1,22 @@
-const URL = "http://api.coindesk.com/v1/bpi/historical/close.json";
+// let url = "http://api.coindesk.com/v1/bpi/historical/close.json";
+    let date = new Date;
+   let today = date.toISOString().split('T')[0]
+   
+refreshData("2022-01-01",today);
 
-axios.get(URL)
-.then((data)=>{
-let bpi = data.data.bpi;
-console.log(typeof bpi)
-printChart(bpi);
-})
-.catch((err)=>{
-    console.log(err);
-})
+function refreshData(start, end) {
+    url = `http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`;
+    axios.get(url)
+    .then((data)=>{
+    let bpi = data.data.bpi;
+    printChart(bpi);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
+
+
 
 function printChart(data){
     const time = Object.keys(data);
@@ -16,8 +24,6 @@ function printChart(data){
     for (let key in data ){
         value.push(data[key]);
     }
-   console.log(time);
-   console.log(value);
    const ctx = document.getElementById('chart').getContext('2d');
    const myChart = new Chart(ctx, {
     type: 'line',
@@ -31,4 +37,8 @@ function printChart(data){
         }]
       }
    } )  
+}
+
+function refreshChart(start, end) {
+
 }
