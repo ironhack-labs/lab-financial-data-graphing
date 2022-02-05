@@ -16,4 +16,5 @@ let start = document.getElementById("start").value;
 let end = document.getElementById("end").value;
 let currency = document.getElementById("currency").value;
 refreshData(start,end,currency);
+
 });

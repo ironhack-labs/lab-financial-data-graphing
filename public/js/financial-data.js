@@ -1,6 +1,7 @@
 // let url = "http://api.coindesk.com/v1/bpi/historical/close.json";
     let date = new Date;
    let today = date.toISOString().slice(0, 10);
+   let value = [];
    
 refreshData("2022-01-01",today, "USD");
 
@@ -10,6 +11,8 @@ function refreshData(start, end, currency) {
     .then((data)=>{
     let bpi = data.data.bpi;
     printChart(bpi);
+    document.getElementById("min").innerHTML = `Min value: ${info(value)[0]} ${currency}`;
+document.getElementById("max").innerHTML = `Max value: ${info(value)[1]} ${currency}`;
     })
     .catch((err)=>{
         console.log(err);
@@ -20,7 +23,7 @@ function refreshData(start, end, currency) {
 
 function printChart(data){
     const time = Object.keys(data);
-    let value = []
+   
     for (let key in data ){
         value.push(data[key]);
     }
@@ -39,6 +42,9 @@ function printChart(data){
    } )  
 }
 
-function refreshChart(start, end) {
-
+let info = (array) => {
+    let minMax = []
+     minMax.push(Math.min(...array));
+     minMax.push(Math.max(...array));
+     return minMax;
 }
