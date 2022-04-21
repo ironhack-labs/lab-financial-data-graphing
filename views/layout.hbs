@@ -11,9 +11,24 @@
 
    <body>
 
+      <div class="date-form">
+         <label for="date-from">From</label>
+         <input id="date-from" type="date" value="" />
+      </div>
+
+      <div class="date-form">
+         <label for="date-to">To</label>
+         <input id="date-to" type="date" value="" />
+      </div>
+
+      
+      <canvas id="my-chart"></canvas>
+
       {{{body}}}
 
       <script src="/js/script.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
    </body>
 
