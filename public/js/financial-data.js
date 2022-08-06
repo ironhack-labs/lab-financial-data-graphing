@@ -34,6 +34,7 @@ axios
     const valuesArr = Object.values(data.data.bpi);
 
     printTheChart(datesArr, valuesArr);
+    setMinMax(data);
   })
   .catch((err) => {
     console.log("Something went wrong", err);
@@ -85,7 +86,7 @@ function printTheChart(yAxisValues, xAxisDates) {
       labels: yAxisValues,
       datasets: [
         {
-          label: "Value",
+          label: "Bitcoin Price Index",
           backgroundColor: "rgb(255, 99, 132)",
           borderColor: "rgb(255, 99, 132)",
           data: xAxisDates,
@@ -115,8 +116,31 @@ function updateChart() {
 
       chart.destroy();
       printTheChart(datesArr, valuesArr);
+      setMinMax(data);
     })
     .catch((err) => {
       console.log("Something went wrong", err);
     });
+}
+
+/*****************************************************
+ ************* DISPLAYING MIN & MAX VALUES ***********
+ ****************************************************** */
+
+function setMinMax(data) {
+  const currentData = data.data.bpi;
+  console.log("Current Data: ", currentData);
+  const valuesArr = Object.values(data.data.bpi);
+
+  const maxValue = Math.max(...valuesArr);
+  const minValue = Math.min(...valuesArr);
+
+  console.log(`Max: ${maxValue}, Min: ${minValue}`);
+
+  document.getElementById(
+    "maxValue"
+  ).innerText = `Max: ${maxValue} ${currency}`;
+  document.getElementById(
+    "minValue"
+  ).innerText = `Min: ${minValue} ${currency}`;
 }

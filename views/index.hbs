@@ -4,12 +4,12 @@
 <div class="filtersAndValues">
     <div id="filters">
         <h2>Filters</h2>
-        {{!-- FROM --}}
+        {{!-- START DATE --}}
         <div>
             <label for="fromDate">From:</label>
             <input type="date" name="start" id="fromDate" value="{{fromDate}}">
         </div>
-        {{!-- TO --}}
+        {{!-- END DATE --}}
         <div>
             <label for="toDate">To:</label>
             <input type="date" name="end" id="toDate" value="{{toDate}}">
@@ -26,8 +26,8 @@
     </div>
     <div>
         <h2>Values</h2>
-        <p>Max: </p>
-        <p>Min: </p>
+        <p id="maxValue"></p>
+        <p id="minValue"></p>
     </div>
 </div>
 
