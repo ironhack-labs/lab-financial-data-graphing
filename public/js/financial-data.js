@@ -6,10 +6,12 @@ const BPI_API_URL_BASE = "http://api.coindesk.com/v1/bpi/historical/close.json";
 // TODAY
 const today = new Date();
 const todayIsoString = today.toISOString().slice(0, 10);
+// console.log("TODAY: ", todayIsoString);
 
 // 90 DAYS AGO
 const ninetyDaysAgo = new Date(new Date().setDate(today.getDate() - 90));
 const ninetyDaysAgoIsoString = ninetyDaysAgo.toISOString().slice(0, 10);
+// console.log("90 DAYS AGO", ninetyDaysAgoIsoString);
 
 let fromDate = ninetyDaysAgoIsoString;
 let toDate = todayIsoString;
@@ -46,7 +48,7 @@ const changeFromDate = document.getElementById("fromDate");
 
 changeFromDate.addEventListener("change", () => {
   fromDate = changeFromDate.value;
-  console.log("Here is the new start date: ", fromDate);
+  // console.log("Here is the new start date: ", fromDate);
 
   updateChart();
 });
@@ -55,7 +57,7 @@ const changeToDate = document.getElementById("toDate");
 
 changeToDate.addEventListener("change", () => {
   toDate = changeToDate.value;
-  console.log("Here is the new end date: ", toDate);
+  // console.log("Here is the new end date: ", toDate);
 
   updateChart();
 });
@@ -114,7 +116,7 @@ function updateChart() {
       const datesArr = Object.keys(data.data.bpi);
       const valuesArr = Object.values(data.data.bpi);
 
-      console.log("Infos for update: ", chart.data);
+      // console.log("Infos for update: ", data.data);
 
       chart.destroy();
       printTheChart(datesArr, valuesArr);
@@ -131,13 +133,13 @@ function updateChart() {
 
 function setMinMax(data) {
   const currentData = data.data.bpi;
-  console.log("Current Data: ", currentData);
+  // console.log("Current Data: ", currentData);
   const valuesArr = Object.values(data.data.bpi);
 
   const maxValue = Math.max(...valuesArr);
   const minValue = Math.min(...valuesArr);
 
-  console.log(`Max: ${maxValue}, Min: ${minValue}`);
+  // console.log(`Max: ${maxValue}, Min: ${minValue}`);
 
   document.getElementById(
     "maxValue"
