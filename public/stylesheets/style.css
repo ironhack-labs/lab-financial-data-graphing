@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.filtersAndValues {
+display: flex;
+justify-content: space-between;
+}
+
+#filters {
+  display: flex;
+  flex-direction: column;
+}

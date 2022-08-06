@@ -1,2 +1,40 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<div class="filtersAndValues">
+    <div id="filters">
+        <h2>Filters</h2>
+        {{!-- <form action="/"> --}}
+        {{!-- FROM --}}
+        <div>
+        <label for="from">From:</label>
+        <select name="startingDate">
+            <option value=""></option>
+        </select>
+        </div>
+        {{!-- TO --}}
+        <div>
+        <label for="to">To:</label>
+        <select name="lastDate">
+            <option value=""></option>
+        </select>
+        </div>
+        {{!-- CURRENCY --}}
+        <div>
+        <label for="currency">Currency:</label>
+        <select name="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+        </div>
+        {{!-- </form> --}}
+    </div>
+    <div>
+        <h2>Values</h2>
+        <p>Max: </p>
+        <p>Min: </p>
+    </div>
+</div>
+
+<canvas id="myChart" width="400" height="400"></canvas>
