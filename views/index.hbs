@@ -4,20 +4,15 @@
 <div class="filtersAndValues">
     <div id="filters">
         <h2>Filters</h2>
-        {{!-- <form action="/"> --}}
         {{!-- FROM --}}
         <div>
-        <label for="from">From:</label>
-        <select name="startingDate">
-            <option value=""></option>
-        </select>
+            <label for="fromDate">From:</label>
+            <input type="date" name="start" id="fromDate" value="{{fromDate}}" placeholder="{{fromDate}}">
         </div>
         {{!-- TO --}}
         <div>
-        <label for="to">To:</label>
-        <select name="lastDate">
-            <option value=""></option>
-        </select>
+            <label for="toDate">To:</label>
+            <input type="date" name="end" id="toDate" value="{{toDate}}" placeholder="{{toDate}}"">
         </div>
         {{!-- CURRENCY --}}
         <div>
@@ -28,7 +23,6 @@
             <option value="GBP">GBP</option>
         </select>
         </div>
-        {{!-- </form> --}}
     </div>
     <div>
         <h2>Values</h2>
