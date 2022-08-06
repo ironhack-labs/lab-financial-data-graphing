@@ -2,26 +2,26 @@
 <p>Welcome to {{title}}</p>
 
 <div class="filtersAndValues">
-    <div id="filters">
+    <div id="filterContainer">
         <h2>Filters</h2>
         {{!-- START DATE --}}
-        <div>
+        <div class="filter">
             <label for="fromDate">From:</label>
             <input type="date" name="start" id="fromDate" value="{{fromDate}}">
         </div>
         {{!-- END DATE --}}
-        <div>
+        <div class="filter">
             <label for="toDate">To:</label>
             <input type="date" name="end" id="toDate" value="{{toDate}}">
         </div>
         {{!-- CURRENCY --}}
-        <div>
-        <label for="currency">Currency:</label>
-        <select name="currency" id="currencySelector">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-        </select>
+        <div class="filter">
+            <label for="currency">Currency:</label>
+            <select name="currency" id="currencySelector">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+            </select>
         </div>
     </div>
     <div>

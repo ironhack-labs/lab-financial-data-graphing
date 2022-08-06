@@ -16,8 +16,6 @@ let toDate = todayIsoString;
 let currency = "USD";
 let chart;
 
-// ENDPOINT to be used: http://api.coindesk.com/v1/bpi/historical/close.json?start=${fromDate}&end=${toDate}&currency=${currency}
-
 /*****************************************************
  *********** CREATING CHART ON FIRST LOAD ************
  ****************************************************** */
@@ -87,9 +85,13 @@ function printTheChart(yAxisValues, xAxisDates) {
       datasets: [
         {
           label: "Bitcoin Price Index",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "#37BEB0",
+          borderColor: "#37BEB0",
           data: xAxisDates,
+          fill: {
+            target: "origin",
+            above: "rgba(164, 229, 224, .6)",
+          },
         },
       ],
     },

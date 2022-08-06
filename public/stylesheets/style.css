@@ -1,6 +1,17 @@
+:root {
+  --primary-color: #0C6170;
+  --secondary-color: #37BEB0;
+  --line-color: rgb(164, 229, 224);
+  --fill-color: #DBF5F0;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  color: var(--primary-color);
 }
 
 a {
@@ -8,11 +19,35 @@ a {
 }
 
 .filtersAndValues {
-display: flex;
-justify-content: space-between;
+  background-color: var(--fill-color);
+  border: 2px dashed var(--secondary-color);
+  padding: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
 }
 
-#filters {
+#filterContainer {
   display: flex;
   flex-direction: column;
+  gap: 5px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="date"], select {
+  border: var(--secondary-color) 1px solid;
+  border-radius: 5px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+#myChart {
+  background-color: var(--fill-color);
+  max-height: 831px;
 }
