@@ -27,8 +27,8 @@ axios
     `${BPI_API_URL_BASE}?start=${fromDate}&end=${toDate}&currency=${currency}`
   )
   .then((data) => {
-    console.log("Dates: ", Object.keys(data.data.bpi));
-    console.log("Values: ", Object.values(data.data.bpi));
+    // console.log("Dates: ", Object.keys(data.data.bpi));
+    // console.log("Values: ", Object.values(data.data.bpi));
 
     const datesArr = Object.keys(data.data.bpi);
     const valuesArr = Object.values(data.data.bpi);
@@ -57,6 +57,18 @@ const changeToDate = document.getElementById("toDate");
 changeToDate.addEventListener("change", () => {
   toDate = changeToDate.value;
   console.log("Here is the new end date: ", toDate);
+
+  updateChart();
+});
+
+/*****************************************************
+ ****** EVENT LISTENERS FOR CHANGING CURRENCY ********
+ ****************************************************** */
+
+const changedCurrency = document.getElementById("currencySelector");
+
+changedCurrency.addEventListener("change", () => {
+  currency = changedCurrency.value;
 
   updateChart();
 });
@@ -93,13 +105,14 @@ function updateChart() {
       `${BPI_API_URL_BASE}?start=${fromDate}&end=${toDate}&currency=${currency}`
     )
     .then((data) => {
-      console.log("Dates: ", Object.keys(data.data.bpi));
-      console.log("Values: ", Object.values(data.data.bpi));
+      //   console.log("Dates: ", Object.keys(data.data.bpi));
+      //   console.log("Values: ", Object.values(data.data.bpi));
 
       const datesArr = Object.keys(data.data.bpi);
       const valuesArr = Object.values(data.data.bpi);
 
       console.log("Infos for update: ", chart.data);
+
       chart.destroy();
       printTheChart(datesArr, valuesArr);
     })
