@@ -6,12 +6,10 @@ const BPI_API_URL_BASE = "http://api.coindesk.com/v1/bpi/historical/close.json";
 // TODAY
 const today = new Date();
 const todayIsoString = today.toISOString().slice(0, 10);
-// console.log("TODAY: ", todayIsoString);
 
 // 90 DAYS AGO
 const ninetyDaysAgo = new Date(new Date().setDate(today.getDate() - 90));
 const ninetyDaysAgoIsoString = ninetyDaysAgo.toISOString().slice(0, 10);
-// console.log("90 DAY AGO: ", ninetyDaysAgoIsoString);
 
 let fromDate = ninetyDaysAgoIsoString;
 let toDate = todayIsoString;
