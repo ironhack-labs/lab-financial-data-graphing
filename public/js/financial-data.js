@@ -78,18 +78,18 @@ changedCurrency.addEventListener("change", () => {
  ****************** PRINTING THE CHART ****************
  ****************************************************** */
 
-function printTheChart(yAxisValues, xAxisDates) {
-  const ctx = document.getElementById("myChart").getContext("2d");
+function printTheChart(xAxisDates, yAxisValues) {
+  const ctx = document.getElementById("myChart");
   chart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: yAxisValues,
+      labels: xAxisDates,
       datasets: [
         {
           label: "Bitcoin Price Index",
           backgroundColor: "#37BEB0",
           borderColor: "#37BEB0",
-          data: xAxisDates,
+          data: yAxisValues,
           fill: {
             target: "origin",
             above: "rgba(164, 229, 224, .6)",
