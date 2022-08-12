@@ -1,9 +1,26 @@
 const BITCOIN_API = `http://api.coindesk.com/v1/bpi/historical/close.json`;
-let myChart;
 
-function getBitcoinData() {
+let myChart;
+let fromDate = new Date("2022-01-01").toISOString().split("T")[0];
+let toDate = new Date().toISOString().split("T")[0];
+
+/*Event listener from date */
+document.querySelector("#fromDate").addEventListener("change", (e) => {
+  fromDate = new Date(e.target.value).toISOString().split("T")[0];
+  updateBitcoinChart();
+  console.log(`Hello from the fromDate Input`);
+});
+
+/*Event listener to date */
+document.querySelector("#toDate").addEventListener("change", (e) => {
+  toDate = new Date(e.target.value).toISOString().split("T")[0];
+  updateBitcoinChart();
+  console.log(`Hello from the toDate Input`);
+});
+
+function getBitcoinData(fromDate, toDate) {
   axios
-    .get(`${BITCOIN_API}`)
+    .get(`${BITCOIN_API}?start=${fromDate}&end=${toDate}`)
     .then((bitcoinInfo) => {
       console.log(bitcoinInfo);
 
@@ -19,12 +36,11 @@ function createBitcoinChart(bitcoinInfo) {
   myChart = new Chart(ctx, {
     type: "line",
     data: {
-      // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], // add the date of the bitcoin api
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], // add the date of the bitcoin api
+      labels: Object.keys(bitcoinInfo), // add the date of the bitcoin api
       datasets: [
         {
           label: "Price Index Bitcoin",
-          data: [12, 19, 3, 5, 2, 3], // add the data of the bitcoin api
+          data: Object.values(bitcoinInfo), // add the data of the bitcoin api
           backgroundColor: ["rgba(255, 99, 132, 0.2)"],
           borderColor: ["rgba(153, 102, 255, 1)"],
           borderWidth: 1,
@@ -41,58 +57,9 @@ function createBitcoinChart(bitcoinInfo) {
   });
 }
 
-getBitcoinData();
+function updateBitcoinChart() {
+  myChart.destroy();
+  getBitcoinData(fromDate, toDate);
+}
 
-// getBitcoinData();
-// // Iteration 1:
-// const BITCOIN_API = "http://api.coindesk.com/v1/bpi/historical/close.json";
-
-// // Iteration 3: functions to change the dates:
-// const startDate = document.querySelector("#fromDate");
-// const endDate = document.querySelector("#toDate");
-
-// startDate.addEventListener("change", () => {
-//   fromDate = startDate.value;
-//   console.log(`Here is the startdate:`, fromDate);
-//   updatedChart();
-// });
-
-// endDate.addEventListener("change", () => {
-//   toDate = endDate.value;
-//   console.log(`Here is the end date:`, toDate);
-//   updatedChart();
-// });
-
-// updatedChart();
-
-// function createChart(bitcoinYAxis, bitcoinXAxis) {
-//   let ctx = document.getElementById("myChart");
-//   ctx = new Chart(ctx, {
-//     type: "line",
-//     data: {
-//       label: bitcoinYAxis,
-//       datasets: [
-//         {
-//           label: "Bitcoin Price indexes",
-//           backgroundColor: "rgb(153, 102, 255)",
-//           borderColor: "rgb(54, 162, 235)",
-//           data: bitcoinXAxis,
-//         },
-//       ],
-//     },
-//   });
-// }
-
-// function updatedChart() {
-//   axios
-//     .get(`${BITCOIN_API}`)
-//     .then((bitcoin) => {
-//       const dates = bitcoin.data.bpi;
-//       const values = bitcoin.data.bpi;
-
-//       createChart(dates, values);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
+getBitcoinData(fromDate, toDate);
