@@ -12,8 +12,22 @@
    <body>
 
       {{{body}}}
+       <div class"nav">
+      <span>Select the historical range date:</span> 
+      <input type="date" id="begin" value="2021-01-01">
+      <input type="date"  id="end" value="2022-01-01">
+      <select name="currency" id="ccy">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      </select>
+      <button id="button">Search</button>
+      </div>
 
+      <canvas id="canvas-chart"></canvas>
       <script src="/js/script.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
    </body>
 

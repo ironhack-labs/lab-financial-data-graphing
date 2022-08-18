@@ -1,0 +1,2 @@
+get https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-09-01&end=2022-09-05
+
