@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.input-date {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.input-date input {
+  font-size: 20px;
+}
