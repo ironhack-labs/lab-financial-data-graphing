@@ -5,4 +5,8 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+router.get("/graph", (req, res, next) => {
+  res.render("graph");
+});
+
 module.exports = router;

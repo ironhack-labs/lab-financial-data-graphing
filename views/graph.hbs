@@ -1,0 +1,22 @@
+FILTERS
+<label for="start">Start date:</label>
+<input type="date" id="start" name="trip-start" value="2022-04-01">
+
+<label for="start">End date:</label>
+<input type="date" id="end" name="trip-start" value="2022-05-01">
+
+<select id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+
+</select>
+
+<p>Max price: <span id="max"></span></p>
+<p>Min price: <span id="min"></span></p>
+
+<div>
+    <canvas id="graph"></canvas>
+</div>
+
+<script src="/js/financial-data.js" charset="utf-8"></script>
