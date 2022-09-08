@@ -1,2 +1,24 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+
+    <label for="start">From:</label>
+    <input type="date" class="selection" id="start" max="2022-06-07">
+
+    <label for="to">To:</label>
+    <input type="date" class="selection" id="end" max="2022-06-07">
+
+    <label for="currecy">Currency</label>
+    <select name="currency" id="currency" class="selection">
+        <option value="USD">Dollars $</option>
+        <option value="EUR">EUR €</option>
+    </select>
+
+
+    <h3 id="max">Max</h3>
+    <h3 id="min">Min</h3>
+    
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
