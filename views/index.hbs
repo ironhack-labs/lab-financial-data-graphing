@@ -1,2 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div>
+    <div>
+        <div>
+            <label for="start">From:</label>
+            <input class="start-date" type="date" name="trip-start" value="2013-01-01" max="2022-07-30">
+            <label for="start">To:</label>
+            <input class="end-date" type="date" name="trip-start" value="2022-12-12" max="2022-07-30">
+        </div>
+        <div>
+            <label for="currency-select">Currency:</label>
+            <select class="currency-type" name="curencies" id="currency-select">
+                <option selected value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+
+        <p>Max price: <span id="min"></span></p>
+        <p>Min price: <span id="max"></spanclass>
+        </p>
+
+
+    </div>
+    <canvas id="myChart"></canvas>
+</div>
