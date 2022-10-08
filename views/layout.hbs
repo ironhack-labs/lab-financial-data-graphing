@@ -6,15 +6,19 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
+      <link rel="stylesheet" href="/stylesheets/style.css"/>
    </head>
 
    <body>
 
       {{{body}}}
 
-      <script src="/js/script.js"></script>
+
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="http://api.coindesk.com/v1/bpi/historical/close.json?start=2022-05-01&end=2022-06-01"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="/js/financial-data.js" charset="utf-8"></script>
+      <script src="/js/script.js"></script>
    </body>
 
 </html>
