@@ -1,8 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, html {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 14px;
+  cursor: default;
+}
+
+a, button, input {
+  cursor: pointer;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+i {
+  display: inline-block;
+  color: #f283b6;
+  font-size: .95rem;
 }
 
 a {
-  color: #00B7FF;
+  color: #6e9887;
+}
+
+a:hover {
+  color: #b5bfa1;
+}
+
+nav {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+ display: inline-block;
+}
+
+nav li + li {
+  padding-left: 15px;
+}
+
+a.button, input[type="submit"].button {
+  background-color: #6e9887;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  line-height: auto;
+  border: 0;
+}
+
+a.button:hover, input[type="submit"].button:hover {
+  background-color: #b5bfa1;
+}
+
+input[type="date"], select {
+  border: 0;
+  min-width: 350px;
+  padding: 15px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+#infobox {
+  display: inline-block;
+  background-color: #888;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  width: fit-content;
 }

@@ -1,2 +1,12 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<input type="date" name="start" id="start" value="2020-09-01"/>
+<input type="date" name="end" id="end" value="2020-09-05" />
+<select name="currency" id="currency">
+  <option value="USD">US dollar</option>
+  <option value="EUR">Euro</option>
+</select>
+<input type="submit" value="Reload graph" id="reload" class="button" />
+<br/><br/>
+
+<div id="infobox"></div>
+<canvas id="myChart"></canvas>
