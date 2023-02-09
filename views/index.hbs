@@ -1,2 +1,17 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+    <label for="">Start Date: <input type="date" name="start" id="start"></label>
+    <label for="">End Date: <input type="date" name="end" id="end"></label>
+    <select name="currency" id="currency">
+        <option value="EUR">Euro €</option>
+        <option value="USD">US Dollar $</option>
+    </select>
+    <button type="submit" id="getDateBtn" onclick="getDataFromCoindesk()">Get data</button>
+
+
+
+<div style="width: 800px;"><canvas id="financial"></canvas></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
