@@ -9,28 +9,33 @@ console.log(start, end)
 
 let labels = []
 let data = []
-
+let chart
 function getDataFromCoindesk(){
     labels = []
     data = []
     const start = document.querySelector("#start").value
     const end = document.querySelector("#end").value
     const currency = document.querySelector("#currency").value
+    const max = document.querySelector("#max").value
+    const min = document.querySelector("#min").value
     axios
     .get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}&currency=${currency}`)
     .then(result=>{
         const obj = result.data.bpi
         Object.entries(obj).forEach(([key,value])=>{
-            labels.push(key)
-            data.push(value)
+            if(value>min && value<max){
+                labels.push(key)
+                data.push(value)
+            }
         })})
     .then(()=>{
-        new Chart(ctx, {
+        if(chart != undefined){chart.destroy()}
+        chart = new Chart(ctx, {
             type: 'bar',
             data: {
               labels: labels,
               datasets: [{
-                label: 'Bitcoin Price Index',
+                label: `Bitcoin Price Index (${currency})` ,
                 data: data,
                 borderWidth: 1
               }]
@@ -43,38 +48,11 @@ function getDataFromCoindesk(){
               }
             }
           });
-    })
-    
-    
+    }) 
 }
 
 
-/* axios
-.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=2021-01-01&end=2021-01-05&currency=EUR`)
-.then(result=>{
-    const obj = result.data.bpi
-    Object.entries(obj).forEach(([key,value])=>{
-        labels.push(key)
-        data.push(value)
-    })})
-.then(()=>{
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Bitcoin Price Index',
-            data: data,
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-})
- */
+getDataFromCoindesk()
+
+    
+    
