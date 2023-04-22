@@ -2,13 +2,19 @@
 <p>Welcome to {{title}}</p>
 
 <label>Start date :
-    <input type="date" name="startDate" class="startDate" >
+    <input type="date" name="startDate" class="startDate" value="2021-01-01" >
 </label>
 <label> 
-    <input type="date" name="endDate" class="endDate" >
+    <input type="date" name="endDate" class="endDate" value="2022-04-01" >
 </label>
 
-
+</label>
+<label>  choose currency
+    <select name="currency" class="currency" >
+    <option value ="USD">USD</option>
+    <option value ="EUR">EUR</option>
+    </select>
+</label>
 <button>Update values</button>
 <div>
   <canvas id="myChart"></canvas>

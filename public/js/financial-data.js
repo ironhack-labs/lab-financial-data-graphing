@@ -1,6 +1,7 @@
 
 const startDate = document.querySelector(".startDate")
 const endDate = document.querySelector(".endDate")
+const currency= document.querySelector(".currency")
 
 const button = document.querySelector("button")
 let compteur = 0;
@@ -12,7 +13,7 @@ button.addEventListener("click", () => {
     if(compteur > 1){
         chart.destroy()
     }
-    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${endDate.value}`)
+    axios.get(`http://api.coindesk.com/v1/bpi/historical/close.json?start=${startDate.value}&end=${endDate.value}&currency=${currency.value}`)
     .then(responseFromApi => {
      printTheChart(responseFromApi)
     })
