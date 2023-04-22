@@ -1,2 +1,20 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<input id="fromDate" type="date" value="2022-01-01">
+<input id="toDate" type="date" value="2022-01-05">
+<button>Get Btc price</button>
+
+
+<label for="currency">Choose a currency:</label>
+
+<select name="currency" id="currency" >
+  <option value="usd" selected>usd</option>
+  <option value="eur">eur</option>
+
+</select>
+
+<h2>Values</h2>
+<p>Max: <span id="max"></span> <span id="currencyValues"></span></p>
+{{!-- <p>Min:{{min}}</p> --}}
+
+<canvas></canvas>
