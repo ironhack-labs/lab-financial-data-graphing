@@ -27,13 +27,16 @@ function printTheChart(stockData){
     const dates = Object.keys(values);
     const prices = dates.map(date => values[date]);
     const ctx = document.querySelector('#myChart')
+    console.log("this is what's inside of prices",prices);
+    const max = Math.max(...prices);
+    const min = Math.min(...prices)
 
     chart = new Chart(ctx, {
         type: 'line',
         data: {
           labels: dates,
           datasets: [{
-            label: '# of Votes',
+            label: `Max = ${max} and Min = ${min}` ,
             data: prices,
             borderWidth: 1
           }]
