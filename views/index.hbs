@@ -1,2 +1,32 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<h2>Filters</h2>
+
+<form method="POST">
+  <label>
+    From:
+    <input class="input1" type="date" value="2022-01-01" />
+  </label>
+
+  <label>
+    To:
+    <input class="input2" type="date" value="2022-07-10" />
+  </label>
+
+  <div>
+    <select name="currency" class="currency">
+      <option value="eur">EUR</option>
+      <option value="usd">USD</option>
+    </select>
+  </div>
+</form>
+
+<h2>Values</h2>
+
+<div class="info-box">
+  <p>Max: <span class="max"></span></p>
+  <p>Min: <span class="min"></span></p>
+</div>
+
+<canvas></canvas>
