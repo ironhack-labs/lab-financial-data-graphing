@@ -49,6 +49,15 @@ function getBtcHistoricPrice(fromDate, toDate, currency) {
         console.log("update");
         chart.update();
       }
+
+      const maxValue = Math.max(...values);
+      const minValue = Math.min(...values);
+
+      document.getElementById("max").innerText = maxValue;
+      document.getElementById("min").innerText = minValue;
+      document.querySelectorAll(".currencyValues").forEach((element) => {
+        element.innerText = currency.toUpperCase();
+      });
     })
 
     .catch((err) => console.log(err));

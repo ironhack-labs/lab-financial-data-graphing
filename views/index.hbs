@@ -2,7 +2,7 @@
 <p>Welcome to {{title}}</p>
 <input id="fromDate" type="date" value="2022-01-01">
 <input id="toDate" type="date" value="2022-01-05">
-<button>Get Btc price</button>
+
 
 
 <label for="currency">Choose a currency:</label>
@@ -13,8 +13,13 @@
 
 </select>
 
-<h2>Values</h2>
-<p>Max: <span id="max"></span> <span id="currencyValues"></span></p>
-{{!-- <p>Min:{{min}}</p> --}}
+<div id="valuesContainer">
+    <h2>Values</h2>
+    <p>Max: <span id="max"></span> <span class="currencyValues"></span></p>
+    <p>Min: <span id="min"></span> <span class="currencyValues"></span></p>
+
+</div>
+
+
 
 <canvas></canvas>
