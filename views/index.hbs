@@ -1,2 +1,14 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<label for="from">From:</label><input type="date" name="from" id="fromDate" max="2022-07-10" />
+<label for="to">To:</label><input type="date" name="to" id="toDate" />
+<select name="currency" id="currency">
+  <option value="EUR">EUR</option>
+  <option value="USD">USD</option>
+</select>
+<div class="info-box">
+  <div>Min Value of graph :<span id="minValue"></span></div>
+  <div>Max Value of graph:<span id="maxValue"></span></div>
+</div>
+
+<canvas id="chart"></canvas>
