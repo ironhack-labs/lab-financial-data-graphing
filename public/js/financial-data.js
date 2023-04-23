@@ -51,8 +51,8 @@ function fetchAndDisplayChart() {
           },
         },
       });
-      $minValue.innerHTML = Math.min(...values);
-      $maxValue.innerHTML = Math.max(...values);
+      $minValue.innerHTML = `${Math.min(...values)} ${$currency.value}`;
+      $maxValue.innerHTML = `${Math.max(...values)} ${$currency.value}`;
     })
     .catch((err) => console.log(err));
 }

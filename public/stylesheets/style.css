@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+header {
+  display: flex;
+}
+
+.info-box {
+  margin-left: auto;
+}
+
+.currency-container {
+  margin-top: 20px;
+}
+

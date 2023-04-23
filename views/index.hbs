@@ -1,32 +1,37 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<h2>Filters</h2>
+<header>
 
-<form method="POST">
-  <label>
-    From:
-    <input class="input1" type="date" value="2022-01-01" />
-  </label>
+  <form method="POST">
+    <h2>Filters</h2>
+    <div class="from-to">
+      <label>
+        From:
+        <input class="input1" type="date" value="2022-01-01" />
+      </label>
 
-  <label>
-    To:
-    <input class="input2" type="date" value="2022-07-10" />
-  </label>
+      <label>
+        To:
+        <input class="input2" type="date" value="2022-07-10" />
+      </label>
+    </div>
 
-  <div>
-    <select name="currency" class="currency">
-      <option value="eur">EUR</option>
-      <option value="usd">USD</option>
-    </select>
+    <div class="currency-container">
+      Currency:
+      <select name="currency" class="currency">
+        <option value="EUR">EUR (€)</option>
+        <option value="USD">US Dollar ($)</option>
+      </select>
+    </div>
+  </form>
+
+  <div class="info-box">
+    <h2>Values</h2>
+
+    <p>Max: <span class="max"></span></p>
+    <p>Min: <span class="min"></span></p>
   </div>
-</form>
-
-<h2>Values</h2>
-
-<div class="info-box">
-  <p>Max: <span class="max"></span></p>
-  <p>Min: <span class="min"></span></p>
-</div>
+</header>
 
 <canvas></canvas>
