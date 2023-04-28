@@ -1,2 +1,26 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<h2>Filters</h2>
+<div class="container-fluid d-flex justify-content-between">
+    <div class="d-flex gap-3 flex-column">
+        <div>
+<label class="fw-bold" for="dateFrom">From:</label>
+<input  class="dateInput" type="date" id="dateFrom">
+<label class="fw-bold" for="dateTo">To:</label>
+<input class="dateInput" type="date" id="dateTo">
+</div>
+<div>
+<label class="fw-bold" for="currency">Currency:</label>
+<select name="currency" id="currency">
+    <option value="USD">US Dollar ($)</option>
+    <option value="EUR">Euro (€)</option>
+</select>
+</div>
+</div>
+<div>
+<h2>Values</h2>
+<p class="fw-bold">Max: <p id="maxPrice"></p></p>
+<p class="fw-bold">Min: <p id="minPrice"></p></p>
+</div>
+</div>
+<canvas id="newChart"></canvas>
