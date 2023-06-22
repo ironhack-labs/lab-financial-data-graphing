@@ -1,2 +1,26 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<form action="" method="get">
+  <label for="">Start date:
+    <input type="date" name="" id="start-date" min="2013-01-01" max="2022-07-09">
+  </label>
+  <label for="">End date:
+    <input type="date" name="" id="end-date" min="2013-01-02" max="2022-07-10">
+  </label>
+  <button type="submit" id="get-date-to-date">Submit</button>
+  
+  <select name="" id="currency">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+</form>
+
+<div>
+  <ul>
+    <li>Max value: <span id="max-val"></span></li>
+    <li>Min value: <span id="min-val"></span></li>
+  </ul>
+</div>
+
+<canvas id="my-chart"></canvas>
